@@ -18,15 +18,15 @@
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "development",
+              "Navigator"
             ]
           },
           {
             "group": "Customization",
             "pages": [
               "essentials/settings",
-              "essentials/navigation",
-              "navigator"
+              "essentials/navigation"
             ]
           },
           {
