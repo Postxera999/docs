@@ -4,92 +4,84 @@ title: "Retail"
 
 ## Feature Overview
 
-The Retail module provides store information and search capabilities, showing exclusive offers based on membership level. Users can view store details (brand introduction, opening hours, location, offers, and claimable coupons), and can contact, share, and use vouchers.
+The Retail module provides users with retail store information and search functionality, displaying exclusive offers based on membership tiers. Users can view store details (brand introduction, operating hours, location, promotional information, available coupons) and perform contact, sharing, and voucher usage functions.
 
 ## Shopping Directory
+
+Users enter the Shopping Directory page through the Retail card on the Discover page
+
+The page title is "Retail"
+
+<img src="/images/Retail/Retail-0.png" alt="描述文字" width="300" height="400" />
 
 This page includes the following primary areas:
 1. Top navigation: contains Filter, Search entry, Sort button, and quick filter tabs.
 2. Offer hint area: shows the user's membership level and the benefits they enjoy.
 3. Store list: displays retail stores that match the selected filters.
 
-Users enter the Shopping Directory page from the Retail card on the Discover page.
-
-![image.png](/images/Retail-0.png)
-
-<img src="/images/Retail/Retail-0.png" alt="描述文字" width="300" height="200" />
-
-Page title: "Retail"
-
-### Top Navigation & Actions
-
+### Top Navigation and Function Area
 From left to right at the top of the page:
+- Filter: Click the "Filter" button to trigger the filter **popup/drawer**.
+- Search entry: Click the search icon located to the right of the search box to enter the store name search page.
+- Sort button: Click the "Sort" button to trigger sort options **popup/drawer**.
+- Quick filter tabs: To the right of the sort button, display **horizontally scrollable quick filter tabs for store categories**, such as "Beauty & Healthcare". After scrolling and clicking different tabs, the list content will update in real-time to stores of the corresponding category.
+<img src="/images/Retail/Retail-1.png" alt="描述文字" width="300" height="200" />
 
-- Filter: Click the "Filter" button to open the filter modal/drawer.
-- Search entry: Click the search icon on the right side of the search box to go to the store name search page.
-- Sort button: Click the "Sort" button to open sorting options modal/drawer.
-- Quick filter tabs: To the right of the Sort button, show horizontally scrollable quick filter tabs for store categories, such as "Beauty & Healthcare". Swipe to reveal more tabs; tapping a tab updates the list in real time to the corresponding category.
-![image.png](/images/Retail/Retail-1.png)
+#### **Filter**:
+The filter popup contains multiple filter conditions, from top to bottom:
+Mall floors
+Store categories
+Whether discounts are available, etc.
 
-#### Filter
-
-The filter modal includes multiple conditions, in order from top to bottom:
-- Sort
-  - By recommendation order
-  - Alphabetical (A → Z)
-  - Alphabetical (Z → A)
-  - By latest opening date
-- Store categories: Apparel & Goods, Watches & Jewelry, Beauty & Healthcare, etc.
-
-After selecting filter conditions, click the "Confirm" button. The list updates based on the selected conditions.
-
-![image.png](/images/Retail/Retail-2.png)
-
+After users select filter conditions and click the "Confirm" button, the list will update according to the selected conditions.
+<img src="/images/Retail/Retail2.png" alt="描述文字" width="300" height="200" />
 #### Search
+**Search logic: The specific logic of the search function needs to be clarified, such as whether it's fuzzy matching or exact matching, and whether the search scope is limited to store names only or includes store categories, descriptions, etc.**
 
-Search logic: Clarify the specific logic, e.g., fuzzy vs. exact match, and whether the scope is limited to store names or also includes category and description
+#### **Sort**
+The sort popup contains multiple sort options, such as:
+By distance
+By popularity
+By alphabetical order, etc.
 
-#### Sort
+After users select sort conditions, the list will immediately re-sort according to the selected conditions.
 
-The sorting modal includes multiple options, such as: by distance, by popularity, by first letter.
+### Promotional Notification Area
 
-After selecting a sort condition, the list is immediately reordered accordingly.
+Located at the top of the list, displaying the user's membership level and benefit information.
+The display of this module depends on the user's login status and membership tier data. **Data source, benefit text corresponding to different tier members**
 
-### Offer Hint Area
+<img src="/images/Retail/Retail-3.png" alt="描述文字" width="300" height="200" />
 
-Located at the top of the list, showing the user's membership level and benefits information. This module depends on the user's login state and membership level data. Data source; copywriting for benefits by membership level
-![image.png](/images/Retail/Retail-3.png)
-- Membership level:
-  - If the user is a logged-in NG Diamond member, show the membership level, e.g., "NG Diamond".
-  - For other non-NG members or unauthenticated users, do not show.
-- Offer hint:
-  - Show the corresponding level's offer hints, such as "Get 2% back when you shop" or "Members earn 2% Resort Dollars rebate on retail purchases".
+- Membership Level:
+	- When the user is a logged-in NG Diamond member, display the corresponding membership level, such as "NG Diamond."
+	- Other non-NG members or non-logged-in users will not display this.
+- Promotional notification
+	- Display promotional information corresponding to the level, such as "Get 2% back when you shop" "members earn 2% Resort Dollars rebate on retail purchases"
 
 ### Store List
 
-#### Result Count:
+##### Results count display:
+Below the promotional notification, display the total number of stores under current filter conditions, with text format "xx results".
 
-Below the offer hint, show the total number of stores under the current filters, in the format "xx results".
-![image.png](/images/Retail/Retail-3.5.png)
+<img src="/images/Retail/Retail-3.5.png" alt="描述文字" width="300" height="200" />
+#### Store list:
+Display all retail stores in card format, each card must contain the following elements: **Data source**
+  - Store Logo: Display the store's brand logo.
+  - Store Name: Display the store's brand name, such as "Aesop".
+  - Location Information: Display the floor and unit number where the store is located, such as "G/F, G026 Promenade".
+  - Operating Status: Display the store's operating status, such as "Open".
+  - Store Category: Display the category the store belongs to, such as "Beauty & Healthcare".
 
-#### Store Cards:
+<img src="/images/Retail/Retail-4.png" alt="描述文字" width="300" height="200" />
 
-Display all retail stores as cards. Each card includes the following fixed elements: Data source
+Elements that cards may contain:
+  - Promotional tags: When stores have promotions, display corresponding promotional tags, such as "R$ Rebate" or "2 Offers". **Business rules need further definition**
 
-- Store logo: Shows the brand logo.
-- Store name: Shows the brand name, e.g., "Aesop".
-- Location: Shows the floor and unit number, e.g., "G/F, G026 Promenade".
-- Open status: Shows the store's status, e.g., "Open".
-- Category: Shows the store's category, e.g., "Beauty & Healthcare".
+Clicking on any store card will jump to that store's detail page.
 
-![image.png](/images/Retail/Retail-4.png)
-
-Optional card elements:
-- Offer tags: When a store has offers, show tags such as "R$ Rebate" or "2 Offers". Business rules need further definition.
-
-Clicking any store card navigates to the store's detail page.
-
-Empty state: When the search or filter result is 0, design the empty-state UI and copy (e.g., "No results found"). Performance: Considering the list may contain many stores, implement load-more on scroll (or pagination) to ensure performance. Specific thresholds and per-load quantities are TBD. 
+**Empty state: When search or filter results are 0, the empty state UI and text (such as "No results found") need to be designed.**
+**Performance: Considering that the list may contain a large number of stores, a pull-to-load-more (or pagination) mechanism needs to be implemented to ensure page performance. Specific loading thresholds and quantities per load are to be determined.**
 
 ## Shop Detail
 
@@ -102,164 +94,160 @@ The shop detail page consists of the following main areas:
 6. "Opening Hours" Section
 7. "How to Find & Nearest Carpark" Section
 8. "You May Also Like" Section
+### Store Information Display Area
 
-### Store Information Section
+The store information display area contains the following content from top to bottom: **Data source/API**
 
-From top to bottom, this section includes the following content: Data source/API
+<img src="/images/Retail/Retail-1.png" alt="描述文字" width="300" height="200" />
 
-![image.png](/images/Retail/Retail-5.png)
+- Store background image: Display the store's brand promotional image or video at the top of the page.
+- Store Logo: Below the background image, display the store's logo in circular card format.
+- Store Name: Following the logo, display the store's full name, such as "Emperor Jewellery".
+- Brand Introduction: Display the store's brand description.
+	- When the description text exceeds **several** lines, display a "See more" button.
+	- Click "See more" to ****expand the complete introduction content; click again to collapse.****
+- Store Attributes: List display of the store's key information, each piece of information includes a label and corresponding content:
+	- Opening Hours: Display operating status and operating hours
+		- Operating status: such as "Open Now"
+		- Operating hours: "Until 22:00"
+	- Category: Display the category the store belongs to, such as "Watches & Jewelry".
+	- Address: Display the store's specific location, such as "G/F, Promenade East, G004".
+	- Accepted Discounts: Display in list format the types of discounts the store accepts, such as "R$ accepted", "Coupon Accepted".
+- Contact button: Click the "Contact" button, **specific content and interaction flow that pops up after clicking the Contact button, including whether there are multiple contact methods such as phone, email, or even online customer service**
+- Share button: There is an independent "Share" button at the bottom of the page, clicking it **triggers the mini-program's share action.**
 
-- Store hero image: At the top, show the brand promotional image or video.
-- Store logo: Below the hero image, show the store's logo in a circular card.
-- Store name: Immediately below the logo, show the full store name, e.g., "Emperor Jewellery".
-- Brand introduction: Show the brand description.
-  - When the description exceeds several lines, show a "See more" button.
-  - Clicking "See more" expands the full content; clicking again collapses.
-- Store attributes: List key information with labels and corresponding values:
-  - Opening Hours: Show open status and business hours
-    - Status: e.g., "Open Now"
-    - Hours: "Until 22:00"
-  - Category: Show the store's category, e.g., "Watches & Jewelry".
-  - Address: Show the store's location, e.g., "G/F, Promenade East, G004".
-  - Accepted Discounts: List the accepted discount types, e.g., "R$ accepted", "Coupon Accepted".
-- Contact button: Clicking the "Contact" button opens a dialog. Define the content and flow, including available contact methods (phone, email, possibly online customer service).
-- Share button: A separate "Share" button at the bottom triggers the mini program's share action.
+#### Contact Modal (Contact)
 
-#### Contact Modal
+When users click the "Contact" button on the store detail page, this modal will pop up on the page.
 
-When the user clicks the "Contact" button on the shop detail page, this modal appears.
+<img src="/images/Retail/Retail-6.png" alt="描述文字" width="300" height="200" />
 
-![image.png](/images/Retail/Retail-6.png)
+The card contains the following content:
+- Modal title: Display "Contact" at the top left.
+- Help text: Below the title, display guidance text such as "We're Here To Help", with specific descriptions like "Have a question or need assistance? Call our 24/7 Guest Service Hotline or connect with us on WeChat.", guiding users to seek help.
+- Service hotline: Displayed as an independent module, including:
+    - Module title: "Service Hotline".
+    - Description: "24/7 service for you.".
+    - Phone number: "+853 2888 0888". This phone number is in a clickable button **Is it hardcoded?**
+- WeChat customer service: Displayed as an independent module, including:
+    - Module title: "Customer Service on WeChat".
+    - Description: "24/7 service for you.".
+    - QR code: Display a QR code. Below it is the prompt text "Long press QR code to add Galaxy WeChat.", instructing users to add WeChat customer service by long-pressing to recognize or save the image. **Is it hardcoded**
 
-The card includes:
+User actions:
+- Make a call: Users click the call button for customer service hotline, **which will then invoke the system's phone call function**
+- Long press QR code: Long-pressing the customer service QR code will invoke WeChat's scan function, after scanning users can add Galaxy's official customer service WeChat account
+- Close modal: Click the top right corner to close the modal. Users can also close the modal by clicking outside the modal area or swiping down.
 
-- Modal title: "Contact" shown at top-left.
-- Helper copy: Guidance below the title, such as "We’re Here To Help" with a description like "Have a question or need assistance? Call our 24/7 Guest Service Hotline or connect with us on WeChat.", encouraging users to seek help.
-- Service Hotline: Shown as a standalone module, including:
-  - Module title: "Service Hotline".
-  - Description: "24/7 service for you.".
-  - Phone number: "+853 2888 0888" displayed in a clickable button. Hardcoded?
-- WeChat Customer Service: Shown as a standalone module, including:
-  - Module title: "Customer Service on WeChat".
-  - Description: "24/7 service for you.".
-  - QR code: Display a QR code. Below it, show a tip "Long press QR code to add Galaxy WeChat." to guide users to long-press to recognize or save the image to add WeChat customer service. Hardcoded?
+#### Share Modal (Share)
 
-User actions
+When users click the "Share" button on designated pages (such as store detail pages), this modal slides up from the bottom.
 
-- Dial phone: Clicking the hotline button invokes the system dialer.
-- Long-press QR code: Long-pressing the QR code invokes WeChat's scan, then users can add Galaxy's official customer service WeChat account.
-- Close modal: Click the top-right to close; users can also tap outside the modal or swipe down to close.
+<img src="/images/Retail/Retail-7.png" alt="描述文字" width="300" height="200" />
 
-#### Share Modal
+The modal provides multiple sharing channels in icon and text format:
+- Share to Friends: Click to trigger WeChat mini-program's share to friends function.
+- Share to Moments: Click to trigger WeChat mini-program's generate Moments share image function, users can share images containing page information to Moments.
+- Save image: Click to save the current page's share poster image to the user's phone album.
 
-When the user clicks the "Share" button on specific pages (such as the shop detail page), this modal slides up from the bottom. The modal provides multiple sharing channels as icons with labels:
-![image.png](/images/Retail/Retail-7.png)
+User actions:
+- Close modal: Click the top right corner to close the modal. Users can also close the modal by clicking outside the modal area or swiping down.
 
-- Share to Friends: Triggers the WeChat mini program's share-to-friends function.
-- Share to Moments: Triggers the mini program to generate a Moments share image; users can share the image containing page information to Moments.
-- Save image: Saves the current page's share poster image to the user's photo album.
+**The specific design and content of share poster images generated by "Share to Moments" and "Save image" functions (such as including store name, address, logo, etc.) need to be confirmed with designers and operations team.**
 
-User actions
+**Exception handling: When users haven't authorized album access, the interaction prompts and failure handling logic for the "Save image" function need to be supplemented.**
 
-- Close modal: Click the top-right to close; users can also tap outside the modal or swipe down to close.
+### Coupon Display Area
+This area displays coupons provided by the store, with coupons displayed in card format.
 
-The specific design and content of the share poster generated by "Share to Moments" and "Save image" (e.g., including store name, address, logo, etc.) need to be confirmed with design and operations teams.
+<img src="/images/Retail/Retail-8.png" alt="描述文字" width="300" height="200" />
 
-Error handling: If the user has not granted album access, the prompts and failure handling for "Save image" need to be defined.
+Each coupon card content includes: **Data source**
+- Coupon image: Display the coupon's accompanying image.
+- Coupon name: Such as "MOP 100 Retail Voucher".
+- Applicable scope: Display the coupon's restrictions, such as "Retail only".
+- Validity period: Display the coupon's expiration date, such as "Valid until 09.24".
 
-### Coupons Section
+Use button: Each coupon card has a "Use" button on the right side. Clicking the "Use" button **triggers the coupon collection or usage process**.
 
-Below the store information section, show the store's available coupons as cards. Each coupon card includes: Data source
-![image.png](/images/Retail/Retail-8.png)
+**Are there other states besides usage? Specific collection/usage logic needs to be defined according to business rules, such as:**
+- Uncollected state: Button text is "Collect", clicking will store the coupon in the user's account.
+- Collected but unused state: Button text is "Use", clicking will enter the coupon detail page or display QR code/barcode for offline use.
+- Used/expired state: Button should be unclickable, text may display "Used" or "Expired".
 
-- Coupon image: Display the coupon's banner/image.
-- Coupon name: e.g., "MOP 100 Retail Voucher".
-- Scope: Display restrictions, e.g., "Retail only".
-- Validity: Display the expiration date, e.g., "Valid until 09.24".
-
-Use button: Each coupon card has a "Use" button on the right. Clicking "Use" triggers the claim/use flow.
-
-Are there other states besides "Use"? Define claim/use logic per business rules, such as:
-
-- Unclaimed: Button label "Claim"; clicking stores the coupon to the user's account.
-- Claimed but unused: Button label "Use"; clicking goes to the coupon detail page or shows a QR/barcode for offline use.
-- Used/Expired: Button disabled; label may show "Used" or "Expired".
-
-Data sources: Coupon display and state logic depend on the user's login state, coupons in the user's account, and the coupon's validity. When multiple coupons exist, how should they be presented on the page?
+**Data source: Coupon display and state logic depend on user login status, coupon data in the account, and the coupon's own validity period.**
+**How are multiple coupons presented on the page?**
 
 ### "Special Offers" Section
+This area displays multiple promotional activity cards in a horizontal scrolling list format, users can scroll horizontally to view different cards.
+<img src="/images/Retail/Retail-9.png" alt="描述文字" width="300" height="200" />
 
-This section displays multiple offer cards in a horizontally scrollable list. Users can swipe sideways to view different cards. Each offer card includes: Data source
-![image.png](/images/Retail/Retail-9.png)
+Each Offer card contains: **Data source**
+- Background image: Activity theme image to attract users.
+- Activity title: Briefly summarizes activity content, such as "Galaxy Promenade x Alipay Exclusive Shopping Privileges".
+- Activity date: Display the activity's valid time range.
+Clicking on any promotional card will jump to that activity's **landing page or external link.**
 
-- Background image: An engaging image reflecting the campaign theme.
-- Campaign title: A brief summary, e.g., "Galaxy Promenade x Alipay Exclusive Shopping Privileges".
-- Campaign dates: Show the valid time range. Clicking any offer card navigates to the campaign's landing page or external link.
-
-For the "Special Offers" module, clarify whether campaign data is manually configured or dynamically fetched. If multiple campaigns exist, what is the sorting rule?
+**Data source for "Special Offers" module activities, is it manually configured or dynamically pulled? If there are multiple activities, what are their sorting rules?**
 
 ### "Membership Benefits" Section
+In this section, a card containing Membership Benefits information will be displayed, the card contains the following information:
 
-This section displays a card containing membership benefit information.
-![image.png](/images/Retail/Retail-10.png)
+<img src="/images/Retail/Retail-10.png" alt="描述文字" width="300" height="200" />
 
-The card includes:
+- Membership tier tag: Display the user's current membership tier in the top right corner, such as "NG Diamond".
+- Benefits list: The module displays multiple membership benefits in grid format, each benefit includes:
+    - Icon: Display a circular icon with checkmark in the top left corner, indicating the benefit is activated or available. **Only available benefits are displayed here?**
+    - Benefit title: Briefly summarizes benefit content, such as "Earn $NG", "Free parking".
+    - Benefit description: Detailed explanation of the benefit's specific content and usage, such as "2% $NG rebate upon payment complete.".
 
-- Membership level badge: Top-right shows the user's current membership level, e.g., "NG Diamond".
-- Benefits list: Display multiple benefits in a grid; each benefit includes:
-  - Icon: A circular icon with a checkmark at top-left indicating the benefit is active or available. Show only available benefits?
-  - Benefit title: A concise summary, e.g., "Earn $NG", "Free parking".
-  - Benefit description: Detailed content and usage, e.g., "2% $NG rebate upon payment complete.".
-
-Data logic: This module's content fully depends on the user's login state and membership level data.
-
-- The system loads and displays all corresponding benefits based on the user's current membership level.
-- If the user is not logged in or is not a member, the module may be hidden or show generic membership recruitment information.
+**Data logic: The display content of this module completely depends on the user's login status and membership tier data.**
+- The system will dynamically load and display all corresponding benefits based on the user's current membership tier.
+- If the user is not logged in or is not a member, this module may not display or display general membership recruitment information.
 
 ### "Opening Hours" Section
 
-This section displays the shop's opening hours in a list.
-![image.png](/images/Retail/Retail-11.png)
+<img src="/images/Retail/Retail-11.png" alt="描述文字" width="300" height="200" />
 
-Possible content includes:
+This section displays the current store's operating hours in list format. Information content may include:
 
-- Regular hours: e.g., "Sunday - Thursday" → "10:00 - 22:00".
-- Special hours: e.g., "Friday, Saturday, Public Holidays" → "10:00 - 00:00".
+- Regular operating hours: Such as "Sunday - Thursday" corresponding to "10:00 - 22:00".
+- Special operating hours: Such as "Friday, Saturday, Public Holidays" corresponding to "10:00 - 00:00".
 
-An upward-fold arrow icon is shown next to the title. Clicking the icon collapses or expands the details to save space.
+There is an upward folding arrow icon next to the title. Clicking this icon can collapse or expand the operating hours details, saving page space.
 
 ### "How to Find & Nearest Carpark" Section
 
-This section shows the name of the nearest carpark to the shop.
-![image.png](/images/Retail/Retail-12.png)
+<img src="/images/Retail/Retail-12.png" alt="描述文字" width="300" height="200" />
 
-Includes the following information: Data source
+This section displays the name of the parking lot nearest to the store,
+Contains the following information: **Data source**
 
-- Nearest Carpark: Show the nearest carpark name, e.g., "P1".
-- How to Find: Provide detailed text directions, e.g., "To reach Emperor Jewelry, take the escalator near the main entrance of the shopping area. Take the escalator at The Ritz-Carlton Café.".
-- Image carousel: A central image slider showing real scenes of the shop or area to help users understand the route. Users can swipe left/right to view multiple images; top-right shows the current index, e.g., "1/5".
+- Nearest Carpark: Display the nearest parking lot name, such as "P1".
+- How to Find: Provide detailed directions in text format, such as "To reach Emperor Jewelry, take the escalator near the main entrance of the shopping area. Take the escalator at The Ritz-Carlton Café.".
+- Image carousel: The center of the module is an image carousel displaying real photos of the store or its area, helping users understand the route more intuitively. Users can swipe left and right to view multiple images, with the current image number displayed in the top right corner, such as "1/5".
 
-An upward-fold arrow icon is shown next to the title. Clicking the icon collapses or expands the entire module to save space.
+There is an upward folding arrow icon next to the title. Clicking this icon can collapse or expand the entire module, saving page space.
 
 ### "You May Also Like" Section
 
-This module displays recommended stores in a horizontally scrollable list based on user behavior or shop attributes (e.g., category, location).
-![image.png](/images/Retail/Retail-13.png)
+<img src="/images/Retail/Retail-13.png" alt="描述文字" width="300" height="200" />
 
-Each recommendation card includes:
+This module displays other stores recommended by the system based on user behavior or store attributes (such as category, location) in a horizontally scrolling card list format.
 
-- Store logo: Shows the brand logo.
-- Store name: Shows the full store name, e.g., "Rimowa".
-- Location: Shows the floor and unit number, e.g., "1037 & 1039 1/F Prode...".
-- Category: Shows the store category, e.g., "Lifestyle & Gifts".
+Each recommendation card must contain:
+  - Store Logo: Display the store's brand logo.
+  - Store Name: Display the store's full name, such as "Rimowa".
+  - Location Information: Display the store's floor and unit number, such as "1037 & 1039 1/F Prode...".
+  - Store Category: Display the category the store belongs to, such as "Lifestyle & Gifts".
 
-Each recommendation card may include:
+Each recommendation card may contain:
+- Promotional quantity tag: When stores have promotions, display corresponding promotional tags, such as "2 Offers".
 
-- Offer count tag: When offers exist, show a tag such as "2 Offers".
+User operations:
+- Users can swipe horizontally to view more recommended stores.
+- Clicking on any recommendation card will jump to that store's detail page.
 
-User actions
-
-- Swipe horizontally to view more recommended stores.
-- Tap any recommendation card to navigate to the store detail page.
-
-The recommendation logic for this module needs to be defined in collaboration with the backend team. Set a reasonable display cap for the list and ensure diversity of recommended content. Data loading: Load recommendations asynchronously after page load, with appropriate loading and error states.
+**The recommendation logic for this module needs to be defined in collaboration with the backend team.**
+**The recommendation list should have a reasonable display quantity limit and ensure diversity of recommended content.**
+**Data loading: The recommendation list should load asynchronously after page load, with corresponding loading and loading failure UI states.**
