@@ -23,10 +23,10 @@ Page title: "Retail"
 
 From left to right at the top of the page:
 
-- Filter: Click the "Filter" button to open the filter ==modal/drawer==.
+- Filter: Click the "Filter" button to open the filter modal/drawer.
 - Search entry: Click the search icon on the right side of the search box to go to the store name search page.
-- Sort button: Click the "Sort" button to open sorting options ==modal/drawer==.
-- Quick filter tabs: To the right of the Sort button, show ==horizontally scrollable quick filter tabs for store categories==, such as "Beauty & Healthcare". Swipe to reveal more tabs; tapping a tab updates the list in real time to the corresponding category.
+- Sort button: Click the "Sort" button to open sorting options modal/drawer.
+- Quick filter tabs: To the right of the Sort button, show horizontally scrollable quick filter tabs for store categories, such as "Beauty & Healthcare". Swipe to reveal more tabs; tapping a tab updates the list in real time to the corresponding category.
 ![image.png](/images/Retail/Retail-1.png)
 
 #### Filter
@@ -45,7 +45,7 @@ After selecting filter conditions, click the "Confirm" button. The list updates 
 
 #### Search
 
-==Search logic: Clarify the specific logic, e.g., fuzzy vs. exact match, and whether the scope is limited to store names or also includes category and description==
+Search logic: Clarify the specific logic, e.g., fuzzy vs. exact match, and whether the scope is limited to store names or also includes category and description
 
 #### Sort
 
@@ -55,7 +55,7 @@ After selecting a sort condition, the list is immediately reordered accordingly.
 
 ### Offer Hint Area
 
-Located at the top of the list, showing the user's membership level and benefits information. This module depends on the user's login state and membership level data. ==Data source; copywriting for benefits by membership level==
+Located at the top of the list, showing the user's membership level and benefits information. This module depends on the user's login state and membership level data. Data source; copywriting for benefits by membership level
 ![image.png](/images/Retail/Retail-3.png)
 - Membership level:
   - If the user is a logged-in NG Diamond member, show the membership level, e.g., "NG Diamond".
@@ -72,7 +72,7 @@ Below the offer hint, show the total number of stores under the current filters,
 
 #### Store Cards:
 
-Display all retail stores as cards. Each card includes the following fixed elements: ==Data source==
+Display all retail stores as cards. Each card includes the following fixed elements: Data source
 
 - Store logo: Shows the brand logo.
 - Store name: Shows the brand name, e.g., "Aesop".
@@ -87,7 +87,7 @@ Optional card elements:
 
 Clicking any store card navigates to the store's detail page.
 
-Empty state: When the search or filter result is 0, design the empty-state UI and copy (e.g., "No results found"). Performance: Considering the list may contain many stores, implement load-more on scroll (or pagination) to ensure performance. Specific thresholds and per-load quantities are TBD. ==
+Empty state: When the search or filter result is 0, design the empty-state UI and copy (e.g., "No results found"). Performance: Considering the list may contain many stores, implement load-more on scroll (or pagination) to ensure performance. Specific thresholds and per-load quantities are TBD. 
 
 ## Shop Detail
 
@@ -112,7 +112,7 @@ From top to bottom, this section includes the following content: Data source/API
 - Store name: Immediately below the logo, show the full store name, e.g., "Emperor Jewellery".
 - Brand introduction: Show the brand description.
   - When the description exceeds several lines, show a "See more" button.
-  - Clicking "See more" ==expands the full content; clicking again collapses==.
+  - Clicking "See more" expands the full content; clicking again collapses.
 - Store attributes: List key information with labels and corresponding values:
   - Opening Hours: Show open status and business hours
     - Status: e.g., "Open Now"
@@ -136,15 +136,15 @@ The card includes:
 - Service Hotline: Shown as a standalone module, including:
   - Module title: "Service Hotline".
   - Description: "24/7 service for you.".
-  - Phone number: "+853 2888 0888" displayed in a clickable button. ==Hardcoded?==
+  - Phone number: "+853 2888 0888" displayed in a clickable button. Hardcoded?
 - WeChat Customer Service: Shown as a standalone module, including:
   - Module title: "Customer Service on WeChat".
   - Description: "24/7 service for you.".
-  - QR code: Display a QR code. Below it, show a tip "Long press QR code to add Galaxy WeChat." to guide users to long-press to recognize or save the image to add WeChat customer service. ==Hardcoded?==
+  - QR code: Display a QR code. Below it, show a tip "Long press QR code to add Galaxy WeChat." to guide users to long-press to recognize or save the image to add WeChat customer service. Hardcoded?
 
 User actions
 
-- Dial phone: Clicking the hotline button ==invokes the system dialer==.
+- Dial phone: Clicking the hotline button invokes the system dialer.
 - Long-press QR code: Long-pressing the QR code invokes WeChat's scan, then users can add Galaxy's official customer service WeChat account.
 - Close modal: Click the top-right to close; users can also tap outside the modal or swipe down to close.
 
@@ -161,13 +161,13 @@ User actions
 
 - Close modal: Click the top-right to close; users can also tap outside the modal or swipe down to close.
 
-==The specific design and content of the share poster generated by "Share to Moments" and "Save image" (e.g., including store name, address, logo, etc.) need to be confirmed with design and operations teams.==
+The specific design and content of the share poster generated by "Share to Moments" and "Save image" (e.g., including store name, address, logo, etc.) need to be confirmed with design and operations teams.
 
-==Error handling: If the user has not granted album access, the prompts and failure handling for "Save image" need to be defined.==
+Error handling: If the user has not granted album access, the prompts and failure handling for "Save image" need to be defined.
 
 ### Coupons Section
 
-Below the store information section, show the store's available coupons as cards. Each coupon card includes: ==Data source==
+Below the store information section, show the store's available coupons as cards. Each coupon card includes: Data source
 ![image.png](/images/Retail/Retail-8.png)
 
 - Coupon image: Display the coupon's banner/image.
@@ -175,26 +175,26 @@ Below the store information section, show the store's available coupons as cards
 - Scope: Display restrictions, e.g., "Retail only".
 - Validity: Display the expiration date, e.g., "Valid until 09.24".
 
-Use button: Each coupon card has a "Use" button on the right. Clicking "Use" ==triggers the claim/use flow==.
+Use button: Each coupon card has a "Use" button on the right. Clicking "Use" triggers the claim/use flow.
 
-==Are there other states besides "Use"? Define claim/use logic per business rules, such as:==
+Are there other states besides "Use"? Define claim/use logic per business rules, such as:
 
 - Unclaimed: Button label "Claim"; clicking stores the coupon to the user's account.
 - Claimed but unused: Button label "Use"; clicking goes to the coupon detail page or shows a QR/barcode for offline use.
 - Used/Expired: Button disabled; label may show "Used" or "Expired".
 
-==Data sources: Coupon display and state logic depend on the user's login state, coupons in the user's account, and the coupon's validity.== ==When multiple coupons exist, how should they be presented on the page?==
+Data sources: Coupon display and state logic depend on the user's login state, coupons in the user's account, and the coupon's validity. When multiple coupons exist, how should they be presented on the page?
 
 ### "Special Offers" Section
 
-This section displays multiple offer cards in a horizontally scrollable list. Users can swipe sideways to view different cards. Each offer card includes: ==Data source==
+This section displays multiple offer cards in a horizontally scrollable list. Users can swipe sideways to view different cards. Each offer card includes: Data source
 ![image.png](/images/Retail/Retail-9.png)
 
 - Background image: An engaging image reflecting the campaign theme.
 - Campaign title: A brief summary, e.g., "Galaxy Promenade x Alipay Exclusive Shopping Privileges".
-- Campaign dates: Show the valid time range. Clicking any offer card navigates to the campaign's ==landing page or external link==.
+- Campaign dates: Show the valid time range. Clicking any offer card navigates to the campaign's landing page or external link.
 
-==For the "Special Offers" module, clarify whether campaign data is manually configured or dynamically fetched. If multiple campaigns exist, what is the sorting rule?==
+For the "Special Offers" module, clarify whether campaign data is manually configured or dynamically fetched. If multiple campaigns exist, what is the sorting rule?
 
 ### "Membership Benefits" Section
 
@@ -205,11 +205,11 @@ The card includes:
 
 - Membership level badge: Top-right shows the user's current membership level, e.g., "NG Diamond".
 - Benefits list: Display multiple benefits in a grid; each benefit includes:
-  - Icon: A circular icon with a checkmark at top-left indicating the benefit is active or available. ==Show only available benefits?==
+  - Icon: A circular icon with a checkmark at top-left indicating the benefit is active or available. Show only available benefits?
   - Benefit title: A concise summary, e.g., "Earn $NG", "Free parking".
   - Benefit description: Detailed content and usage, e.g., "2% $NG rebate upon payment complete.".
 
-==Data logic: This module's content fully depends on the user's login state and membership level data.==
+Data logic: This module's content fully depends on the user's login state and membership level data.
 
 - The system loads and displays all corresponding benefits based on the user's current membership level.
 - If the user is not logged in or is not a member, the module may be hidden or show generic membership recruitment information.
@@ -231,7 +231,7 @@ An upward-fold arrow icon is shown next to the title. Clicking the icon collapse
 This section shows the name of the nearest carpark to the shop.
 ![image.png](/images/Retail/Retail-12.png)
 
-Includes the following information: ==Data source==
+Includes the following information: Data source
 
 - Nearest Carpark: Show the nearest carpark name, e.g., "P1".
 - How to Find: Provide detailed text directions, e.g., "To reach Emperor Jewelry, take the escalator near the main entrance of the shopping area. Take the escalator at The Ritz-Carlton Café.".
@@ -260,4 +260,4 @@ User actions
 - Swipe horizontally to view more recommended stores.
 - Tap any recommendation card to navigate to the store detail page.
 
-==The recommendation logic for this module needs to be defined in collaboration with the backend team.== ==Set a reasonable display cap for the list and ensure diversity of recommended content.== ==Data loading: Load recommendations asynchronously after page load, with appropriate loading and error states.==
+The recommendation logic for this module needs to be defined in collaboration with the backend team. Set a reasonable display cap for the list and ensure diversity of recommended content. Data loading: Load recommendations asynchronously after page load, with appropriate loading and error states.
