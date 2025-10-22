@@ -1,0 +1,193 @@
+---
+title: "Layout Example"
+description: "Here's a comprehensive English version of a Markdown syntax reference document that includes all common Markdown elements. "
+---
+
+# Markdown Syntax Cheatsheet
+
+> This document tests support for all standard and extended Markdown syntax.
+
+---
+
+## 1. Headings
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+---
+
+## 2. Paragraphs and Line Breaks
+
+This is a regular paragraph.  
+This line is forced to break (two trailing spaces).
+
+This is a new paragraph.
+
+---
+
+## 3. Text Formatting
+
+- **Bold**: `**bold**` or `__bold__`
+- *Italic*: `*italic*` or `_italic_`
+- ***Bold + Italic***: `***bold italic***`
+- ~~Strikethrough~~: `~~strikethrough~~`
+- ==Highlight== (supported in some editors like Obsidian): `==highlight==`
+
+---
+
+## 4. Lists
+
+### Unordered List
+- Item one
+- Item two
+  - Nested item
+    - Deeply nested
+
+### Ordered List
+1. First item
+2. Second item
+   1. Sub-item
+   2. Another sub-item
+
+### Task List
+- [x] Completed task
+- [ ] Incomplete task
+- [ ] Nested task
+  - [ ] Sub-task
+
+---
+
+## 5. Code
+
+### Inline Code
+Use `console.log()` to print messages.
+
+### Code Blocks (with language syntax highlighting)
+```javascript
+function greet() {
+  console.log("Hello, Markdown!");
+}
+```
+
+```python
+def greet():
+    print("Hello from Python!")
+```
+
+```html
+<div class="example">HTML example</div>
+```
+
+```markdown
+# Markdown inside a code block
+```
+
+---
+
+## 6. Links and Images
+
+### Links
+- [Obsidian Website](https://obsidian.md)
+- Autolink: <https://example.com>
+- Reference-style link: [Reference link][example]
+
+[example]: https://example.com "Optional title"
+
+### Images
+- Web image:  
+  ![Obsidian Logo](https://publish-01.obsidian.md/access/f7b5e8d0-8f8a-4f8b-8f8a-8f8b8f8b8f8b/logo.png)
+
+- Local image (in Obsidian):  
+  ![[example-image.png]]
+
+---
+
+## 7. Blockquotes
+
+> This is a blockquote.
+>
+> > Nested blockquote.
+>
+> — Author Name
+
+---
+
+## 8. Horizontal Rules
+
+---
+
+***
+
+___
+
+---
+
+## 9. Tables
+
+| Left-aligned | Center-aligned | Right-aligned |
+|:-------------|:--------------:|--------------:|
+| A            | B              | C             |
+| Apple        | Banana         | Cherry        |
+| 1            | 2              | 3             |
+
+---
+
+## 10. Footnotes
+
+Here is a sentence with a footnote[^1].
+
+[^1]: This is the footnote content. It can include **bold**, *italic*, and multiple paragraphs.
+
+---
+
+## 11. Mathematical Expressions (LaTeX)
+
+Inline math: $E = mc^2$
+
+Block math:
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+Matrix example:
+$$
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+$$
+
+> 💡 In Obsidian, enable **MathJax** support in Settings → Markdown.
+
+---
+
+## 12. HTML (Limited Support)
+
+Some Markdown renderers allow inline HTML:
+
+<span style="color: red;">Red text</span>
+
+<div style="background: #f0f0f0; padding: 10px; border-radius: 4px;">
+  This is a custom HTML block.
+</div>
+
+> ⚠️ Note: HTML support varies by editor. Obsidian supports limited inline HTML in preview mode.
+
+---
+
+## 13. Obsidian-Specific Features (Optional)
+
+- Internal link: [[Another Note]]
+- Tag: #markdown #cheatsheet
+- Embed another note: ![[Another Note]]
+- Embed a PDF page: ![[document.pdf#page=5]]
+
+> These only work in Obsidian or compatible apps.
+
+---
+
+✅ **Tip**: Save this as `Markdown Syntax Cheatsheet.md` in your vault to always have a live preview of your editor’s styling!
