@@ -23,11 +23,11 @@
             "group": "Mintlify",
             "pages": [
               "essentials/settings",
-              "essentials/navigation"
+              "essentials/navigation",
               "index",
               "quickstart",
               "development",
-              "Navigator"
+              "Navigator",
               "Layout Example"                          
             ]
           },
