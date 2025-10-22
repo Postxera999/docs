@@ -14,9 +14,28 @@
         "tab": "Function",
         "groups": [
           {
-            "group": "Functional Requirements",
+            "group": "BACKGROUND",
             "pages": [
+              "function/Placeholder"
+            ]
+          },
+          {
+            "group": "DETAILED REQUIREMENTS",
+            "pages": [
+              "function/Placeholder"
+            ]
+          },
+          {
+            "group": "SOLUTION SUMMARY",
+            "pages": [
+              "function/Placeholder",
               "function/Retail"
+            ]
+          },
+          {
+            "group": "SYSTEM REQUIREMENT",
+            "pages": [
+              "function/Placeholder"
             ]
           },
           {
