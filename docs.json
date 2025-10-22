@@ -40,13 +40,18 @@
       },
       {
         "tab": "Design",
-        "groups": [
+         "groups": [
           {
-            "group": "Components",
+            "group": "Template",
             "pages": [
-              "components/Template",
-              "components/Navigator",
-              "components/TabBar",              
+              "components/Template"
+            ]
+          },
+          {
+            "group": "Navigation & Search",
+            "pages": [
+              "components/NavigationBar",
+              "components/TabBar",
               "components/SearchFields"
             ]
           }

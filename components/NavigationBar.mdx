@@ -1,0 +1,134 @@
+---
+title: "Navigation Bar"
+---
+
+## **Overview**
+
+1. **Component Name:**
+
+   * **Chinese Name:** 导航栏
+   * **English Name / Code:** Navigation Bar
+2. **Component Description:**
+
+   * Used at the top of a page to provide navigation actions such as back, title, and share. Depending on the use case, the background can be black, white, or transparent, and can overlay status bar information (time, battery, network, etc.).
+3. **Design Goals / Principles:**
+
+   * Maintain platform consistency (WeChat Mini Program style / iOS status bar alignment); ensure clear information hierarchy; provide reliable access to key actions (back, share, dropdown, etc.); maintain contrast and readability across backgrounds.
+
+## **Visual Reference and Embed**
+
+### Figma / Design Tool Embed:
+
+* Embed the design source for viewing the latest specifications and interaction prototypes.
+
+<iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=5467-11143" allowfullscreen></iframe>
+
+### Key Visuals / Screenshots:
+
+* Default navigation (black / white background)
+* Title navigation (black / white), with title and dropdown arrow
+* Overlaid iPhone status bar (Dynamic Floating / with or without notch)
+
+## **Design Specifications**
+
+1. **Structure & Composition:**
+
+   * Navigation container (background, divider, corner radius)
+   * Left: Back / Home button (e.g., `arrow` / `home`)
+   * Center: Title with dropdown arrow (`chevron-down`)
+   * Right: Share button (rounded icon group)
+   * Status bar (optional): time, battery, Wi-Fi, cellular signal
+2. **Size & Layout:**
+
+   * Component corner radius: `5px`
+   * Accessory rectangle corner radius: `15–20px` (for icon containers)
+   * Text alignment: horizontally left-aligned, vertically centered
+   * Status bar type: `Dynamic Floating` (configurable notch/island), aligned to top of navigation bar
+3. **Color:**
+
+   * Background: `On Black` / `On White` / (Transparent)
+   * Text & Icons: use light color on dark background, dark color on light background
+   * Divider / Stroke: use light or dark border based on background for sufficient contrast
+4. **Typography:**
+
+   * Title text uses `Title 400 EN` or equivalent spec
+   * Section title style: `SF Pro / 40 / Regular`
+   * Status bar text (time, etc.) follows system guidelines (bold/aligned)
+5. **Icons:**
+
+   * Use icons from the design library, vertically aligned with text
+   * Share/Home icons are boolean-combined shapes for clarity across backgrounds
+
+## **States and Variants**
+
+1. **Standard States:**
+
+   * **Default:** shows Back/Home, Share, and optional Title
+   * **Title:** displays central title and dropdown arrow
+   * **Transparent:** supports transparent overlay on content when needed
+   * **Focus (Accessibility):** allows keyboard navigation with visible focus state
+2. **Variants / Types (`Navigation Bar` Component Set):**
+
+   * `Color=On Black, Function=Default`
+   * `Color=On White, Function=Default`
+   * `Color=On Black, Function=Title`
+   * `Color=On White, Function=Title`
+   * Related Status Bar Components:
+
+     * `Status Bar (iPhone)` variants: `🌓 Dark Mode=On/Off`, `Type=Dynamic Floating`
+     * Time component: `🧰/Time (iPhone)`, `Dark Mode=True/False`
+     * Signal components: `🧰/Cellular,Wifi,Battery (iPhone)`, `Dark Mode=On/Off`
+
+## **Behavior and Interaction**
+
+1. **Main Interactions:**
+
+   * Tap Back/Home → navigate back or to home page
+   * Tap Share → open share panel
+   * Tap Title/Arrow → expand/collapse submenu or selector
+   * In transparent mode, scrolling may toggle background and border visibility (per logic)
+2. **Feedback & Validation:**
+
+   * Disabled actions show inactive state
+   * Expand/collapse transitions include light animation and feedback
+3. **Animation & Transition:**
+
+   * Background/border/title area transitions: 120–200ms
+   * Arrow rotation or dropdown panel uses ease-out curve for smoothness
+
+#### **Usage Guidelines**
+
+1. **When to Use:**
+
+   * Page headers or top-level content sections
+   * Pages requiring back, share, or title selection actions
+2. **When Not to Use:**
+
+   * Complex multi-level navigation (use sidebar or breadcrumb instead)
+   * Overcrowded headers with too many actions (should group or simplify)
+3. **Copywriting Guidance:**
+
+   * Keep titles short and clear (≤ 10–12 characters recommended)
+   * Use universal verbs or icons for Share / Back
+4. **Accessibility (A11Y):**
+
+   * Provide `aria-label` for Back, Share, and Title buttons
+   * Support keyboard navigation and visible focus
+   * Ensure adequate contrast across light/dark themes; icons should have readable names
+
+## **Props / API Reference**
+
+| Prop           | Type                                                         | Default             | Description                      | Options / Notes                        |
+| :------------- | :----------------------------------------------------------- | :------------------ | :------------------------------- | :------------------------------------- |
+| `title`        | `string`                                                     | `''`                | Title text in the center         | Required for title variant             |
+| `showHome`     | `boolean`                                                    | `true`              | Whether to show Home/Back button | Depends on page level                  |
+| `showShare`    | `boolean`                                                    | `true`              | Whether to show Share button     | Opens share panel                      |
+| `background`   | `'black' \| 'white' \| 'transparent'`                        | `'white'`           | Background style                 | Maps to On Black/On White/Transparent  |
+| `statusBar`    | `{ enabled: boolean; darkMode?: boolean; type?: 'dynamic' }` | `{ enabled: true }` | Status bar config                | Maps to iPhone component variants      |
+| `onBack`       | `() => void`                                                 | `-`                 | Callback for Back/Home click     | Navigates back or to home              |
+| `onShare`      | `() => void`                                                 | `-`                 | Callback for Share click         | Opens share panel                      |
+| `onTitleClick` | `() => void`                                                 | `-`                 | Callback for Title/Arrow click   | Expands/collapses menu                 |
+| `style`        | `CSSProperties`                                              | `-`                 | Custom style overrides           | For radius, border, transparency, etc. |
+
+> **Design File Notes:**
+> In WeChat Mini Programs, the Navigation Bar supports black, white, or transparent backgrounds depending on scenario, and can overlay iPhone Status Bar components (time, signal, battery, etc.) to match mobile status display.
