@@ -1,0 +1,160 @@
+---
+title: "Search Fields"
+---
+
+## **Overview**
+
+1. **Component Name:**
+
+   * **Chinese Name:** 搜索框
+   * **English Name / Code:** Search Fields / Search UI
+
+2. **Component Description:**
+
+   * The Search Field allows users to enter keywords and trigger a search action. It supports typical states such as default, focused/typing, and search completed. A clear button on the right enables quick input reset.
+
+3. **Design Goals / Principles:**
+
+   * Efficient search, clear feedback, minimal distraction.
+   * Use clean visuals and straightforward interactions to reduce input effort while maintaining accessibility and consistent layout constraints.
+
+---
+
+## **Visual Reference and Embed**
+
+### Figma / Design Tool Embed:
+
+* Embedded design source file for easy access to the latest specs and interaction prototypes.
+
+<iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=5467-12253" allowfullscreen></iframe>
+
+### Key Visuals / Screenshots:
+
+* **Default State:** Placeholder “Search here” displayed; button disabled.
+* **Focus / Typing:** Shows entered text and cursor (focus line); button enabled.
+* **Search Finish:** “Clear” button on the right becomes visible, allowing reset or clearing of results.
+
+---
+
+## **Design Specifications**
+
+1. **Structure and Composition:**
+
+   * Container (Search Field): background, border/stroke, rounded corners
+   * Left Icon: `16/Icon/Search`
+   * Input Text / Placeholder: “Search here”
+   * Right Clear Button: `16/Icon/Close` (or custom delete icon)
+   * External Search Button: references `Primary Hug Button Middle`, displayed together as one action area.
+
+2. **Sizing and Layout:**
+
+   * Input container border radius: `12px`
+   * Inner padding: around `10px`
+   * Left icon size: `16x16`
+   * Spacing between icon and text: about `8px`
+   * Clear button area spacing: around `10px`, radius `36px`
+   * Example container size (for demo only): width `383px`, height `274px` (not implementation constraints).
+
+3. **Color:**
+
+   * Input background: `#FFFFFF`
+   * Placeholder text: `#606266`
+   * Input text: `#000000`
+   * Focus stroke: `#C6C8CC` (1px)
+   * Clear button background: `#DFE1E6`
+
+4. **Typography:**
+
+   * Placeholder / Input text: `Title 300 EN / Text 300 EN` (14px / regular weight)
+   * Section titles: `SF Pro / 40 / Regular`
+   * Search button text: `Title 200 EN`
+
+5. **Icons:**
+
+   * Use design system icons `16/Icon/Search` and `16/Icon/Close`.
+   * Align with text baseline or vertically centered to maintain rhythm.
+
+---
+
+## **States and Variants**
+
+1. **Standard States:**
+
+   * **Default:** Shows placeholder “Search here”; search button disabled.
+   * **Focus / Typing:** Displays input text and focus line; search button enabled.
+   * **Search Finish:** Input retained; clear button visible; search button may remain or hide based on logic.
+   * **Disabled:** Search button disabled (`Disabled` variant), reduced contrast.
+   * **Focus (Accessibility):** Visible focus ring or stroke for keyboard navigation feedback.
+
+2. **Variants / Types:**
+
+   * Component set: `Search UI`, includes:
+
+     * `Property 1 = Default`
+     * `Property 1 = Search Focus`
+     * `Property 1 = Search Finish`
+   * Search button references `Primary Hug Button Middle`, with `Default` and `Disabled` variants.
+
+---
+
+## **Behavior and Interaction**
+
+1. **Primary Interactions:**
+
+   * Enter keywords and submit via search button or Enter key.
+   * Click the clear button to reset input and state.
+   * Focus shows cursor and highlight; blur restores default appearance.
+   * Button enable/disable toggles dynamically based on input content.
+
+2. **Feedback and Validation:**
+
+   * Submission disabled when input is empty.
+   * On submit, may show lightweight loading or error message.
+   * Clear action resets to placeholder and default state.
+
+3. **Animation and Transition:**
+
+   * Focus/blur color and stroke transitions: 120–200ms.
+   * Clear and submit actions may use short fade or position transitions.
+
+---
+
+#### **Usage Guidelines**
+
+1. **When to Use:**
+
+   * Keyword search within global or local content.
+   * Ideal for navigation pages or toolbar quick search entries.
+
+2. **When *Not* to Use:**
+
+   * For complex advanced filters (use Filter Panel / Advanced Search).
+   * For long forms or non-keyword-based inputs.
+
+3. **Copywriting Guidelines:**
+
+   * Placeholder text should be concise and clear, e.g., “Search here”.
+   * Search button text should always be “Search”.
+
+4. **Accessibility (A11Y):**
+
+   * Input field must have a readable label or `aria-label`.
+   * Support keyboard actions (Tab to focus, Enter to submit, Esc to clear).
+   * Provide visible focus styles and sufficient color contrast.
+
+---
+
+## **Props / API Reference**
+
+| Prop Name      | Type                               | Default         | Description                            | Options / Notes                                |
+| :------------- | :--------------------------------- | :-------------- | :------------------------------------- | :--------------------------------------------- |
+| `value`        | `string`                           | `''`            | Current input value                    | Supports controlled/uncontrolled modes         |
+| `defaultValue` | `string`                           | `''`            | Initial value (uncontrolled)           | Used as placeholder substitute or initial text |
+| `placeholder`  | `string`                           | `'Search here'` | Placeholder text                       | Match design spec                              |
+| `disabled`     | `boolean`                          | `false`         | Whether to disable submission          | Maps to `Disabled` variant of button           |
+| `allowClear`   | `boolean`                          | `true`          | Whether to show the clear button       | Maps to right-side delete icon area            |
+| `onChange`     | `(v: string) => void`              | `-`             | Callback when input changes            | Enables real-time button state updates         |
+| `onSubmit`     | `() => void`                       | `-`             | Triggered on search click / Enter key  | Executes search logic                          |
+| `onClear`      | `() => void`                       | `-`             | Triggered when clear button is clicked | Clears input and resets state                  |
+| `status`       | `'default' \| 'focus' \| 'finish'` | `'default'`     | Current visual state                   | Corresponds to three variants                  |
+| `style`        | `CSSProperties`                    | `-`             | Custom styles                          | Adjust spacing, width, or radius               |

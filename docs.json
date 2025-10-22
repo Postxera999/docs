@@ -45,7 +45,9 @@
             "group": "Components",
             "pages": [
               "components/Template",
-              "components/Navigator"
+              "components/Navigator",
+              "components/TabBar",              
+              "components/SearchFields"
             ]
           }
         ]

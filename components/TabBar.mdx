@@ -1,0 +1,147 @@
+---
+title: "Tab Bar"
+---
+
+## **Overview**
+
+1. **Component Name:**
+
+   * **Chinese Name:** 标签栏
+   * **English Name / Code:** Tab Bar
+
+2. **Component Description:**
+
+   * The Tab Bar is used to navigate between mutually exclusive content panels within the same view. Each tab includes an icon and label, and the currently active tab is highlighted with a more prominent style.
+
+3. **Design Goals / Principles:**
+
+   * Fast and clear navigation
+   * Consistent interaction and visual presentation
+   * Good accessibility and touch area design
+   * Follows platform conventions on mobile (iOS-style behavior)
+
+---
+
+## **Visual Reference and Embed**
+
+### Figma / Design Tool Embed:
+
+* The design source file is embedded below for easy access to the latest specifications and interactive prototypes.
+
+<iframe width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=5475-1571" allowfullscreen></iframe>
+
+### Key Visuals / Screenshots:
+
+* **Default State:** Shows the overall tab bar and each tab item’s icon + label.
+* **Variant Overview:** Includes four focus variants — Home / Discover / Booking / Rewards.
+* **Interaction States Demo:** Active (Focus), Hover (if applicable), Pressed (if applicable), and Disabled (if applicable).
+
+---
+
+## **Design Specifications**
+
+1. **Structure and Composition:**
+
+   * Tab Bar (background and divider line)
+   * Tab Item: Icon + Text Label
+   * Active Item and Inactive Item
+   * Related elements: bottom Home Indicator (iPhone), forming the bottom navigation area with the Tab Bar.
+
+2. **Sizing and Layout:**
+
+   * **Corner Radius:** Around `5px` (shown as `borderRadius: 5px` in component set)
+   * **Background & Spacing:** Overall padding around `20px`; main container uses vertical layout with generous inter-section spacing (e.g., `gap: 100px` between info and example sections).
+   * **Divider Line:** Bottom divider line color `#C6C8CC`, thickness around `1px`.
+
+3. **Color:**
+
+   * **Bar Background:** `#F0F2F5`
+   * **Text and Icons:** Active state uses dark color (e.g., `#000000`); inactive state uses secondary text color (as defined in the design file).
+
+4. **Typography:**
+
+   * Tab labels use the design system’s text style (e.g., `Text 200 EN`) to ensure readability across resolutions and themes.
+   * Section titles and examples use `SF Pro / 40 / Regular` (as specified in file header styles).
+
+5. **Icons:**
+
+   * Use SVG icons aligned horizontally with text; icon size and baseline alignment are managed by component constraints.
+
+---
+
+## **States and Variants**
+
+1. **Standard States:**
+
+   * **Default:** Inactive tab shown in secondary style.
+   * **Active / Focus:** Current tab highlighted, icon and text in primary or dark color.
+   * **Pressed:** Slight color or opacity change (per platform guidelines).
+   * **Disabled:** Non-interactive tab with reduced contrast and no focus style.
+   * **Keyboard / Accessibility Focus:** Visible focus ring or highlight to ensure accessibility.
+
+2. **Variants / Types:**
+
+   * Component set: `Tab bar`, includes the following focus variants:
+
+     * `Property 1 = Home Focus`
+     * `Property 1 = Discover Focus`
+     * `Property 1 = Booking Focus`
+     * `Property 1 = Reward Focus`
+   * Each variant corresponds to a different active tab item: Home / Discover / Booking / Rewards.
+
+---
+
+## **Behavior and Interaction**
+
+1. **Primary Interaction:**
+
+   * Tapping a tab item switches the content panel, highlighting the selected tab.
+   * On activation, icon and text color update accordingly, and trigger the corresponding route or content change.
+
+2. **Feedback and Validation:**
+
+   * Disabled tabs use the disabled state.
+   * Light loading or transition feedback may appear during content switching (based on business needs).
+
+3. **Animation and Transition:**
+
+   * Color or opacity transitions should use 120–200 ms ease or ease-out curves.
+   * Smooth transitions between tabs are recommended for natural and responsive interaction.
+
+---
+
+#### **Usage Guidelines**
+
+1. **When to Use:**
+
+   * For switching between top-level, mutually exclusive content such as Home, Discover, Booking, and Rewards.
+   * Suitable for bottom navigation areas on mobile (iOS style).
+
+2. **When *Not* to Use:**
+
+   * For hierarchical or non-exclusive navigation (use side navigation or breadcrumbs instead).
+   * When there are too many tabs (>5), avoid using a bottom Tab Bar.
+
+3. **Copywriting Guidelines:**
+
+   * Tab labels should be concise and clear, ideally within 2–3 words.
+   * Use verbs or noun phrases; avoid ambiguity.
+
+4. **Accessibility (A11Y):**
+
+   * Provide each tab item with an `aria-label` or readable text.
+   * Support keyboard navigation and focus highlighting.
+   * Ensure readable text and distinguishable icons in high-contrast themes.
+
+---
+
+## **Props / API Reference**
+
+| Prop Name      | Type                                                      | Default         | Description                | Options / Notes                              |
+| :------------- | :-------------------------------------------------------- | :-------------- | :------------------------- | :------------------------------------------- |
+| `items`        | `Array<{ key: string; label: string; icon?: ReactNode }>` | `[]`            | Collection of tab items    | `key` used for unique identification         |
+| `activeKey`    | `string`                                                  | `items[0]?.key` | Currently active tab key   | Corresponds to Home/Discover/Booking/Rewards |
+| `onChange`     | `(key: string) => void`                                   | `-`             | Callback for tab switching | Triggered on route or view change            |
+| `disabledKeys` | `string[]`                                                | `[]`            | Disabled tab items         | Disabled items cannot be clicked or focused  |
+| `theme`        | `'light' \| 'dark'`                                       | `'light'`       | Theme mode                 | Matches Home Indicator’s Dark Mode setting   |
+| `style`        | `CSSProperties`                                           | `-`             | Custom styling             | Adjust container width or spacing            |
