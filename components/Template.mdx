@@ -1,0 +1,75 @@
+---
+title: "Template"
+icon: "note"
+---
+
+
+### **Component Design Documentation Template**
+
+#### **I. Overview**
+
+1.  **Component Name:**
+    * **Chinese Name:** (e.g., 按钮, 卡片, 模态框)
+    * **English Name/Code Name:** (For development, e.g., Button, Card, Modal)
+2.  **Component Description:**
+    * Briefly explain the component's function, the problem it solves, and the scenarios where it is used.
+3.  **Design Goal/Principles:**
+    * The primary intent behind the component's design, such as improving efficiency, maintaining consistency, or ensuring accessibility.
+
+#### **II. Design Specifications**
+
+1.  **Structure and Composition:**
+    * List the sub-elements/parts that make up the component (e.g., a button consists of a background, text, and an icon).
+    * **Core Elements:** Describe the key constituent parts.
+2.  **Size and Layout:**
+    * **Fixed Sizes:** (e.g., specific width and height values for Small/Medium/Large sizes)
+    * **Adaptive Rules:** Describe the component's responsive behavior and constraints across different breakpoints or content lengths (e.g., how the width adapts to its parent container).
+    * **Padding and Margin:** Key spacing values (recommend using variables from the design system).
+3.  **Color:**
+    * Colors used and their corresponding design system variables (e.g., `--color-primary`, `--color-text-default`).
+    * Color changes for different states.
+4.  **Typography:**
+    * Font, font size, and weight used (recommend using type scale variables from the design system).
+5.  **Icons:**
+    * If icons are used, specify their source, size, and alignment with the text.
+
+#### **III. States and Variants**
+
+1.  **Standard States:**
+    * **Default:** Initial state.
+    * **Hover:** Visual changes when the mouse is over the component.
+    * **Active/Pressed:** Visual changes when the component is being clicked/pressed.
+    * **Disabled:** The state and appearance when non-interactive.
+    * **Focus:** The appearance when receiving keyboard focus (important for accessibility).
+2.  **Variants / Types:**
+    * List the different types of the component (e.g., a button may have **Primary**, **Secondary**, **Ghost** types).
+    * Provide a brief description and usage scenario for each variant.
+
+#### **IV. Behavior and Interaction**
+
+1.  **Primary Interactions:**
+    * Describe how the component provides feedback after a user interaction (e.g., when clicked, the button's background darkens and an event is triggered).
+2.  **Feedback and Validation:**
+    * Whether the component needs to display error, success, or loading messages, and how these are presented.
+3.  **Animation and Transition:**
+    * If there are transition effects (e.g., color fade, position shift), describe the duration and easing curve of the animation.
+
+#### **V. Usage Guidelines**
+
+1.  **When to Use:**
+    * Clearly indicate the **appropriate** scenarios for this component.
+2.  **When Not to Use:**
+    * Clearly indicate the **inappropriate** scenarios, discourage misuse, and suggest alternative solutions.
+3.  **Content Guidance:**
+    * Restrictions or suggestions regarding the text content and length within the component (e.g., button text should be concise, no more than 5 words).
+4.  **Accessibility (A11Y):**
+    * Explain how the component supports screen readers (e.g., necessary `aria-label`), keyboard navigation, high-contrast modes, etc.
+
+#### **VI. Property List (Props / API List) - For Development Reference**
+
+| Property Name (Prop Name) | Type | Default Value | Description | Options/Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `size` | `string` | `'medium'` | The component's size. | `'small'`, `'medium'`, `'large'` |
+| `type` | `string` | `'primary'` | The button's type. | `'primary'`, `'secondary'`, `'ghost'` |
+| `disabled` | `boolean` | `false` | Whether the component is disabled. | |
+
