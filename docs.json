@@ -14,26 +14,33 @@
         "tab": "Function",
         "groups": [
           {
-            "group": "BACKGROUND",
+            "group": "1. BACKGROUND",
+            "pages": [
+              "function/1.background/1.1",
+              "function/1.background/1.2"
+            ]
+          },
+          {
+            "group": "2. DETAILED REQUIREMENTS",
             "pages": [
               "function/Placeholder"
             ]
           },
           {
-            "group": "DETAILED REQUIREMENTS",
-            "pages": [
-              "function/Placeholder"
-            ]
-          },
-          {
-            "group": "SOLUTION SUMMARY",
+            "group": "3. SOLUTION SUMMARY",
             "pages": [
               "function/Placeholder",
               "function/Retail"
             ]
           },
           {
-            "group": "SYSTEM REQUIREMENT",
+            "group": "5. SYSTEM REQUIREMENT",
+            "pages": [
+              "function/Placeholder"
+            ]
+          },
+          {
+            "group": "4. Appendix",
             "pages": [
               "function/Placeholder"
             ]
@@ -94,7 +101,21 @@
      "vscode"
    ]
   },
-  "footer": {
+"global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://mintlify.com/docs",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://mintlify.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+  },  
+"footer": {
     "socials": {
       "x": "https://x.com/mintlify",
       "github": "https://github.com/mintlify",
