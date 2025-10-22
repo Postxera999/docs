@@ -11,97 +11,49 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Function",
         "groups": [
           {
             "group": "Functional Requirements",
             "pages": [
-              "Retail"
+              "function/Retail"
             ]
           },
           {
-            "group": "Mintlify",
+            "group": "Mintlify Docs",
             "pages": [
               "essentials/settings",
-              "essentials/navigation",
               "index",
               "quickstart",
               "development",
-              "Navigator",
-              "Layout Example"                          
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
+              "Layout Example",
               "essentials/markdown",
               "essentials/code",
               "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
+              "essentials/reusable-snippets",
               "ai-tools/cursor",
               "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "ai-tools/windsurf"                         
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Design",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Components",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "components/Navigator"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/logo_top.png",
-    "dark": "/logo/logo_top.png"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    "light": "/logo/logo.svg",
+    "dark": "/logo/logo.svg"
   },
   "contextual": {
     "options": [
