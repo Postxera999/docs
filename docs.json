@@ -8,6 +8,20 @@
     "dark": "#15803D"
   },
   "favicon": "/logo/GEG.png",
+  "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://mintlify.com/docs",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://mintlify.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+  }, 
   "navigation": {
     "tabs": [
       {
@@ -16,6 +30,8 @@
           {
             "group": "1. BACKGROUND",
             "pages": [
+              "function/1.background/Revision History",
+              "function/1.background/Background",
               "function/1.background/1.1",
               "function/1.background/1.2"
             ]
@@ -23,7 +39,8 @@
           {
             "group": "2. DETAILED REQUIREMENTS",
             "pages": [
-              "function/Placeholder"
+              "function/2.detailed_requirements/Overview",
+              "function/2.detailed_requirements/2.1"
             ]
           },
           {
@@ -100,21 +117,7 @@
      "cursor",
      "vscode"
    ]
-  },
-"global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-  },  
+  }, 
 "footer": {
     "socials": {
       "x": "https://x.com/mintlify",

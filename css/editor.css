@@ -1,0 +1,9 @@
+/* 修改 Markdown 中加粗文本的颜色 */
+strong {
+  color: #07c983 !important; /* 替换成你想要的颜色代码 */
+}
+
+/* 如果加粗文本出现在特定上下文中，可能需要更精确的选择器 */
+.docs-content strong {
+  color: #07c983 !important;
+}
