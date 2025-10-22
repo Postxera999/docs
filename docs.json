@@ -14,21 +14,21 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Functional Requirements",
             "pages": [
-              "index",
-              "quickstart",
-              "development",
-              "Navigator",
-              "Retail",
-              "Layout Example"
+              "Retail"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Mintlify",
             "pages": [
               "essentials/settings",
               "essentials/navigation"
+              "index",
+              "quickstart",
+              "development",
+              "Navigator"
+              "Layout Example"                          
             ]
           },
           {
