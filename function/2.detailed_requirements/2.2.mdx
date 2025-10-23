@@ -1,3 +1,19 @@
 ---
 title: "2.2 NG CRM to CCMS Merchant Sync Process"
 ---
+
+NG CRM will include a merchant synchronization interface, implemented as a webhook, to transmit incremental merchant updates to CCMS in real time. In addition to handling ongoing updates, the system should also support a user-initiated full synchronization from NG CRM to CCMS, when necessary.
+
+In NG CRM, a merchant is modelled as a unified entity representing hotels, restaurants, retailers and entertainment venues. To differentiate between these types, the data model includes a merchant category field that classifies each merchant accordingly.
+
+The webhook payload includes the following data elements:
+
+- Operation Type – Specifies the nature of the change: Create, Update or Delete
+- Merchant ID – Unique identifier for the merchant
+- Merchant Internal Name – The internal reference name used within NG CRM
+- Category – Classification of the merchant (e.g. hotel, restaurant, retailer, entertainment venue)
+- Opt-in Indicators – Flags that reflect the merchant’s participation in the NG loyalty program, including:
+    - NG$ Earnable – Whether members can earn loyalty points on purchases made at the outlet
+    - NG$ Redeemable – Whether members can redeem loyalty points as payment
+    - Coupons Redeemable – Whether members can redeem coupons at the outlet
+    - Discounts – Whether members receive tier-based discounts at the outlet

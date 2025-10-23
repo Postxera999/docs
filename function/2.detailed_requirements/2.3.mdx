@@ -1,3 +1,20 @@
 ---
 title: "2.3 NG CRM to CCMS Member Privileges Sync Process"
 ---
+
+NG CRM will provide a member privileges synchronization API that supports a scheduled pull-based integration. CCMS will initiate periodic calls to NG CRM to retrieve the latest member privilege data.
+
+Within NG CRM, member privileges are categorized as either:
+- Discount Rules
+- Point Earning Rules
+- Point Redemption Rules
+
+Once synchronized, the corresponding presentation elements and configuration settings for each member privilege can be configured in CCMS.
+
+The API response from NG CRM will include the following data elements for each member privilege:
+
+- Privilege Type – Indicates the type of privilege, which can be either Discount Rule, Base Point Earning Rule, Bonus Point Earning Rule, Redemption Rule
+- Privilege Internal Name – The internal reference name used within NG CRM
+- Merchant Category List – A list of merchant categories where the privilege is valid (e.g. Dining, Retail, Entertainment, Cinema, Hotel)
+- Merchant List – A list of specific merchants where the privilege is available
+- Status – Indicates whether the privilege is currently Active or Inactive

@@ -1,3 +1,232 @@
 ---
 title: "2.5 Advanced Content Elements for Dining & Retail"
 ---
+
+This section focuses specifically on advanced or specialized data elements that govern how Dining and Retail content should be organized in the CCMS and subsequently filtered and rendered in the WCMP. It intentionally excludes basic content fields such as title, description, information text and logos, as these can be easily derived from UXUI design specifications.
+
+## 2.5.1 Photo Album Specification
+
+Dining and Retail images will be configured using a Photo Album specification. The first image defined in the Photo Album is displayed as the hero image on the Restaurant or Retailer Detail page.
+
+The Photo Album will be organized into custom image groups, with each group containing one or more images. For each image, content managers can also configure an image title and description.
+
+Tags should be available to enable content managers to filter and select images that appear in banner sections across various WCMP pages.
+
+The illustration below shows how these images are presented in the WCMP Photo Album page.
+
+<img src="/images/2.5/image9.png" alt="描述文字" width="600" height="400" />
+
+**Banner Image Tag**
+
+Both the Dining and Retail content types must include a banner image tag attribute that enables content managers to filter and select images from the Photo Album for display in banner sections on the corresponding listing pages.
+
+## 2.5.2 Signature Dishes (Dining Only)
+
+As illustrated below, the Restaurant Detail page includes a section for Signature Dishes. The image, title and description for each dish are sourced directly from the Photo Album specification.
+
+To control which dishes appear in the banner, a Signature Dishes Banner tag defined within the Restaurant content type is used to filter the images. This ensures that only a selected subset of Signature Dishes is displayed, rather than the full collection.
+
+<img src="/images/2.5/image24.png" alt="描述文字" width="600" height="400" />
+
+## 2.5.3 Cuisine/Subcategory Assignment
+
+Each Retailer must be assigned a single primary subcategory, selected from a pre-defined list of subcategory values under the parent category Retail, while also supporting membership in multiple additional subcategories.
+
+In the Dining context, this concept is mirrored using cuisine instead of subcategory. Each dining venue is assigned a primary cuisine type (e.g. Chinese, Western, Vegetarian), with the option to define additional cuisine types for a single Restaurant.
+
+These classifications play a dual role within the application:
+
+- They help users quickly understand the nature of the retailer or dining venue by displaying relevant labels across various page layouts.
+- They serve as dynamic filtering criteria within the WCMP, enabling users to refine retailer listings based on selected subcategories or cuisines.
+
+Examples from the UXUI Design:
+
+Retailer directory filter: Filters results where the Retailer’s primary category or a secondary category matches the user selection.
+
+<img src="/images/2.5/image31.png" alt="描述文字" width="600" height="400" />
+
+Retailer directory results: Displays primary subcategory in the Retailer card.
+
+<img src="/images/2.5/image20.png" alt="描述文字" width="600" height="400" />
+
+Recommendations Section: Displays primary subcategory in the Retailer card.
+
+<img src="/images/2.5/image35.png" alt="描述文字" width="600" height="400" />
+
+Retailer Detail page: The primary subcategory and the first secondary subcategory will be displayed. If the retailer is associated with more than two subcategories, an ellipsis ("…") will be shown to indicate additional subcategories.
+
+<img src="/images/2.5/image21.png" alt="描述文字" width="600" height="400" />
+
+## 2.5.4 Location Specification
+
+The Location Specification is a shared data structure integrated into both dining and retail content types. It serves to filter content on listing pages and is also presented to users as part of the displayed information.
+
+It consists of the following attributes: 
+
+| Attributes        | Remark                                                                                                                                                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Property**      | This attribute links a retailer or restaurant to a specific property, either Galaxy and Broadway or StarWorld. The content associated with each retailer or restaurant is filtered based on the selection made in the Property Selector control. |
+| **Property Zone** | A sub-location within a Property. It is used both as a filter on retail and dining listing pages and is also displayed to users in the location section of retail and dining detail pages.                                                       |
+| **Floor**         | The level within the property where the retailer or restaurant is located and is used for filtering and display purposes on listing and detail pages.                                                                                            |
+| **Shop Number**   | The specific unit or shop                                                                                                                                                                                                                        |
+
+Examples from the UXUI design:
+
+Retailer directory filter: Filters results where the Property Zone and Floor matches the user selection (Note: For Dining, similar filtering applies, but floor-level filtering is not supported for restaurants).
+
+<img src="/images/2.5/image18.png" alt="描述文字" width="600" height="400" />
+
+Retailer directory results: Displays shop number and property zone in the Retailer card.
+
+<img src="/images/2.5/image22.png" alt="描述文字" width="600" height="400" />
+
+Retailer Detail page: Displays floor, property zone and shop number.
+
+<img src="/images/2.5/image32.png" alt="描述文字" width="600" height="400" />
+
+_How-to-find Specification_ – A sub-specification of the Location Specification that includes a series of location images, each paired with a descriptive caption. It is designed to guide users in navigating to the retailer or restaurant.
+
+_Nearest Carpark_ and _Nearest Taxi Stand_ – The CCMS uses a separate Reference Location content type, which includes a Reference Location Type (either Carpark or Taxi Stand). The Location Specification links to one Carpark and one Taxi Stand Reference Location.
+
+<img src="/images/2.5/image36.png" alt="描述文字" width="600" height="400" />
+
+## 2.5.5 Opt-in Specification
+
+The Opt-in Specification is a shared data structure used in both dining and retail content types. Its values are fully synchronized from NG CRM and indicate a merchant’s participation in the NG loyalty program. It is used to filter content on listing pages and is also displayed to users.
+
+It consists of the following attributes: 
+
+| Attributes           | Remark                                                                   |
+| -------------------- | ------------------------------------------------------------------------ |
+| _NG$ Earnable_       | Whether members can earn loyalty points on purchases made at the outlet. |
+| _NG$ Redeemable_     | Whether members can redeem loyalty points as payment.                    |
+| _Coupons Redeemable_ | Whether members can redeem coupons at the outlet.                        |
+| _Discounts_          | Whether members receive tier-based discounts at the outlet.              |
+
+## 2.5.6 Launch Status
+
+The Launch Status indicates the current opening stage of a retailer or restaurant, possible values are “Coming Soon” or “Soft Launch”. It should be added as a display tag in retail and dining cards, as well as on detail pages.
+
+## 2.5.7 Opening Hours Specification
+
+The Opening Hours Specification is a shared data model used across dining, retail, and experience content types. It enables users to define and manage the operating hours of a retailer, restaurant or experience.
+
+The specification shall support:
+
+- Standard opening times by day of week
+- General public holiday hours (shared opening times across multiple dates)
+- Individual special holiday hours (custom hours for specific dates)
+
+For example:
+```
+{
+  "standardOpeningHours": {
+    "label": "Standard Weekly Opening Hours",
+    "dayoOfWeek": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ],
+    "opens": "10:00",
+    "closes": "22:00"
+  }
+  "standardOpeningHours": {
+    "label": "Standard Weekly Opening Hours",
+    "dayoOfWeek": [
+      "Sat",
+      "Sun",
+    ],
+    "opens": "14:00",
+    "closes": "22:00"
+  }
+  "publicHolidayHours": {
+    "label": "General Public Holiday Hours",
+    "dates": [
+      "2025-01-01",
+      "2025-04-25",
+      "2025-11-21"
+    ],
+    "opens": "14:00",
+    "closes": "22:00"
+  }
+  "ChristmasHolidayHours": {
+    "label": "Christmas Holiday Hours",
+    "dates": [
+      "2025-12-25"
+    ],
+    "opens": "14:00",
+    "closes": "20:00"
+  }
+}
+```
+
+A filtering module will be developed to allow users to search for open businesses based on the current date and time within listing pages.
+
+A real-time opening status module will be developed for display of currently open businesses on both listing and detail pages.
+
+## 2.5.8 Average Price Per Person (Dining Only)
+
+An Average Price must be configured for all restaurants. This value is used as a filter option on the Dining Listing page, allowing users to refine their search based on pricing preferences.
+
+## 2.5.9 Awards Specification (Dining Only)
+
+The Dining Awards Specification enables content managers to assign relevant awards to restaurants. It includes a set of pre-defined awards, such as Michelin Stars and Black Pearl, which come with preset image, title, description and display priorities. Additionally, content managers can configure custom awards to suit specific needs.
+
+Each award includes:
+
+- Award Type – includes pre-defined award types and custom
+- Image – preset for pre-defined award
+- Title – preset for pre-defined award
+- Sub-title – preset for pre-defined award
+- Description – preset for pre-defined award
+- Display Priority – preset for pre-defined award; determines the sequencing of awards on the Restaurant Detail page
+
+Pre-defined awards may also feature a label icon and text, which appears in a label on the Restaurant Detail page.
+
+Example from the UXUI Design:
+
+Dining Listing page: Enable filtering by pre-defined award types.
+
+<img src="/images/2.5/image25.png" alt="描述文字" width="600" height="400" />
+
+
+Restaurant Detail page: Displays the label icon and text of the highest-priority pre-defined award assigned to the restaurant.
+
+<img src="/images/2.5/image33.png" alt="描述文字" width="600" height="400" />
+
+Restaurant Detail page (Awards Section): Displays the ordered list of awards for the Restaurant (up to 5 awards).
+
+<img src="/images/2.5/image23.png" alt="描述文字" width="600" height="400" />
+
+Award page: Displays the ordered list of awards for the Restaurant (full list).
+
+<img src="/images/2.5/image27.png" alt="描述文字" width="600" height="400" />
+
+## 2.5.10 E-Menu Specification (Dining Only)
+
+The Dining E-Menu Specification is structured around meal periods, allowing menus to be filtered accordingly. Each menu includes:
+
+- Menu Name
+- Validity Period – defined by a start and end date, which determines when the menu will be visible
+- Menu Content – a series of full-page menu images
+
+## 2.5.11 Relevant Information Specification (Dining Only)
+
+The Relevant Information Specification is used to configure general informational content about a dining venue, which is displayed on the Restaurant Detail page.
+
+Each Restaurant can have multiple Relevant Information sections. Each section begins with a custom header and follows a structured two-column layout, as illustrated below. In this layout, each row includes:
+
+- Label (left column)
+- Description (right column)
+
+<img src="/images/2.5/image28.png" alt="描述文字" width="600" height="400" />
+
+## 2.5.12 Latest Sort
+
+The Latest Sort feature enables content managers to automatically organize retailers and restaurants on listing pages based on their launch date attribute. When users select the "Latest" sort option, merchants are displayed in descending order of the configured launch date, ensuring that the most recently added merchants appear at the top of the list.
+
+## 2.5.13 Featured Sort
+
+Featured Sort enables content managers to define a custom display order for retailers and restaurants on listing pages. When the "Featured" sort option is selected by the user, merchants are shown according to the manually assigned sequence.
