@@ -97,6 +97,7 @@
           {
             "group": "Template",
             "pages": [
+              "components/Component_Index",
               "components/Template"
             ]
           },
