@@ -1,21 +1,30 @@
+/* 默认/亮色模式 (Light Mode) 样式 */
 .image-container {
-    /* 1. 启用 Flex 布局 */
+    /* ... 布局、尺寸和居中设置 ... */
     display: flex; 
-    
-    /* 2. 水平居中内容（图片） */
     justify-content: center; 
-    
-    /* 3. 垂直居中内容（如果容器有高度，垂直居中图片） */
-    /* align-items: center; */
-    
-    /* ...保持其他样式，例如让容器本身居中... */
     max-width: 700px; 
     margin: auto;
-    background-color: #454545;
     padding: 10px; 
+    border-radius: 5px;
+
+    /* 亮色主题颜色 */
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
 }
 
+/* 黑暗模式覆盖：利用 Mintlify 在 HTML 根元素上设置的 .dark 类 */
+/* 选择器：当 .dark 类被应用到 .image-container 的任何祖先元素时，
+   应用这些深色样式。
+*/
+.dark .image-container {
+    /* 黑暗模式颜色 */
+    background-color: #1a1a1a; /* 您的深色背景 */
+    border: 1px solid #363636;    /* 您的深色边框 */
+}
+
+/* 图片通用样式 */
 .image-container img {
-    /* 在 Flex 容器内，图片不需要特殊的 display 或 margin 样式 */
-    /* 只需要 width/height */
+    max-width: 100%; 
+    height: auto;
 }

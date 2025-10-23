@@ -92,29 +92,18 @@
         ]
       },
       {
-        "tab": "Design",
+        "tab": "Demo",
          "groups": [
           {
             "group": "Index",
             "pages": [
-              "components/Component_Index"
+              "components/M03-Retail"
             ]
           },
 {
-            "group": "Retail",
+            "group": "M03-Retail",
             "pages": [
-              "components/Retail/Filters_Sort_Bar",
-              "components/Retail/Promotion_Info",
-              "components/Retail/Store_Card_List",
-              "components/Retail/Store_Card"
-            ]
-          },          
-          {
-            "group": "Components",
-            "pages": [
-              "components/NavigationBar",
-              "components/TabBar",
-              "components/SearchFields"
+              "function/M03_01_Directory"
             ]
           }
         ]

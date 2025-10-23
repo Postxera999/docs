@@ -1,0 +1,106 @@
+---
+title: "M03-01 Directory"
+---
+
+## Components
+
+| **ID**    | **Module** | **Screen**   | **Component**         | **Full Name**                  | **Figma**                                                                                                          | **Doc**                                       |
+| :-------- | :--------- | :----------- | :-------------------- | :----------------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| M03-01-01 | M03-Retail | 01-Directory | 01-Filters & Sort Bar | Retail/Directory/FiltersSort   | [Figma](https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12288-3742&t=8lwHMNVILlNtBzmL-4) | [Doc](#m03-01-01-filters-%26-sort-bar)            |
+| M03-01-02 | M03-Retail | 01-Directory | 02-Promotion Info     | Retail/Directory/PromotionInfo | [Figma](https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12294-3752&t=8lwHMNVILlNtBzmL-4) | [Doc](#m03-01-02-promotion-info)            |
+| M03-01-03 | M03-Retail | 01-Directory | 03-Store Card List    | Retail/Directory/StoreCardList | [Figma](https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12294-3753&t=8lwHMNVILlNtBzmL-4) | [Doc](#m03-01-03-store-card-list)            |
+| M03-01-04 | M03-Retail | 01-Directory | 04-Store Card         | Retail/Directory/StoreCard     | [Figma](https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12291-3743&t=8lwHMNVILlNtBzmL-4) | [Doc](#m03-01-04-store-card) |
+
+## Functionalities
+
+Users enter the Shopping Directory page through the Retail card on the Discover page
+
+The page title is "Retail"
+
+This page includes the following primary areas:
+1. Top navigation: contains Filter, Search entry, Sort button, and quick filter tabs.
+2. Offer hint area: shows the user's membership level and the benefits they enjoy.
+3. Store list: displays retail stores that match the selected filters.
+
+### M03-01-01 Filters & Sort Bar
+From left to right at the top of the page:
+- Filter: Click the "Filter" button to trigger the filter **popup/drawer**.
+- Search entry: Click the search icon located to the right of the search box to enter the store name search page.
+- Sort button: Click the "Sort" button to trigger sort options **popup/drawer**.
+- Quick filter tabs: To the right of the sort button, display **horizontally scrollable quick filter tabs for store categories**, such as "Beauty & Healthcare". After scrolling and clicking different tabs, the list content will update in real-time to stores of the corresponding category.
+
+<div class="image-container">
+<img src="/images/Retail/Retail-1.png" alt="描述文字" width="300" height="200" />
+</div>
+
+#### **Filter**:
+The filter popup contains multiple filter conditions, from top to bottom:
+Mall floors
+Store categories
+Whether discounts are available, etc.
+
+After users select filter conditions and click the "Confirm" button, the list will update according to the selected conditions.
+
+<div class="image-container">
+<img src="/images/Retail/Retail-2.png" alt="描述文字" width="300" height="200" />
+</div>
+
+#### Search
+**Search logic: The specific logic of the search function needs to be clarified, such as whether it's fuzzy matching or exact matching, and whether the search scope is limited to store names only or includes store categories, descriptions, etc.**
+
+#### Sort
+The sort popup contains multiple sort options, such as:
+By distance
+By popularity
+By alphabetical order, etc.
+
+After users select sort conditions, the list will immediately re-sort according to the selected conditions.
+
+### M03-01-02 Promotion Info
+
+Located at the top of the list, displaying the user's membership level and benefit information.
+The display of this module depends on the user's login status and membership tier data. **Data source, benefit text corresponding to different tier members**
+
+<div class="image-container">
+<img src="/images/Retail/Retail-3.png" alt="描述文字" width="300" height="200" />
+</div>
+
+- Membership Level:
+	- When the user is a logged-in NG Diamond member, display the corresponding membership level, such as "NG Diamond."
+	- Other non-NG members or non-logged-in users will not display this.
+- Promotional notification
+	- Display promotional information corresponding to the level, such as "Get 2% back when you shop" "members earn 2% Resort Dollars rebate on retail purchases"
+
+### M03-01-03 Store Card List
+
+##### Results count display:
+Below the promotional notification, display the total number of stores under current filter conditions, with text format "xx results".
+
+<div class="image-container">
+<img src="/images/Retail/Retail-3.6.png" alt="描述文字" width="300" height="200" />
+</div>
+
+#### Store list:
+
+Display all retail stores in card format
+
+### M03-01-04 Store Card
+, each card must contain the following elements: **Data source**
+  - Store Logo: Display the store's brand logo.
+  - Store Name: Display the store's brand name, such as "Aesop".
+  - Location Information: Display the floor and unit number where the store is located, such as "G/F, G026 Promenade".
+  - Operating Status: Display the store's operating status, such as "Open".
+  - Store Category: Display the category the store belongs to, such as "Beauty & Healthcare".
+
+<div class="image-container">
+<img src="/images/Retail/Retail-4.png" alt="描述文字" width="300" height="200" />
+</div>
+
+Elements that cards may contain:
+  - Promotional tags: When stores have promotions, display corresponding promotional tags, such as "R$ Rebate" or "2 Offers". **Business rules need further definition**
+
+Clicking on any store card will jump to that store's detail page.
+
+**Empty state: When search or filter results are 0, the empty state UI and text (such as "No results found") need to be designed.**
+**Performance: Considering that the list may contain a large number of stores, a pull-to-load-more (or pagination) mechanism needs to be implemented to ensure page performance. Specific loading thresholds and quantities per load are to be determined.**
+
