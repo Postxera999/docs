@@ -1,0 +1,103 @@
+---
+title: "Store Card List"
+---
+
+Retail directory component used to display a list of store cards, including cover images, store information, location rows, and status/label chips.
+
+## Figma
+
+* **File:** NG UI Design
+* **Component node:** Retail/Directory/StoreCardList (`12294:3753`)
+* **Access link:** [Link Here](https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12294-3753)
+
+<iframe width="600" height="400" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12294-3753" allowfullscreen></iframe>
+
+## Overview
+
+* The list consists of multiple `StoreCard` items, each displaying basic store information and tags, with click support to view details.
+* Common elements include: cover image, store name title, subtitle/category, location row (`map-pin` icon + address), status chip (e.g., `Open`), and offer/label chips (e.g., `NG$ Rebate`, `2 Offers`).
+
+## Structure
+
+* **List title:** e.g., `89 results`.
+* **Multiple StoreCards (container + content):**
+
+  * **Cover image area:** Fixed aspect-ratio container (`Aspect Ratio` frame).
+  * **Content stack:**
+
+    * **Title (`Title 300 EN`):** e.g., `Aēsop`, `Emperor Jewelry`, `APM Monaco`, `alice + olivia by Stacey Bendet`.
+    * **Location row:**
+
+      * **Icon:** `map-pin` (component ID `149:6931`), recommended size 16px.
+      * **Address text (`Text 200 EN`):** e.g., `G026 Promenade East`, `G004 Promenade East`.
+    * **Status chip:** e.g., `Open` (styled as `text extra small / leading-none / regular`).
+    * **Category/subtitle:** e.g., `Beauty & Healthcare`, `Watches & Jewelry` (`Text 200 EN`).
+    * **Offer/label chips:** e.g., `NG$ Rebate`, `2 Offers` (4px rounded corners, with stroke or background fill).
+
+## Specifications
+
+* **Card:**
+
+  * Border radius: `20px`.
+  * Shadow: `Shadow 100` (applied to both card and cover image frame).
+* **Cover image:**
+
+  * Fixed aspect-ratio container; recommend `object-fit: cover`.
+* **Text styles:**
+
+  * Title: `Title 300 EN` (font weight ~600).
+  * Address and category: `Text 200 EN`.
+  * Status text: `text extra small / leading-none / regular`.
+* **Icon:**
+
+  * `map-pin` (component: `149:6931`), 16px size recommended; color uses `icon/primary` or matches secondary text color.
+* **Chips:**
+
+  * Corner radius: `4px`; use `stroke_2QSQKX` or light fill; spacing follows design frame `layout`.
+
+## Behavior
+
+* **Clickable card:**
+
+  * `hover`: elevate shadow or slightly lift.
+  * `active`: reduce shadow or apply pressed effect.
+* **Chip interactions:**
+
+  * Clickable or focusable; focus ring uses the unified `focus/outline` token.
+
+## Accessibility
+
+* Card containers must be focusable (keyboard navigation supported).
+* Provide perceivable focus styles and semantic labels for key actions (e.g., `aria-label`).
+* Icons should include alternative text or be paired with visible text to ensure semantic meaning.
+
+## Data Example
+
+Example data structures for rendering:
+
+```ts
+interface StoreCardItem {
+  id: string
+  title: string // Store name
+  address: string // Address / location
+  category?: string // Category / subtitle
+  status?: 'Open' | 'Closed' | 'Busy' // Status
+  tags?: string[] // Labels / offers
+  imageUrl?: string // Cover image
+}
+
+interface StoreCardListProps {
+  items: StoreCardItem[]
+  onCardClick?: (id: string) => void
+}
+```
+
+## Usage Recommendations
+
+* Maintain consistent vertical spacing between cards for rhythmic visual flow.
+* Ensure clear hierarchy between title and location: `Title 300 EN` > `Text 200 EN`.
+* On mobile, use one or two columns; cover image ratio and card width should adapt responsively.
+
+## Design Source
+
+This document extracts structure and specifications from the Figma component `Retail/Directory/StoreCardList` (node `12294:3753`) for implementation alignment and reference.

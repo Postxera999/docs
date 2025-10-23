@@ -95,14 +95,22 @@
         "tab": "Design",
          "groups": [
           {
-            "group": "Template",
+            "group": "Index",
             "pages": [
-              "components/Component_Index",
-              "components/Template"
+              "components/Component_Index"
             ]
           },
+{
+            "group": "Retail",
+            "pages": [
+              "components/Retail/Filters_Sort_Bar",
+              "components/Retail/Promotion_Info",
+              "components/Retail/Store_Card_List",
+              "components/Retail/Store_Card"
+            ]
+          },          
           {
-            "group": "Navigation & Search",
+            "group": "Components",
             "pages": [
               "components/NavigationBar",
               "components/TabBar",

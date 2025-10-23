@@ -1,0 +1,21 @@
+.image-container {
+    /* 1. 启用 Flex 布局 */
+    display: flex; 
+    
+    /* 2. 水平居中内容（图片） */
+    justify-content: center; 
+    
+    /* 3. 垂直居中内容（如果容器有高度，垂直居中图片） */
+    /* align-items: center; */
+    
+    /* ...保持其他样式，例如让容器本身居中... */
+    max-width: 700px; 
+    margin: auto;
+    background-color: #454545;
+    padding: 10px; 
+}
+
+.image-container img {
+    /* 在 Flex 容器内，图片不需要特殊的 display 或 margin 样式 */
+    /* 只需要 width/height */
+}

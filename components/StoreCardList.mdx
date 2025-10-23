@@ -1,0 +1,85 @@
+---
+title: StoreCardList
+sidebarTitle: StoreCardList
+---
+
+# StoreCardList
+
+零售目录组件：用于展示门店卡片列表，包含封面图、店铺信息、位置行与状态/标签等。
+
+## Figma
+- 文件：NG UI Design
+- 组件节点：Retail/Directory/StoreCardList (`12294:3753`)
+- 访问链接：https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12294-3753
+
+## 概述
+- 列表由多张 `StoreCard` 组成，每张卡片承载门店基本信息与标签；支持点击进入详情。
+- 常见元素：封面图片、店名标题、副标题/类别、位置行（`map-pin` 图标 + 地址）、状态 Chip（如 `Open`）、优惠/标签 Chips（如 `NG$ Rebate`、`2 Offers`）。
+
+## 结构
+- 列表标题（例如 `89 results`）。
+- 若干 `StoreCard`（卡片容器 + 内容）：
+  - 封面图区域：固定比例容器（`Aspect Ratio` 帧）。
+  - 内容栈：
+    - 标题（`Title 300 EN`）：如 `Aēsop`、`Emperor Jewelry`、`APM Monaco`、`alice + olivia by Stacey Bendet`。
+    - 位置行：
+      - 图标：`map-pin`（组件ID `149:6931`），建议 16px。
+      - 地址文本（`Text 200 EN`）：如 `G026 Promenade East`、`G004 Promenade East` 等。
+    - 状态 Chip：如 `Open`（部分样式为 `text extra small/leading-none/regular`）。
+    - 分类/副标题：如 `Beauty & Healthcare`、`Watches & Jewelry`（`Text 200 EN`）。
+    - 优惠/标签 Chips：如 `NG$ Rebate`、`2 Offers`（圆角 4px，带描边或背景）。
+
+## 规格
+- 卡片：
+  - 圆角：`20px`。
+  - 阴影：`Shadow 100`（卡片与封面图帧均有同名阴影）。
+- 封面图：
+  - 固定比例容器（`Aspect Ratio`），建议 `object-fit: cover`。
+- 文本样式：
+  - 标题：`Title 300 EN`（字重 600 级别）。
+  - 地址与分类：`Text 200 EN`。
+  - 状态小字：`text extra small/leading-none/regular`。
+- 图标：
+  - `map-pin`（组件：`149:6931`），建议尺寸 16px，颜色使用 `icon/primary` 或与文本次级色统一。
+- Chips：
+  - 小标签圆角：`4px`；带描边 `stroke_2QSQKX` 或浅色填充；间距参考设计帧 `layout`。
+
+## 行为
+- 整卡可点击：
+  - `hover`：提升阴影或略微上移。
+  - `active`：压低阴影或轻微按压效果。
+- Chip 可点击或聚焦：
+  - 焦点环使用统一的 `focus/outline` 令牌。
+
+## 无障碍
+- 卡片容器需具备可聚焦性（键盘导航）。
+- 为主要操作提供可感知的焦点样式与语义标签（如 `aria-label`）。
+- 图标需提供可替代文本或与文本一起呈现确保语义。
+
+## 数据示例
+可用于渲染的示意数据结构：
+
+```ts
+interface StoreCardItem {
+  id: string
+  title: string // 店名
+  address: string // 地址/位置
+  category?: string // 类别/副标题
+  status?: 'Open' | 'Closed' | 'Busy' // 状态
+  tags?: string[] // 标签/优惠
+  imageUrl?: string // 封面图
+}
+
+interface StoreCardListProps {
+  items: StoreCardItem[]
+  onCardClick?: (id: string) => void
+}
+```
+
+## 使用建议
+- 列表内卡片之间保持一致的垂直间距，确保视觉节奏。
+- 标题与地址行层级对比清晰：`Title 300 EN` > `Text 200 EN`。
+- 在移动端可采用两列或单列，封面比例与卡片宽度自适应。
+
+## 设计来源
+该文档基于 Figma 组件 `Retail/Directory/StoreCardList`（节点 `12294:3753`）提炼结构与规格，用于搭建与对齐实现。
