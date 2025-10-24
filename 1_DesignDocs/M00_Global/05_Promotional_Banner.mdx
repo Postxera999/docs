@@ -1,0 +1,55 @@
+---
+title: "05-Promotional Banner"
+---
+
+Located at the top of the list, displaying the user’s membership level and benefit information.
+It provides members with personalized and comparative rebate information, highlighting their current membership tier and other exclusive NG$ rebate rates available across tiers.
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=iw32LYd6XxVswo2X-4" ></iframe>
+
+## **Key Functional Features**
+
+This module presents rebate-related promotions and membership benefits in a dynamic, visually compact format. It allows users to see their own membership tier and rebate entitlement, while also displaying other NG$ rebate rates available to higher or lower tiers for comparison. This encourages awareness of membership benefits and tier progression incentives.
+
+## **Display Logic**
+- The module is visible only when the user is logged in. When displayed, it includes:
+    - The user’s current membership tier (e.g. “NG Diamond”).
+    - The corresponding rebate rate for the current tier.
+    - A series of benefit cards showing exclusive rebate rates and promotional offers available to the user.
+- Non-logged-in user will not see this section.
+
+## **Layout**
+- Single card: displayed at full width.
+- Multiple cards: along with other promotional benefit card, each card displayed at 300px width in a scrollable horizontal carousel
+
+## **Supported card type**
+### **1.Tier Benefit Card**
+
+<img src="/2_Images/M03_Retail/img_1.png" alt="描述文字" width="300px" />
+
+- When the user is a logged-in NG Diamond member, display the corresponding membership level, such as “NG Diamond.”
+- Displays current tier rebate and benefit message.
+- Display promotional information corresponding to the level, such as “Shop and Save!” “members earn 2% Resort Dollars rebate on retail purchases”
+
+| **Element**          | **Description**                                                     | **Example**                                               | **Display Logic**    |
+| -------------------- | ------------------------------------------------------------------- | --------------------------------------------------------- | -------------------- |
+| **Tier Tag**         | Displays membership tier (e.g. “Galaxy Life Diamond”)               | NG Diamond                                                | Display full length  |
+| **Tag Icon**         | Icon next to the tag                                                | Tier - Tier Logo                                          |                      |
+| **Title Text**       | Main headline describing the benefit. Tier-specific rebate headline | Get 2% back when you shop”                               | 1 line max character |
+| **Description text** | Supporting benefit description**                                  | Earn 2% NG$ Rebate on retail purchases at selected shops! | 2 line max character |
+
+### **2.Exclusive Offer Card**
+
+| <img src="/2_Images/M03_Retail/img_2.png" alt="描述文字" /> | <img src="/2_Images/M03_Retail/img_3.png" alt="描述文字" /> |
+| --------------- | ------------------------------------------------------------- |
+                                                                
+- Displays category-specific or time-limited offer. Configurable content
+- Displayed within the Promotion Information Module at the top of the Retail Directory Page, alongside the Member Promotional Card when applicable. It highlights time-limited or event-based promotional offers available to the logged-in member, such as birthday benefits or festive rebate campaigns.
+
+| **Element**          | **Description**                                                                                                                                                       | **Display Logic**      | **Example**                                                      |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------------------------------------------------------- |
+| **Tag**              | Identifies the promotion type (`Birthday offers: "Brithday Month"`,`Festive Offer: "Chinese New Year", "Christmas"`,`General offer: "Exclusive for you"`) |                        | "Exclusive for you"                                              |
+| **Tag Icon**         | Icon next to the tag/ badge                                                                                                                                           |                        | Exclusive for you - Crown Tier - Tier Logo Birthday Month - Cake |
+| **Expiry text**      | (Optional) Displayed at top-right when an expiry date exists.                                                                                                         |                        | Ends: Oct 1, 2025                                                |
+| **Title Text**       | Main headline describing the benefit.                                                                                                                                 | 1 line max, character  | Birthday Month: Earn 2X NG$                                      |
+| **Description text** | Supporting line explaining the offer.                                                                                                                                 | 2 lines trucated after | Earn 2% NG$ Rebate on retail purchases at selected shops!        |

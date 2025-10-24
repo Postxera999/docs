@@ -7,3 +7,12 @@ strong {
 .docs-content strong {
   color: #07c983 !important;
 }
+
+/* 针对所有表格单元格 */
+table td {
+    vertical-align: middle;
+}
+/* 或针对特定的表格类，如果渲染器添加了类 */
+.markdown-table td {
+    vertical-align: middle;
+}

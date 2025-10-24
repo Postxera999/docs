@@ -1,0 +1,159 @@
+---
+title: "M03-01 Directory"
+---
+
+## Components
+
+### Local components
+
+| **ID**    | **Module** | **Screen**   | **Component**      | **Full Name**                  | **Figma**                                                                                                         | **Doc**                           |
+| :-------- | :--------- | :----------- | :----------------- | :----------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| M00-01-04 | M03-Retail | 01-Directory | 03-Store Card List | Retail/Directory/StoreCardList | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-84531&t=iw32LYd6XxVswo2X-4) | [Doc](#m03-01-01-store-card-list) |
+| M00-01-05 | M03-Retail | 01-Directory | 04-Store Card      | Retail/Directory/StoreCard     | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85048&t=iw32LYd6XxVswo2X-4) | [Doc](#m03-01-02-store-card)      |
+  
+### Global Components
+| **ID**    | **Component**         | **Full Name**             | **Figma**                                                                                                         | **Doc**                                |
+| :-------- | :-------------------- | :------------------------ | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| Global-02 | 02-Filter Bar         | Global/Filter Bar         | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90049&t=iw32LYd6XxVswo2X-4) | [Doc](/1_DesignDocs/M00_Global/02_Filter_bar) |
+| Global-03 | 03-Search             | Global/Search             | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90049&t=iw32LYd6XxVswo2X-4) | [Doc](/1_DesignDocs/M00_Global/03_Search)       |
+| Global-04 | 04-Sort               | Global/Sort               | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90049&t=iw32LYd6XxVswo2X-4) | [Doc](/1_DesignDocs/M00_Global/04_Sort)      |
+| Global-05 | 05-Promotional Banner | Global/Promotional Banner | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=iw32LYd6XxVswo2X-4) | [Doc](/1_DesignDocs/M00_Global/05_Promotional_Banner)           |
+| Global-06 | 05-Rebate Tag         | Global/Rebate Tag         | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85491&t=iw32LYd6XxVswo2X-4) | [Doc](/1_DesignDocs/M00_Global/06_Rebate_Tag)           |
+| Global-07 | 07-Offer Tag          | Global/Offer Tag          | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85491&t=iw32LYd6XxVswo2X-4) | [Doc](/1_DesignDocs/M00_Global/07_Offer_Tag)           |
+
+
+## **Functionalities**
+
+Users enter the Retail Directory page through the Retail card on the Discover page. This page includes the following primary areas:
+
+1. Top navigation: contains Filter, Search entry, Sort button, and quick filter tabs.
+2. Benefits banner: shows the user’s membership level and the benefits they enjoy.
+3. Store list: displays retail stores that match the selected filters.
+
+### **Global-02 Filter Bar**
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/02_Filter_bar)
+
+#### **Filter Categories**
+
+The left side of the interface displays a list of filter dimensions, while the right side shows the corresponding options for each dimension.
+
+| **Filter Categories** | **Option Type**               | **Example Options**                                                                                                                       | **Description**                                                                                    |
+| --------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Store Categories**  | Tag Selection (Multi-select)  | Fashion & Accessories, Watches & Jewellery, Services, Electronics, Beauty & Healthcare, Lifestyle & Gifts, Kids, Gourmet & Specialty Food | Filters stores based on their primary product category. One store can have more than one category. |
+| **`$NG`**             | Tag Selection (Multi-select)  | `$NG` earned, `$NG` available                                                                                                             | Filters stores that accept `$NG`, or offers `$NG` rebate.                                          |
+| **Opening Hours**     | Tag Selection (Single-select) | Open now                                                                                                                                  | Filters stores that are currently open based on the configured opening hours of the store.         |
+| **Offer Eligibility** | Tag Selection (Single-select) | Offer / Coupon                                                                                                                            | Filters stores that have offers attached or accept coupons.                                        |
+| **Location**          | Tag Selection (Multi-select)  | Galaxy Macau, Central Corridor, Broadway Food Street                                                                                      | Filters stores based on specific areas or landmarks across the property.                           |
+| **Floor**             | Tag Selection (Multi-select)  | LG-2/F, G-F, 1/F                                                                                                                          | Filters stores by floor level within the property.                                                 |
+
+### **Global-03 Search - Local Search**
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/03_Search)
+
+### **Global-04 Sort**
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/04_Sort)
+
+### **Global-05 Promotion Info**
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/05_Promotional_Banner)
+
+### **M03-01-01 Store Card List**
+
+#### **Results count**
+
+Result Count Display provides users with a summary of the total number of stores matching the currently applied filters or search criteria. It appears above the store card area on the Retail Directory Page.
+
+#### **Display Logic**
+
+- The Result Count Display is shown whenever the store list is generated or refreshed.
+- The count value reflects the total number of store cards matching the active filtering and/or search criteria.
+- Display format:
+    - “xx results” — where _xx_ represents the number of stores matching the active filtering and/or search criteria.
+- If no stores match the applied criteria, the display reads “0 results”, and the list area transitions to the empty state layout.
+- The count is updated in real time whenever the user:
+    - Applies or removes filters
+    - Executes a store name search
+
+#### **Store list**
+
+The Store List Display presents the set of retail outlets that match the currently applied filters, sorting options, or search criteria.
+
+Each store is rendered as an individual Store Card, displaying key information such as logo, name, operational status, category, location, and available benefits.
+
+**Display Logic**
+
+- The Store List appears directly below the Result Count Display.
+- Each Store Card represents one merchant record retrieved from the CCMS dataset.
+- Cards are listed vertically with standard spacing and rounded container styling.
+- The list updates dynamically when:
+    - Filters or sorting options are changed
+    - Search keywords are applied
+
+### **M03-01-02 Store Card**
+
+Each Store Card represents an individual retail merchant entry within the Retail Listing Page.
+
+It consolidates essential merchant information into a single, compact layout, allowing users to quickly identify store identity, category, location, and active offers.
+
+#### **Key Function**
+
+- The Store Card is a reusable content component displaying a retailer’s name, logo, category, location, current operating status, and active benefits such as NG$ Rebate or Offers.
+- It dynamically updates according to user filtering, sorting, or search actions.
+- The card also provides direct navigation to the detailed merchant view upon user interaction.
+
+#### **Behavior Logic**
+
+- Tap on Card: Opens Store Detail Page for selected merchant
+
+#### **Content Structure / Layout**
+
+##### **Store Logo**
+* **Description:** Brand image representing the retailer. Displayed on the left side of the card in a fixed 1:1 square ratio. The logo serves as a static brand identifier and does not support multiple images or gallery interaction.
+* **Display Logic:** Image format: JPG or PNG Single image, and strict logo only. Use square and rectangular bounding boxes to define the logo area, Ensuring that
+    * Tall (38x62px),
+    * Wide (62x38px)
+    * Balanced (50x50px) logos all maintain a consistent visual center. 
+* **Example:**
+
+<img src="/2_Images/M03_Retail/img_4.png" alt="描述文字" width="300px" />
+
+##### **Store Name**
+* **Description:** Official merchant name
+* **Display Logic:** Maximum 2 lines, truncate if more than 2 lines
+* **Example:** Aesop
+
+##### **Operating Status**
+* **Description:** Real-time indicator of whether the store is currently open or closed, based on Opening Hours. Text labels: **Closed Now** or **Open Now**
+* **Display Logic:** System compares current time against configured hours.
+* **Example:** **Closed Now** or **Open Now**
+
+##### **Store Category**
+* **Description:** Primary category
+* **Display Logic:** Displays only primary category. $\bullet$ Appears beside Operating Status, separated by "$\bullet$". $\bullet$ Single-line truncation if text exceeds width.
+* **Example:** "Fashion & Accessories", "Beauty & Healthcare"
+
+
+##### [Global-06 Rebate_Tag](/1_DesignDocs/M00_Global/06_Rebate_Tag)
+* **Description:** Visual indicator to show store supports points rebate
+* **Display Logic:** Refer to Global Rebate tag component section
+* **Example:**
+
+##### [Global-07 Offer_Tag](/1_DesignDocs/M00_Global/06_Offer_Tag)
+* **Description:** Visual indicators for merchant benefits or active offers.
+* **Display Logic:** Refer to Global Offer component section
+* **Example:**
+
+##### **Location Info**
+* **Description:** Displays the merchant's physical location, combining Floor, Shop Number, and Property Zone
+* **Display Logic:** Location string is constructed using three attributes in the following sequence, displays the rest if any is missing: 1. Floor 2. Shop Number 3. Property Zone. Max 1 line, truncate if exceeds
+* **Example:** G/F, G034, Promenade East
+
+### **Global-06 Rebate Tags**
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/06_Rebate_Tag)
+
+### **Global-07 Offer Tags**
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/06_Offer_Tag)

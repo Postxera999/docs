@@ -1,4 +1,30 @@
 ---
-title: "03-Search"
+title: "03-Search (Local Search)"
 ---
 
+## **Search Input Box**
+
+When clicking the 'Search' icon in the bar, the search input box will display directly under the filter bar.
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90049&t=iw32LYd6XxVswo2X-4" ></iframe>
+
+| **State**      | **Description**                                                                                           |
+| -------------- | --------------------------------------------------------------------------------------------------------- |
+| Default | Placeholder text to prompt user what they could enter in the search bar e.g. Enter store name or category |
+| Text Input | Activated when the user taps the search field or begins typing text.    
+
+
+## **Search Results Logic**
+
+- Users can search within the retail directory based on content name or keywords. Once text is entered into the bar, the search results are loaded according to relevance, with content name match as priority.
+- The results returned from the local search only returns the results in that respective page.
+- Once text is entered, the system follows the logic below:
+
+1. Results Screen (When Matches Are Found)
+    1. The search keyword remains visible in the input field and the respective content is shown in a list format below.
+    2. The 'Results Count' updates to reflect the actual number of results found (e.g.`3 Results`) .
+2. No Results Screen (Search - No Results)
+    1. Display default 'No Results' state
+    2. Recommended Content (You Might Also Like):
+        - Displayed below the “No Results” message is the Retail module card carousel, displaying a list of other recommendations for other retail stores.
+        - The recommendations in the "No Results" page is personalised based on the user's customer profile (from CDPMA data). This Retail carousel should be the same as the retail carousel displayed on the Homepage.
