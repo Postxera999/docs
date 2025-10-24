@@ -123,8 +123,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/logo2.svg",
-    "dark": "/logo/logo3.svg"
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "contextual": {
     "options": [
