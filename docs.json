@@ -97,13 +97,25 @@
           {
             "group": "Index",
             "pages": [
-              "components/M03-Retail"
+              "0_Index/M00_Global",
+              "0_Index/M03_Retail"
             ]
           },
-{
+          {
             "group": "Pages",
             "pages": [
               "function/M03_01_Directory"
+            ]
+          },
+{
+            "group": "Global Functions",
+            "pages": [
+              "DesignDocs/M00_Global/01_Skeleton",
+              "DesignDocs/M00_Global/02-Filter bar",
+              "DesignDocs/M00_Global/03-Search",
+              "DesignDocs/M00_Global/04-Promotional banner",
+              "DesignDocs/M00_Global/05-Rebate tag",
+              "DesignDocs/M00_Global/06-Offer tag"
             ]
           }
         ]
