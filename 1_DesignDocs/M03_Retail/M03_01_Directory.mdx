@@ -2,7 +2,7 @@
 title: "M03-01 Directory"
 ---
 
-## Components
+## Components Index
 
 ### Local components
 
@@ -30,7 +30,7 @@ Users enter the Retail Directory page through the Retail card on the Discover pa
 2. Benefits banner: shows the user’s membership level and the benefits they enjoy.
 3. Store list: displays retail stores that match the selected filters.
 
-### **Global-02 Filter Bar**
+### **Filter Bar (Global-02 )**
 
 Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/02_Filter_bar)
 
@@ -49,27 +49,27 @@ The left side of the interface displays a list of filter dimensions, while the r
 | **Location**          | Tag Selection (Multi-select)  | Galaxy Macau, Central Corridor, Broadway Food Street                                                                                      | Filters stores based on specific areas or landmarks across the property.                           |
 | **Floor**             | Tag Selection (Multi-select)  | LG-2/F, G-F, 1/F                                                                                                                          | Filters stores by floor level within the property.                                                 |
 
-### **Global-03 Search - Local Search**
+### **Search - Local Search (Global-03)**
 
 Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/03_Search)
 
-### **Global-04 Sort**
+### **Sort (Global-04)**
 
 Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/04_Sort)
 
-### **Global-05 Promotion Info**
+### **Promotional Banner (Global-05)**
 
 Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/05_Promotional_Banner)
 
-### **M03-01-01 Store Card List**
+### **Store Card Listing (M03-01-01)**
 
 <iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-84531&t=iw32LYd6XxVswo2X-4" ></iframe>
 
-#### **Results count**
+#### **Results Count Display (M03-01-01_01)**
 
 Result Count Display provides users with a summary of the total number of stores matching the currently applied filters or search criteria. It appears above the store card area on the Retail Directory Page.
 
-#### **Display Logic**
+**Display Logic**
 
 - The Result Count Display is shown whenever the store list is generated or refreshed.
 - The count value reflects the total number of store cards matching the active filtering and/or search criteria.
@@ -80,7 +80,7 @@ Result Count Display provides users with a summary of the total number of stores
     - Applies or removes filters
     - Executes a store name search
 
-#### **Store list**
+#### **Store Card Listing (M03-01-01_02)**
 
 The Store List Display presents the set of retail outlets that match the currently applied filters, sorting options, or search criteria.
 
@@ -95,7 +95,7 @@ Each store is rendered as an individual Store Card, displaying key information s
     - Filters or sorting options are changed
     - Search keywords are applied
 
-### **M03-01-02 Store Card**
+### **Store Card (M03-01-02)**
 
 Each Store Card represents an individual retail merchant entry within the Retail Listing Page.
 
@@ -114,9 +114,7 @@ It consolidates essential merchant information into a single, compact layout, al
 
 - Tap on Card: Opens Store Detail Page for selected merchant
 
-#### **Content Structure / Layout**
-
-##### **Store Logo**
+#### **Store Logo (M03-01-02_01)**
 * **Description:** Brand image representing the retailer. Displayed on the left side of the card in a fixed 1:1 square ratio. The logo serves as a static brand identifier and does not support multiple images or gallery interaction.
 * **Display Logic:** Image format: JPG or PNG Single image, and strict logo only. Use square and rectangular bounding boxes to define the logo area, Ensuring that
     * Tall (38x62px),
@@ -127,40 +125,35 @@ It consolidates essential merchant information into a single, compact layout, al
 <img src="/2_Images/M03_Retail/img_4.png" alt="描述文字" width="300" height="200" />
 </div>
 
-##### **Store Name**
+#### **Store Name (M03-01-02_02)**
 * **Description:** Official merchant name
 * **Display Logic:** Maximum 2 lines, truncate if more than 2 lines
 * **Example:** Aesop
 
-##### **Operating Status**
+#### **Operating Status (M03-01-02_03)**
 * **Description:** Real-time indicator of whether the store is currently open or closed, based on Opening Hours. Text labels: **Closed Now** or **Open Now**
 * **Display Logic:** System compares current time against configured hours.
 * **Example:** **Closed Now** or **Open Now**
 
-##### **Store Category**
+##### **Store Category (M03-01-02_04)**
 * **Description:** Primary category
 * **Display Logic:** Displays only primary category. $\bullet$ Appears beside Operating Status, separated by "$\bullet$". $\bullet$ Single-line truncation if text exceeds width.
 * **Example:** "Fashion & Accessories", "Beauty & Healthcare"
 * **Input:** 
 
 
-##### [Global-06 Rebate_Tag](/1_DesignDocs/M00_Global/06_Rebate_Tag)
+#### [Global-06 Rebate_Tag](/1_DesignDocs/M00_Global/06_Rebate_Tag)
 * **Description:** Visual indicator to show store supports points rebate
 * **Display Logic:** Refer to Global Rebate tag component section
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/06_Rebate_Tag)
 
-##### [Global-07 Offer_Tag](/1_DesignDocs/M00_Global/06_Offer_Tag)
+#### [Global-07 Offer_Tag](/1_DesignDocs/M00_Global/06_Offer_Tag)
 * **Description:** Visual indicators for merchant benefits or active offers.
 * **Display Logic:** Refer to Global Offer component section
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
 
-##### **Location Info**
+
+#### **Store Location (M03-01-02_05)**
 * **Description:** Displays the merchant's physical location, combining Floor, Shop Number, and Property Zone
 * **Display Logic:** Location string is constructed using three attributes in the following sequence, displays the rest if any is missing: 1. Floor 2. Shop Number 3. Property Zone. Max 1 line, truncate if exceeds
 * **Example:** G/F, G034, Promenade East
-
-### **Global-06 Rebate Tags**
-
-Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/06_Rebate_Tag)
-
-### **Global-07 Offer Tags**
-
-Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
