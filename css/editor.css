@@ -16,3 +16,12 @@ table td {
 .markdown-table td {
     vertical-align: middle;
 }
+
+
+/* 针对亮色和暗色模式的 logo 图像元素 */
+.nav-logo {
+  /* 使用 !important 确保覆盖 Tailwind 默认的 h-7 (28px) 样式 */
+  height: 40px !important; /* 将 40px 替换为您想要的任何尺寸 */
+  /* 也可以设置宽度，但通常保持 w-auto 更好 */
+  /* width: 40px !important; */
+}
