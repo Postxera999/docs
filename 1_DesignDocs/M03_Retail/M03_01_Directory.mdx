@@ -160,34 +160,29 @@ Result Count Display provides users with a summary of the total number of stores
 #### **Store Name (M03_01_03)**
 * **Description:** Official merchant name
 * **Display Logic:** Maximum 2 lines, truncate if more than 2 lines
-* **Input:** 
 * **Example:** Aesop
 
 #### **Store Category (M03_01_04)**
 * **Description:** Primary category
 * **Display Logic:** Displays only primary category. $\bullet$ Appears beside Operating Status, separated by "$\bullet$". $\bullet$ Single-line truncation if text exceeds width.
-* **Input:** 
 * **Example:** "Fashion & Accessories", "Beauty & Healthcare"
 
 
 #### **Operating Status (M03_01_05)**
 * **Description:** Real-time indicator of whether the store is currently open or closed, based on Opening Hours. Text labels: **Closed Now** or **Open Now**
 * **Display Logic:** System compares current time against configured hours.
-* **Input:** 
 * **Example:** **Closed Now** or **Open Now**
 
 
 #### **Rebate_Tag (G04_02_02)**
 * **Description:** Visual indicator to show store supports points rebate
 * **Display Logic:** Refer to Global Rebate tag component section
-* **Input:** 
 
 Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/06_Rebate_Tag)
 
 #### **Offer_Tag (G04_02_03)**
 * **Description:** Visual indicators for merchant benefits or active offers.
 * **Display Logic:** Refer to Global Offer component section
-* **Input:** 
 
 Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
 
@@ -196,4 +191,3 @@ Please refer to the global component documentation for details. [Link](/1_Design
 * **Description:** Displays the merchant's physical location, combining Floor, Shop Number, and Property Zone
 * **Display Logic:** Location string is constructed using three attributes in the following sequence, displays the rest if any is missing: 1. Floor 2. Shop Number 3. Property Zone. Max 1 line, truncate if exceeds
 * **Example:** G/F, G034, Promenade East
-* **Input:** 
