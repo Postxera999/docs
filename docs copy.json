@@ -1,0 +1,150 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Functional Requirements",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "favicon": "/logo/DCA-icon.svg",
+  "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://mintlify.com/docs",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://mintlify.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+  }, 
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Function",
+        "groups": [
+          {
+            "group": "1. BACKGROUND",
+            "pages": [
+              "function/1.background/Revision History",
+              "function/1.background/Background",
+              "function/1.background/1.1",
+              "function/1.background/1.2"
+            ]
+          },
+          {
+            "group": "2. DETAILED REQUIREMENTS",
+            "pages": [
+              "function/2.detailed_requirements/Overview",
+              "function/2.detailed_requirements/2.1",
+              "function/2.detailed_requirements/2.2",
+              "function/2.detailed_requirements/2.3",
+              "function/2.detailed_requirements/2.4",
+              "function/2.detailed_requirements/2.5",
+              "function/2.detailed_requirements/2.6",
+              "function/2.detailed_requirements/2.7",
+              "function/2.detailed_requirements/2.8",
+              "function/2.detailed_requirements/2.9",
+              "function/2.detailed_requirements/2.10",
+              "function/2.detailed_requirements/2.11"
+            ]
+          },
+          {
+            "group": "3. SOLUTION SUMMARY",
+            "pages": [
+              "function/Placeholder",
+              "function/Retail"
+            ]
+          },
+          {
+            "group": "5. SYSTEM REQUIREMENT",
+            "pages": [
+              "function/Placeholder"
+            ]
+          },
+          {
+            "group": "4. Appendix",
+            "pages": [
+              "function/Placeholder"
+            ]
+          },
+          {
+            "group": "Mintlify Docs",
+            "pages": [
+              "essentials/settings",
+              "index",
+              "quickstart",
+              "development",
+              "Layout Example",
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets",
+              "ai-tools/cursor",
+              "ai-tools/claude-code",
+              "ai-tools/windsurf"                         
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Demo",
+         "groups": [
+          {
+            "group": "Index",
+            "pages": [
+              "0_Index/M00_Global",
+              "0_Index/M03_Retail"
+            ]
+          },
+          {
+            "group": "Pages",
+            "pages": [
+              "1_DesignDocs/M03_Retail/M03_01_Directory"
+            ]
+          },
+{
+            "group": "Global Functions",
+            "pages": [
+              "1_DesignDocs/M00_Global/03_Search",
+              "1_DesignDocs/M00_Global/04_Sort",    
+              "1_DesignDocs/M00_Global/02_Filter_Bar", 
+              "1_DesignDocs/M00_Global/05_Promotional_Banner",
+              "1_DesignDocs/M00_Global/06_Rebate_Tag",
+              "1_DesignDocs/M00_Global/07_Offer_Tag",
+              "1_DesignDocs/M00_Global/01_Skeleton"
+
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/DCA-icon.svg",
+    "dark": "/logo/DCA-icon.svg"
+  },
+  "contextual": {
+    "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+  }, 
+"footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  }
+}
