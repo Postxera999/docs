@@ -110,13 +110,14 @@
 {
             "group": "Global Functions",
             "pages": [
-              "1_DesignDocs/M00_Global/01_Skeleton",
-              "1_DesignDocs/M00_Global/02_Filter_Bar",
               "1_DesignDocs/M00_Global/03_Search",
-              "1_DesignDocs/M00_Global/04_Sort",     
+              "1_DesignDocs/M00_Global/04_Sort",    
+              "1_DesignDocs/M00_Global/02_Filter_Bar", 
               "1_DesignDocs/M00_Global/05_Promotional_Banner",
               "1_DesignDocs/M00_Global/06_Rebate_Tag",
-              "1_DesignDocs/M00_Global/07_Offer_Tag"
+              "1_DesignDocs/M00_Global/07_Offer_Tag",
+              "1_DesignDocs/M00_Global/01_Skeleton"
+
             ]
           }
         ]
