@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1_DesignDocs/M00_Global/02_Filter_Bar.mdx",
+                "file": "1_DesignDocs/M03_Retail/M03_01_Directory.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02_Filter_Bar"
+              "title": "M03_01_Directory"
             }
           }
         ]
@@ -168,8 +168,17 @@
       "hide-folders:Show hidden folders": false
     }
   },
-  "active": "881b07f6de82feb6",
+  "active": "e41465d6f2a9cfcd",
   "lastOpenFiles": [
-    "1_DesignDocs/M00_Global/01_Skeleton.mdx"
+    "essentials/quickstart.mdx",
+    "essentials/navigation.mdx",
+    "essentials/Layout Example.mdx",
+    "essentials/development.mdx",
+    "essentials/index.mdx",
+    "logo/favicon.svg",
+    "0_Index/M00_Global.mdx",
+    "1_DesignDocs/M00_Global/02_Filter_bar.md",
+    "1_DesignDocs/M00_Global/01_Skeleton.mdx",
+    "1_DesignDocs/M00_Global/02_Filter_Bar.mdx"
   ]
 }
