@@ -29,9 +29,6 @@ title: "M03-01 Directory"
 | G04_01_02    | Benefit Detail                 | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/05_Promotional_Banner) |
 | G04_02_02    | Rebate Tag                     | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85491&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/06_Rebate_Tag)         |
 | G04_02_03    | Offer Tag                      | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=3540-4875&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/07_Offer_Tag)          |
-   |
-
-
 ## **Functionalities**
 
 Users enter the Retail Directory page through the Retail card on the Discover page. This page includes the following primary areas:
@@ -64,16 +61,20 @@ The left side of the interface displays a list of filter dimensions, while the r
 
 #### **Components**
 
+<div className="table-wrapper">
+
 | **Component Code** | **Component Name**                       | **Functional Description**                                                                                                                                                                                                      |
 | ------------------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| G05_02_01          | Filter Category Navigation (De-selected) | A primary navigation item within the filter modal used to switch between different high-level filtering groups (e.g., "Store categories," "NGS," "Location"). This state indicates it is **not** the currently active category. |
-| G05_02_01_V1       | Filter Category Navigation (Selected)    | The active state of the primary filter navigation item. It visually highlights the filtering category currently being displayed and edited by the user.                                                                         |
-| G03_02_01          | Tag Selection (De-selected)              | An interactive tag/pill representing an individual filter choice (e.g., "Fashion & Accessories"). This state indicates the option is **not** currently applied to the filter results.                                           |
-| G03_02_01_V1       | Tag Selection (Selected)                 | The active state of an individual filter option. It visually indicates that this specific option has been selected and will be applied to the results upon confirmation.                                                        |
-| G01_01_01          | Clear All Button                         | A secondary button component used to instantly reset all applied filters, clearing the entire filter modal's selections back to the default state.                                                                              |
-| G01_01_02          | Filter Confirmation                      | A primary action button (labeled "Confirm") used to finalize and apply the currently selected filter criteria, dismissing the modal and updating the main screen's data.                                                        |
+| `G05_02_01`        | Filter Category Navigation (De-selected) | A primary navigation item within the filter modal used to switch between different high-level filtering groups (e.g., "Store categories," "NGS," "Location"). This state indicates it is **not** the currently active category. |
+| `G05_02_01_V1`     | Filter Category Navigation (Selected)    | The active state of the primary filter navigation item. It visually highlights the filtering category currently being displayed and edited by the user.                                                                         |
+| `G03_02_01`        | Tag Selection (De-selected)              | An interactive tag/pill representing an individual filter choice (e.g., "Fashion & Accessories"). This state indicates the option is **not** currently applied to the filter results.                                           |
+| `G03_02_01_V1`     | Tag Selection (Selected)                 | The active state of an individual filter option. It visually indicates that this specific option has been selected and will be applied to the results upon confirmation.                                                        |
+| `G01_01_01`        | Clear All Button                         | A secondary button component used to instantly reset all applied filters, clearing the entire filter modal's selections back to the default state.                                                                              |
+| `G01_01_02`        | Filter Confirmation                      | A primary action button (labeled "Confirm") used to finalize and apply the currently selected filter criteria, dismissing the modal and updating the main screen's data.                                                        |
+</div>
 
 #### **Retail Tag Selections**
+<div className="table-wrapper">
 
 | **Filter Categories** | **Option Type**               | **Example Options**                                                                                                                       | **Description**                                                                                    |
 | --------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -83,10 +84,12 @@ The left side of the interface displays a list of filter dimensions, while the r
 | Offer Eligibility | Tag Selection (Single-select) | Offer / Coupon                                                                                                                            | Filters stores that have offers attached or accept coupons.                                        |
 | Location          | Tag Selection (Multi-select)  | Galaxy Macau, Central Corridor, Broadway Food Street                                                                                      | Filters stores based on specific areas or landmarks across the property.                           |
 | Floor             | Tag Selection (Multi-select)  | LG-2/F, G-F, 1/F                                                                                                                          | Filters stores by floor level within the property.                                                 |
+</div>
 
 ### **Promotional Banner**
 
 Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/05_Promotional_Banner)
+<div className="table-wrapper">
 
 | **Component Code** | **Component Name**             | **Functional Description**                                                                                                                                                                                            |
 | ------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -94,6 +97,7 @@ Please refer to the global component documentation for details. [Link](/1_Design
 | `G04_01_01`        | Single Benefit Card            | A full-width, standalone card component used to display a single, primary benefit or offer (e.g., discount percentage, expiration date, and description).                                                             |
 | `G04_01_01_V1`     | Supports Multiple Benefit Card | A container component designed to hold and display multiple benefit cards (like Global-05_01) arranged horizontally. It supports scrolling (carousel functionality) to allow the user to browse all available offers. |
 | `G04_01_02`        | Benefit Detail                 | A component that displays a comprehensive breakdown of the user's current membership tier and all associated exclusive NGS Rebate rates, along with other detailed terms and conditions.                              |
+</div>
 
 <iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=iw32LYd6XxVswo2X-4" ></iframe>
 
@@ -148,19 +152,48 @@ Result Count Display provides users with a summary of the total number of stores
     - Executes a store name search
 
 #### **Store Logo (M03_01_02)**
-* **Description:** Brand image representing the retailer. Displayed on the left side of the card in a fixed 1:1 square ratio. The logo serves as a static brand identifier and does not support multiple images or gallery interaction.
-* **Display Logic:** Image format: JPG or PNG Single image, and strict logo only. Use square and rectangular bounding boxes to define the logo area, Ensuring that
-    * Tall (38x62px),
-    * Wide (62x38px)
-    * Balanced (50x50px) logos all maintain a consistent visual center. 
-* **Example:**
+
+- **Description**: Official merchant logo used for visual identification in the shopping section.
+- **Display Logic**: 
+	- **Resolution:** Must support high-resolution displays (e.g., loading 2x or 3x sized images for Retina screens).
+	- **Fallback:** If the image fails to load, display a **default placeholder icon** within the logo container.
+
+**CMS Field Specification**
+<div className="table-wrapper">
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Image                                                                                                                  |
+| File Format            | webp                                                                                                                   |
+| Size Requirement       | Minimum 1280 x 1280 pixels (square ratio 1:1)                                                                          |
+| File Size Limit        | Maximum 2 MB                                                                                                           |
+| Input Validation       | Must be a square ratio ($1:1$). If not, the system must force a center crop upon upload.                               |
+| Data Source            | Input manually by CMS editor                                                                                           |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+</div>
+
+**Example**
 
 <iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12821-7151&t=uV5ZHYpNUrLfRHkf-4" ></iframe>
 
 #### **Store Name (M03_01_03)**
-* **Description:** Official merchant name
-* **Display Logic:** Maximum 2 lines, truncate if more than 2 lines
-* **Example:** Aesop
+- **Description:** Official merchant name
+- **Display Logic:** Maximum 2 lines, truncate if more than 2 lines
+- **Example:** Aēsop
+
+**CMS Field Specification**
+<div className="table-wrapper">
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Text input (single line)                                                                                               |
+| Character Limit        | None                                                                                                                   |
+| Input Validation       | No emojis or special characters (except standard punctuation and brand symbols like ® or ™)                            |
+|                        | Leading/trailing spaces automatically trimmed                                                                          |
+| Data Source            | Input manually by CMS editor                                                                                           |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+</div>
 
 #### **Store Category (M03_01_04)**
 * **Description:** Primary category

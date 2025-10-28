@@ -18,10 +18,70 @@ table td {
 }
 
 
-/* 针对亮色和暗色模式的 logo 图像元素 */
-.nav-logo {
-  /* 使用 !important 确保覆盖 Tailwind 默认的 h-7 (28px) 样式 */
-  height: 40px !important; /* 将 40px 替换为您想要的任何尺寸 */
-  /* 也可以设置宽度，但通常保持 w-auto 更好 */
-  /* width: 40px !important; */
+
+/* =====================表格间隔变色========================= */
+
+/* 默认浅色主题 */
+table tr:nth-child(even) td {
+  background-color: #fbfbfb !important; /* 浅灰色偶数行 */
 }
+table tr:nth-child(odd) td {
+  background-color: transparent !important; /* 奇数行透明 */
+}
+
+/* 深色主题 */
+.dark table tr:nth-child(even) td {
+  background-color: #151515 !important; /* 深灰色偶数行 */
+}
+.dark table tr:nth-child(odd) td {
+  background-color: transparent !important;
+}
+
+/* =====================表格滚动========================= */
+/* 外层滚动容器 */
+.table-wrapper {
+  overflow-x: auto;   /* 横向滚动 */
+  width: 100%;
+}
+
+/* 表格宽度随内容扩展，保证滚动条出现 */
+.table-wrapper table {
+  /* 保持 max-content，让表格总宽度由列宽总和决定 */
+  width: max-content;    
+  border-collapse: collapse;
+}
+
+/* 单元格样式：强制最大宽度 300px 并允许换行 */
+.table-wrapper th,
+.table-wrapper td {
+  padding: 8px;
+  text-align: left;
+  
+  /* 关键：设置宽度上限 300px */
+  max-width: 400px;
+  min-width: 100px;
+  
+  /* 关键：允许换行 (确保内容完整显示) */
+  white-space: normal;    /* 允许文本在任何需要时换行 */
+  word-break: break-word; /* 允许在单词内部换行（适用于长 URL 或没有空格的长字符串） */
+
+  /* 建议：设置最小宽度，防止内容过少时被过度挤压 */
+  min-width: 50px; 
+}
+/* =====================代码块========================= */
+/* ✅ 针对 Markdown / prose 环境下的行内代码 */
+.prose :not(pre) > code {
+  background-color: #f5f7fa !important;
+  color: #5cc78a !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.95em;
+}
+
+/* ✅ 深色模式适配 */
+.dark .prose :not(pre) > code {
+  background-color: #2d2d2d !important;
+  color: #5cc78a !important;
+}
+
