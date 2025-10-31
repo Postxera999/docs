@@ -6,17 +6,6 @@ title: "Filter Function (G03_04_01)"
 G03_04_01
 ```
 
-The filter popup contains multiple filter conditions, from top to bottom: Whether discounts are available, etc. After users select filter conditions and click the “Confirm” button, the list will update according to the selected conditions.
-
-<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90049&t=foCq1WQUL9WKEoSk-4" ></iframe>
-
-| **Component Code** | **Component Name**             | **Functional Description**                                                                                                                                                                                            |
-| ------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `G04_02_01`        | User's Current Membership Tier | Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.                                                    |
-| `G04_01_01`        | Single Benefit Card            | A full-width, standalone card component used to display a single, primary benefit or offer (e.g., discount percentage, expiration date, and description).                                                             |
-| `G04_01_01_V1`     | Supports Multiple Benefit Card | A container component designed to hold and display multiple benefit cards (like Global-05_01) arranged horizontally. It supports scrolling (carousel functionality) to allow the user to browse all available offers. |
-| `G04_01_02`        | Benefit Detail                 | A component that displays a comprehensive breakdown of the user's current membership tier and all associated exclusive NGS Rebate rates, along with other detailed terms and conditions.                              |
-
 <iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=iw32LYd6XxVswo2X-4" ></iframe>
 
 
@@ -31,6 +20,17 @@ The filter popup contains multiple filter conditions, from top to bottom: Whethe
 - Action Buttons:
     - Clear All: Quickly resets all filters to their default state.
     - Confirm: Applies the selected filters, closes the modal, and updates the main list with filtered results.
+
+## **Components**
+
+| **Component Code** | **Component Name**                       | **Functional Description**                                                                                                                                                                                                      |
+| ------------------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `G05_02_01`        | Filter Category Navigation (De-selected) | A primary navigation item within the filter modal used to switch between different high-level filtering groups (e.g., "Store categories," "NGS," "Location"). This state indicates it is **not** the currently active category. |
+| `G05_02_01_V1`     | Filter Category Navigation (Selected)    | The active state of the primary filter navigation item. It visually highlights the filtering category currently being displayed and edited by the user.                                                                         |
+| `G03_02_01`        | Tag Selection (De-selected)              | An interactive tag/pill representing an individual filter choice (e.g., "Fashion & Accessories"). This state indicates the option is **not** currently applied to the filter results.                                           |
+| `G03_02_01_V1`     | Tag Selection (Selected)                 | The active state of an individual filter option. It visually indicates that this specific option has been selected and will be applied to the results upon confirmation.                                                        |
+| `G01_01_01`        | Clear All Button                         | A secondary button component used to instantly reset all applied filters, clearing the entire filter modal's selections back to the default state.                                                                              |
+| `G01_01_02`        | Filter Confirmation                      | A primary action button (labeled "Confirm") used to finalize and apply the currently selected filter criteria, dismissing the modal and updating the main screen's data.                                                        |
 
 ## **Filter Results Logic**
 

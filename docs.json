@@ -34,12 +34,13 @@
           {
             "group": "Pages",
             "pages": [
-              "1_DesignDocs/M03_Retail/M03_01_Directory"
+              "1_DesignDocs/M03_Retail/M03_02_test"
             ]
           },
 {
             "group": "Global Functions",
             "pages": [
+              "1_DesignDocs/M00_Global/ToolBarButton",              
               "1_DesignDocs/M00_Global/03_Search",
               "1_DesignDocs/M00_Global/04_Sort",    
               "1_DesignDocs/M00_Global/02_Filter_Bar", 

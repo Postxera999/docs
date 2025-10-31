@@ -37,37 +37,6 @@ table tr:nth-child(odd) td {
   background-color: transparent !important;
 }
 
-/* =====================表格滚动========================= */
-/* 外层滚动容器 */
-.table-wrapper {
-  overflow-x: auto;   /* 横向滚动 */
-  width: 100%;
-}
-
-/* 表格宽度随内容扩展，保证滚动条出现 */
-.table-wrapper table {
-  /* 保持 max-content，让表格总宽度由列宽总和决定 */
-  width: max-content;    
-  border-collapse: collapse;
-}
-
-/* 单元格样式：强制最大宽度 300px 并允许换行 */
-.table-wrapper th,
-.table-wrapper td {
-  padding: 8px;
-  text-align: left;
-  
-  /* 关键：设置宽度上限 300px */
-  max-width: 400px;
-  min-width: 100px;
-  
-  /* 关键：允许换行 (确保内容完整显示) */
-  white-space: normal;    /* 允许文本在任何需要时换行 */
-  word-break: break-word; /* 允许在单词内部换行（适用于长 URL 或没有空格的长字符串） */
-
-  /* 建议：设置最小宽度，防止内容过少时被过度挤压 */
-  min-width: 50px; 
-}
 /* =====================代码块========================= */
 /* ✅ 针对 Markdown / prose 环境下的行内代码 */
 .prose :not(pre) > code {
@@ -85,3 +54,106 @@ table tr:nth-child(odd) td {
   color: #5cc78a !important;
 }
 
+/*======表格修改======*/
+/* 表格主体 */
+table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+}
+
+/* 表头 & 内容单元格 */
+thead th,
+tbody td {
+  white-space: normal;        /* 自动换行 */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+  vertical-align: top;
+  padding: 0.75rem 1.5rem;
+  border-right: 1px solid #e0e0e0;
+}
+tbody td:last-child,
+thead th:last-child {
+  border-right: none;
+}
+
+/* <code> 标签换行 */
+td code,
+th code {
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+/* 表头固定 */
+thead th {
+  position: sticky;
+  top: 0;
+  background: var(--table-header-bg, #f5f5f5);
+  padding-left: 4rem;
+}
+
+/* 浅/深色主题行间色 */
+table tr:nth-child(even) td { background-color: #fbfbfb; }
+table tr:nth-child(odd) td { background-color: #fff; }
+.dark table tr:nth-child(even) td { background-color: #151515; }
+.dark table tr:nth-child(odd) td { background-color: transparent; }
+
+/* 滚动条 */
+table::-webkit-scrollbar { height: 10px; }
+table::-webkit-scrollbar-track { background: transparent; }
+table::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.3); border-radius:5px;}
+table::-webkit-scrollbar-thumb:hover { background-color: rgba(0,0,0,0.5); }
+.dark table::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.25); }
+.dark table::-webkit-scrollbar-thumb:hover { background-color: rgba(255,255,255,0.45); }
+
+/* 表格文字边距 */
+.prose :where(tbody td,tfoot td):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 0.75rem;
+    vertical-align: top;
+}
+.prose :where(thead th):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 0.75rem;
+    vertical-align: top;
+}
+
+table {
+  table-layout: fixed; /* 让 JS 设置的列宽生效 */
+}
+
+/* 深色模式表格整体 */
+.dark table {
+  border-color: #333;         /* 容器边框 → 更深色 */
+}
+
+/* 表头 */
+.dark thead th {
+  background: #303030;        /* 更深色背景 */
+  border-right: 1px solid #333;  
+  color: #e0e0e0;             /* 文字颜色，保证可读性 */
+  border-bottom-color: #333;  /* 表头下边框 */
+}
+
+/* 表格内容单元格纵向分隔线 */
+.dark tbody td {
+  border-right: 1px solid #333;  
+}
+
+/* 行间色 */
+.dark table tr:nth-child(even) td {
+  background-color: #151515 !important;  /* 偶数行稍浅 */
+}
+.dark table tr:nth-child(odd) td {
+  background-color: #101010 !important;  /* 奇数行更深 */
+}

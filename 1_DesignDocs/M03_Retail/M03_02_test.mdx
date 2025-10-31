@@ -2,12 +2,442 @@
 title: "M03-01 Directory"
 ---
 
+## Components Index
 
-<div className="table-wrapper">
-| **Component Code** | **Component Name**             | **Functional Description**                                                                                                                                                                                            | **Functional Description**                                                                                                                                                                                            | **Functional Description**                                                                                                                                                                                            | **Functional Description**                                                                                                                                                                                            |
-| ------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `G04_02_01`        | User's Current Membership Tier | Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.                                                    | Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.                                                    | Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.                                                    | Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.                                                    |
-| `G04_01_01`        | Single Benefit Card            | A full-width, standalone card component used to display a single, primary benefit or offer (e.g., discount percentage, expiration date, and description).                                                             | A full-width, standalone card component used to display a single, primary benefit or offer (e.g., discount percentage, expiration date, and description).                                                             | A full-width, standalone card component used to display a single, primary benefit or offer (e.g., discount percentage, expiration date, and description).                                                             | A full-width, standalone card component used to display a single, primary benefit or offer (e.g., discount percentage, expiration date, and description).                                                             |
-| `G04_01_01_V1`     | Supports Multiple Benefit Card | A container component designed to hold and display multiple benefit cards (like Global-05_01) arranged horizontally. It supports scrolling (carousel functionality) to allow the user to browse all available offers. | A container component designed to hold and display multiple benefit cards (like Global-05_01) arranged horizontally. It supports scrolling (carousel functionality) to allow the user to browse all available offers. | A container component designed to hold and display multiple benefit cards (like Global-05_01) arranged horizontally. It supports scrolling (carousel functionality) to allow the user to browse all available offers. | A container component designed to hold and display multiple benefit cards (like Global-05_01) arranged horizontally. It supports scrolling (carousel functionality) to allow the user to browse all available offers. |
-| `G04_01_02`        | Benefit Detail                 | A component that displays a comprehensive breakdown of the user's current membership tier and all associated exclusive NGS Rebate rates, along with other detailed terms and conditions.                              | A component that displays a comprehensive breakdown of the user's current membership tier and all associated exclusive NGS Rebate rates, along with other detailed terms and conditions.                              | A component that displays a comprehensive breakdown of the user's current membership tier and all associated exclusive NGS Rebate rates, along with other detailed terms and conditions.                              | A component that displays a comprehensive breakdown of the user's current membership tier and all associated exclusive NGS Rebate rates, along with other detailed terms and conditions.                              |
-</div>
+### **Local components**
+
+| **ID**      | **Component**         | **Figma**                                                                                                             | **Doc**                                 |
+| :---------- | :-------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `M03-01-01` | Results Count Display | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-84531&t=ZFVD2hTZhK93KtOn-4) | [Doc](#results-count-display) |
+| `M03_01_02` | Store Logo            | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85048&t=ZFVD2hTZhK93KtOn-4) | [Doc](#store-logo)            |
+| `M03_01_03` | Store Name            | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85048&t=ZFVD2hTZhK93KtOn-4) | [Doc](#store-name)            |
+| `M03_01_04` | Store Category        | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85048&t=ZFVD2hTZhK93KtOn-4) | [Doc](#store-category)        |
+| `M03_01_05` | Operating Status      | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85048&t=ZFVD2hTZhK93KtOn-4) | [Doc](#operating-status)      |
+| `M03_01_06` | Store Location        | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85048&t=ZFVD2hTZhK93KtOn-4) | [Doc](#store-location)        |
+
+
+### **Global Components**
+
+| **ID**      | **Component**                  | **Figma**                                                                                                             | **Doc**                                               |
+| :---------- | :----------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `G01_01_03` | ToolBarButton                  | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=894-61256&t=ZFVD2hTZhK93KtOn-4)  | [Doc](/1_DesignDocs/M00_Global/ToolBarButton)         |
+| `G03_04_01` | Filter Function                | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-94818&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/02_Filter_bar)         |
+| `G03_01_01` | Local Search                   | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90280&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/03_Search)             |
+| `G03_03_01` | Sort Function                  | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90261&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/04_Sort)               |
+| `G04_02_01` | User's Current Membership Tier | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/05_Promotional_Banner) |
+| `G04_01_01` | Benefit Card                   | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/05_Promotional_Banner) |
+| `G04_01_02` | Benefit Title                  | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/05_Promotional_Banner) |
+| `G04_01_03` | Benefit Detail                 | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/05_Promotional_Banner) |
+| `G04_01_04` | PromotionEndDate               | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/05_Promotional_Banner) |
+| `G04_02_02` | Rebate Tag                     | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85491&t=ZFVD2hTZhK93KtOn-4) | [Doc](/1_DesignDocs/M00_Global/06_Rebate_Tag)         |
+| `G04_02_03` | Offer Tag                      | [Figma](https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=3540-4875&t=ZFVD2hTZhK93KtOn-4)  | [Doc](/1_DesignDocs/M00_Global/07_Offer_Tag)          |
+
+
+## **Functionalities**
+
+Users enter the Retail Directory page through the Retail card on the Discover page. This page includes the following primary areas:
+
+1. Top toolbar area: contains Filter, Search entry, Sort button, and quick filter tabs.
+2. Promotional Banner: shows the user's membership level and the benefits they enjoy.
+3. Store Card list: displays retail stores that match the selected filters.
+
+### **Tool Bar**
+#### **Key Function**
+
+This area enables users to efficiently find stores that match their needs through multi-dimensional filtering, sorting, and search functions.
+#### **Behavior Logic**
+
+- When the user taps **Sort** or **Filter**, a bottom modal appears, allowing the user to perform the corresponding actions within the popup.
+- When clicking the ‘Search’ icon in the bar, the search input box will display directly under the filter bar.
+
+#### **UI Controls**
+
+| **UI Controls** | **Description**                                                                                                                                                     | **Component Code** | **Component Name** |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------ |
+| ToolBarButton   | Click to further perform the action (filter, sort, search...)                                                                                                       | `G01_01_03`        | `ToolBarButton`    |
+| Sort Radio      | Sorts the list of shops according to specific rules to help users quickly find target shops.                                                                        | `G03_03_01`        | `SortFunction`     |
+| Filter Popup    | Sets multi-dimensional conditions to filter shops, accurately screening out those that meet users' requirements and reducing interference from invalid information. | `G03_04_01`        | `FilterFunction`   |
+| Local Search    | Enables users to quickly locate shops containing the entered keywords, improving the efficiency of finding shops.                                                   | `G03_01_01`        | `LocalSearch`      |
+
+#### **Tool Bar Buttons**
+##### **Component**
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/04_Sort)
+
+| **UI Controls**                  | **Description**                                                                                             | **Component Code** | **Component Name** |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------ | ------------------ |
+| Sort Button                      | Click to further perform the sorting action (sort radio)                                                    | `G01_01_03`        | `ToolBarButton`    |
+| Filter Button                    | Click to further perform the filtering action (fillter popup)                                               | `G01_01_03`        | `ToolBarButton`    |
+| Search Button                    | Click to further perform the searching action (local search)                                                | `G01_01_03_V1`     | `ToolBarButton`    |
+| Store Categories （Filter) Button | Click to open the filter popup, allowing users to filter by categories to clarify the direction of search.  | `G01_01_03_V2`     | `ToolBarButton`    |
+| `NG$`(Filter) Button             | Click to flter shops that support the platform currency NG$ for consumption or have related discounts.      | `G01_01_03_V2`     | `ToolBarButton`    |
+| Open Now (Filter) Button         | Click to flter shops that are currently open to meet users' immediate consumption needs.                    | `G01_01_03_V3`     | `ToolBarButton`    |
+| Offers/Coupon (Filter) Button    | Click to open the filter popup, allowing users to filter by categories to clarify the direction of search.. | `G01_01_03_V3`     | `ToolBarButton`    |
+| Location (Filter) Button         | Click to open the filter popup, allowing users to filter by locations to clarify the direction of search.   | `G01_01_03_V2`     | `ToolBarButton`    |
+| Floor (Filter) Button            | Click to open the filter popup, allowing users to filter by floors to clarify the direction of search.      | `G01_01_03_V2`     | `ToolBarButton`    |
+
+#### **Sort Radio**
+##### **Component**
+- Name: `SortFunction`
+- Code: `G03_03_01` 
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/04_Sort)
+#### **Filter Popup**
+##### **Component**
+- Name: `FilterFunction`
+- Code: `G03_04_01` 
+##### **Filter Categories& Tag Selections**
+
+The left side of the interface displays a list of filter dimensions, while the right side shows the corresponding options for each dimension.
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-94818&t=foCq1WQUL9WKEoSk-4" ></iframe>
+
+
+| **Filter Categories** | **Option Type**               | **Example Options**                                                                                                                       | **Description**                                                                                    |
+| --------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Store Categories  | Tag Selection (Multi-select)  | Fashion & Accessories, Watches & Jewellery, Services, Electronics, Beauty & Healthcare, Lifestyle & Gifts, Kids, Gourmet & Specialty Food | Filters stores based on their primary product category. One store can have more than one category. |
+| `$NG`            | Tag Selection (Multi-select)  | `$NG` earned, `$NG` available                                                                                                             | Filters stores that accept `$NG`, or offers `$NG` rebate.                                          |
+| Opening Hours     | Tag Selection (Single-select) | Open now                                                                                                                                  | Filters stores that are currently open based on the configured opening hours of the store.         |
+| Offer Eligibility | Tag Selection (Single-select) | Offer / Coupon                                                                                                                            | Filters stores that have offers attached or accept coupons.                                        |
+| Location          | Tag Selection (Multi-select)  | Galaxy Macau, Central Corridor, Broadway Food Street                                                                                      | Filters stores based on specific areas or landmarks across the property.                           |
+| Floor             | Tag Selection (Multi-select)  | LG-2/F, G-F, 1/F                                                                                                                          | Filters stores by floor level within the property.                                                 |
+
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/02_Filter_bar)
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90049&t=foCq1WQUL9WKEoSk-4" ></iframe> 
+
+#### **Local Search**
+##### **Component**
+- Name: `SearchFunction`
+- Code: `G03_01_01` 
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/03_Search)
+
+### **Promotional Banner**
+
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/05_Promotional_Banner)
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=iw32LYd6XxVswo2X-4" ></iframe>
+
+#### **Key Function**
+
+The main functions of the Promotion Card are as follows:
+- Display promotional information: Clearly display various benefits and campaigns, allowing users to quickly understand the available offers and benefits applicable to the user.
+- Encourage user engagement: Use eye-catching titles and clear descriptions of discount strength to draw users’ attention and motivate them to take advantage of these offers.
+#### **Behavior Logic**
+
+- If one card full width, if more than 1 card, it becomes a carousel
+#### **Field List**
+
+| **Fields**          | **Description**                                                                                                                                           | **Component Code** | **Component Name**      |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------- |
+| Benefit Card Banner | A full-width, standalone card component used to display a single, primary benefit or offer (e.g., discount percentage, expiration date, and description). | `G04_01_01`        | `PromotionalBannerCard` |
+| Benefit Title       | Displays the title information corresponding to the promotion event                                                                                       | `G04_01_02`        | `BenefitTitle`          |
+| Benefit Detail      | Displays the main text information corresponding to the promotion event content                                                                           | `G04_01_03`        | `BenefitDetail`         |
+| Benefit Time Limit  | Displays the end time of the corresponding limited-time promotion                                                                                         | `G04_01_04`        | `PromotionEndDate`      |
+
+
+#### **Promotional Banner Card**
+Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
+##### **Component**
+- Name: `PromotionalBannerCard`
+- Code: `G04_01_01` 
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Image                                                                                                                  |
+| File Format            | WebP                                                                                                                   |
+| Size Requirement       | 待确认                                                                                                                    |
+| File Size Limit        | ≤2MB                                                                                                                   |
+| Input Validation       | File format and size, file size                                                                                        |
+| Data Source            | Uploaded manually by CMS editor                                                                                        |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+##### **CRM Logic**
+> TBD
+
+##### Example
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=iw32LYd6XxVswo2X-4" ></iframe>
+
+#### **Benefit Title**
+Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
+##### **Component**
+- Name: `BenefitTitle`
+- Code: `G04_02_02` 
+
+##### **CMS Field Specification**
+
+
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Text input (Single line)                                                                                               |
+| Max Length             | 50 characters                                                                                                          |
+| Characters Limit       | None                                                                                                                   |
+| Example                | `20% Off Cantonese Cuisine!`                                                                                           |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols.                                                   |
+|                        | No emojis or special characters (except standard punctuation and brand symbols like ® or ™)                            |
+|                        | Leading/trailing spaces automatically trimmed                                                                          |
+| Localization           | Must support all display languages.                                                                                    |
+| Data Source            | Maintained in CCMS                                                                                                     |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+
+
+#### **Benefit Detail**
+Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
+##### **Component**
+- Name: `BenefitDetail`
+- Code: `G04_02_03` 
+##### **CMS Field Specification**
+
+
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Text input (Single line)                                                                                               |
+| Max Length             | 100 characters                                                                                                         |
+| Characters Limit       | None                                                                                                                   |
+| Example                | `Enjoy extra savings on your favourite Cantonese flavours.`                                                            |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols.                                                   |
+|                        | No emojis or special characters (except standard punctuation and brand symbols like ® or ™)                            |
+|                        | Leading/trailing spaces automatically trimmed                                                                          |
+| Localization           | Must support all display languages.                                                                                    |
+| Data Source            | Maintained in CCMS                                                                                                     |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+
+
+#### **Expiry text**
+Displays the user's current membership level or tier name. It often serves as a badge or status indicator to quickly inform the user of their benefit entitlement.
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
+##### **Component**
+- Name: `PromotionEndDate`
+- Code: `G04_02_04` 
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Date Selection                                                                                                         |
+| Example                | `Ends:Oct 1, 2025`                                                                                                     |
+| Input Validation       | The date must be later than the date of setting (or configuration), and the event start date.                          |
+| Data Source            | Maintained in CCMS                                                                                                     |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+### **Store Card List**
+This area will display the number of results and the list of store cards, filtered/searched using the toolbar.
+
+The Store List Display presents the set of retail outlets that match the currently applied filters, sorting options, or search criteria.
+
+Each store is rendered as an individual Store Card, displaying key information such as logo, name, operational status, category, location, and available benefits.
+
+**Display Logic**
+
+- The Store List appears directly below the Result Count Display.
+- Each Store Card represents one merchant record retrieved from the CCMS dataset.
+- Cards are listed vertically with standard spacing and rounded container styling.
+- The list updates dynamically when:
+    - Filters or sorting options are changed
+    - Search keywords are applied
+
+Each Store Card represents an individual retail merchant entry within the Retail Listing Page.
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85048&t=iw32LYd6XxVswo2X-4" ></iframe>
+
+
+It consolidates essential merchant information into a single, compact layout, allowing users to quickly identify store identity, category, location, and active offers.
+
+#### **Key Function**
+
+- The Store Card is a reusable content component displaying a retailer’s name, logo, category, location, current operating status, and active benefits such as NG$ Rebate or Offers.
+- It dynamically updates according to user filtering, sorting, or search actions.
+- The card also provides direct navigation to the detailed merchant view upon user interaction.
+
+#### **Behavior Logic**
+
+- Tap on Card: Opens Store Detail Page for selected merchant
+
+#### **Field List**
+
+| **Fields**            | **Description**                                                                                                                                                                           | **Component** | **Component Code**             |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------ |
+| Results Count Display | Backend returns the number of results matching the criteria                                                                                                                               | `ResultsCountDisplay`      | `M03_01_01` |
+| Store Logo            | Uploaded in CCMS                                                                                                                                                                          | `StoreLogo`     | `M03_01_02`                    |
+| Store Name            | Maintained in CCMS                                                                                                                                                                        | `StoreName`      | `M03_01_03`                    |
+| Store Category        | Maintained in CCMS                                                                                                                                                                        | `StoreCategory`      | `M03_01_04`                    |
+| Operating Status      | Maintained in CCMS, system automatically calculates based on current time                                                                                                                 | `OperatingStatus`      | `M03_01_05`                    |
+| Rebate Tag            | Rebate Tag names and store associations are maintained in CCMS                                                                                                                            | `RebateTag` | `G04_02_02`                    |
+| Offer Tag             | Association between the store and campaign pages is maintained in CCMS; backend calculates the number of corresponding offers for the store and displays the result on the frontend page. | `OfferTag`  | `G04_02_03`                    |
+| Store Location        |                                                                                                                                                                                           | `StoreLocation`      | `M03_01_06`                    |
+#### **Results Count Display**
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-84531&t=ZFVD2hTZhK93KtOn-4" ></iframe>
+
+Result Count Display provides users with a summary of the total number of stores matching the currently applied filters or search criteria. It appears above the store card area on the Retail Directory Page.
+
+##### **Component**
+- Name: `Results Count Display`
+- Code: `M03_01_01` 
+
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Calculated Field                                                                                                       |
+| Example                | `89 Results`                                                                                                           |
+| Size Requirement       | Minimum 1280 x 1280 pixels (square ratio 1:1)                                                                          |
+| File Size Limit        | Maximum 2 MB                                                                                                           |
+| Input Validation       | Must be a square ratio ($1:1$). If not, the system must force a center crop upon upload.                               |
+| Data Source            | Input manually by CMS editor                                                                                           |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+##### **Display Logic**
+
+- The Result Count Display is shown whenever the store list is generated or refreshed.
+- The count value reflects the total number of store cards matching the active filtering and/or search criteria.
+- Display format:
+    - “xx results” — where _xx_ represents the number of stores matching the active filtering and/or search criteria.
+- If no stores match the applied criteria, the display reads “0 results”, and the list area transitions to the empty state layout.
+- The count is updated in real time whenever the user:
+    - Applies or removes filters
+    - Executes a store name search
+
+#### **Store Logo**
+
+The official merchant logo is used for visual identification in the shopping section.
+##### **Component**
+- Name: `StoreLogo`
+- Code: `M03_01_02`
+##### **Display Logic**
+- **Resolution:** Must support high-resolution displays (e.g., loading 2x or 3x sized images for Retina screens).
+- **Fallback:** If the image fails to load, display a **default placeholder icon** within the logo container.
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Image                                                                                                                  |
+| File Format            | webp                                                                                                                   |
+| Size Requirement       | Minimum 1280 x 1280 pixels (square ratio 1:1)                                                                          |
+| File Size Limit        | Maximum 2 MB                                                                                                           |
+| Input Validation       | Must be a square ratio ($1:1$). If not, the system must force a center crop upon upload.                               |
+| Data Source            | Input manually by CMS editor                                                                                           |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+##### **Example**
+
+<iframe allowfullscreen allow="autoplay; fullscreen; clipboard-write" width="700" height="500" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/sRo13sC8pzZbBpKUApkNzA/NG-UI-Design?node-id=12821-7151&t=uV5ZHYpNUrLfRHkf-4" ></iframe>
+
+#### **Store Name**
+Official merchant name
+##### **Component**
+- Name: `RetailName`
+- Code: `M03_01_03` 
+##### **Display Logic**
+Maximum 2 lines, truncate if more than 2 lines
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Text input (single line)                                                                                               |
+| Max Length             | 50 characters                                                                                                          |
+| Characters Limit       | None                                                                                                                   |
+| Example                | `Aēsop` `Emperor Jewelry`                                                                                              |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols.                                                   |
+|                        | No emojis or special characters (except standard punctuation and brand symbols like ® or ™)                            |
+|                        | Leading/trailing spaces automatically trimmed                                                                          |
+| Localization           | Must support all display languages.                                                                                    |
+| Data Source            | Maintained in CCMS                                                                                                     |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+#### **Store Category**
+Primary category of merchants.
+##### **Component**
+- Name: `RetailCategory`
+- Code: `M03_01_04` 
+##### Display Logic
+Displays only primary category. $\bullet$ Appears beside Operating Status, separated by "$\bullet$". $\bullet$ Single-line truncation if text exceeds width.
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Dropdown/Single Select                                                                                                 |
+| Max Length             | 50 characters (for the category name itself)                                                                           |
+| Characters Limit       | None                                                                                                                   |
+| Example                | `Fashion & Accessories` `Beauty & Healthcare`                                                                          |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols.                                                   |
+|                        | No emojis or special characters (except standard punctuation and brand symbols like ® or ™)                            |
+|                        | Leading/trailing spaces automatically trimmed                                                                          |
+| Localization           | Must support all display languages.                                                                                    |
+| Data Source            | Maintained in CCMS. Selected by CMS editor from a Global Category List configured by the system administrator.         |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+#### **Operating Status**
+Real-time indicator of whether the store is currently open or closed, based on Opening Hours. 
+##### **Component**
+- Name: `OpeningStatus`
+- Code: `M03_01_05` 
+##### **Display Logic** 
+System compares current time against configured hours.
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Calculated Field (No direct CMS input)                                                                                 |
+| Max Length             | N/A (Fixed text: "Closed Now" or "Open Now")                                                                           |
+| Characters Limit       | None                                                                                                                   |
+| Example                | `Closed Now` `Open Now`                                                                                                |
+| Localization           | Must support all display languages.                                                                                    |
+| Data Source            | System Calculation based on the configured Opening Hours field and the Current System Time.                            |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+#### **Rebate Tag**
+Visual indicator to show store supports points rebate
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/06_Rebate_Tag)
+##### **Component**
+- Name: `RebateTag`
+- Code: `G04_02_02` 
+##### **Display Logic**
+Refer to Global Rebate tag component section
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Multi-Select                                                                                                           |
+| Max Length             | 30 characters                                                                                                          |
+| Example                | `NG$ Rebate` `Douible Rebate`                                                                                          |
+| Input Validation       | Must select one option from the predefined list of active Rebate types (including the default).                        |
+| Data Source            | Maintained in CCMS. Selected by CMS operator.                                                                          |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+#### **Offer Tag**
+Visual indicators for merchant benefits or active offers.
+Please refer to the global component documentation for details. [Link](/1_DesignDocs/M00_Global/07_Offer_Tag)
+##### **Component**
+- Name: `OfferTag`
+- Code: `G04_02_03` 
+##### **Display Logic** 
+Refer to Global Offer component section
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                                                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Calculated Field (No direct CMS input)                                                                                                                                                                        |
+| Example                | `2 Offers` `1 Offer`                                                                                                                                                                                          |
+| Data Source            | Maintained in CCMS. Association between the store and campaign pages is maintained in CCMS; backend calculates the number of corresponding offers for the store and displays the result on the frontend page. |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings                                                                                        |
+#### **Store Location**
+Displays the merchant's physical location, combining Floor, Shop Number, and Property Zone
+##### **Component**
+- Name: `RetailLocation`
+- Code: `GM03_01_06` 
+##### **Display Logic** 
+Location string is constructed using three attributes in the following sequence, displays the rest if any is missing: 1. Floor 2. Shop Number 3. Property Zone. Max 1 line, truncate if exceeds
+##### **CMS Field Specification**
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Single Select/Text Input                                                                                               |
+| Max Length             | 30 characters                                                                                                          |
+| Example                | `G/F, G034, Promenade East`                                                                                            |
+| Input Validation       | Must select one option from the predefined list of active Rebate types (including the default).                        |
+| Data Source            | Maintained in CCMS. Selected by CMS operator.                                                                          |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
