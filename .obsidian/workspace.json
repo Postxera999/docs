@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1_DesignDocs/M03_Retail/M03_01_Directory 1.mdx",
+                "file": "1_DesignDocs/M03_Retail/M03_02_test.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "M03_01_Directory 1"
+              "title": "M03_02_test"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1_DesignDocs/M03_Retail/M03_01_Directory 1.mdx",
+                "file": "1_DesignDocs/M03_Retail/M03_02_test.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for M03_01_Directory 1"
+              "title": "Backlinks for M03_02_test"
             }
           },
           {
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1_DesignDocs/M03_Retail/M03_01_Directory 1.mdx",
+                "file": "1_DesignDocs/M03_Retail/M03_02_test.mdx",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of M03_01_Directory 1"
+              "title": "Outline of M03_02_test"
             }
           },
           {
@@ -182,9 +182,9 @@
   },
   "active": "881b07f6de82feb6",
   "lastOpenFiles": [
+    "1_DesignDocs/M03_Retail/M03_01_Directory 1.mdx",
     "1_DesignDocs/M03_Retail/M03_02_test.mdx",
     "tablewidth.js",
-    "1_DesignDocs/M03_Retail/M03_01_Directory 1.mdx",
     "1_DesignDocs/M03_Retail/M03_01_Directory.mdx",
     "1_DesignDocs/M00_Global/07_Offer_Tag.mdx",
     "1_DesignDocs/M00_Global/06_Rebate_Tag.mdx",
