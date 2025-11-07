@@ -1,0 +1,153 @@
+---
+
+title: "M13_08 Nearby Merchants Directory"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+
+This page appears after clicking the `View All` button in the **Direct to Section** area on the [M13_07 Carpark](/02_Page_Documentation/M13_Transportation/M13_07_Carpark) page, and includes the following components:
+
+
+| **#** | **ID**                              | **Component**             | **Type** | **Figma** | **Doc**                          |
+| ----- | ----------------------------------- | ------------------------- | -------- | --------- | -------------------------------- |
+| 1     | `GLOBAL_ACTION_Toolbar(Filter Bar)` | Toolbar (Filter & Search) | Local    | View      | [View](#1-toolbar-filter-search) |
+| 2     | `GLOBAL_LIST_MerchantList`          | MerchantList              | Local    | View      | [View](#2-merchant-list)         |
+
+  
+
+---
+
+## 1.  Toolbar (Filter & Search)
+
+```Plain
+GLOBAL_ACTION_Toolbar(Filter Bar)
+```
+
+This component is a variant of the global component [Toolbar](/01_Global_Components/ToolBar#Filter-Search).
+
+### **Key Function**
+
+This section allows users to efficiently find transportation routes or station information that meet their needs through keyword search, multi-dimensional filtering, and sorting features.
+
+The component includes a **Filter**, **Search** button, and two **quick filter options**.
+
+### Visual Reference
+
+Add Figma reference link
+
+### Field List
+
+| **Fields**        | **Description**                                                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| merchant_category | The primary business category or industry classification of the merchant. This field serves as the main basis for filtering and categorizing the merchant list. |
+| merchant_location | The merchant’s primary geographical location or a description of its specific location within the venue.                                                        |
+
+### Display Logic
+
+- The component is fixed at the top of the page for immediate accessibility.
+- It consists of a **Search Input Field** (for keyword search) and a Filter Button, and two quick filter tags (Category, Location).
+- The search input box should display a placeholder text (e.g., "Search for a store or cuisine").
+### Interaction Logic
+
+- When the user types in the **Search Input Field** and submits, the **Merchant List** below updates dynamically to show matching results for the content type.
+- When the user taps the **Filter/Sort Icon/Button**, a bottom modal or new page appears, allowing the user to perform filtering and sorting actions (e.g., filter by Category, Location, Service, Sort by Distance, Name, Popularity).
+
+### CMS Field Specification
+
+#### `merchant_category`
+
+| **Specification Item** | **Details**                                               |
+| ---------------------- | --------------------------------------------------------- |
+| Field Type             | Dropdown / Multi-select                                   |
+| Data Source            | Preset category list from **CCMS**                        |
+| Input Validation       | A preset category must be selected.                       |
+| Localization           | Preset category names must support all display languages. |
+| Dependencies           | Used for the category filter function in the Toolbar.     |
+
+---
+#### `merchant_location`
+
+Displays the merchant’s physical location
+
+The specification for this field has been detailed. Please refer to the relevant section for details. [View](#merchant-location-2). This is similar to that, but only includes the location information.
+
+---
+## 2. Merchant List
+
+
+```Plain
+GLOBAL_LIST_MerchantList
+```
+
+### **Key Function**
+
+This component displays the list of retail merchants/stores, each represented by a **Merchant Card**, based on the active search and filter criteria.
+
+### Visual Reference
+
+Add Figma reference link
+
+### Field List
+
+Note: Since specific merchant fields are not in the provided Field List, I will use fields from `location Info` and `How To Find` tables which relate to location and discovery.*
+
+| **Fields**        | **Description**                                                                                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| merchant_category | The merchant’s primary business category or industry classification. This field serves as the main basis for filtering and categorizing the merchant list. |
+| merchant_name     | The name of the merchant.                                                                                                                                  |
+| merchant_location | The merchant’s precise geographical location or a description of its specific location within the venue.                                                   |
+
+### Display Logic
+
+- Each **Merchant Card** represents one merchant record retrieved from the data source (CCMS/PIM).
+- Cards are listed vertically and .
+- The list updates dynamically when:
+    - Filters options are changed.
+    - Search keywords are applied.
+- If no results are found, a "No Results" message should be displayed.
+- merchant_name：Maximum 2 lines, truncate if more than 2 lines
+
+### Interaction Logic
+
+- Tapping on any area of the **Merchant Card** (except for specific action buttons like a "View Details" link, if present) navigates the user to the **Merchant Detail Page**.
+
+### Field Specification Details
+
+#### `merchant_category`
+
+The specification for this field has been detailed. Please refer to the relevant section for details. [View](#merchant-category-1)
+
+---
+#### `merchant_name`
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Text input (single line)                                                                                               |
+| Max Length             | 50 characters                                                                                                          |
+| Characters Limit       | None                                                                                                                   |
+| Example                | `Aēsop` `Emperor Jewelry`                                                                                              |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols.                                                   |
+|                        | No emojis or special characters (except standard punctuation and brand symbols like ® or ™)                            |
+|                        | Leading/trailing spaces automatically trimmed                                                                          |
+| Localization           | Must support all display languages.                                                                                    |
+| Data Source            | Maintained in CCMS                                                                                                     |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+---
+
+#### `merchant_location`
+
+Displays the merchant’s physical location, combining Floor, Shop Number, and Property Zon
+
+Location string is constructed using three attributes in the following sequence, displays the rest if any is missing: 1. Floor 2. Shop Number 3. Property Zone. Max 1 line, truncate if exceeds
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Single Select/Text Input                                                                                               |
+| Max Length             | 30 characters                                                                                                          |
+| Example                | `Promenade East, G/F, G034`                                                                                            |
+| Input Validation       | Must select one option from the predefined list of active Rebate types (including the default).                        |
+| Data Source            | Maintained in CCMS. Selected by CMS operator.                                                                          |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |

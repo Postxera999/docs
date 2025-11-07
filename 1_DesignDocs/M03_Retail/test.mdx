@@ -1,0 +1,337 @@
+---
+title: "test3"
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2780-85491&t=iw32LYd6XxVswo2X-4" />
+
+
+
+This page provides multiple transportation services for users and includes the following components:
+
+| #                    | **Component**              | **Type** | **Figma**     | **Doc**                                                                                       |
+| -------------------------- | -------------------------- | -------- | ------------- | --------------------------------------------------------------------------------------------- |
+| `TransportServiceSelector` | Transport Service Selector | Local    | [Figma TBD]() | [Doc To Be Updated](1_DesignDocs/M03_Retail/M03_01_Directory#results-count-display-m03-01-01) |
+| `TransportScheduleForm`    | Transport Schedule Form    | Local    | [Figma TBD]() | [Doc To Be Updated](1_DesignDocs/M03_Retail/M03_01_Directory#results-count-display-m03-01-01) |
+| `CTAButtons`               | CTA Buttons                | Local    | [Figma TBD]() | [Doc To Be Updated](1_DesignDocs/M03_Retail/M03_01_Directory#results-count-display-m03-01-01) |
+| `InformationTextBlock`     | Information Text Block     | Local    | [Figma TBD]() | [Doc To Be Updated](1_DesignDocs/M03_Retail/M03_01_Directory#results-count-display-m03-01-01) |
+| `LocationSelectorModal`    | Location Selector Modal    | Local    | [Figma TBD]() | [Doc To Be Updated](1_DesignDocs/M03_Retail/M03_01_Directory#results-count-display-m03-01-01) |
+| `ContactInfo`              | Contact Info               | Local    | [Figma TBD]() | [Doc To Be Updated](1_DesignDocs/M03_Retail/M03_01_Directory#results-count-display-m03-01-01) |
+
+---
+
+## **1. Transport Service Selector**
+
+```
+TransportServiceSelector
+```
+
+### **Key Function**
+
+This section serves as a navigation component at the top of the page, allowing users to select between different types of transportation services (e.g., Shuttle Bus, Express Limousine, etc.). It presents these options in tab or button format, enabling users to quickly switch and view details of different transport services.
+
+### Visual Reference
+
+**Figma reference to be added**
+
+### Field List
+
+| Fields                   | Description                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| `transportation_options` | Key-value list that configures various transportation service options.       |
+| `transportation_title`   | Display name shown on the selector, such as “Shuttle Bus” or “Limo Service.” |
+| `transportation_type`    | Type identifier mapped to the specific transportation card style.            |
+| `transportation_status`  | Enable/disable status of each transport service.                             |
+
+### Display Logic
+
+* The component is located at the top of the page, right below the page title, and displayed as a horizontally scrollable card list.
+* It renders all **active** button cards based on the configuration of `transportation_options` and `transportation_status`.
+* The display order of the buttons follows the `transportation_order` field.
+* The currently selected `transportation_title` is highlighted or marked as active.
+* When the number of `transportation_options` exceeds the display width, users can scroll horizontally.
+* Component visibility is controlled by the `transportation_status` value.
+
+### Interaction Logic
+
+* When users swipe left on the navigation, the page content remains unchanged.
+* When users select a navigation item, the main content area dynamically loads and displays the corresponding `transportation_type`.
+* When the second or subsequent navigation items are selected, the container automatically scrolls left until the last navigation item aligns with a 16px right margin.
+
+---
+
+### **CMS Field Specification**
+
+#### `transportation_options`
+
+Configures key-value pairs for different transportation services, defining each option’s title, type, order, and status.
+
+| Specification Item | Details                                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | **JSON Array** (`[{title, type, status}, ...]`)                                                                                              |
+| Max Length         | N/A (depends on number of entries)                                                                                                           |
+| Characters Limit   | N/A                                                                                                                                          |
+| Example            | `[{"title": "Shuttle Bus", "type": "shuttle_bus", "status": "enable"}, {"title": "Express Limousine", "type": "limo", "status": "disable"}]` |
+| Input Validation   | Ensure uniqueness of `type` values.                                                                                                          |
+| Localization       | Must support all display languages.                                                                                                          |
+| Data Source        | Maintained in CCMS **Basic Transport Config** table.                                                                                         |
+| Dependencies       | Directly determines the content and logic of the **Transport Service Selector** component.                                                   |
+
+---
+
+#### `transportation_title`
+
+The displayed name of the transport service (e.g., “Shuttle Bus”), mapped from the `title` field within **transportation_options**.
+
+| Specification Item | Details                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| Field Type         | Text input (single line)                                                              |
+| Max Length         | 10 characters                                                                         |
+| Example            | `Shuttle Bus`                                                                         |
+| Input Validation   | Must not contain HTML or script tags.                                                 |
+| Localization       | Must support all display languages.                                                   |
+| Data Source        | CCMS **Basic Transport Config** table (as a child field of `transportation_options`). |
+| Dependencies       | Displayed as the label of **TransportServiceSelector**.                               |
+
+---
+
+#### `transportation_type`
+
+A unique identifier for each transportation service, used for backend filtering and business logic, mapped from the `type` field of **transportation_options**.
+
+| Specification Item | Details                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| Field Type         | **Dropdown** (predefined values)                                                                  |
+| Example            | `Taxi`                                                                                            |
+| Input Validation   | **Required**, must be unique and follow naming conventions.                                       |
+| Localization       | N/A (system identifier, not localized).                                                           |
+| Data Source        | CCMS **Basic Transport Config** table.                                                            |
+| Dependencies       | Triggers page content switching and data loading. Each type corresponds to a preset button style. |
+
+---
+
+#### `transportation_status`
+
+Enable/disable status of a transportation service option.
+
+| Specification Item | Details                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Field Type         | **Boolean** (Yes/No) or **Status Picker** (Active/Inactive)                              |
+| Example            | `Active` / `Yes`                                                                         |
+| Input Validation   | **Required**                                                                             |
+| Data Source        | CCMS **Basic Transport Config** table.                                                   |
+| Dependencies       | Controls visibility of the corresponding service option in **TransportServiceSelector**. |
+
+---
+
+## **Transport Schedule Form**
+
+```
+TransportScheduleForm
+```
+
+### **Key Function**
+
+This component provides an input form where users enter key details such as **departure**, **destination**, and **date** to search for available transport options.
+
+### Visual Reference
+
+**Figma reference to be added**
+
+### Field List
+
+| Fields       | Description                                             |
+| ------------ | ------------------------------------------------------- |
+| station_name | Name of the station.                                    |
+| station_type | Type of station, distinguishing shuttle bus and others. |
+
+### Display Logic
+
+* Placed below the **TransportServiceSelector**.
+* Includes fields for **departure** and **destination** (for shuttle bus type stations).
+* Display logic examples:
+
+  * If user is in Galaxy → show “From Galaxy to StarWorld”.
+  * If user is in StarWorld → show “From StarWorld to Galaxy”.
+  * If user’s location cannot be obtained or is outside Galaxy/StarWorld → show “From Border Gate to Galaxy/StarWorld”.
+* Selecting a field opens a bottom-up modal (**Location Selector Modal**).
+
+### Interaction Logic
+
+* Clicking **Departure/Destination** triggers the **LocationSelectorModal**.
+* Upon selection, the modal fills `from_station_id` or `to_station_id`.
+* Clicking **View Schedule**:
+
+  * Submits a route query based on form selections.
+  * On success, scrolls to results or navigates to `[M13_02 Shuttle Route Details](link)`.
+
+---
+
+### **CMS Field Specification**
+
+#### `station_name`
+
+Station or location name, associated with `from_station_id` and `to_station_id` in the **Station** table.
+
+| Specification Item | Details                                                        |
+| ------------------ | -------------------------------------------------------------- |
+| Field Type         | Text input (single line)                                       |
+| Example            | `Galaxy Macau`                                                 |
+| Input Validation   | Must not contain HTML or script tags.                          |
+| Localization       | Must support all display languages.                            |
+| Data Source        | CCMS **Station** Table.                                        |
+| Dependencies       | Displayed in **Transport Schedule Form** and selection modals. |
+
+---
+
+#### `station_type`
+
+Type of transportation station.
+
+| Specification Item | Details                                               |
+| ------------------ | ----------------------------------------------------- |
+| Field Type         | **Dropdown** (predefined values)                      |
+| Example            | `Taxi`, `Shuttle Bus`                                 |
+| Input Validation   | **Required**, unique, and follows naming conventions. |
+| Localization       | N/A                                                   |
+| Data Source        | CCMS **Basic Transport Config** Table.                |
+| Dependencies       | Triggers content switching and data loading.          |
+
+**Version 1.0 supported transport types:**
+
+* Shuttle Bus
+* Express Limousine
+* Macau Taxi
+* Parking
+
+**Version 2.0 additions:**
+
+* HK-ZH-MO Express
+* Ferry
+
+---
+
+## **Contact Buttons**
+
+```
+ContactButton
+```
+
+### **Key Function**
+
+Provides primary and secondary action buttons for submitting form data or triggering page interactions.
+
+### Visual Reference
+
+**Figma reference to be added**
+
+### Display Logic
+
+* Placed below or beside the **Transport Schedule Form**.
+
+### Interaction Logic
+
+* Clicking “Contact” opens the **Contact Info Modal** from the bottom of the screen (see **Contact Info** section).
+
+---
+
+## **Information Text Block**
+
+```
+InformationTextBlock
+```
+
+### **Key Function**
+
+Displays multi-line descriptive text related to Shuttle Bus services.
+
+### Visual Reference
+
+**Figma reference to be added**
+
+### Field List
+
+| Fields          | Description                                           |
+| --------------- | ----------------------------------------------------- |
+| shuttlebus_text | Descriptive text introducing the shuttle bus service. |
+
+### Display Logic
+
+* Shown only when “Shuttle Bus” is selected in **Transport Service Selector**.
+* Displays plain text.
+* Positioned below core functional components.
+
+---
+
+### **CMS Field Specification**
+
+#### `shuttlebus_text`
+
+Introductory text describing the shuttle bus service.
+
+| Specification Item | Details                                                                                                                                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | Rich Text input (multiple lines)                                                                                                                                                                          |
+| Example            | `Galaxy Macau™ is conveniently located in Cotai, Macau, with excellent transport links.` `We provide complimentary shuttle bus service to and from StarWorld Hotel, Broadway Macau™, and Border Gate.` |
+| Input Validation   | Must not contain HTML or script tags.                                                                                                                                                                     |
+| Localization       | Must support all display languages.                                                                                                                                                                       |
+| Data Source        | CCMS **Basic Transport Config** Table.                                                                                                                                                                    |
+| Dependencies       | Displayed in ticketing and information sections.                                                                                                                                                          |
+
+---
+
+## **Station Selector Modal**
+
+```
+StationSelectorModal
+```
+
+### **Key Function**
+
+A **popup modal** that appears when users tap **Departure** or **Destination** in the **TransportScheduleForm**, providing a structured list of stations or locations.
+
+### Visual Reference
+
+**Figma reference to be added**
+
+### Field List
+
+| Fields       | Description                                    |
+| ------------ | ---------------------------------------------- |
+| station_name | Station name.                                  |
+| station_type | Type of station (e.g., shuttle bus or others). |
+
+### Display Logic
+
+* Appears as a **bottom modal** overlaying the page.
+* Contains station list selectors.
+* Includes two types: **Departure Selector** and **Destination Selector**.
+* Each list item shows `station_name`.
+* Can be filtered or grouped by `station_type` or `is_in_galaxy`.
+
+### Interaction Logic
+
+* Users can **search**, **scroll**, or **select** a location.
+* Upon selection, the modal closes and fills the corresponding field in **TransportScheduleForm** (`station_id` or `howtofind_id`).
+
+### **CMS Field Specification**
+
+#### `station_name`
+
+The specification for this field has been detailed. Please refer to the relevant section for details. [View](#station-name)
+
+#### `station_type`
+
+The specification for this field has been detailed. Please refer to the relevant section for details. [View](#station-type)
+
+---
+
+## **Contact Info Modal**
+
+```
+ContactInfo
+```
+
+The specification for this component is described in the global component documentation. Please refer to that section for details. [View](/01_Global_Components/ContactInfo)
+

@@ -1,0 +1,252 @@
+---
+
+title: "M13_02 Shuttle Route Details"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+This page provides the **Shuttle Bus route details and schedule**, including the following components:
+
+| #   | ID                                 | Component              | Type   | Figma | Doc                               |
+| --- | ---------------------------------- | ---------------------- | ------ | ----- | --------------------------------- |
+| 1   | `TRANS_FLOW_ScheduleSelectionTab`  | Schedule Selection Tab | Local  | View  | [View](#1-Schedule-Selection-Tab) |
+| 2   | `TRANS_DISPLAY_RouteSummaryCard`   | Route Summary Card     | Local  | View  | [View](#2-Route-Summary-Card)     |
+| 3   | `TRANS_DISPLAY_TripDetailsStepper` | Trip Details Stepper   | Local  | View  | [View](#3-Trip-Details-Stepper)   |
+| 4   | `TRANS_TYPE_FooterDisclaimer`      | Footer Disclaimer      | Local  | View  | [View](#4-Footer-Disclaimer)      |
+| 5   | `GLOBAL_DISPLAY_HowtoFindModal`    | How to Find Modal      | Global | View  | [View](#5-How-to-Find-Modal)      |
+
+---
+
+## 1.  Schedule Selection Tab
+
+```Plain
+TRANS_FLOW_ScheduleSelectionTab
+```
+
+### Key Function
+
+This component displays **different schedule groups or tabs** (e.g., All-day service, Peak hours, Specific dates), allowing users to **switch quickly** between various schedule options based on the search result.
+
+### Visual Reference
+
+To be added (Figma link)
+
+### Field List
+
+| Fields         | Description                                                                       |
+| -------------- | --------------------------------------------------------------------------------- |
+| schedule_title | The label text shown on each tab button, used to distinguish different schedules. |
+
+### Display Logic
+
+- The component is usually located **below the RouteSummaryCard**, serving as navigation before the actual timetable display.
+- Based on the Shuttle Bus **departure and destination** selected in the `M13_01 Shuttle Bus` page, the corresponding route and available schedules are retrieved.
+
+### Interaction Logic
+
+- When the user clicks a different tab, the **TripDetailsStepper** or the following schedule list updates dynamically to show the schedule and description (`schedule_description`) associated with the selected `schedule_tab_title`.
+
+### CMS Field Specification
+
+#### `schedule_title`
+
+Contains a JSON array of all configured schedule options, each object including the label title, description, and schedule list data.
+
+| Specification Item | Details                                   |
+| ------------------ | ----------------------------------------- |
+| Field Type         | Text input (single line)                  |
+| Max Length         | 20 characters                             |
+| Characters Limit   | None                                      |
+| Example            | Mon - Fri                                 |
+| Input Validation   | Must not contain HTML or script tags.     |
+| Localization       | Must support all display languages.       |
+| Data Source        | Maintained in CCMS Transport Routes Table |
+| Dependencies       | Used for LabelSelectionTabs tab text.     |
+
+---
+
+## 2.   Route Summary Card
+
+```Plain
+TRANS_DISPLAY_RouteSummaryCard
+```
+
+### Key Function
+
+This card component presents a **concise summary** of the current route, including the **departure and destination stations** and the **estimated total journey time**.
+
+### Visual Reference
+
+To be added (Figma link)
+
+### Field List
+
+| Fields               | Description                                                                                                    |
+| -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| station_name         | The names of the departure and destination stations.                                                           |
+| schedule_description | Describes schedule details for the selected route, such as the first and last bus times and average frequency. |
+
+### Display Logic
+
+- Displays the starting and ending stations of the current route.
+- Station names are displayed by referencing the `station_id`.
+
+### Interaction Logic
+
+- Clicking the switch button swaps the Departure and Destination, refreshing the corresponding `schedule_description`.
+
+### CMS Field Specification
+
+#### `station_name`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/Filter Function#station-name)
+
+---
+
+#### `schedule_description`
+
+A detailed explanation or note about a specific schedule group.
+
+| Specification Item | Details                                                   |
+| ------------------ | --------------------------------------------------------- |
+| Field Type         | Text input (multi-line)                                   |
+| Max Length         | 100 characters                                            |
+| Characters Limit   | None                                                      |
+| Example            | Start at 08:00, End at 22:00, Every 45 minutes on average |
+| Input Validation   | Must not contain HTML or script tags.                     |
+| Localization       | Must support all display languages.                       |
+| Data Source        | Maintained in CCMS Transport Routes Table                 |
+| Dependencies       | Used as reference text below ScheduleSelectionTabs.       |
+
+---
+
+## 3.  Trip Details Stepper
+
+```Plain
+TRANS_DISPLAY_TripDetailsStepper
+```
+
+### Key Function
+
+This component displays the **full list of route stops** in a **timeline or stepper format**, helping users clearly understand the travel route and sequence of stations.
+
+### Visual Reference
+
+To be added (Figma link)
+
+### Field List
+
+| Fields                | Description                                           |
+| --------------------- | ----------------------------------------------------- |
+| estimate_journey_time | Estimated one-way travel time (e.g., 30 minutes).     |
+| station_name          | Unique identifier of each stop along the route.       |
+| order                 | Sequential order number of the stop within the route. |
+
+### Display Logic
+
+- Stops are displayed vertically based on their `order` value to form the route timeline.
+- Station names are displayed by referencing the `station_id`.
+- Intermediate stops between the departure and destination are collapsed by default.
+
+### Interaction Logic
+
+- Clicking a stop name or icon may trigger the **HowtoFindModal**, which provides detailed directions for locating that stop OR launch WeChat default map
+
+---
+
+### CMS Field Specification
+
+#### `estimate_journey_time`
+
+Estimated total one-way journey time from departure to destination.
+
+| Specification Item | Details                                        |
+| ------------------ | ---------------------------------------------- |
+| Field Type         | Text input (single line)                       |
+| Max Length         | 30 characters                                  |
+| Characters Limit   | None                                           |
+| Example            | 49 minutes                                     |
+| Input Validation   | Must include numbers and time unit.            |
+| Localization       | Must support all display languages.            |
+| Data Source        | Maintained in CCMS Transport Routes Table      |
+| Dependencies       | Key information displayed in RouteSummaryCard. |
+
+---
+
+#### `station_name`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_01 Shuttle_Bus#station-name)
+
+---
+
+#### `order`
+
+The sequential index number of the stop within the route.
+
+| Specification Item | Details                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| Field Type         | Number                                                                                       |
+| Max Length         | N/A                                                                                          |
+| Characters Limit   | Integer                                                                                      |
+| Example            | 3                                                                                            |
+| Input Validation   | Required. Must be a positive integer, unique and sequential within the same transport_route. |
+| Localization       | N/A                                                                                          |
+| Data Source        | Maintained in CCMS Transport Route Stops Table                                               |
+| Dependencies       | Determines display order in TripDetailsStepper.                                              |
+
+---
+
+## 4.  Footer Disclaimer
+
+```Plain
+TRANS_TYPE_FooterDisclaimer
+```
+
+### Key Function
+
+Located at the bottom of the page, this component displays **legal notices, service disclaimers, copyright, or user guidance text**.
+
+### Visual Reference
+
+To be added (Figma link)
+
+### Field List
+
+| Fields                | Description                                            |
+| --------------------- | ------------------------------------------------------ |
+| route_disclaimer_text | Disclaimer or user notice related to transport routes. |
+
+### Display Logic
+
+- Placed at the **bottom of the page**, usually between the main content and the global footer.
+
+### Interaction Logic
+
+- No interactive behavior.
+
+### CMS Field Specification
+
+#### `route_disclaimer_text`
+
+Disclaimer or user notice related to transport routes.
+
+| Specification Item | Details                                                                                 |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| Field Type         | Rich Text Editor (supports line breaks and bold text)                                   |
+| Max Length         | 1000 characters                                                                         |
+| Characters Limit   | None                                                                                    |
+| Example            | Service times are for reference only and may vary due to traffic or weather conditions. |
+| Input Validation   | Allows limited rich text formatting.                                                    |
+| Localization       | Must support all display languages.                                                     |
+| Data Source        | Maintained in CCMS Transport Routes Table or a dedicated Disclaimer Table               |
+| Dependencies       | Displayed as supplementary text at the bottom of the page.                              |
+
+## 5.  How to Find
+
+```Plain
+GLOBAL_DISPLAY_HowtoFindModal
+```
+
+The specification for this component is described in the global component documentation. Please refer to that section for details. [View](/01_Global_Components/How_to_Find)

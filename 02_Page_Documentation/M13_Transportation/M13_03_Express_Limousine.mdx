@@ -1,0 +1,152 @@
+---
+
+title: "M13_03 Express Limousine"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+This page provides multiple transportation services for users and includes the following components:
+
+| #   | **ID**                                  | **Component**              | **Type** | **Figma**   | **Doc**                               |
+| --- | --------------------------------------- | -------------------------- | -------- | ----------- | ------------------------------------- |
+| 1   | `TRANS_SELECT_TransportServiceSelector` | Transport Service Selector | Local    | [View](url) | [View](#1-transport-service-selector) |
+| 2   | `TRANS_SELECT_TransportScheduleForm`    | Transport Schedule Form    | Local    | [View](url) | [View](#2-transport-schedule-form)    |
+| 3   | `TRANS_ACTION_ContactButton`            | Contact Button             | Global   | [View](url) | [View](#3-contact-button)             |
+| 4   | `GLOBAL_DISPLAY_ContactInfo`            | Contact Info Modal         | Local    | [View](url) | [View](#4-contact-info -modal)        |
+| 5   | `TRANS_SELECT_StationSelector`          | Station Selector Modal     | Local    | [View](url) | [View](#5-station-selector-modal)     |
+| 6   | `TRANS_DISPLAY_PurchaseLocationInfo`    | Purchase Location Info     | Local    | [View](url) | [View](#6-purchase -location-info)    |
+
+  
+
+---
+## 1.  Transport Service Selector
+
+```Plain
+TRANS_SELECT_TransportServiceSelector
+```
+
+The specification for this component has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_01_Shuttle_Bus#1-transport-service-selector)
+
+---
+
+## 2.  Transport Schedule Form
+
+```Plain
+TRANS_SELECT_TransportScheduleForm
+```
+
+The specification for this component has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_01_Shuttle_Bus#2-transport-schedule-form)
+
+---
+
+## 3. Contact Button
+
+```Plain
+TRANS_ACTION_ContactButton
+```
+
+The specification for this component has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_01_Shuttle_Bus#3-contact-schedule-form)
+
+---
+
+## 4.  Contact Info Modal
+
+```Plain
+GLOBAL_DISPLAY_ContactInfo
+```
+
+The specification for this component has been detailed. Please refer to the relevant document for details. [View](01_Global_Components/Contact_Info_Modal)
+
+---
+
+## 5.  Station Selector Modal
+
+```Plain
+TRANS_SELECT_StationSelector
+```
+
+The specification for this component has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_01_Shuttle_Bus#5-station-selector-modal)
+
+## 6.  Purchase Location Info
+
+```Plain
+GLOBAL_DISPLAY_PurchaseLocationInfo
+```
+
+#### **Key Function**
+
+This component provides users with essential information regarding the acquisition of tickets (if required) for the transportation route, including the ticketing type, specific locations, detailed instructions, and operating hours.
+#### Field List
+
+| **Fields**                | **Description**                                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ticketing_info_type       | The type or status of ticket sales information, such as free, paid or reserved, etc.                               |
+| ticketing_location        | The main title or name of the ticket selling location (for example: the lobby service counter of a certain hotel). |
+| ticketing_location_detail | Detailed description, address or search guide of the ticket selling location.                                      |
+| ticketing_location_time   | The service hours or operating hours of the ticket selling location.                                               |
+#### Display Logic
+
+- The ticketing information is displayed in a designated section (usually collapsible) below the route details.
+- **ticketing_location** is displayed as the main heading or title for the location.
+- **ticketing_location_detail** is presented as the body text providing guidance on finding the location.
+- **ticketing_location_time** is displayed prominently
+
+### CMS Field Specification
+### `ticketing_info_type`
+
+The type or status of ticket sales information, such as Free, Paid or Reserved, etc.
+
+| **Specification Item** | **Details**                                                          |
+| ---------------------- | -------------------------------------------------------------------- |
+| Field Type             | Dropdown selection or Text input (single line)                       |
+| Max Length             | 50 characters                                                        |
+| Characters Limit       | None                                                                 |
+| Example                | Limousine                                                            |
+| Input Validation       | Must select from a predefined list of ticketing types/status         |
+| Localization           | Must support all display languages.                                  |
+| Data Source            | Maintained in CCMS                                                   |
+| Dependencies           | Used to indicate whether tickets are required and if there's a cost. |
+
+#### `ticketing_location`
+
+The main title or name of the ticket selling location.
+
+| **Specification Item** | **Details**                                                 |
+| ---------------------- | ----------------------------------------------------------- |
+| Field Type             | Dropdown selection or Text input (single line)              |
+| Max Length             | 100 characters                                              |
+| Characters Limit       | None                                                        |
+| Example                | Galaxy Hotel                                                |
+| Input Validation       | Must not contain HTML, script tags.                         |
+| Localization           | Must support all display languages.                         |
+| Data Source            | Maintained in CCMS                                          |
+| Dependencies           | The primary identifier for the physical ticketing location. |
+#### `ticketing_location_detail`
+
+Detailed description, address or search guide of the ticket selling location.
+
+| **Specification Item** | **Details**                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------- |
+| Field Type             | Text input (multi-line)                                                               |
+| Max Length             | 500 characters                                                                        |
+| Characters Limit       | None                                                                                  |
+| Example                | Diamond Lobby Hong Kong and Macau Express Counter                                     |
+| Input Validation       | Supports basic formatting (e.g., line breaks, bullet points) if Rich Text is enabled. |
+| Localization           | Must support all display languages.                                                   |
+| Data Source            | Maintained in CCMS                                                                    |
+| Dependencies           | Provides necessary instructions for users to locate the ticketing point.              |
+### `ticketing_location_time`
+
+The service hours or operating hours of the ticket selling location.
+
+| **Specification Item** | **Details**                                                          |
+| ---------------------- | -------------------------------------------------------------------- |
+| Field Type             | Text input (single line)                                             |
+| Max Length             | 50 characters                                                        |
+| Characters Limit       | None                                                                 |
+| Example                | 8:00 - 22:30                                                         |
+| Input Validation       | Should clearly state the hours and days of operation.                |
+| Localization           | Must support all display languages.                                  |
+| Data Source            | Maintained in CCMS                                                   |
+| Dependencies           | Essential information for users planning to purchase/obtain tickets. |

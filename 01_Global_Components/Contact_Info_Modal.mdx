@@ -1,0 +1,91 @@
+---
+
+title: "Contact Info Modal"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+
+```Plain
+GLOBAL_DISPLAY_ContactInfo
+```
+
+### **Key Function**
+
+This is a **popup modal component** that is triggered when the user clicks the **Contact Button**. It displays various **transportation service contact information**, such as **service hotlines**, **WeChat customer service**, and **official QR codes**. The content includes **text descriptions**, **buttons**, and **images**.
+
+### **Visual Reference**
+
+To be added: Figma link
+
+---
+
+### **Field List**
+
+| Fields               | Description                                                      |
+| -------------------- | ---------------------------------------------------------------- |
+| contact_info_hotline | Descriptive text providing the main hotline contact information. |
+| contact_info_wechat  | Official WeChat customer service account.                        |
+| contact_info_qrcode  | Galaxy Macau official WeChat QR code.                            |
+
+---
+
+### **Display Logic**
+
+- Appears as a **fullscreen** or **bottom sheet modal**, overlaying the current page.
+- The **modal title** is fixed as **“Contact”**.
+
+---
+
+### **Interaction Logic**
+
+- Tapping the **Service Hotline** number triggers the **phone dialer**.
+- Tapping the **Customer Service on WeChat** button opens the **official WeChat chat window**.
+- Tapping the **QR code** beside **Learn more about Galaxy Macau** invokes the **native WeChat function**, allowing the user to scan or recognize the QR code.
+
+---
+
+### **CMS Field Specification**
+
+#### `contact_info_hotline`
+
+The primary or general transportation contact number (if separate from specialized taxi hotlines).
+
+| Specification Item | Details                                                |
+| ------------------ | ------------------------------------------------------ |
+| Field Type         | Text input (single line)                               |
+| Max Length         | 30 characters                                          |
+| Example            | +853 2828 XXXX                                         |
+| Input Validation   | Must follow a valid international phone number format. |
+| Localization       | N/A (phone number)                                     |
+| Data Source        | Maintained in CCMS, linked to Basic transport config.  |
+
+---
+
+#### `contact_info_wechat`
+
+Text content related to the official customer service WeChat account.
+
+| Specification Item | Details                                               |
+| ------------------ | ----------------------------------------------------- |
+| Field Type         | Text input                                            |
+| Max Length         | 100 characters                                        |
+| Example            | Follow us on WeChat: GalaxyMacau                      |
+| Input Validation   | N/A                                                   |
+| Localization       | Must support all display languages.                   |
+| Data Source        | Maintained in CCMS, linked to Basic transport config. |
+
+---
+
+#### `contact_info_qrcode`
+
+The image asset for the official contact QR code (currently hidden in the design).
+
+| Specification Item | Details                                               |
+| ------------------ | ----------------------------------------------------- |
+| Field Type         | Image upload                                          |
+| File Format        | webp                                                  |
+| File Size          | Max 500KB                                             |
+| Resolution         | Recommended 300×300 pixels                            |
+| Data Source        | Maintained in CCMS, linked to Basic transport config. |

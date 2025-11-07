@@ -1,0 +1,537 @@
+---
+
+title: "M13_07 Carpark"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+
+This page serves as the **Carpark Detail Page**, containing the following components:
+
+| #   | ID                                         | Component                    | Type  | Figma | Doc                                   |
+| --- | ------------------------------------------ | ---------------------------- | ----- | ----- | ------------------------------------- |
+| 1   | `TRANS_DISPLAY_CarparkInfoCard`            | Carpark Info Card            | Local | View  | [View](#1-carpark-info-card)          |
+| 2   | `TRANS_DISPLAY_ParkingFeeCard`             | Parking Fee Card             | Local | View  | [View](#2-parking-fee-card)           |
+| 3   | `TRANS_SELECT_AreaTabSwitcher`             | Area Tab Switcher            | Local | View  | [View](#3-area-tab-switcher)          |
+| 4   | `TRANS_LIST_DirectToList`                  | Direct To List               | Local | View  | [View](#4-direct-to-list)             |
+| 5   | `TRANS_LIST_DirectToList`                  | EV Charging Station Brand    | Local | View  | [View](#5-ev-charging-brand)          |
+| 6   | `GLOBAL_DISPLAY_HowtoFindGuide`            | How to Find Guide            | Local | View  | [View](#6-how-to-find-guide)          |
+| 7   | `GLOBAL_DISPLAY_Terms&ConditionsAccordion` | Terms & Conditions Accordion | Local | View  | [View](#7-terms-conditions-accordion) |
+
+---
+
+## 1.  CarparkInfoCard
+
+```Plain
+TRANS_DISPLAY_CarparkInfoCard
+```
+
+### **Key Function**
+
+This component displays the primary details of a specific car park, including its name, location, and relevant tags, allowing users to quickly understand its attributes.
+
+### Visual Reference
+
+_(Add Figma Embed Link)_
+
+### Field List
+
+| Fields              | Description                                                                                               |
+| ------------------- | --------------------------------------------------------------------------------------------------------- |
+| carpark_full_name   | Displays the full name of the car park.                                                                   |
+| carpark_description | A detailed description of the car park.                                                                   |
+| carpark_label       | A label or badge indicating a key feature or status of the car park.                                      |
+| latitude            | The geographical latitude coordinate of the carpark's entrance or central point (used for map services).  |
+| longitude           | The geographical longitude coordinate of the carpark's entrance or central point (used for map services). |
+| location_address    | The full, verifiable street address of the parking facility.                                              |
+
+### Display Logic
+
+- The `CarparkInfoCard` is displayed first on the page, showing key identification and location details.
+- `carpark_full_name` appears as the main title.
+- If multiple `parking_label` values exist, they will wrap to the next line when exceeding width limits.
+
+### Interaction Logic
+
+- Tapping the **Contact** button triggers the **Contact Modal**. See:  [Contact Info Modal](/01_Global_Components/Contact Info Modal)
+- Tapping the **View Map** button sends `latitude`, `longitude`, `location_name`, and `location_address` to the WeChat API to open the native map view.
+
+**Map Page Example:** 
+_(Add Figma Embed Link)_
+
+### **CMS Field Specification**
+
+#### `carpark_full_name`
+
+Displays the full, official name of the car park.
+
+| Specification Item | Details                                                |
+| ------------------ | ------------------------------------------------------ |
+| Field Type         | Text input (single line)                               |
+| Max Length         | 100 characters                                         |
+| Characters Limit   | None                                                   |
+| Example            | StarWorld Hotel Carpark                                |
+| Input Validation   | Must not contain HTML or script tags.                  |
+| Localization       | Must support all display languages.                    |
+| Data Source        | Maintained in CCMS (`carpark` table).                  |
+| Dependencies       | Used in the car park detail page title and list views. |
+
+---
+
+#### `carpark_description`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details.  [View](02_Page_Documentation/M13_Transportation/M13_06_Parking#carpark-description)
+
+---
+
+#### `carpark_label`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details.  [View](02_Page_Documentation/M13_Transportation/M13_06_Parking#carpark-label)
+
+---
+
+#### `latitude`
+
+The geographical latitude coordinates of the carpark's main entrance or central point, used for map services.
+
+| **Specification Item** | **Details**                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| Field Type             | Number input (Decimal)                                            |
+| Data Type              | Floating-point number (e.g., 6 decimal places of precision)       |
+| Range                  | Must be between -90 and 90 (inclusive)                            |
+| Example                | 35.733056                                                         |
+| Input Validation       | Must be a valid decimal number within the Earth's latitude range. |
+| Localization           | N/A (Geographical data)                                           |
+| Data Source            | Maintained in PIMS or manually input by Location Manager.         |
+| Dependencies           | Used for map display and generating navigation links.             |
+
+---
+
+#### `longitude`
+
+The geographical longitude coordinate of the carpark's main entrance or central point, used for map services.
+
+| **Specification Item** | **Details**                                                        |
+| ---------------------- | ------------------------------------------------------------------ |
+| Field Type             | Number input (Decimal)                                             |
+| Data Type              | Floating-point number (e.g., 6 decimal places of precision)        |
+| Range                  | Must be between -180 and 180 (inclusive)                           |
+| Example                | 139.754028                                                         |
+| Input Validation       | Must be a valid decimal number within the Earth's longitude range. |
+| Localization           | N/A (Geographical data)                                            |
+| Data Source            | Maintained in PIMS or manually input by Location Manager.          |
+| Dependencies           | Used for map display and generating navigation links.              |
+
+---
+
+#### `location_address`
+
+The full, verifiable street address of the parking facility.
+
+| **Specification Item** | **Details**                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------------- |
+| Field Type             | Text area (multi-line input)                                                                      |
+| Max Length             | 255 characters                                                                                    |
+| Characters Limit       | None                                                                                              |
+| Example                | Galaxy Macau Integrated Resort, Estrada da Baía de Nossa Senhora da Esperança, s/n, Cotai, Macau. |
+| Input Validation       | Allows standard punctuation, numbers, and international characters.                               |
+| Localization           | Must support all display languages (address format may vary by region).                           |
+| Data Source            | Maintained in PIMS or manually input/verified.                                                    |
+| Dependencies           | Used for display, navigation links, and geo-coding services.                                      |
+
+---
+
+#### `parking_label`
+
+A short, informative label or badge associated with the car park.
+
+| Specification Item | Details                                                 |
+| ------------------ | ------------------------------------------------------- |
+| Field Type         | Text input (single line) or dropdown (pre-defined tags) |
+| Max Length         | 20 characters                                           |
+| Characters Limit   | None                                                    |
+| Example            | EV Charging Available                                   |
+| Input Validation   | Optional, (if dropdown, validation is inherent).        |
+| Localization       | Must support all display languages.                     |
+| Data Source        | Maintained in CCMS (`carpark` table).                   |
+| Dependencies       | Visual tag on the detail page and list view.            |
+
+---
+
+## 2.  Parking Fee Card
+
+```Plain
+TRANS_DISPLAY_ParkingFeeCard
+```
+
+### **Key Function**
+
+This component displays the parking fee structure, exclusive benefits, and applicable conditions for using the car park.
+
+### Visual Reference
+
+_(Add Figma Embed Link)_
+
+### Display Logic
+
+- Rendered as a structured table or a set of cards.
+- The user's membership `tier` determines the displayed fee structure.
+- Each item in the `parking_fee_table` represents one rate tier.
+- `period`, `penalty`, and `payment_methods` appear below each `tier`.
+
+### Interaction Logic
+
+- This component does not contain interactive elements.
+
+### **CMS Field Specification**
+
+#### `parking_fee_table`
+
+An array of objects used to define specific parking fee tiers.
+
+| **Specification Item** | **Details**                                                                                                                |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | JSON Array / Nested Repeater Field                                                                                         |
+| Data Structure         | Array of objects, containing nested fields: `tier`, `period`, `penalty`, `payment_methods`.                                |
+| Example                | `[{"tier": "Member Tier 1", ...}, {"tier": "Spend $500", ...}]`                                                            |
+| Input Validation       | All required nested fields must be populated for each tier object.                                                         |
+| Localization           | Content within nested fields (e.g., `tier`, `period.label`, `penalty.label`, `payment_methods` items) must be localizable. |
+| Data Source            | Maintained in CCMS                                                                                                         |
+| Dependencies           | Dependent on membership data from CRM for `tier` consistency.                                                              |
+
+```JSON
+[
+        {
+                "tier": "xx",
+                "period": {
+                        "label": "5 hours",
+                        "value": "Free"
+                        },
+                "penalty": {
+                        "label": "After 5 hours",
+                        "value": "MOP $30 hour"
+                },
+                "payment_methods": [
+                        "Scan The payment...",
+                        "Pay with Macau Pass...."
+                ]
+        }
+]
+```
+
+---
+
+#### `tier`
+
+Specifies the eligibility criteria or membership level associated with this fee structure.
+
+| **Specification Item** | **Details**                         |
+| ---------------------- | ----------------------------------- |
+| Field Type             | dropdown/single-selection           |
+| Max Length             | N/A                                 |
+| Example                | Gold                                |
+| Input Validation       | N/A                                 |
+| Localization           | Must support all display languages. |
+| Data Source            | CRM                                 |
+
+---
+
+#### `period`
+
+Defines the duration of free parking and the corresponding value/status. Contains nested fields: `label` and `value`.
+
+| **Specification Item** | **Details**                                                                 |
+| ---------------------- | --------------------------------------------------------------------------- |
+| Field Type             | Object containing two nested text fields.                                   |
+| Nested Field: `label`  | Description of the period (e.g., "5 hours", "First 3 hours"). Max 30 chars. |
+| Nested Field: `value`  | The free status/value (e.g., "Free", "Discounted"). Max 30 chars.           |
+| Example                | `{"label": "5 hours", "value": "Free"}`                                     |
+| Input Validation       | Both `label` and `value` are required text fields.                          |
+| Localization           | Both `label` and `value` must support all display languages.                |
+| Data Source            | Nested within the `parking_fee_table` array object.                         |
+
+---
+
+#### `penalty`
+
+Defines the charge applied after the free period expires. Contains nested fields: `label` and `value`.
+
+| **Specification Item** | **Details**                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------------- |
+| Field Type             | Object containing two nested text fields.                                                         |
+| Nested Field: `label`  | Description of when the charge applies (e.g., "After 5 hours", "Subsequent Hours"). Max 40 chars. |
+| Nested Field: `value`  | The monetary charge (e.g., "MOP $30/hour", "MOP $10 per 30 mins"). Max 50 chars.                  |
+| Example                | `{"label": "After 5 hours", "value": "MOP $30 hour"}`                                             |
+| Input Validation       | Both `label` and `value` are required text fields.                                                |
+| Localization           | Both `label` and `value` must support all display languages (including currency symbols).         |
+| Data Source            | Nested within the `parking_fee_table` array object.                                               |
+
+---
+
+#### `payment_methods`
+
+A list of accepted payment methods available for the carpark.
+
+| **Specification Item** | **Details**                                                    |
+| ---------------------- | -------------------------------------------------------------- |
+| Field Type             | Array of Text                                                  |
+| Max Items              | 5 (Recommended limit for clear display)                        |
+| Max Length per Item    | 100 characters                                                 |
+| Example                | `["Scan The payment...", "Pay with Macau Pass...."]`           |
+| Input Validation       | Items must be descriptive and clearly indicate the method.     |
+| Localization           | Each payment method string must support all display languages. |
+| Data Source            | Nested within the `parking_fee_table` array object.            |
+
+---
+
+## 3.  AreaTabSwitcher
+
+```Plain
+TRANS_SELECT_AreaTabSwitcher
+```
+
+### **Key Function**
+
+A navigation component that allows users to switch between different car park areas.
+
+### Visual Reference
+
+_(Add Figma Embed Link)_
+
+### Display Logic
+
+- Only displayed if there are Areas configured for the respective carpark. Hidden if there are no Areas associated with the Carpark.
+- Tabs are displayed horizontally.
+- The first area tab is selected by default.
+
+### Interaction Logic
+
+- Tapping a tab switches the visible content accordingly.
+
+---
+
+## 4.  DirectToList
+
+```Plain
+TRANS_LIST_DirectToList
+```
+
+### **Key Function**
+
+Provides quick navigation links to related locations (e.g., shops, restaurants or nearby hotels).
+
+### Visual Reference
+
+_(Add Figma Embed Link)_
+
+### Field List
+
+| Fields           | Description                                       |
+| ---------------- | ------------------------------------------------- |
+| carpark_area     | Parking area identifier.                          |
+| merchant_type    | Category/type of merchant or related listing.     |
+| merchant_name    | Display name of the linked merchant.              |
+| location_address | Full address of the related merchant or car park. |
+
+### Display Logic
+
+- Displayed as a list of clickable navigation items.
+
+### Interaction Logic
+
+- Tapping an item redirects to the relevant page.
+
+### **CMS Field Specification**
+
+#### `carpark_area`
+
+A list of pre-defined transportation options that can be configured as links.
+
+| **Specification Item** | **Details**                                                        |
+| ---------------------- | ------------------------------------------------------------------ |
+| Field Type             | Text Input (Single line) / Dropdown from Predefined List           |
+| Max Length             | 20 characters (如：P1, B2)                                           |
+| Input Validation       | Letters, numbers, and specific punctuation marks only (e.g., “-”). |
+| Data Source            | Maintained in CCMS                                                 |
+| Dependencies           | Store Card, Merchant Detail Page                                   |
+
+---
+
+#### `merchant_type`
+
+References the respective content type that is configured in other modules.
+
+---
+
+#### `merchant_name`
+
+A list of pre-defined transportation options that can be configured as links. References the respective content type that is configured in other modules.
+
+| **Specification Item** | **Details**                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type             | Text input (single line)                                                                                               |
+| Max Length             | 50 characters                                                                                                          |
+| Characters Limit       | None                                                                                                                   |
+| Example                | Aēsop                                                                                                                  |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols.                                                   |
+|                        | No emojis or special characters (except standard punctuation and brand symbols like ® or ™)                            |
+| Localization           | Must support all display languages.                                                                                    |
+| Data Source            | Maintained in CCMS                                                                                                     |
+| Dependencies           | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |
+
+---
+
+#### `location_address`
+
+The specification for this field has been detailed. Please refer to the relevant section for details. [View](#location-address)
+
+---
+
+## 5. ## EV Charging Station Brand
+
+```Plain
+GLOBAL_DISPLAY_HowtoFindGuide
+```
+
+### **Key Function**
+
+Displays the logo and name of EV charging providers available in the car park, helping users quickly identify supported charging services.
+
+### Visual Reference
+
+_(Add Figma Embed Link)_
+
+### Field List
+
+| Fields          | Description                                  |
+| --------------- | -------------------------------------------- |
+| evcharging_logo | Logo of the EV charging provider or station. |
+| evcharging_name | Name of the EV charging provider or station. |
+
+### Display Logic
+
+- Each charging service appears as a card with:
+    - A circular `evcharging_logo` displayed on top.
+    - The `evcharging_name` below it (text wraps if too long).
+- Not all car parks include EV charging sections.
+
+### Interaction Logic
+
+- No interaction behavior for this component.
+
+### **CMS Field Specification**
+
+#### `evcharging_logo`
+
+Displays the logo of the EV charging service provider or charging station. This logo is critical for brand recognition.
+
+| **Specification Item** | **Details**                                                            |
+| ---------------------- | ---------------------------------------------------------------------- |
+| Field Type             | Image Upload                                                           |
+| File Format            | PNG or JPG                                                             |
+| File Size              | Max 500KB                                                              |
+| Resolution             | Recommended: 120x120 pixels (Aspect Ratio: 1:1)                        |
+| Input Validation       | Must be a valid image file.                                            |
+| Localization           | Non-localizable (Typically, logos remain consistent across languages). |
+| Data Source            | Maintained in CCMS / EV Charging Module                                |
+| Dependencies           | Used in EV Charging station list view and detail page header.          |
+
+#### `evcharging_name`
+
+Displays the name of the EV charging service provider or charging station. This is the official and user-facing name of the service location or brand.
+
+| **Specification Item** | **Details**                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Field Type             | Text input (single line)                                                                                                       |
+| Max Length             | 30 characters                                                                                                                  |
+| Characters Limit       | None                                                                                                                           |
+| Example                | Tesla Supercharger                                                                                                             |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols. No emojis. Leading/trailing spaces automatically trimmed. |
+| Localization           | Must support all display languages.                                                                                            |
+| Data Source            | Maintained in CCMS / EV Charging Module                                                                                        |
+| Dependencies           | Used in search results, EV Charging station list view, and detail page header.                                                 |
+
+---
+
+## 6.  How to Find Guide
+
+```Plain
+GLOBAL_DISPLAY_Terms&ConditionsAccordion
+```
+
+### **Key Function**
+
+Provides detailed textual and visual guidance on how to physically find the car park, typically shown in the “How to Find” tab.
+
+### Visual Reference
+
+_(Add Figma Embed Link)_
+
+### Field List
+
+| Fields          | Description                                               |
+| --------------- | --------------------------------------------------------- |
+| howtofind_text  | Textual instructions describing how to find the car park. |
+| howtofind_image | Image illustrating the directions visually.               |
+| howtofind_id    | Unique ID for each “How to Find” entry.                   |
+
+### Display Logic
+
+- Each entry consists of paired `howtofind_text` and `howtofind_image`.
+- Multiple entries can be swiped through.
+
+### Interaction Logic
+
+- Tapping an image opens a fullscreen viewer.
+
+### **CMS Field Specification**
+
+See the **Global Component Documentation** for detailed field definitions:  [View](02_Page_Documentation/How_to_Find)
+
+---
+
+## 7.  Terms & Conditions Accordion
+
+```Plain
+GLOBAL_DISPLAY_Terms&ConditionsAccordion
+```
+
+### **Key Function**
+
+A collapsible accordion used to display detailed terms and conditions for using the car park.
+
+### Visual Reference
+
+_(Add Figma Embed Link)_
+
+### Field List
+
+| Fields        | Description                                                       |
+| ------------- | ----------------------------------------------------------------- |
+| parking_terms | The full text of the terms and conditions for using the car park. |
+
+### Display Logic
+
+- Initially shows only the title; content expands on interaction.
+
+### Interaction Logic
+
+- Tapping the title expands or collapses the section.
+- Displayed content is **not affected** by car park or area switching.
+
+### **CMS Field Specification**
+
+#### `parking_terms`
+
+The detailed terms and conditions for car park use.
+
+| **Specification Item** | **Details**                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Field Type             | Array of Text                                                                                                                  |
+| Max Items              | 10 (Recommended limit for clear display)                                                                                       |
+| Max Length per Item    | 500 characters                                                                                                                 |
+| Example                | `["Complimentary parking is only applicable...", "Parking spaces are subject to....."]`                                        |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols. No emojis. Leading/trailing spaces automatically trimmed. |
+| Localization           | Each payment method string must support all display languages.                                                                 |
+| Data Source            | Text displayed in the Parking Terms section.                                                                                   |

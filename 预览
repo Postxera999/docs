@@ -1,1 +1,2 @@
-npx mintlify dev 
+npx mintlify dev
+git add -A

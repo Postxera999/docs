@@ -1,0 +1,70 @@
+---
+
+title: "How to Find Modal"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+  
+
+```Plain
+GLOBAL_DISPLAY_HowToFind
+```
+
+## Key Function
+
+This is a **popup modal component** that appears when a user clicks on a station in the route details (such as in **TripDetailsStepper**). It provides **detailed location guidance** for that station, including descriptive text and images.
+
+## Visual Reference
+
+Figma reference to be added
+
+## Field List
+
+| Fields          | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| howtofind_text  | Descriptive text guiding the user to locate the place. |
+| howtofind_image | Illustrative image showing how to find the place.      |
+
+## Display Logic
+
+- The component appears as a **full-screen or bottom popup modal**, overlaying the current page.
+- The modal title should display the location name (retrieved from `station` information linked to address data).
+- The content includes both `howtofind_text` (text guidance) and `howtofind_image` (image guidance).
+
+## Interaction Logic
+
+- When a station in **TripDetailsStepper** is clicked, the system loads data based on the associated `howtofind_id` and triggers this modal to appear.
+
+---
+
+## CMS Field Specification
+
+#### `howtofind_text`
+
+| Specification Item | Details                                      |
+| ------------------ | -------------------------------------------- |
+| Field Type         | Text input (single line)                     |
+| Max Length         | 15 characters                                |
+| Characters Limit   | None                                         |
+| Example            | 49 minutes                                   |
+| Input Validation   | Must include numbers and time units.         |
+| Localization       | Must support all display languages.          |
+| Data Source        | Maintained in CCMS Transport routes Table    |
+| Dependencies       | Key information display in RouteSummaryCard. |
+
+---
+
+#### `howtofind_image`
+
+An illustrative image showing how to locate the place.
+
+| Specification Item | Details                                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | Image                                                                                                                   |
+| File Format        | webp                                                                                                                    |
+| Size Requirement   | Minimum 1280 x 1280 pixels (square ratio 1:1)                                                                           |
+| File Size Limit    | Maximum 2 MB                                                                                                            |
+| Input Validation   | Must be a square ratio (1:1). If not, the system must apply a center crop upon upload.                                  |
+| Data Source        | Manually uploaded by CMS editor                                                                                         |
+| Dependencies       | Used in search results, merchant list views, merchant detail pages, payment confirmation screens, and Featured Listings |

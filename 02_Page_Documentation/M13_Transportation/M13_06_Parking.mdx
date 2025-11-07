@@ -1,0 +1,192 @@
+---
+
+title: "M13_06 Parking"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+
+This page provides users with multiple transportation services. The following section describes the page content when the transportation service **“Parking”** is selected, including the following components:
+
+| #   | ID                                      | Component                  | Type  | Figma | Doc                                   |
+| --- | --------------------------------------- | -------------------------- | ----- | ----- | ------------------------------------- |
+| 1   | `TRANS_SELECT_TransportServiceSelector` | Transport Service Selector | Local | View  | [View](#1-transport-service-selector) |
+| 2   | `TRANS_INPUT_ParkingSearchbar`          | Parking Searchbar          | Local | View  | [View](#2-parking-search-bar)         |
+| 3   | `TRANS_DISPLAY_ParkingMap`              | Parking Map                | Local | View  | [View](#3-parking-map)                |
+| 4   | `GLOBAL_DISPLAY_Promotion Banner`       | Promotion Banner           | Local | View  | [View](#4-promotion banner)           |
+| 5   | `TRANS_LIST_CarparkList`                | Carpark List               | Local | View  | [View](#5-carpark-list)               |
+
+---
+
+## 1.  **Transport Service Selector**
+
+```Plain
+TRANS_SELECT_TransportServiceSelector
+```
+
+The specification for this component is described in the global component documentation. Please refer to that section for details. [View](/02_Page_Documentation/M13_Transportation/M13_01_Shuttle_Bus/#Transport-Service-Selector)
+
+---
+
+## 2.  **Parking Search Bar**
+
+```Plain
+TRANS_INPUT_ParkingSearchbar
+```
+
+### **Key Function**
+
+Allows users to **search** for specific carparks by entering keywords or applying filters.
+
+### Visual Reference
+
+Figma link to be added
+
+### Field List
+
+| Fields            | Description                                                         |
+| ----------------- | ------------------------------------------------------------------- |
+| carpark_name      | The primary name of the carpark, used for search matching.          |
+| carpark_full_name | The complete name of the carpark, possibly including extra details. |
+| parking_label     | Tags or categories for the carpark, possibly used for filtering.    |
+
+### Interaction Logic
+
+- When users click the button card, the page navigates to `ParkingSearch`. For detailed specifications, please refer to [M13_09 ParkingSearch](#transport-service-selector).
+
+---
+
+## 3.  **ParkingMap**
+
+```Plain
+TRANS_DISPLAY_ParkingMap
+```
+
+### **Key Function**
+
+Displays a map image showing parking locations around the property.
+
+### Visual Reference
+
+Figma link to be added
+
+### Field List
+
+| Fields      | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| parking_map | Image where the caparks are located around the property |
+
+### Display Logic
+
+- The map should occupy the main visible area of the page and be centered.
+
+### Interaction Logic
+
+- When the user clicks **“View Full Screen”**, the map opens in full-screen mode and allows pinch-to-zoom interaction.
+
+### **CMS Field Specification**
+
+#### `parking_map`
+
+| Specification Item                | Details                               |
+| --------------------------------- | ------------------------------------- |
+| Field Type                        | Image                                 |
+| Allowed Format                    | webp                                  |
+| Max File Size                     | 5 MB                                  |
+| Image Dimensions (Recommendation) | Minimum 1000px width; Aspect Ratio: 4 |
+
+## 4.  **Promotional Banner**
+
+```Plain
+GLOBAL_DISPLAY_Promotion Banner
+```
+
+### **Key Function**
+
+This component **highlights** parking-related **exclusive offers, services, or privileges** in a card format, designed to capture user attention.
+
+The specification for this component is described in the global component documentation. Please refer to that section for details. [View](01_Global_Components/Promotion_Banner)
+
+---
+
+## 5.  **CarparkList**
+
+```Plain
+TRANS_LIST_CarparkList
+```
+
+### **Key Function**
+
+Displays a **list** of all eligible carparks and their **detailed information** to help users browse and select.
+
+### **Visual Reference**
+
+_To be supplemented with Figma reference link_
+
+### **Field List**
+
+| Fields                   | Description                                                  |
+| ------------------------ | ------------------------------------------------------------ |
+| carpark_name             | The main name of the carpark.                                |
+| carpark_card_description | A short description displayed in the carpark list card.      |
+| parking_label            | The carpark’s custom label (e.g., indoor, outdoor, EV only). |
+
+### **Display Logic**
+
+- The list appears below the **All Available Carparks** section title at the bottom of the page.
+- Each item (Carpark Card) corresponds to a carpark record and displays `carpark_name`, `carpark_card_description`, and `parking_label`.
+- List order: Sorted by recommended order in the CMS.
+
+### **Interaction Logic**
+
+- Clicking a carpark card should navigate to that carpark’s detail page. See: [M13_07 Carpark](/02_Page_Documentation/M13_Transportation/M13_07_Carpark)
+
+---
+
+### **CMS Field Specification**
+
+#### `carpark_name`
+
+Displays the official or commonly used name of the carpark.
+
+| Specification Item | Details                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| Field Type         | Text input (single line)                                                            |
+| Max Length         | 40 characters                                                                       |
+| Characters Limit   | None                                                                                |
+| Example            | P1                                                                                  |
+| Input Validation   | Must not contain HTML or script tags. Standard punctuation and numbers are allowed. |
+| Localization       | Must support all display languages.                                                 |
+| Data Source        | Maintained in CCMS.                                                                 |
+| Dependencies       | Used as the primary identifier in carpark list views.                               |
+
+---
+#### `carpark_description`
+
+Displays the short descriptive text of the carpark.
+
+| Specification Item | Details                                                                    |
+| ------------------ | -------------------------------------------------------------------------- |
+| Field Type         | Text input (single line)                                                   |
+| Max Length         | 200 characters                                                             |
+| Example            | Direct to Opal Lobby, Jade Lobby, Pearl Lobby, Crystal Lobby, East Square. |
+| Input Validation   | Must be plain text; line breaks are not allowed.                           |
+| Localization       | Must support all display languages.                                        |
+| Data Source        | Maintained in CCMS.                                                        |
+| Dependencies       | Used as the subtitle or secondary text on the card.                        |
+
+---
+
+#### `carpark_label`
+
+A categorical tag indicating a specific feature, status, or type of parking.
+
+| Specification Item | Details                                                                  |
+| ------------------ | ------------------------------------------------------------------------ |
+| Field Type         | List (Labels can be configured and saved)                                |
+| Example            | EV Charging Available, Free Self-parking                                 |
+| Input Validation   | Must select from a predefined list of labels.                            |
+| Localization       | Label text must be localized for display.                                |
+| Data Source        | Maintained in CCMS, managed under a global taxonomy of carpark features. |
+| Dependencies       | Determines the visual tag or badge displayed on each card.               |

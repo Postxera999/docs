@@ -1,0 +1,189 @@
+---
+
+title: "M13_05 Taxi"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+
+This page provides users with multiple transportation services. The following section describes the page content when **Macau Taxi** is selected in the transportation service options. It includes the following components:
+
+| #   | ID                                      | Component                  | Type   | Figma | Doc                                   |
+| --- | --------------------------------------- | -------------------------- | ------ | ----- | ------------------------------------- |
+| 1   | `TRANS_SELECT_TransportServiceSelector` | Transport Service Selector | Local  | View  | [View](#1-transport-service-selector) |
+| 2   | `TRANS_DISPLAY_TaxiContactBlock`        | Taxi Contact Block         | Local  | View  | [View](#2-transport-schedule-form)    |
+| 3   | `TRANS_LIST_PickupAddressList`          | Pick-up Address List       | Local  | View  | [View](#3-pick-up-address-list)       |
+| 4   | GLOBAL_DISPLAY_How To Find              | How To Find                | Global | View  | [View](#4-how_to_find)                |
+
+---
+
+## 1.  **Transport Service Selector**
+
+```Component_code
+TRANS_SELECT_TransportServiceSelector
+```
+
+The specification for this component is described in the **Global Component Documentation**. Please refer to that section for details. [View](/02_Page_Documentation/M13_Transportation/M13_01_Shuttle_Bus/#Transport-Service-Selector)
+
+### Visual Reference
+
+To be supplemented with Figma annotation link.
+
+---
+
+## 2.  **Taxi Contact Block**
+
+```Component_code
+TRANS_DISPLAY_TaxiContactBlock
+```
+
+### **Key Function**
+
+This component displays various contact hotlines for Macau taxi reservation services, allowing users to quickly initiate a call directly from the interface.
+
+### Visual Reference
+
+To be supplemented with Figma annotation link.
+
+### **Field List**
+
+| Fields              | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| taxi_hotlines_type  | Indicates the type or category of taxi hotlines. |
+| taxi_hotlines_title | Indicates the name or label of the hotline.      |
+| taxi_hotlines_text  | Displays the hotline number.                     |
+
+### **Display Logic**
+
+- This block is shown directly below the selector when “Macau Taxi” is selected.
+- Hotlines are grouped by type (e.g., _Macau Radio Taxi_, _Special Radio Taxi_).
+- Each phone number is displayed with a phone icon for visual clarity.
+
+### **Interaction Logic**
+
+- Tapping a displayed phone number (e.g., **+853 8500 0000**) triggers the device’s native phone dialer with the number pre-filled.
+
+### **CMS Field Specification**
+
+#### `taxi_hotlines_type`
+
+| Specification Item | Details                               |
+| ------------------ | ------------------------------------- |
+| Field Type         | Text input (single line)              |
+| Max Length         | 30 characters                         |
+| Example            | Macau Radio Taxi                      |
+| Input Validation   | Must not contain HTML or script tags. |
+| Localization       | Must support all display languages.   |
+| Data Source        | CCMS                                  |
+| Dependencies       | Used in the Basic Contact Info block. |
+
+#### `taxi_hotlines_title`
+
+| Specification Item | Details                               |
+| ------------------ | ------------------------------------- |
+| Field Type         | Text input (single line)              |
+| Max Length         | 30 characters                         |
+| Example            | For Taxi Hailing Only                 |
+| Input Validation   | Must not contain HTML or script tags. |
+| Localization       | Must support all display languages.   |
+| Data Source        | CCMS                                  |
+| Dependencies       | Used in the Basic Contact Info block. |
+
+#### `taxi_hotlines_text`
+
+| Specification Item | Details                                                               |
+| ------------------ | --------------------------------------------------------------------- |
+| Field Type         | Text input (single line)                                              |
+| Max Length         | 30 characters                                                         |
+| Example            | +853 8886 6868                                                        |
+| Input Validation   | Allows only digits, spaces, and standard phone symbols (+, -, #, ()). |
+| Localization       | N/A (phone numbers are universal but may include regional prefixes).  |
+| Data Source        | CCMS                                                                  |
+| Dependencies       | Used in the Basic Contact Info block; must be tappable to dial.       |
+
+---
+
+## 3.  **Pick-up Address List**
+
+```Component_code
+TRANS_LIST_PickupAddressList
+```
+
+### **Key Function**
+
+This component lists all designated taxi pick-up and drop-off points across properties, enabling users to view available locations and access detailed navigation guidance.
+
+### Visual Reference
+
+To be supplemented with Figma annotation link.
+
+### **Field List**
+
+| Fields     | Description                                                 |
+| ---------- | ----------------------------------------------------------- |
+| hotel_name | The name of the hotel or property for pick-up and drop-off. |
+| location   | The specific pick-up/drop-off location within the hotel.    |
+| hotel_logo | The logo image of the hotel.                                |
+
+### **Display Logic**
+
+- This list appears directly below the `TaxiContactBlock` under the title _“Taxi pick-up & drop-off address”_.
+- Each row represents a property/hotel associated with a taxi stand.
+- The row shows the hotel name and a brief location descriptor (e.g., _Diamond Lobby_).
+- The display order of the list is fixed.
+
+### **Interaction Logic**
+
+- Tapping a row (e.g., _Galaxy Hotel_ or _The Ritz-Carlton, Macau_) triggers the _“How to Find”_ modal sliding up from the bottom of the screen. This modal loads content via `howtofind_id`, including text instructions and an image (`howtofind_image`).
+
+---
+
+### **CMS Field Specification**
+
+#### `hotel_name`
+
+Hotel name for pick-up and drop-off.
+
+| Specification Item | Details                                                                  |
+| ------------------ | ------------------------------------------------------------------------ |
+| Field Type         | Dropdown / Single-select from a predefined list of hotels or properties. |
+| Example            | The Ritz-Carlton, Macau                                                  |
+| Data Source        | Maintained in CCMS                                                       |
+| Dependencies       | Used to retrieve the display name for the list view.                     |
+
+#### `location`
+
+Specific pick-up/drop-off location within the hotel.
+
+| Specification Item | Details                                                       |
+| ------------------ | ------------------------------------------------------------- |
+| Field Type         | Dropdown / Single-select from a predefined list of locations. |
+| Example            | Diamond Lobby                                                 |
+| Data Source        | Maintained in CCMS                                            |
+| Dependencies       | Used to retrieve the display location name for the list view. |
+
+#### `hotel_logo`
+
+Hotel logo image for pick-up and drop-off (references Hotel logo from Hotel content type)
+
+| Specification Item | Details                                                                  |
+| ------------------ | ------------------------------------------------------------------------ |
+| Field Type         | Image Upload                                                             |
+| File Format        | webp                                                                     |
+| Recommended Size   | Approximately 100 × 100 px (square ratio preferred).                     |
+| Max File Size      | 500 KB                                                                   |
+| Input Validation   | Image must be clear and high-resolution, legible at small sizes.         |
+| Localization       | Usually region-agnostic; localized versions can be provided if required. |
+| Data Source        | Maintained in CCMS                                                       |
+| Dependencies       | Displayed on the hotel listing card.                                     |
+
+---
+
+## 4.  **How to Find Modal**
+
+```Component_code
+HowtoFind
+```
+
+The specification for this component is described in the **Global Component Documentation**. Please refer to that section for details. [View](/01_Global_Components/How_to_Find)

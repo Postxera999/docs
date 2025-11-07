@@ -1,0 +1,131 @@
+---
+
+title: "M13 09 ParkingSearch"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+This page appears after clicking the `Search Button Card` in the [M13_06 Parking](/02_Page_Documentation/M13_Transportation/M13_06_Parking) page, and includes the following components:
+
+| **#** | **ID**                            | **Component**          | **Type** | **Figma** | **Doc**                             |
+| ----- | --------------------------------- | ---------------------- | -------- | --------- | ----------------------------------- |
+| 1     | `TRANS_INPUT_SearchBar`           | Search Bar             | Local    | View      | `[View](#1-search-bar)`             |
+| 2     | `TRANS_LIST_SearchSuggestionList` | Search Suggestion List | Local    | View      | `[View](#2-search-suggestion-list)` |
+| 3     | `TRANS_LIST_SearchResultBlock`    | Search Result Block    | Local    | View      | `[View](#3-search-result-block)`    |
+
+  
+
+---
+
+## 1.  **Search Bar**
+
+```Plain
+TRANS_INPUT_SearchBar
+```
+
+### **Key Function**
+
+This area enables users to initiate a text-based search.
+
+The specification for this component is described in the global component documentation. Please refer to that section for details.`[View](01_Global_Components/Filter_Bar)`
+
+---
+
+## 2.  **Search Suggestion List**
+
+
+```Plain
+TRANS_LIST_SearchSuggestionList
+```
+
+### **Key Function**
+
+This component dynamically displays search term suggestions and/or relevant content shortcuts as the user types, accelerating the search process.
+
+### Field List
+
+| Fields          | Description                                   |
+| --------------- | --------------------------------------------- |
+| `merchant_type` | Category/type of merchant or related listing. |
+| `merchant_name` | Display name of the linked merchant.          |
+
+### Display Logic
+
+- The `SearchSuggestionList` appears immediately below the `SearchBar` when the search input is focused and/or non-empty.
+- Suggestions are updated in real-time based on the user's partial input.
+- Provide results based on **fuzzy search**.
+
+### Interaction Logic
+
+- Tapping on any suggestion item populates the `SearchBar` with the suggestion text and automatically triggers a search for that term, navigating to or updating the `SearchResultBlock`.
+
+### **CMS Field Specification**
+
+#### `merchant_type`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_09_Parking_Search#merchant-type)
+
+#### `merchant_name`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_09_Parking_Search#merchant-name)
+
+---
+## 3.  SearchResultBlock
+  
+```Plain
+TRANS_LIST_SearchResultBlock
+```
+
+### **Key Function**
+
+This component displays the list of content or carparks.
+
+### Field List
+
+| Fields                      | Description                                                                           |
+| --------------------------- | ------------------------------------------------------------------------------------- |
+| `carpark_name`              | Displays the official or common name of the parking facility.                         |
+| `carpark_description`       | Displays the official or common name of the parking facility.                         |
+| `carpark_label`             | A categorical label or tag indicating a specific feature, status, or type of parking. |
+| `carpark_merchant_distance` | The distance between a merchant and a carpark.                                        |
+
+### Display Logic
+
+- The `SearchResultBlock` appears when a search query is submitted (by tapping a suggestion).
+- Results are displayed in a scrollable list, typically in a card-based format, ordered by
+- Sort merchants based on the user’s selected merchant, in order of distance from nearest to farthest.
+- When no search results are found, display the **No Result** screen.
+
+### Interaction Logic
+
+- Tapping on a result item navigates the user to the corresponding carpark detail page. Check [M13_07 Carpark](/02_Page_Documentation/M13_Transportation/M13_07_Carpark) for details。
+
+### **CMS Field Specification**
+
+#### `carpark_name`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_09_Parking_Search#carpark-name)
+
+---
+#### `carpark_description`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_09_Parking_Search#description)
+
+---
+#### `carpark_label`
+
+The specification for this field has been detailed in this module. Please refer to the relevant section for details. [View](02_Page_Documentation/M13_Transportation/M13_09_Parking_Search#carpark-label)
+
+---
+#### `carpark_merchant_distance`
+
+| **Specification Item** | **Details**                                                             |
+| ---------------------- | ----------------------------------------------------------------------- |
+| Field Type             | Number input (Integer or Decimal)                                       |
+| Unit of Measurement    | Number of storefronts                                                   |
+| Max Value              | 100                                                                     |
+| Example                | 5                                                                       |
+| Input Validation       | Must be a positive integer                                              |
+| Data Source            | Maintained in CCMS                                                      |
+| Dependencies           | Used for distance sorting. Displayed on the Carpark search result page. |

@@ -2,6 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Functional Requirements",
+  "description": "My custom documentation site",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -9,67 +10,83 @@
   },
   "favicon": "/logo/DCA-icon.svg",
   "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-  }, 
+    "anchors": [
+      {
+        "anchor": "Documentation",
+        "href": "https://mintlify.com/docs",
+        "icon": "book-open-cover"
+      },
+      {
+        "anchor": "Blog",
+        "href": "https://mintlify.com/blog",
+        "icon": "newspaper"
+      }
+    ]
+  },
   "navigation": {
-         "groups": [
-          {
-            "group": "Index",
-            "pages": [
-              "0_Index/M00_Global",
-              "0_Index/M03_Retail"
-            ]
-          },
-          {
-            "group": "Pages",
-            "pages": [
-              "1_DesignDocs/M03_Retail/M03_02_test"
-            ]
-          },
-{
-            "group": "Global Functions",
-            "pages": [
-              "1_DesignDocs/M00_Global/ToolBarButton",              
-              "1_DesignDocs/M00_Global/03_Search",
-              "1_DesignDocs/M00_Global/04_Sort",    
-              "1_DesignDocs/M00_Global/02_Filter_Bar", 
-              "1_DesignDocs/M00_Global/05_Promotional_Banner",
-              "1_DesignDocs/M00_Global/06_Rebate_Tag",
-              "1_DesignDocs/M00_Global/07_Offer_Tag",
-              "1_DesignDocs/M00_Global/01_Skeleton"
-
-            ]
-          }
+    "groups": [
+      {
+        "group": "Index",
+        "pages": [
+          "0_Index/M00_Global",
+          "0_Index/M03_Retail"
         ]
       },
+      {
+        "group": "Retail",
+        "pages": [
+          "1_DesignDocs/M03_Retail/M03_02_test"
+        ]
+      },
+       {
+        "group": "Transportation",
+        "pages": [
+          "02_Page_Documentation/M13_Transportation/M13_01_Shuttle_Bus",
+          "02_Page_Documentation/M13_Transportation/M13_02_Shuttle_Route_Details",
+          "02_Page_Documentation/M13_Transportation/M13_03_Express_Limousine",
+          "02_Page_Documentation/M13_Transportation/M13_04_Express_Limousine_Schedule",
+          "02_Page_Documentation/M13_Transportation/M13_05_Taxi",
+          "02_Page_Documentation/M13_Transportation/M13_06_Parking",
+          "02_Page_Documentation/M13_Transportation/M13_07_Carpark",
+          "02_Page_Documentation/M13_Transportation/M13_08_Nearby_Merchants_Directory",
+          "02_Page_Documentation/M13_Transportation/M13_09_ParkingSearch"          
+        ]
+      },
+      {
+        "group": "Global Functions",
+        "pages": [
+          "1_DesignDocs/M00_Global/ToolBarButton",
+          "1_DesignDocs/M00_Global/03_Search",
+          "1_DesignDocs/M00_Global/04_Sort",
+          "1_DesignDocs/M00_Global/02_Filter_Bar",
+          "1_DesignDocs/M00_Global/05_Promotional_Banner",
+          "1_DesignDocs/M00_Global/06_Rebate_Tag",
+          "1_DesignDocs/M00_Global/07_Offer_Tag",
+          "1_DesignDocs/M00_Global/01_Skeleton",
+          "01_Global_Components/Contact_Info_Modal",
+          "01_Global_Components/How_To_Find"
+
+        ]
+      }
+    ]
+  },
   "logo": {
     "light": "/logo/DCA-icon.svg",
     "dark": "/logo/DCA-icon.svg"
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  }, 
-"footer": {
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
     "socials": {
       "x": "https://x.com/mintlify",
       "github": "https://github.com/mintlify",
