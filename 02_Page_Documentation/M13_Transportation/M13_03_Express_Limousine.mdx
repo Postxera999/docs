@@ -12,7 +12,7 @@ This page provides multiple transportation services for users and includes the f
 | --- | --------------------------------------- | -------------------------- | -------- | ----------- | ------------------------------------- |
 | 1   | `TRANS_SELECT_TransportServiceSelector` | Transport Service Selector | Local    | [View](url) | [View](#1-transport-service-selector) |
 | 2   | `TRANS_SELECT_TransportScheduleForm`    | Transport Schedule Form    | Local    | [View](url) | [View](#2-transport-schedule-form)    |
-| 3   | `TRANS_ACTION_ContactButton`            | Contact Button             | Global   | [View](url) | [View](#3-contact-button)             |
+| 3   | `TRANS_ACTION_ContactButton`            | Contact Button             | Local    | [View](url) | [View](#3-contact-button)             |
 | 4   | `GLOBAL_DISPLAY_ContactInfo`            | Contact Info Modal         | Local    | [View](url) | [View](#4-contact-info -modal)        |
 | 5   | `TRANS_SELECT_StationSelector`          | Station Selector Modal     | Local    | [View](url) | [View](#5-station-selector-modal)     |
 | 6   | `TRANS_DISPLAY_PurchaseLocationInfo`    | Purchase Location Info     | Local    | [View](url) | [View](#6-purchase -location-info)    |
@@ -74,10 +74,14 @@ The specification for this component has been detailed in this module. Please r
 GLOBAL_DISPLAY_PurchaseLocationInfo
 ```
 
-#### **Key Function**
+### **Key Function**
 
 This component provides users with essential information regarding the acquisition of tickets (if required) for the transportation route, including the ticketing type, specific locations, detailed instructions, and operating hours.
-#### Field List
+
+### Visual Reference
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-14210&t=EIrrWlE3DFcM0Te3-4" />
+
+### Field List
 
 | **Fields**                | **Description**                                                                                                    |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -85,7 +89,7 @@ This component provides users with essential information regarding the acquisiti
 | ticketing_location        | The main title or name of the ticket selling location (for example: the lobby service counter of a certain hotel). |
 | ticketing_location_detail | Detailed description, address or search guide of the ticket selling location.                                      |
 | ticketing_location_time   | The service hours or operating hours of the ticket selling location.                                               |
-#### Display Logic
+### Display Logic
 
 - The ticketing information is displayed in a designated section (usually collapsible) below the route details.
 - **ticketing_location** is displayed as the main heading or title for the location.

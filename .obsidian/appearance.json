@@ -1,1 +1,7 @@
-{}
+{
+  "enabledCssSnippets": [
+    "Pocofish-编辑器",
+    "Pocofish-界面元素",
+    "Pocofish-语法拓展"
+  ]
+}

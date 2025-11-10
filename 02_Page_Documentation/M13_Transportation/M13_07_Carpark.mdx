@@ -9,15 +9,15 @@ import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
 This page serves as the **Carpark Detail Page**, containing the following components:
 
-| #   | ID                                         | Component                    | Type  | Figma | Doc                                   |
-| --- | ------------------------------------------ | ---------------------------- | ----- | ----- | ------------------------------------- |
-| 1   | `TRANS_DISPLAY_CarparkInfoCard`            | Carpark Info Card            | Local | View  | [View](#1-carpark-info-card)          |
-| 2   | `TRANS_DISPLAY_ParkingFeeCard`             | Parking Fee Card             | Local | View  | [View](#2-parking-fee-card)           |
-| 3   | `TRANS_SELECT_AreaTabSwitcher`             | Area Tab Switcher            | Local | View  | [View](#3-area-tab-switcher)          |
-| 4   | `TRANS_LIST_DirectToList`                  | Direct To List               | Local | View  | [View](#4-direct-to-list)             |
-| 5   | `TRANS_LIST_DirectToList`                  | EV Charging Station Brand    | Local | View  | [View](#5-ev-charging-brand)          |
-| 6   | `GLOBAL_DISPLAY_HowtoFindGuide`            | How to Find Guide            | Local | View  | [View](#6-how-to-find-guide)          |
-| 7   | `GLOBAL_DISPLAY_Terms&ConditionsAccordion` | Terms & Conditions Accordion | Local | View  | [View](#7-terms-conditions-accordion) |
+| #   | ID                                         | Component                    | Type   | Figma | Doc                                   |
+| --- | ------------------------------------------ | ---------------------------- | ------ | ----- | ------------------------------------- |
+| 1   | `TRANS_DISPLAY_CarparkInfoCard`            | Carpark Info Card            | Local  | View  | [View](#1-carpark-info-card)          |
+| 2   | `TRANS_DISPLAY_ParkingFeeCard`             | Parking Fee Card             | Local  | View  | [View](#2-parking-fee-card)           |
+| 3   | `TRANS_SELECT_AreaTabSwitcher`             | Area Tab Switcher            | Local  | View  | [View](#3-area-tab-switcher)          |
+| 4   | `TRANS_LIST_DirectToList`                  | Direct To List               | Local  | View  | [View](#4-direct-to-list)             |
+| 5   | `TRANS_DISPLAY_EVChargingStationBrand`     | EV Charging Station Brand    | Local  | View  | [View](#5-ev-charging-brand)          |
+| 6   | `GLOBAL_DISPLAY_HowtoFindGuide`            | How to Find Guide            | Global | View  | [View](#6-how-to-find-guide)          |
+| 7   | `GLOBAL_DISPLAY_Terms&ConditionsAccordion` | Terms & Conditions Accordion | Global | View  | [View](#7-terms-conditions-accordion) |
 
 ---
 
@@ -33,7 +33,7 @@ This component displays the primary details of a specific car park, including it
 
 ### Visual Reference
 
-_(Add Figma Embed Link)_
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-15997&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
@@ -81,13 +81,13 @@ Displays the full, official name of the car park.
 
 #### `carpark_description`
 
-The specification for this field has been detailed in this module. Please refer to the relevant section for details.  [View](02_Page_Documentation/M13_Transportation/M13_06_Parking#carpark-description)
+The specification for this field has been detailed in this module. Please refer to the relevant section for details.  [View](/02_Page_Documentation/M13_Transportation/M13_06_Parking#carpark-description)
 
 ---
 
 #### `carpark_label`
 
-The specification for this field has been detailed in this module. Please refer to the relevant section for details.  [View](02_Page_Documentation/M13_Transportation/M13_06_Parking#carpark-label)
+The specification for this field has been detailed in this module. Please refer to the relevant section for details.  [View](/02_Page_Documentation/M13_Transportation/M13_06_Parking#carpark-label)
 
 ---
 
@@ -171,7 +171,7 @@ This component displays the parking fee structure, exclusive benefits, and appli
 
 ### Visual Reference
 
-_(Add Figma Embed Link)_
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-16229&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Display Logic
 
@@ -297,7 +297,7 @@ A navigation component that allows users to switch between different car park ar
 
 ### Visual Reference
 
-_(Add Figma Embed Link)_
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-16335&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Display Logic
 
@@ -323,7 +323,7 @@ Provides quick navigation links to related locations (e.g., shops, restaurants o
 
 ### Visual Reference
 
-_(Add Figma Embed Link)_
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-16403&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
@@ -388,10 +388,10 @@ The specification for this field has been detailed. Please refer to the relev
 
 ---
 
-## 5. ## EV Charging Station Brand
+## 5.  EV Charging Station Brand
 
 ```Plain
-GLOBAL_DISPLAY_HowtoFindGuide
+TRANS_DISPLAY_EVChargingStationBrand
 ```
 
 ### **Key Function**
@@ -400,7 +400,7 @@ Displays the logo and name of EV charging providers available in the car park, h
 
 ### Visual Reference
 
-_(Add Figma Embed Link)_
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-16563&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
@@ -454,40 +454,17 @@ Displays the name of the EV charging service provider or charging station. This 
 
 ---
 
-## 6.  How to Find Guide
+## 6.  How to Find
 
 ```Plain
-GLOBAL_DISPLAY_Terms&ConditionsAccordion
+GLOBAL_DISPLAY_HowToFind
 ```
 
 ### **Key Function**
 
 Provides detailed textual and visual guidance on how to physically find the car park, typically shown in the “How to Find” tab.
 
-### Visual Reference
-
-_(Add Figma Embed Link)_
-
-### Field List
-
-| Fields          | Description                                               |
-| --------------- | --------------------------------------------------------- |
-| howtofind_text  | Textual instructions describing how to find the car park. |
-| howtofind_image | Image illustrating the directions visually.               |
-| howtofind_id    | Unique ID for each “How to Find” entry.                   |
-
-### Display Logic
-
-- Each entry consists of paired `howtofind_text` and `howtofind_image`.
-- Multiple entries can be swiped through.
-
-### Interaction Logic
-
-- Tapping an image opens a fullscreen viewer.
-
-### **CMS Field Specification**
-
-See the **Global Component Documentation** for detailed field definitions:  [View](02_Page_Documentation/How_to_Find)
+Please refer to the Global Component Documentation for details.  [View](/01_Global_Components/How_To_Find)
 
 ---
 
@@ -501,37 +478,4 @@ GLOBAL_DISPLAY_Terms&ConditionsAccordion
 
 A collapsible accordion used to display detailed terms and conditions for using the car park.
 
-### Visual Reference
-
-_(Add Figma Embed Link)_
-
-### Field List
-
-| Fields        | Description                                                       |
-| ------------- | ----------------------------------------------------------------- |
-| parking_terms | The full text of the terms and conditions for using the car park. |
-
-### Display Logic
-
-- Initially shows only the title; content expands on interaction.
-
-### Interaction Logic
-
-- Tapping the title expands or collapses the section.
-- Displayed content is **not affected** by car park or area switching.
-
-### **CMS Field Specification**
-
-#### `parking_terms`
-
-The detailed terms and conditions for car park use.
-
-| **Specification Item** | **Details**                                                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Field Type             | Array of Text                                                                                                                  |
-| Max Items              | 10 (Recommended limit for clear display)                                                                                       |
-| Max Length per Item    | 500 characters                                                                                                                 |
-| Example                | `["Complimentary parking is only applicable...", "Parking spaces are subject to....."]`                                        |
-| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols. No emojis. Leading/trailing spaces automatically trimmed. |
-| Localization           | Each payment method string must support all display languages.                                                                 |
-| Data Source            | Text displayed in the Parking Terms section.                                                                                   |
+Please refer to the **Global Component Documentation** for details. [View](/01_Global_Components/Terms_and_Conditions_Accordion)
