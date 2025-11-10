@@ -1,0 +1,471 @@
+---
+
+title: "M06_01 Shuttle Bus"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+The **Venue Directory** page lists all entertainment venues and shows available within the Galaxy platform. It serves as a discovery hub for users to browse events, access countdowns, and view ticket availability.
+
+This page references data from the **Event Directory content type** within the Entertainment module, configured in the **CCMS** to manage venue listings, sorting, and event display order.
+
+The page includes the following components:
+
+|   |   |   |   |   |   |
+|---|---|---|---|---|---|
+|#|Component Code|Component Name|Type|Figma|Doc|
+|1|GLOBAL_DISPLAY_DynamicCardsCarouselMini|DynamicCardsCarouselMini|Global|[View](url)|[View](#1-dynamic-cards-carousel)|
+|2|GLOBAL_ACTION_Toolbar(FilterBar)|Toolbar (Filter Bar)|Global|[View](url)|[View](#2-toolbar-filter-bar)|
+|2.1|GLOBAL_LIST_Search(Local Search)|Search (Local Search)|Global|[View](url)|[View](#2-1-search-local-search)|
+|2.2|GLOBAL_SELECT_SortFunction|Sort Function|Global|[View](url)|[View](#2-2-sort-function)|
+|2.3|GLOBAL_SELECT_FilterFunction|Filter Function|Global|[View](url)|[View](#2-3-filter-function)|
+|3|ENT_DISPLAY_ShowCard|ShowCard|Local|[View](url)|[View](#3-showcard)|
+|3.1|GLOBAL_STATUS_CountdownTimer|Countdown timer|Local|[View](url)|[View](#3-1-countdown-timer)|
+|3.2|GLOBAL_ACTION_CTA Button|CTA Button|Global|[View](url)|[View](#3-2-cta-button)|
+|3.3|ENT_DISPLAY_AccessLabel|Access Label|Local|[View](url)|[View](#3-3-access-label)|
+|3.4|GLOBAL_STATUS_OffersTag|Offer Tag|Global|[View](url)|[View](#3-4-offer-tag)|
+|4|GLOBAL_ACTION_LoginStickyButton|Login Sticky Button|Global|[View](url)|[View](#4-login-sticky-button)|
+
+  
+
+1. ## Dynamic Cards Carousel Mini
+    
+
+```Plain
+GLOBAL_DISPLAY_DynamicCardsCarouselMini
+```
+
+Global carousel reused across multiple modules (e.g., What's On, F&B Directory).
+
+Please refer to the global component documentation for display details.`[View](/01_Global_Components/DynamicCardsCarouselMini)`
+
+  
+
+### Key Function
+
+- Links to Venue Detail page, containing the Entertainment Venue content type in a compact tile layout
+    
+
+### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-26054&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|venue_id|Unique ID linked to venue record|
+|tile_image|Hero/thumbnail image of each venue|
+|short_title|Venue title|
+
+### Display Logic
+
+- The `short_title` of each Entertainment Venue is displayed at the bottom of each tile. The text colour is determined by the colour function [LINK TO COLOUR FUNCTION].
+    
+
+### CMS Field Specification
+
+#### `tile_image`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image (JPG/webp ≤ 2 MB, recommneded size 500MB)|
+|Input Validation|Required|
+|Data Source|CCMS → Entertainment Venue|
+
+#### `short_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input|
+|Max Length|EN: 29 characters (max 2 lines, truncate if longer)|
+|Example|Galaxy Arena|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS → Entertainment Venue|
+|Dependencies|-|
+
+  
+
+---
+
+2. ## Tool Bar
+    
+
+```Plain
+GLOBAL_ACTION_Toolbar(FilterBar)
+```
+
+### Key Function
+
+- Contains the Filter, Sort and Search function on the event directory
+    
+- Enables users to efficiently find events that match their needs through multi-dimensional filtering, sorting, and search functions.
+    
+
+  
+
+Please refer to the global component documentation for display details. Link[View](/01_Global_Components/ Toolbar_Filter)
+
+### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7413-2307&t=TmrwzwgJVnbh1PL8-0" />
+
+  
+
+---
+
+### 2.1 Local Search
+
+  
+
+```Plain
+GLOBAL_LIST_Search(Local Search)
+```
+
+Please refer to the global component documentation for behavioural details. Link[View](/01_Global_Components/ Local_Search)
+
+  
+
+---
+
+### 2.2 Sort
+
+```Plain
+GLOBAL_SELECT_SortFunction
+```
+
+Please refer to the global component documentation for behavioural details. Link[View](/01_Global_Components/ Sort_Function)
+
+#### Display Logic
+
+- By default, events are arranged in the recommended order, as defined by the Recommended Sort attribute within the content type.
+    
+- If the user has Priority Sale access, the shows with access will be pushed to the top and override the defauly sorting logic
+    
+- Certain Entertainment Events can be hidden from users based on the Member Tier Filter and Segment Filter specifications configured within the content type.
+    
+
+---
+
+### 2.3 Filter Function
+
+```Plain
+GLOBAL_SELECT_FilterFunction
+```
+
+Please refer to the global component documentation for behavioural details. Link[View](/01_Global_Components/ Filter_Function)
+
+#### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|subcategory|Entertainment Category, Fan Meeting, Concert/Music, Cultural, Shows, Others. Filters stores based on their show category. One show can have more than one category.|
+|show_times_specification|Filters concerts by time period stated. Dates calculated from Today.|
+|short_title|Venue short title|
+
+#### Display Logic
+
+|   |   |   |   |
+|---|---|---|---|
+|Filter Categories|Option Type|Example Options|Description|
+|Entertainment Categories|Tag Selection (Multi-select)|Fan Meeting, Concert/Music, Cultural, Shows, Others|Filters stores based on their show category. One show can have more than one category.|
+|Dates|Radio|Today, Recent 7 days, Recent 30 days|Filters concerts by time period stated. Dates calculated from Today|
+|Date > Calendar Picker|Radio|Date picker|Filters concerts by the time period selected. Can select single date or range. Dates with no shows scheduled will be grey and disabled. Dates with shows scheduled are active and can be selected.|
+|Venue|Tag Selection (Multi-select)|Galaxy Arena, G Box, Broadway Theatre|Filters shows by venue|
+
+#### CMS Field Specification
+
+##### `subcategory`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Dropdown list|
+|Example|Fan Meeting, Concert/Music, Cultural, Shows, Others|
+|Input Validation|Mandatory, multi-select. The first category selected is the primary category.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+##### `show_time_specification`
+
+Refer to `show_time_specification` in **Entertainment Event** detail [INSERT LINK]
+
+  
+
+##### `short_title`
+
+Refer to `short_title` in CMS field specification above in **Dynamic Cards Carousel Mini** detail [INSERT LINK]
+
+  
+
+---
+
+3. ## ShowCard
+    
+
+```Plain
+ENT_DISPLAY_ShowCard
+```
+
+### Key Function
+
+Displays a list of each upcoming Entertainment Event within the Venue Directory. Each card links directly to the **Entertainment Event Detail** page.
+
+### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-27781&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|subcategory|Entertainment Category, e.g. Fan Meeting, Concert/Music, Cultural, Shows, Others. One show can have more than one category but only displays the primary category as the tag|
+|hero_image|Hero/thumbnail image of each entertainment event|
+|title_text|Entertainment Event title|
+|show_time_specification|All date and times for the show|
+|countdown_label_text|Countdown description text|
+|countdown_start_in_hours|Countdown time to when the sale starts|
+|price_schedule_specification|From price (lowest available price), in MOP|
+|offers|No. of linked special offers attached to the Entertainment Event|
+|label_specification|Displays tags to indicate priority sale availablity, membership exclusivity, or other benefits|
+|sale_status|Ticketing sale status of the entertainment event: sale not started, presale, on sale, or sold out|
+
+### Display Logic
+
+- The primary `subcategory` is displayed as a tag on the left corner of each `hero_image`. Each Entertainment Event will only display one `subcategory` on this card.
+    
+- The Entertainment Event `title_text` is displayed in a maximum of 2 lines. If the title is longer, it is truncated.
+    
+- The `show_time_specification` is displayed in full under the `title text`.
+    
+- The `price_schedule_specification` is fixed to the bottom right of the card and displays the lowest ticketing price with an approximate conversion.
+    
+    - Main pricing displayed as: `[From {lowest price}]`
+        
+    - Conversion to CNY displayed below as: `[Approx. {lowest price CNY conversion}]`
+        
+    - If `pricing_availability_override` is enabled, replace `[From {Price}]` and `[Approx. {CNY Price}]` with [Pricing Not Yet Available]
+        
+
+  
+
+### CMS Field Specification
+
+|   |   |
+|---|---|
+|Field|Reference|
+|`subcategory`|Refer to `subcategory` in CMS field specification above in **2.3 Filter Function** detail [view](#subcategory)|
+|`hero_image`|Refer to `hero_image` in **1. Entertainment Event Header Card** in **Entertainment Event detail page.** [view](/02_Page_Documentation/M06_02_Venue_Detail#hero-image)|
+|`title_text`|Refer to `title_text` in **1. Entertainment Event Header Card** in **Entertainment Event detail page.** [INSERT LINK]|
+|`show_time_specification`|Refer to `show_time_specification` in **3.1. Event Time & Duration** in **Entertainment Event detail page.** **[view](#show_time_specification)**|
+|`price_schedule_specification`|Refer to `price_schedule_specification` in **1. Entertainment Event Header Card** in **Entertainment Event detail page.** [INSERT LINK]|
+
+### 3.1 Countdown Timer
+
+```Plain
+GLOBAL_STATUS_CountdownTimer
+```
+
+#### Key Function
+
+- Displays a countdown timer indicating the time remaining before general ticket sales open.
+    
+- Linked to the event’s Sale Schedule Item.
+    
+
+#### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14199&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+#### Display Logic
+
+If a **countdown timer** is configured for the Entertainment Event, display the countdown timer on top of the `hero_image`, with `countdown_label_text`on the left, and live countdown on the right.
+
+- Countdown format in real-time: DD:HH:MM:SS
+    
+- Once the time of the sale starts, the component is hidden
+    
+
+  
+
+#### CMS Field Specification
+
+##### `countdown_label_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|19 characters|
+|Example|Sale starts in:|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+### 3.2 CTA Button
+
+```Plain
+GLOBAL_ACTION_CTA Button
+```
+
+#### Key Function
+
+- Allows user to perform actions in relation to the event's sale status e.g. Set Reminder
+    
+
+#### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14198&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+#### Display Logic
+
+- Reminder CTA button:
+    
+    - If the sale for an Entertainment Event has not started and reminder notifications are available, display Set Reminder as an active CTA button.
+        
+    - If the user has not subscribed to any sale reminder notification messages and a notification message is available, the button is displayed in its active state.
+        
+- Sold out button:
+    
+    - If the `sale_status` is "Sold out", the button is disabled and inactive as a display only CTA.
+        
+
+  
+
+#### Interaction Logic
+
+- If the button is active, on tap, opens the default WeChat notification subscription pop up for users to select which sales they want to subscribe to.
+    
+- When the reminder is successfully subscribed to, display a toast message to indicate that the reminder has been added
+    
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MTc0NTg2N2RkZGU5MmU2MTBhMDczMmVjZTQ5NDQyNzlfcnVxcGJoQnY1OWhmZEVPU2FmMGhKWlY2bUpxQmdxUmpfVG9rZW46UTFQc2JDMG9NbzY5V0l4SXpHTWN4dlNQblNnXzE3NjI3ODcwNzA6MTc2Mjc5MDY3MF9WNA)
+
+### 3.3 Access Label
+
+```Plain
+ENT_DISPLAY_AccessLabel
+```
+
+#### Key Function
+
+- Shows when the user has exclusive access to the priority sale, or entertainment event due to their member tier to let them know they have this privilege.
+    
+
+#### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14196&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+#### Display Logic
+
+- There are several levels of access for each Entertainment Event:
+    
+    - Member-only access:
+        
+        - The Entertainment Event is only bookable for certain membership tiers, other tiers will see the event details only, but no information on how to purchase a ticket.
+            
+    - Priority Sale access:
+        
+        - By membership tier:
+            
+            - Locked state: If the user's member tier does not match the Priority Sale criteria, they will see the eligible tiers for priority access
+                
+            - Unlocked state: If the user's member tier matches and they have the corresponding coupon ID for priority access, they will see that their access is unlocked
+                
+        - By other criteria
+            
+            - Locked state: If the user does not match the Priority Sale criteria, they will see that access is locked
+                
+            - Unlocked state: If the user's matches the Priority Sale criteria and they have the corresponding coupon ID for priority access, they will see that their access is unlocked
+                
+
+#### CMS Field Specification
+
+##### `label_specification`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Label style|Dropdown; membership tier specific labels or generic style|
+|Label text field type|Free text input|
+|Max Length|55 characters|
+|Example|Priority Sale Access Unlocked|
+|Input Validation|Style and Text is Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+### 3.4 Offer Tag
+
+```Plain
+GLOBAL_STATUS_OffersTag
+```
+
+Please refer to the global component documentation for behavioural details. Link[View](/01_Global_Components/ Offers_Tag)
+
+#### Key Function
+
+- Shows how many offers are linked to the Entertainment Event
+    
+
+#### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NTUyNDMwZGY4YzE4M2ZhMThjMDY4M2UxNDU0MDQyOThfbWs0cVQ3a292d2pwakRYQWVUM1Vha1ZDZEVJTmYyTlZfVG9rZW46TUVrMGI4eE1sb0FQbll4UlpGemNLTFYxblFkXzE3NjI3ODcwNzA6MTc2Mjc5MDY3MF9WNA)
+
+  
+
+  
+
+4. ## Login Sticky Button
+    
+
+```Plain
+GLOBAL_ACTION_LoginStickyButton
+```
+
+Please refer to the global component documentation for behavioural details. Link[View](/01_Global_Components/ Login_Sticky_Button)
+
+### Key Function
+
+- Floating button to prompt user to sign up to become a member to access member-exclusive features.
+    
+
+### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-20144&t=TmrwzwgJVnbh1PL8-0" />
+
+  
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|signup_description|Sign up CTA description|
+|signup_cta|CTA button text|
+
+### Display Logic
+
+- Floating login CTA for signed-out users with `signup_description`on the left and `signup_cta` on the button.
+    
+- Hidden after login.

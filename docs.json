@@ -38,6 +38,14 @@
           "1_DesignDocs/M03_Retail/M03_02_test"
         ]
       },
+            {
+        "group": "Entertainment",
+        "pages": [
+          "02_Page_Documentation/M06_Entertainment/M06_01_Venue_Directory",
+          "02_Page_Documentation/M06_Entertainment/M06_02_Venue_Detail",
+          "02_Page_Documentation/M06_Entertainment/M06_03_Entertainment_Event_Detail"
+        ]
+      },
        {
         "group": "Transportation",
         "pages": [

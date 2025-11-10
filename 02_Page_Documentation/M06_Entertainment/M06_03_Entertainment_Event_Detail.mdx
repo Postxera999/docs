@@ -1,0 +1,1511 @@
+---
+
+title: "M06_03 Entertainment_Event_Detail"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+### **Page Overview**
+
+The **Entertainment Event** **Detail** page provides complete information about each concert or entertainment event within the Galaxy platform.
+
+It displays ticket details, seating information, membership benefits, FAQs, purchase instructions etc. This page references data from the **Entertainment Event content type** in the CCMS.
+
+---
+
+### **Components Used**
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|#|Component Code|Component Name|Global / Local|Description|
+|1|ENT_DISPLAY_EntertainmentEventHeaderCard|Entertainment Event Header Card|Local|Displays concert title, date, price and main image|
+|2|GLOBAL_STATUS_CountdownTimer|Countdown Timer|Local|Shows countdown before general ticket sale starts|
+|3|ENT_CTNR_InfoTable|InfoTable|Global|Displays concert time, venue, location and other important details in a table format|
+|3.1|ENT_DISPLAY_Event Time and Duration|Event Time and Duration|Local|Displays Event dates, sessions and duration|
+|3.2|GLOBAL_DISPLAY_LocationCard|Location card|Local|Displays venue and address|
+|3.3|ENT_DISPLAY_Tips|Tips|Local|Displays key notes and tips|
+|3.4|ENT_DISPLAY_Sale Schedule|Sale Schedule|Local|Displays sale schedule specification|
+|4|GLOBAL_ACTION_ContactButton|Contact Button|Global|Opens contact pop up|
+|5|GLOBAL_ACTION_ShareButton|Share Button|Global|Allows users to share concert details|
+|6|ENT_ACTION_SeatingButton|Seating Button|Local|Opens the seating chart image in full view|
+|7|GLOBAL_ACTION_Sticky CTA Button|Sticky CTA Button|Global|Main CTA for the page|
+|7.1|ENT_ACTION_SetReminderButton|Set Reminder Button|Local|Enables users to subscribe to ticket sale alerts|
+|7.2|ENT_ACTION_How to Book Button|How to Book Button|Local|CTA to instruct user on how to purchase ticket|
+|8|GLOBAL_DISPLAY_LockedPageBanner|Locked Page Banner|Local|Sign up CTA banner to join Galaxy Life for logged out users|
+|9|ENT_DISPLAY_PrioritySale Section|Priority Sale Section|Local|If the user is eligible for priority sale, provides instruction on how to access the sale|
+|10|ENT_CTNR_HowtoBookSection|How to Book Section|Local|Provides ticketing purchase instructions|
+|11|GLOBAL_FLOW_SpecialOffersCarousel|Special Offers Carousel|Global|Displays linked offers|
+|12|GLOBAL_SELECT_TabSelector|Tab Selector|Global|Switches between event details and related info|
+|13|GLOBAL_DISPLAY_BodyContent|Body Content|Global|Displays event description and overview, with a “See More” expansion for long text|
+|14|ENT_LIST_TicketPriceBlock|Ticket Price Block|Local|Displays ticket categories and prices|
+|15|ENT_CTNR_EventNotices|Event Notices|Local|Lists event guidelines, policies, and entry notes|
+|16|ENT_DISPLAY_FAQButtons|FAQ Buttons|Local|Displays common attendee questions|
+|16.1|ENT_CTNR_FAQModal|FAQ Modal|Local|Opens FAQ answers in a modal view|
+|17|GLOBAL_DISPLAY_LocationCard|Location Card|Global|Displays venue address and directions|
+|18|GLOBAL_CTNR_AccordionInfoGroup|Accordion Info Group|Global|Groups key information in a dropdown layout|
+|18.1|GLOBAL_DISPLAY_HowToFind|How to Find|Global|Visual guide of how the user can find the location|
+|18.2|GLOBAL_DISPLAY_RelevantInfo|Relevant Info|Global|Displays list of relevant information in a dropdown|
+|19|ENT_DISPLAY_EntertainmentRecommendationsCarousel|Entertainment Recommendations Carousel|Global|Recommendations of other entertainment events|
+
+---
+
+1. ## Entertainment Event Header Card
+    
+
+```Plain
+ENT_DISPLAY_EntertainmentEventHeaderCard
+```
+
+### Key Function
+
+- The Entertainment Event Header Card sits at the top of the page with the hero image/poster of the Entertainment Event to present the event to the user.
+    
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=Mzk5OTFhOTFiYTc0OTNmZGJmNmJmYjUzNzhhZjQ4N2ZfVzUwaHl4d0dSOGVCU0lMYVo1Nldzc25aVk9LWE5XdWRfVG9rZW46V3JleWJxY3Fpb2hlRDR4dWM2R2MwTlVLbjVjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|hero_image|The key visual for this entertinment event.|
+|title_text|The title text that appears on Entertainment Directory, Entertainment Venue and Entertainment Event detail pages.|
+|price_schedule_specification|Displays lowest available ticket price|
+|pricing_availability_override|When enabled, this attribute replaces both the “From Price” and the detailed Ticket Price section with the message “Pricing Not Yet Available”, regardless of whether pricing and restrictions have already been configured.|
+
+### Display Logic
+
+- Displayed at the top of the Entertainment Event Page
+    
+- Card background colour:
+    
+    - Please refer to that section for color picker details. [View](/01_Global_Components/Color_Picker_Function)
+        
+    - Determined by using the dominant colour function from the `hero_image`
+        
+    - The colour contrast is then calculated and determined if it is a dark or light colour
+        
+        - If the colour is dark: the text colour of the `title_text` and `price_schedule_specification` is light
+            
+        - If the colour is light: the text colour of the `title_text` and `price_schedule_specification` is dark
+            
+- The height of the card is dynamic and responsive, determined by the number of lines in the `title_text`. The full `title_text` should always be displayed.
+    
+- The `price_schedule_specification` is fixed to the bottom right of the card and displays the lowest ticketing price with an approximate conversion.
+    
+    - Main pricing displayed as: `[From {lowest price}]`
+        
+    - Conversion to CNY displayed below as: `[Approx. {lowest price CNY conversion}]`
+        
+    - If `pricing_availability_override` is enabled, replace `[From {Price}] `and `[Approx. {CNY Price}] `with [Pricing Not Yet Available]
+        
+
+  
+
+### CMS Field Specification
+
+#### `hero_image`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image|
+|File Format|JPG or WebP (WebP preferred for smaller file size)|
+|Dimensions|311 × 200 px|
+|Aspect Ratio|1.55 : 1|
+|Resolution|72–96 DPI (standard web resolution)|
+|File Size Limit|Maximum 2 MB (recommended under 500 KB for faster load)|
+|Color Profile|sRGB|
+|Input Validation|Optional|
+|Data Source|CMS|
+|Dependencies|Displayed only when linked image exists|
+
+#### `title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input|
+|Max Length|-|
+|Example|Magicman 2 World Tour 2025-2026 in Macau Presented by Galaxy Macau™|
+|Input Validation|Text only|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+|Dependencies|Used as the page title and main title of the show_id across different linked components|
+
+#### `price_schedule_specification`
+
+Refer to detail on price schedule specification in section [View](#price-schedule-specification)
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Numerical|
+|Max Length|-|
+|Example|Magicman 2 World Tour 2025-2026 in Macau Presented by Galaxy Macau™|
+|Input Validation|Text only|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+|Dependencies|Used as the page title and main title of the show_id across different linked components|
+
+  
+
+---
+
+2. ## **Countdown Timer**
+    
+
+```Plain
+GLOBAL_STATUS_CountdownTimer
+```
+
+### Key Function
+
+- Displays a countdown timer indicating the time remaining before general ticket sales open.
+    
+- Linked field to the event’s Link[View](/01_Global_Components/Countdown_Timer)
+    
+
+  
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MjRkZjE4MTI2MjUxNzcxZTVlZDEyMmIxNDFhYzg4YWJfUGZQb1lCUmxnS0hIbE1tdkVCTk9XNEhaVGF4bVljVmxfVG9rZW46TW9VOGJiWHE2bzBYYVR4RzllMmNrZEo3bm5JXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|countdown_start_in_hours|Allows content managers to specify the number of hours prior to the Sale Start Date and Time when the countdown timer should become visible.|
+|countdown_title|Displayed in the Countdown Time Window on the Entertainment Event Detail page.|
+|countdown_description|Displayed below the Countdown Title in the Countdown Time Window on the Entertainment Event Detail page.|
+
+### Display Logic
+
+- If a countdown is configured before the sale start, it is displayed under the Entertainment Event Header Card.
+    
+- Countdown format in real-time: DD:HH:MM:SS
+    
+- Once the time of the sale starts, the component is hidden
+    
+- `countdown_title` is displayed in a maximum of 2 lines.
+    
+- `countdown_description` is displayed in a maximum of 2 lines.
+    
+
+  
+
+### CMS Field Specification
+
+#### `countdown_start_in_hours`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Time|
+|Format|DD:HH:MM:SS|
+|Input Validation|Optional field, no. of days must not exceed 99|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|sale_start_time must be configured.|
+
+#### `countdown_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input|
+|Max Length|EN: 60 characters (max 2 lines)|
+|Example|Tickets are not on sale yet|
+|Input Validation|Optional, text input only|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+#### `countdown_description`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input|
+|Max Length|EN: 80 characters (max 2 lines)|
+|Example|Set a reminder to not miss the wonderful concert.|
+|Input Validation|Optional, text input only|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+  
+
+---
+
+3. ## Info Table
+    
+
+  
+
+```Plain
+ENT_CTNR_InfoTable
+```
+
+### Key Function
+
+- Displays key information related to the Entertainment Event in a table format
+    
+
+  
+
+Please refer to the global component documentation for display details. Link[View](/02_Page_Documentation/Filter Function#station-name)
+
+### 3.1 Event Time & Duration
+
+```Plain
+ENT_DISPLAY_EventTimeandDuration
+```
+
+#### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|show_time_specification|The CCMS supports multiple show time entries for each Entertainment Event. Each entry may include a specific date or a date range, along with one or more scheduled times. The WCMP retrieves this data from the Show Times Specification within the Entertainment Event content type and formats it appropriately for display across relevant pages.|
+|show_duration|Approximate duration of show|
+
+#### Display Logic
+
+- `show_time_specification`appears as the primary text type at the top of the table. If there are multiple sessions, each session is displayed in a separate line.
+    
+- `show_duration` appears as a secondary text type under the `show_time_specification`in the table column
+    
+
+  
+
+#### CMS Field Specification
+
+##### `show_time_specification`
+
+|   |   |
+|---|---|
+|Specification Format|Details|
+|Single date and single time|Month Day, Year Time (e.g. November 15, 2025 20:00)|
+|Single date with multiple times|Month Day, Year Time1, Time2, Time3 (e.g. November 15, 2025 14:00, 17:00, 20:00)|
+|Date range within the same month|Month StartDay–EndDay, Year Time1, Time2, Time3 (e.g, November 15–18, 2025 14:00, 17:00, 20:00)|
+|Date range across different months (same year)|Month StartDay–Month EndDay, Year Time1, Time2, Time3 (e.g. November 28–December 2, 2025 14:00, 17:00, 20:00)|
+|Date range across different years|MM.DD.Year–MM.DD.Year Time1, Time2, Time3 (e.g. 12.30.2025–01.02.2026 14:00, 17:00, 20:00)|
+|Multiple dates and times|Display on separate lines|
+|Custom Show Time Display Specification|The CCMS shall support a display override attribute, which allows content managers to manually enter formatted text for show times. This override supports multiple lines of text, such as:  Mon–Wed: 7:00 PM, 9:00 PM  Thu–Fri: 5:30 PM, 7:30 PM  Closed on Saturday & Sunday|
+|Specification Item||
+|Input Validation|Mandatory field|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+##### `show_duration`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|Around 120 minutes|
+|Input Validation|Optional, text input only|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+### 3.2 Location card
+
+```Plain
+GLOBAL_DISPLAY_LocationCard
+```
+
+#### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|venue_id|Reference to Event Venue content type|
+|location_specification|Venue address in Event Venue content type|
+
+#### Display Logic
+
+- `title_text`of `venue_id` in Event Venue content type appears as the primary text type at the top of the table.
+    
+- `location_specification`of `venue_id` in Event Venue content type appears as a secondary text type under the `show_time_specification`in the table column
+    
+
+  
+
+See Event Venue Detail page for more details on the CMS specifications.
+
+### 3.3 Tips
+
+```Plain
+ENT_DISPLAY_Tips
+```
+
+#### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|supportive_tips|Content managers can create multiple entries of tip text, which are displayed under the “Tips” section on the Entertainment Event Detail page.|
+
+#### Display Logic
+
+- Each `supportive_tips` is displayed as one line item marked with an (i) icon in front of the text
+    
+- If there are no supportive tips configured, the row in the table component is hidden
+    
+
+  
+
+#### CMS Field Specification
+
+##### `supportive_tips`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|Refunds not supported|
+|Input Validation|Optional, text input only|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+### 3.4 Sale Schedule
+
+```Plain
+ENT_DISPLAY_SaleSchedule
+```
+
+**Key function:**
+
+Galaxy occasionally implements phased ticket sale strategies to manage demand and provide targeted access for high-interest Entertainment Events. These strategies often include multiple exclusive pre-sale periods followed by a public sale.
+
+  
+
+Sale phases may include:
+
+- _Galaxy-Managed Pre-Sales_: Pre-sale access is controlled through Galaxy’s ticketing platform. Entry is granted via access codes embedded in NG CRM coupons, allowing targeted groups (e.g. Diamond-and-above-tier members) to purchase tickets before public availability.
+    
+- _Externally Managed Pre-Sales_: Some pre-sales are handled outside Galaxy’s ticketing ecosystem, such as through Damai or Ctrip. These pre-sales utilize alternative external mechanisms (e.g. an artist’s Weverse fan club site) for distributing access codes and, as such, cannot be managed through NG CRM and WCMP.
+    
+- _Exclusive Member Sales_: Similar to pre-sales, these events are restricted to specific member groups and require access code coupons to complete the purchase.
+    
+- _Public Sales_: Tickets are made available to all users without access restrictions. Sales may occur across one or multiple ticketing platforms, depending on the event’s distribution strategy.
+    
+
+#### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|title_text|Each Sale Schedule is assigned a meaningful name to help content managers easily identify and associate it with the corresponding Entertainment Event.|
+|sale_start_date|Defines the start date and time for ticket sales within a Sale Schedule Item.|
+|sale_end_date|Defines the end date and time for ticket sales within a Sale Schedule Item.|
+|subtitle_text|The subtitle text is displayed below the Sale Schedule window.|
+
+#### Display Logic
+
+- Each Sale Schedule Window is displayed as its own line item.
+    
+- `title_text` is displayed as the left-column header
+    
+- `sale_start_date` / `sale_end_date`are displayed as the primary text style in the right-column.
+    
+- `subtitle_text` is displayed as the secondary text style if configured
+    
+
+  
+
+- _Sale Schedule Item Name_ – Each Sale Schedule Item must be assigned a meaningful name to help content managers easily identify and associate it with the corresponding Entertainment Event.
+    
+- _Sale Start Date_ – Defines the start date and time for ticket sales within a Sale Schedule Item. This value is not only displayed across various pages but also used to sequence Sale Schedule Items, determining the order in which associated labels and promotional banners are presented.
+    
+- _Sale End Date_ – Defines the end date and time for ticket sales within a Sale Schedule Item. Sale schedule dates and times are displayed according to the following rules:
+    
+    - _No end date and time_ – Starting Month Day, Year Time (e.g. Starting November 15, 2025 14:00)
+        
+    - _Same start and end date with different times_ – Month Day, Year Time1 - Time2, Time3 (e.g. November 15, 2025 14:00 – 16:00)
+        
+    - _Different dates_ –MM.DD.Year HH:MM – MM.DD.Year HH:MM (e.g. 12.30.2025 12:00 – 01.02.2026 19:00)
+        
+    - _Multiple dates and times_ – Display on separate lines.
+        
+- _Title Text_ – The title text is displayed in multiple places on the Entertainment Event page:
+    
+    - _Sale Schedule Window_ – Appears at the top of the page to indicate the current or upcoming sale phase.
+        
+    - _How to Book Window_ – Shown when the Sale Schedule Item Type is set to Pre-Sale or Member Exclusive Sale.
+        
+- _Subtitle Text_ – The subtitle text is displayed below the title in the Sale Schedule window.
+    
+
+  
+
+#### CMS Field Specification
+
+##### `title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|Public Sale|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+##### `sale_start_date / sale_end_date`
+
+|   |   |
+|---|---|
+|Specification Format|Details|
+|No end date and time|Starting Month Day, Year Time (e.g. Starting November 15, 2025 14:00)|
+|Same start and end date with different times|Month Day, Year Time1 - Time2, Time3 (e.g. November 15, 2025 14:00 – 16:00)|
+|Different dates|MM.DD.Year HH:MM – MM.DD.Year HH:MM (e.g. 12.30.2025 12:00 – 01.02.2026 19:00)|
+|Multiple dates and times|Display on separate lines.|
+|Specification Item||
+|Input Validation|Mandatory field|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+##### `subtitle_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|Via Galaxy Ticketing Only|
+|Input Validation|Optional|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+4. ## Contact Button
+    
+
+```Plain
+GLOBAL_ACTION_ContactButton
+```
+
+### Key Function
+
+Opens Contact Us pop up to allow users to contact CS.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Contact_Button)
+
+  
+
+5. ## Share Button
+    
+
+```Plain
+GLOBAL_ACTION_ShareButton
+```
+
+### Key Function
+
+Allow user to share this page link with friends via MP share card or generate a share poster image to save to local album.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Share_Button)
+
+6. ## Seating Button
+    
+
+```Plain
+ENT_ACTION_SeatingButton
+```
+
+  
+
+### Key Function
+
+- The **Seating Button** allows users to view the venue’s seating or layout map image as configured in the CCMS.
+    
+- It is used on the **Entertainment Event Detail** page to provide a quick reference for visitors to view the ticket zones in the venue.
+    
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MDQ3NWM5NjFiNzVmYzM4M2I4OTUwNDVlMDAxMjRjMzFfczdKY3BLbTlIdGJVTWhWU3c3a1M1b0tYSTJwTzdSeG9fVG9rZW46Vkhid2JmeU1Bb09aTml4NXVpeWNXWVZhbkpEXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|seat_map_image|The image to be displayed when the user clicks the “Seating” button at the top of the page.|
+
+### Display Logic
+
+- Visible when a `seat_map_image` is uploaded under the Entertainment Event content type.
+    
+- Hidden automatically if no image is available.
+    
+
+### Interaction Logic
+
+- On tap, opens the full seat map in a full page image viewing mode which supports zoom and pan interactions.
+    
+- For larger layouts, the view switches to horizontal orientation to improve visibility.
+    
+
+  
+
+### CMS Field Specification
+
+#### `seat_map_image`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image|
+|File Format|webp|
+|Size Requirement|800 × 600 px minimum|
+|File Size Limit|Maximum 2 MB|
+|Input Validation|Optional, only 1 image is supported|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+  
+
+7. ## Sticky CTA Button
+    
+
+```Plain
+GLOBAL_ACTION_StickyCTAButton
+```
+
+### Key Function
+
+Prominent sticky CTA button anchored to the bottom of the page.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Login_Sticky_Button)
+
+  
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|sale_status|The sale status of the Entertainment Event|
+
+### Display Logic
+
+- Sticky at the bottom of the page
+    
+- If there is only 1 CTA button displayed, the button is in full width in the primary button style
+    
+- If there are 2 CTA buttons displayed, the left button uses the secondary button style
+    
+- If the event is locked to certain membership tiers, hide the 'How to book' button.
+    
+    - e.g. If the event is only open to Treasure tier members, lower tiers will not see the **How to Book button,** but can still see the other event details.
+        
+
+|   |   |   |
+|---|---|---|
+|**Sale Status**|**CTA buttons**|**Example**|
+|Pre-sale|How to Book Set Reminder|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OGZmZWM5MDVkOWVjMGYwYmJiY2Q4OTc1NWJlNTU4MjVfRGhQcWowUHJERFljZXBmaHBGR1Nwczg4R0l0bkNNTW9fVG9rZW46WDBOdWJRNzJab3dGRTl4UWRVOGNLeVJYbnliXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
+|On sale|How to Book|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MWIwY2NjMjk4ODYzOTAyOTFiODkxNTNkMDhmYTY3MzlfNUM1RVlEbEhBUXpONkhGa01MSmE1VUhyQVkwbjdPM2tfVG9rZW46S3NaamJ3TDBXb1FKcUt4UldnS2N5Sm1IbkdmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
+|Sold out|Sold Out|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OGNjNGM3NWU2MmJhYjZmYWRhOTA1MDdiYjYzMzE3ZTJfeXNzSEQwQzQ1dkdXd096c0xiTzJaTFR5ZjZ3NlkyVFVfVG9rZW46RE80cWIzMmtobzJvaWd4cVhSTmNNZ2U1bm9oXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
+
+### 7.1 Set Reminder Button
+
+```Plain
+ENT_ACTION_SetReminderButton
+```
+
+#### Display Logic
+
+- If the user has not subscribed to any sale reminder notification messages and a notification message is available, the button is displayed in its active state
+    
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=YjIwNGE5NjAxNmJmNGZhMWE2NDQ2ZDM4ZjgxY2NhMjBfTkNKTUJyOXJkMFgyYTFsOERQS1JIekl6cm1FNnVnRTRfVG9rZW46WmFUNGJyNGVJbzk1MTR4UXB5TWNBMURqbnhkXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+- If all the available notification messages have been subscribed to, the button is disabled and the state changes to 'Reminder Added'
+    
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OGM4NjMxNTk0NDMzM2Y2ODI4ZjA1YTkwMWQxYjFmOGNfc3lHVGNtSTN6cHdDaG1VTVp1NVJ4VkVLWTdSV08ydGZfVG9rZW46VTZ6b2JucElnb29UbFp4VGRZY2NTZERQbjhjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+#### Interaction Logic
+
+- If the button is active, on tap, opens the default WeChat notification subscription pop up for users to select which sales they want to subscribe to.
+    
+- When the reminder is successfully subscribed to, display a toast message to indicate that the reminder has been added
+    
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MzU2YjlhMDE4MjRjZWIwNTJjNzBlY2EyMmYyNzk3MTJfdkJYSkQ3UTdUNGxXS0tWeDU4OEgxZ0g0V2dRZDM2d3dfVG9rZW46TFVpa2JRSnZhb2JvVVV4QkRhdGNXRnR6bjdmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### 7.2 How to Book Button
+
+```Plain
+ENT_CTNR_HowtoBookButton
+```
+
+#### Display Logic
+
+- If the event is locked to certain membership tiers, hide the 'How to book' section.
+    
+    - e.g. If the event is only open to Treasure tier members, lower tiers will not see the **How to Book section,** but can still see the other event details.
+        
+
+#### Interaction Logic
+
+- On tap, open a modal containing the How to Book section [View](#how-to-book)
+    
+- If Priority Sale is enabled for the user, the modal displays the Priority Sale section [View](#9-priority-sale-section) on top of the How to Book section
+    
+
+|   |   |
+|---|---|
+|How to Book only|Priority Sale + How to book|
+|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ODdlNGEzMjBiOWFlZWQ1NGQ3NjdkMzdlNjQ1OTg5YTRfOThveDBzeUhzNm1yOVdLR2ZDbnRiQTRzVGNMWWZvTjVfVG9rZW46UEk0UWJEZ2VSbzZVWEd4M3FkbWNqZUJabkVmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NjVlMWE1YzRkZjUxZGM2MGI1ZjUxYzQyZjYyMGNlYmJfbHBRZEpzS2NJN0NSVEFyMm1jZ3gydTdHRVBVeHJIdzhfVG9rZW46SXU0V2JvdlFHb0I3dDd4SjVPM2N5SHdpbjNqXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
+
+  
+
+8. ## Locked Page Banner
+    
+
+```Plain
+GLOBAL_DISPLAY_LockedPageBanner 
+```
+
+### Key Function
+
+- Controls the visibility and content of promotional banners on the Entertainment Event detail page. Banner display is dynamically determined based on the user's coupon status, specifically whether the user holds the associated coupon.
+    
+- Communicates to the user that there are benefits on the page that they could potentially unlock.
+    
+- Page could be locked by signed out state, or the user has not met the eligibility to view the perks.
+    
+
+  
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NDFjY2IwZmE4NjM4YmZmY2JkN2VhYjI1ZjBhNzM3ZDBfUHpBSHUxSHJsRjUydDh0Mm5YSzNic2hNazBBaGFJbGtfVG9rZW46UmJpMGJZdmJTb2MzR254R1VXbmNnWnVSbm1TXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MmJkODFhNDU1YWVhNmEyZGMxNjRmYjQ0NGFjODgwNDNfc2h4QmdMTFl3cDNMakQ0UjlSZHZFekpVNWhoclZxU1NfVG9rZW46WHl5MWJzR0Yyb0lQSzB4SmVTWmNlUUFXbnVlXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|banner_title|Banner title text|
+|banner_description|Banner description|
+|banner_cta_button|Optional CTA button in relation to the banner|
+
+### Display Logic
+
+- Banners can be configured according to specific conditions, including:
+    
+    - Signed out: When users are not signed in, the banner could have a CTA prompt to get users to sign up to become a member to view perks
+        
+    - Locked promotion: When users are not eligible for the presale, display information on how they could get access
+        
+- Once the user has a presale coupon, the perks are 'unlocked' and the corresponding banner is hidden
+    
+- If a `banner_cta_button` is configured, it will display at the bottom of the banner by default.
+    
+
+### Interaction Logic
+
+- If there is more than 1 banner configured for the same entertainment event, it displays as a carousel:
+    
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MzAwNjQ5MmY0NjkyODZiOWZlMDVlNDJmNGUwYTNhNTlfeWdsM3c1YUxHY1BhcUhubGlyalJyTzJtZ3NUaEdXN1BfVG9rZW46QVJFbWJqNU43b094emJ4dm81YWNjZ3gwbnZmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### CMS Field Specification
+
+#### `banner_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|64 characters|
+|Example|Log In To View Membership Benefits|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Standard Sale Restriction Banner|
+|Dependencies|-|
+
+#### `banner_description`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|85 characters|
+|Example|Specific requirement like spend over 30,000 MOP on Galaxy retails to be eligible to join this offer!|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Standard Sale Restriction Banner|
+|Dependencies|-|
+
+#### `banner_cta_button`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|35 characters|
+|Button Link|Deep link to other parts of MP or input URL|
+|Example|Join Galaxy Life|
+|Input Validation|Optional|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Standard Sale Restriction Banner|
+|Dependencies|Must have link configured|
+
+9. ## Priority Sale Section
+    
+
+```Plain
+ENT_DISPLAY_PrioritySaleSection
+```
+
+### Key Function
+
+- If users have an access code to a presale (delivered to the user via Coupon), this section instructs the user on how they can access the priority sale
+    
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OTJkNTZkMjQ3MDQ3MjRkZWEzNzc4OWMwYjcyMmY4MzZfdHpVVnBPUWVQekZmN3RIUnQyaE51NnE4NElQREhLdjlfVG9rZW46Wkt5UWJmTGJGbzZ4d0R4OGY2UmNxYlpvbkx1XzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|title_text|Title of the priority sale|
+|presale_description|Description to display information regarding the presale|
+|label_specification|Used to configure the content displayed within labels shown on the Entertainment Directory page and in the How to Purchase window on the Entertainment Event detail page.|
+|presale_instructions|Displays the steps on how the user can access the presale|
+|ticketing_url|The link in which the user can purchase tickets|
+|coupon_id|The respective coupons that gave the user access to the presale|
+
+### Display Logic
+
+- If the user has a `coupon_id` with reference to the presale on the Entertainment Event, this section is displayed. If the user does not have an eligible coupon, this block is hidden.
+    
+- The `title_text` and `label_specification` tag is displayed at the top of the card.
+    
+- The `presale_description` is displayed in a yellow box to highlight the information. If no
+    
+- Step 1 of `presale_instructions` has a copy link component configured with the `ticketing_url` configured for the user to copy to clipboard
+    
+- Step 2 of `presale_instructions` has the coupon containing the promo code that granted the user priority access displayed. If there is more than one coupon available, the coupon becomes a carousel
+    
+
+### Interaction Logic
+
+- When tapping [Copy link] CTA button, the configured URL will be copied to clipboard and the button changes state to "Link Copied" with a checkmark
+    
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MjFkOTIzMTAwYmViM2UzMmE0YzRkY2RlZmU0MzUzNjBfY2phVVEzdlRzMGtuQlE4SHdEMXdUZzFURmRrZEZVOFpfVG9rZW46Wkk2QmJSVkR2b0hWa0l4U01ETWN0RlkxblJjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+- When tapping [Use] on the coupon, it opens the respective coupon detail page
+    
+
+### CMS Field Specification
+
+#### `title_text`
+
+See above section in 3.4 Sale Schedule Window
+
+#### `label_specification`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Label Types|By tier, by access|
+|Label style|See Figma designs for options|
+|Label text|Text input|
+|Localization|Text localization must be supported|
+|Input Validation|Optional|
+|Data Source|CCMS --> Sale Schedule|
+|Dependencies|Displayed only if the member reaches the criteria of the presale|
+
+#### `presale_description`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|Step 1 : Copy the link and open in browser.|
+|Input Validation|Optional|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+#### `presale_instructions`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|Step 1 : Copy the link and open in browser.|
+|Supported linked components|Copy URL component with ticketing_url, Coupons with coupon_id that has access to the sale|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+#### `ticketing_url`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL|
+|Max Length|-|
+|Example|[https://galaxy.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0](https://galaxy.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0)|
+|Input Validation|Mandatory|
+|URL title|Text, max 49 characters, optional|
+|CTA button text|Text, max 35 characters, mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Sale Schedule Item|
+|Dependencies|-|
+
+#### `coupon_id`
+
+References the `coupon_id` from the coupon content type that grants access to the presale for that particular Entertainment Event.
+
+---
+
+10. ## How to Book Section
+    
+
+```Plain
+ENT_CTNR_HowtoBookSection
+```
+
+### Key Function
+
+Instructs the user on how they can make the ticket purchase for the Entertainment Event, including online browser booking links and offline counter locations.
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDJlZmU3NDQxYzdmYzc1NGEwMjFjNDRlNWQwOTU1ZWZfa2ZJSk5ScUw1aDFmcTM2ZE1YSFNUTVZEY1pMemVWbGhfVG9rZW46Q2FTUGJtU2xvb0NaYlV4OFZxamNQNk5KbktjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|ticketing_type_title|Title of booking type|
+|ticketing_type_description|Description of booking type|
+|default_ticketing_url|Ticketing URL|
+|ticketing_url_title|Name of ticketing link|
+|box_office_reference|Offline ticketing location|
+|box_office_name|Offline ticketing location name|
+|location_specification|Address of box office location|
+
+### Display Logic
+
+- If there is more than one booking type configured, the `ticketing_type_title` is displayed as tabs.
+    
+- If only one type is configured, hide the tabs.
+    
+- If the event is locked to certain membership tiers, hide the 'How to book' section.
+    
+    - e.g. If the event is only open to Treasure tier members, lower tiers will not see the **How to Book section,** but can still see the other event details.
+        
+
+  
+
+Book on Browser
+
+- The `ticketing_type_description` for the booking type is placed at the top of the section.
+    
+- For online ticket purchases, a `default_ticketing_url` with a corresponding `ticketing_url_title` can be configured.
+    
+- More than one `default_ticketing_url`can be configured for one Entertainment Event, the subsequent link components will be placed on below.
+    
+- The `default_ticketing_url` links will only be displayed in one line, if it exceeds one line, the url text will be truncated.
+    
+
+  
+
+Book at Counter
+
+- The `ticketing_type_description` for the booking type is placed at the top of the section.
+    
+- The content references the `box_office_reference` specification, where the `box_office_name` and `location_specification` is configured. Each counter location is displayed as a line item in a table format.
+    
+
+  
+
+### Interaction Logic
+
+- When tapping the [Copy link] CTA button next to the `default_ticketing_url`, the configured URL will be copied to clipboard and the CTA button copy changes to [Copied]
+    
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGQ0YTBiMmQ2MmNjZGFiZWIxMzc0MGZmZTY2MTJkMzdfeVdwbVNhT0ptTzNLbnNPNWVWdHZRajJDb0pTNEh6WUtfVG9rZW46WEU3YmJXenVubzgyczl4NWRVSWN5ckZTbkpiXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+- To switch between booking types, the tabs at the top of the section will switch the content configured under each location.
+    
+
+### CMS Field Specification
+
+#### `ticketing_type_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|15 characters|
+|Example|Book on Browser|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|Displayed only if more than one booking type is configured.|
+
+#### `ticketing_type_description`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|88 characters|
+|Example|Copy one of the links below and open in browser to make a reservation.|
+|Input Validation|Optional|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+#### `default_ticketing_url`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|https://m.damai.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0|
+|Input Validation|Optional|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+#### `ticketing_url_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|35 characters|
+|Example|Damai ticketing link|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|Only if ticketing url is configured|
+
+#### `box_office_name`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|Pearl Lobby|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Box Office Counter Location|
+|Dependencies|-|
+
+#### `location_specification`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|-|
+|Example|1003, 1/F, Pearl Lobby , Galaxy Macau|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Box Office Counter Location|
+|Dependencies|-|
+
+11. ## Special Offers Carousel
+    
+
+```Plain
+GLOBAL_FLOW_SpecialOffersCarousel
+```
+
+### Key Function
+
+Display offers that are linked to this Entertainment Event in a carousel format. References the Offers content type.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Special_Offers_Carousel)
+
+12. ## Tab Selector
+    
+
+```Plain
+GLOBAL_SELECT_TabSelector
+```
+
+### Key Function
+
+Quick links to navigate to the content sections within the page. References the headers of the content added to the Entertainment Event.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Tab_Selector)
+
+13. ## Body Content
+    
+
+```Plain
+GLOBAL_DISPLAY_BodyContent
+```
+
+### Key Function
+
+Displays a write up of key information and details of the enterntainment event. Supports text and images.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Body_Content)
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NTdjZDJiMGExMGQ2YzUxMWE3ZGQzOTJlYmQxNTkwNjlfZFlxSUJna2FnVk53d0dZb1lUejhzekpmWXdPc3NCVWlfVG9rZW46S1Y3eGJkdGI2bzFLTXR4ZzYxNWNFSHJUbkFnXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|description_title|Heading of the description section, used in the tab selector|
+|description|Details of the entertainment event|
+
+### CMS Field Specification
+
+#### `description_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|37 characters|
+|Example|Details|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+#### `description`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Rich text field|
+|Max Length|10,000 characters|
+|Example|Jackson Wang’s second solo headlining tour MAGICMAN 2 WORLD TOUR 2025-2026 in Macau Presented by Galaxy Macau™ is official!|
+|Input Validation|Optional, relevant text format filters|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+14. ## Ticket Price Block
+    
+
+```Plain
+ENT_LIST_TicketPriceBlock
+```
+
+### Key Function
+
+Displays the different ticket price tiers and restrictions clearly to the user.
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ODM2ZmU3ZTdlODJiNzQzNzQ2NGQyN2ZjNGRmYjc5ZTNfNmFhWllyUEhUMUpjRE5qa0RrbjV4WDRtc0J1aUluaU1fVG9rZW46WkgzMWJFQjM5b3U2YzB4WGxlZGNYNmRybkplXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|price_section_title|Heading of the price section, used in the tab selector|
+|price_schedule_specification|Allows for multiple pricing entries, each defined by ticket category and price in MOP.|
+|price|Ticket price displayed in MOP|
+|ticket_category|Ticket category tier linked to a price|
+|price_restriction|Displayed above the detailed pricing section on the Entertainment Event detail page. These restrictions provide transactional limits, such as “Maximum 4 tickets per transaction.”|
+
+### Display Logic
+
+- `price_title` and `price_restriction` is displayed at the top of the section.
+    
+- Each `price_schedule_specification` is displayed as it's own block, with `price` and `ticket_category`displayed. Each block is fixed width.
+    
+- Two blocks are displayed in a row, if the row number is odd, the next block is displayed below.
+    
+
+  
+
+### CMS Field Specification
+
+#### `price_section_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text input|
+|Max Length|37 characters|
+|Example|Ticket Price|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+#### `price`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Currency|Select currency|
+|Field Type|Number|
+|Max Length|11 characters|
+|Example|MOP 2300|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+#### `ticket_category`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free Text|
+|Max Length|19 characters|
+|Example|Category A|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Entertainment Event|
+|Dependencies|-|
+
+15. ## Event Notices
+    
+
+```Plain
+ENT_CTNR_EventNotices
+```
+
+### Key Function
+
+Lists important guidelines, policies, and entry notes (e.g., Entry Time, Storage Instructions, Prohibited Items).
+
+- _Reference Standard Event Notices_ – Enables the association of an Entertainment Event with predefined event notices, which are managed as a separate content type. This allows for consistent reuse of commonly shared notices across multiple events.
+    
+- _Custom Event Notices_ – Allows content managers to define multiple entries for event-specific notices that are displayed in addition to any referenced standard notices. Each custom notice includes the following elements:
+    
+    - _Icon Image_
+        
+    - _Title Text_
+        
+    - _Description_
+        
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NWFhYTcwMmI4Zjc0NmIxM2EzMjc4MDc3Y2VkMTIyOTdfZ3hNeFZNZTl3blg0M3NlbEl6aWxaVkI2V3VhU245b0tfVG9rZW46Vmh2OGJCZ1VSb2FzSVF4OFplcmNaOWdPbkdGXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|icon_image|Icon displayed next to the title|
+|title_text|Title of the notice|
+|description|Notice details and description|
+
+### Display Logic
+
+- Each notice is displayed as an individual content block, each new notice is displayed under the first one
+    
+- The `icon_image` is placed on the left of the `title_text` on top of the notice block
+    
+- The `description` is displayed under the `title_text`
+    
+
+  
+
+### CMS Field Specification
+
+#### `icon_image`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image/Icon|
+|Supported file types|svg or png|
+|Input Validation|Optional|
+|Localization|-|
+|Data Source|CCMS --> Standard Event Notices|
+|Dependencies|-|
+
+#### `title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text|
+|Max length|48 characters|
+|Example|Prohibited and Restricted Items|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Standard Event Notices|
+|Dependencies|-|
+
+#### `description`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text|
+|Max length|1000 characters|
+|Example|Storage is available. A payable cloakroom service is available. All stored items must be collected within 60 minutes after the event.|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Standard Event Notices|
+|Dependencies|-|
+
+16. ## FAQ Buttons
+    
+
+```Plain
+ENT_DISPLAY_FAQButtons
+```
+
+### Key Function
+
+- Quick access buttons to allow users to view FAQ
+    
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=N2I1ODdhZjFjNDk1MDM1NTdjYTE0NDgzZmNhNDZkY2NfbXNzblNLU2RGME9UemxnejYxa2pIcURJdUlQWUszU3FfVG9rZW46T1RWTmJBZ1Fyb1Bsc0h4anhNTWNFSnRSbmZlXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### 16.1 FAQ Modal
+
+```Plain
+ENT_CTNR_FAQModal
+```
+
+#### Key Function
+
+- Contains FAQ answer in a modal
+    
+
+#### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=YWJlOWNhNzkyY2NiN2E2ZmM0OTU3MzYwZmU4NDQwMmRfa2thSFprTE1BeDdLRXAyalFFVDFqa0pZbkJmdU1tTkJfVG9rZW46QTlBQ2J2ZzNrbzZHQU14UU1jNmNBYW9zbnBoXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|title_text|FAQ title|
+|description|FAQ answer|
+
+### Display Logic
+
+- Each FAQ includes the following elements:
+    
+    - Title Text: the FAQ question
+        
+    - Description: The FAQ answer
+        
+- The **FAQ button** on the Entertainment Event page contains the `title_text` FAQ question only. Each button width wraps to the length of the text, if the text is longer than one line, the text is truncated. Each button is placed next to each other, and only moves to the next line if the buttons don't fit in a single line.
+    
+- In the **FAQ modal**, the `title_text`is displayed at the top, with the `description` as the answer displayed below the title.
+    
+
+  
+
+### Interaction Logic
+
+- Tapping the **FAQ button** opens the **FAQ modal** containing the corresponding `title_text` and `description`.
+    
+- To close the modal, tap the 'X' button, anywhere on the page above the modal, or swipe the modal down.
+    
+
+  
+
+### CMS Field Specification
+
+#### `title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text|
+|Max length|90 characters|
+|Example|Prohibited and Restricted Items|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Standard Event Notices|
+|Dependencies|-|
+
+#### `description`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Free text|
+|Max length|1000 characters|
+|Example|You must bring the corresponding identification document used during ticket purchase for verification to enter the venue.|
+|Input Validation|Mandatory|
+|Localization|Must support all display languages.|
+|Data Source|CCMS --> Standard Event FAQ|
+|Dependencies|-|
+
+17. ## Location Card
+    
+
+```Plain
+GLOBAL_DISPLAY_LocationCard
+```
+
+### Key Function
+
+Displays the location and address of the venue and the nearest carpark location.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Location_Card)
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NDAyODc1ZmE4Mzk1NzFmNGE1NmI0ZjE1N2FlOGI5NTlfdDhkMG5SN2pMTUZKb2N6MHUxeTNOY3dndlgzTGs3amxfVG9rZW46SzZHRmJ3OTM4b0I0VGZ4T3J0VWNVTlB1bjRmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+Refer to _Location Specification_ content type for the Venue ID associated with the Entertainment Event.
+
+18. ## Accordian Info Group
+    
+
+```Plain
+GLOBAL_CTNR_AccordionInfoGroup
+```
+
+### Key Function
+
+Displays an expandable/collapsable list of key information related to the venue including the How to Find specification and Relevant Information specification.
+
+  
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Accordion_Info_Group)
+
+  
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MmE4YTFiMjRlZjVlMTk0NDNmNDUxN2JkMmRiZjNkZjhfdXMwVEhVNGpWU3hlbktuVkVDRzQ4TkNHVFFTOEg1UmNfVG9rZW46WEltUmJjbDJJb2hyUFh4Z0lzSGNDUTdzblhkXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|how_to_find_specification|A group of images of key landmarks near the location to help users wayfind around the property|
+|relevant_info_specifcation|This will be used to display Transportation, Restroom, and Need to Know information per the UXUI design. Supports single-column (free format text, bulleted list, and numbered list) and two-column display.|
+
+### 18.1 How to Find
+
+```Plain
+GLOBAL_DISPLAY_HowToFind
+```
+
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/How_To_Find)
+
+#### Field List
+
+Refer to _How to Find Specification_ content type for the Venue ID associated with the Entertainment Event.
+
+### 18.2 Relevant Info
+
+```Plain
+GLOBAL_DISPLAY_RelevantInfo
+```
+
+Please refer to the global component documentation for behaviour details. Link[View](/01_Global_Components/Relevant_Info)
+
+#### Field List
+
+Refer to Relevant Information Specification content type associated with the Entertainment Event.
+
+  
+
+19. ## Entertainment Recommendations Carousel
+    
+
+```Plain
+ENT_DISPLAY_EntertainmentRecommendationsCarousel
+```
+
+### Key Function
+
+Displays a carousel of other Entertainment Events to recommend and promote to the user.
+
+  
+
+Please refer to the global component documentation for display details. Link[View](/01_Global_Components/Entertainment_Recommendations_Carousel)
+
+  
+
+### Visual Reference
+
+![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NmZiNjEwODFiNjU3NWE2ZWMyMDEzMGFmZmNmMTFiMWFfNVd2bG5lV00xMGVoakRVVXFqczB5VWpzcEhwZzJ5SHZfVG9rZW46RUtmVmJ2dEU4b2paU1J4VmV3RWN6Wm9PbjdlXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+
+### Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|entertainment_event_specification|Refers to each Entertainment Event, content managers can link different Entertainment Events as recommendations to each detail page.|
+
+  
+
+### CMS Field Specification
+
+#### `entertainment_event_specification`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Data Source|CCMS --> Entertainment Event List|
