@@ -1,0 +1,82 @@
+---
+
+title: "Photo Gallery "
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+GLOBAL_DISPLAY_Photo Gallery
+```
+
+---
+
+  
+
+The **Photo Gallery** component displays a carousel or grid of venue images, allowing users to preview the location and facilities visually. Shared globally across **Venue**, **Event**, and **Concert** modules to ensure design consistency.
+
+---
+
+## Display Logic
+
+- Loads images from the **CCMS linked gallery field**.
+    
+- Supports both swipe and tap-to-expand views.
+    
+- Hidden automatically if no image is configured.
+    
+- Maintains consistent image aspect ratio and rounded corners.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-23467&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+|   |   |   |
+|---|---|---|
+|No.|Feature|Description|
+|1|Image Carousel|Allows horizontal swipe through images.|
+|2|Lightbox View|Opens full-size image on tap.|
+|3|Multi-language Support|Localized captions supported.|
+|4|Responsive Layout|Adjusts number of images per row by screen size.|
+|5|Auto-Hide|Hidden if no linked media is provided.|
+
+---
+
+## **CMS Field Specification**
+
+|   |   |
+|---|---|
+|Field Name|Description|
+|Image Asset|The uploaded image file. (JPG, PNG, or WebP ≤ 2 MB; recommended under 500 KB for faster load)|
+|Caption (Optional)|Localized text displayed below each image.|
+|Sort Order|Defines order of images in the gallery.|
+|Alt Text|Accessibility label describing the image content.|
+|Active State|Boolean toggle controlling component visibility.|
+
+## **Field Mapping Details**
+
+#### `image_asset`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image|
+|File Format|JPG, PNG, or WebP (WebP preferred for smaller size)|
+|Dimensions|800 × 600 px (minimum)|
+|Aspect Ratio|4:03|
+|Resolution|72–96 DPI (standard web)|
+|File Size Limit|≤ 2 MB (recommended under 500 KB for faster load)|
+|Color Profile|sRGB|
+|Input Validation|Optional|
+|Data Source|CMS|
+|Dependencies|Hidden if no image is linked|

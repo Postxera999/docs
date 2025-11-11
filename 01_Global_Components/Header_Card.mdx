@@ -1,0 +1,65 @@
+---
+
+title: "Header Card"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_DISPLAY_HeaderCard
+```
+
+## Visual Reference
+
+<FigmaEmbed url="https://embed.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7431-17302&m=dev&embed-host=share" />
+
+---
+
+## Display Logic
+
+- The component is the header image card on the top of all detail pages.
+    
+    - If the first asset is a video, the video will be autoplayed upon entering the page
+        
+- If there is an image gallery associated with the detail page:
+    
+    - There will be a photo album icon displayed at the bottom right that will open into the full page image gallery
+        
+    - The order of images in the carousel corresponds to the order of images in the carousel
+        
+
+---
+
+## Interaction Logic
+
+- If there is an image gallery linked with the detail page:
+    
+    - The header image becomes a carousel and is swipeable.
+        
+    - Tapping on the image will open the image/video in full screen
+        
+- If there is only one image/video, the image is not tappable
+    
+
+  
+
+## CMS Field Specification
+
+#### `header_image`
+
+Hero image used as the key display image for this venue.
+
+| Specification Item | Details                                                                                                                |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | Image                                                                                                                  |
+| File Format        | webp                                                                                                                   |
+| Size Requirement   | Minimum 1280 x 1280 pixels                                                                                             |
+| File Size Limit    | Maximum 2 MB                                                                                                           |
+| Input Validation   | -                                                                                                                      |
+| Data Source        | CMS                                                                                                                    |
+| Dependencies       | Used in search results, merchant list view, merchant detail pages, and payment confirmation screens, Featured Listings |

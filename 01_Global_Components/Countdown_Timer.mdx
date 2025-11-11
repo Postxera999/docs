@@ -1,0 +1,79 @@
+---
+
+title: "Countdown Timer"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_STATUS_CountdownTimer
+```
+
+Displays a real-time countdown before ticket sales begin for an event. Used globally across entertainment-related modules (e.g., **Venue Directory**, **Concert Detail**) to indicate upcoming sale times and create urgency for users.
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-22377&t=CzfqaBpSswgX0gE2-0" />
+
+---
+
+## Display Logic
+
+- Visible only when a **future Sale Schedule Item** exists and the current time is within the `Countdown Start in Hours` range.
+    
+- Pulls content from **Sale Schedule Item**:
+    
+    - `Countdown Label Text`
+        
+    - `Countdown Start in Hours`
+        
+- Hidden once sale begins or if pre-sale is managed externally.
+    
+- Shown on both **Directory tiles** and **Detail pages**.
+    
+- If a **Coupon ID** is configured for pre-sale, countdown is visible only for eligible users.
+    
+- When countdown reaches zero, display `"00 days"` before switching to active sale state.
+    
+
+---
+
+## Key Functional Features
+
+| No. | Feature            | Description                                                              |
+| --- | ------------------ | ------------------------------------------------------------------------ |
+| 1   | Real-time update   | Timer counts down dynamically using system time.                         |
+| 2   | API integration    | Pulls Sale Schedule data from CCMS API.                                  |
+| 3   | Style variants     | Supports compact or expanded countdown layout depending on page context. |
+| 4   | Visibility control | Hidden automatically once sale is open or expired.                       |
+
+---
+
+## CMS Field Specification
+
+| Field Name              | Description                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| Sale Schedule Reference | Linked field to the event’s Sale Schedule Item.                                        |
+| Start Date & Time       | Defines when the sale phase begins (visible once Countdown Start in Hours is reached). |
+| End Date & Time         | Defines when the sale phase ends (optional).                                           |
+| Countdown Label Text    | Text displayed beside the timer (e.g., “Ticket sale starts soon”).                     |
+| Countdown Style         | Controls the timer format (digital, compact, inline).                                  |
+| Countdown Title         | Optional title displayed in the Countdown window.                                      |
+| Countdown Description   | Optional helper text below title (e.g., “Set reminder to not miss the concert”).       |
+
+---
+
+## Example (UI Display)
+
+| State             | Example Display                        |
+| ----------------- | -------------------------------------- |
+| Pre-sale (future) | “Sale starts in 01d 12h 30m”           |
+| Active sale       | Hidden / replaced by On Sale tag       |
+| Expired           | “00 days” (auto-hide after transition) |

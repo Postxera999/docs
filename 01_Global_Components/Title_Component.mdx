@@ -1,0 +1,58 @@
+---
+
+title: "Title Component"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+GLOBAL_TYPE_TitleComponent
+```
+
+  
+
+The **Title Component** is a global section header used to introduce grouped information within the Venue Detail or Concert Detail pages. It provides consistent section titling (e.g., _“How to Find”_, _“Relevant Info”_, _“Photo Gallery”_) and follows the unified Galaxy visual hierarchy.
+
+---
+
+## Display Logic
+
+- Displayed at the top of grouped or collapsible sections.
+    
+- Dynamically fetches the section name from the CCMS or static label.
+    
+- Hidden when no associated content exists under the section.
+    
+- Maintains consistent font, color, and spacing across all pages using the same header layout.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7460-20676&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+| No. | Feature                | Description                                                 |
+| --- | ---------------------- | ----------------------------------------------------------- |
+| 1   | Section Labeling       | Displays the title or heading for each major content block. |
+| 2   | Dynamic Text           | Pulls title name from CCMS when configured.                 |
+| 3   | Visual Consistency     | Unified styling across modules for readability.             |
+| 4   | Conditional Visibility | Hidden when section content is empty.                       |
+
+---
+
+## CMS Field Specification
+
+| Field Name    | Description                                            |
+| ------------- | ------------------------------------------------------ |
+| Section Title | Text label displayed as the section header.            |
+| Is Dynamic    | Toggles if the title should be auto-fetched from CCMS. |
+| Alignment     | Defines title alignment (left/center).                 |
+| Active State  | Toggles visibility of the title component.             |

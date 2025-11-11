@@ -1,0 +1,73 @@
+---
+
+title: "Tab Selector"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_SELECT_TabSelector
+```
+
+---
+
+The **Tab Selector** component is used to navigate between content sections within the **Venue Detail** and **Concert Detail** pages. It provides a simple horizontal tab layout that allows users to switch between predefined sections such as **Offers**, **Shows**, **Location**, and **Notes**.
+
+---
+
+## Display Logic
+
+- Always visible directly below the main venue header card.
+    
+- Displays all configured content sections in order as defined by the page layout.
+    
+- The active tab is visually highlighted to indicate the current section.
+    
+- When a user taps on a tab, the view automatically scrolls to or loads the corresponding content section.
+    
+- The component supports both scrollable and fixed tab layouts depending on the number of items configured.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7431-20106&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+| No. | Feature                 | Description                                                                                   |
+| --- | ----------------------- | --------------------------------------------------------------------------------------------- |
+| 1   | Section navigation      | Allows users to switch between content sections without reloading the page.                   |
+| 2   | Active state highlight  | Visually indicates the currently active tab.                                                  |
+| 3   | Dynamic content linkage | Each tab is linked to its corresponding section on the same page (e.g., Offers → Offer List). |
+| 4   | Scrollable tabs         | Automatically enables horizontal scroll when the number of tabs exceeds the screen width.     |
+
+---
+
+## CMS Field Specification
+
+| Field Name         | Description                                                          |
+| ------------------ | -------------------------------------------------------------------- |
+| Tab Name           | The display name of each tab (e.g., Offers, Shows, Location, Notes). |
+| Tab Order          | Determines the display sequence of the tabs.                         |
+| Linked Section ID  | The content section ID or anchor point associated with the tab.      |
+| Default Active Tab | Defines which tab is active when the page first loads.               |
+
+---
+
+## Example (UI Display)
+
+**State:** Displayed immediately below the venue header card on the **Venue Detail** page. Each tab corresponds to a major content section on the page.
+
+| Example Display | Description                                                             |
+| --------------- | ----------------------------------------------------------------------- |
+|                 | Tabs for Offers, Shows, Location, and Notes displayed below the header. |
+|                 | “Offers” tab highlighted to indicate current section view.              |

@@ -1,0 +1,69 @@
+---
+
+title: "Body Content"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_DISPLAY_BodyContent
+```
+
+  
+
+The **Body Content** component displays detailed text and media information about an entertainment event. It supports both plain text and formatted content (e.g., paragraphs, links, and images)
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-24011&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Function
+
+- Displays a detailed write-up of the event’s description.
+    
+- Supports multiple languages and rich text input.
+    
+- Used in the event detail page under the tab selector.
+    
+
+---
+
+### CMS Field Specification
+
+| Field Name        | Description                                      |
+| ----------------- | ------------------------------------------------ |
+| description_title | Heading for the description section (tab label). |
+| description       | Body text or media content of the event.         |
+
+---
+
+### Field Mapping Details
+
+#### `description_title`
+
+| Specification Item | Details                            |
+| ------------------ | ---------------------------------- |
+| Field Type         | Free text input                    |
+| Max Length         | 37 characters                      |
+| Input Validation   | Mandatory                          |
+| Localization       | Must support all display languages |
+| Data Source        | CCMS → Entertainment Event         |
+| Dependencies       | –                                  |
+
+#### `description`
+
+| Specification Item | Details                            |
+| ------------------ | ---------------------------------- |
+| Field Type         | Rich text field                    |
+| Max Length         | 10,000 characters                  |
+| Input Validation   | Optional                           |
+| Localization       | Must support all display languages |
+| Data Source        | CCMS → Entertainment Event         |
+| Dependencies       | –                                  |

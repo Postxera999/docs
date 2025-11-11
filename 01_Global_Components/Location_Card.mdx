@@ -1,0 +1,70 @@
+---
+
+title: "Location Card"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+GLOBAL_DISPLAY_LocationCard
+```
+
+The **Location Card** displays the venue’s key location details including its name, address, and geolocation coordinates. It helps users identify where the venue is located and provides a quick link to open the location on the map. Used globally across **Venue Detail** and **Event Detail** pages wherever location information is required.
+
+---
+
+## Display Logic
+
+- Visible only when a **Location Specification** is configured in the associated content type.
+    
+- Hidden automatically if location data is missing.
+    
+- Displays **Venue Name**, **Address**, and **Map Thumbnail** (if available).
+    
+- The **Open Map** button or link directs the user to a full map view with the venue’s coordinates.
+    
+- Supports both embedded map preview and external map redirection depending on configuration.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-9414&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+| No. | Feature              | Description                                                                                                    |
+| --- | -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 1   | Dynamic linkage      | Retrieves data from the Location Specification in the Entertainment Venue or Entertainment Event content type. |
+| 2   | Map integration      | Displays a static or interactive map preview with the venue’s coordinates.                                     |
+| 3   | External redirection | Opens the location in the default map application when the user taps the map link.                             |
+| 4   | Visibility control   | Hidden automatically when no location data is configured in CCMS.                                              |
+
+---
+
+## CMS Field Specification
+
+| Field Name           | Description                                                        |
+| -------------------- | ------------------------------------------------------------------ |
+| Location Name        | The name of the location or venue displayed on the card.           |
+| Address              | The full address text as configured in the Location Specification. |
+| Latitude / Longitude | Coordinates used for map rendering and redirection.                |
+| Map Image            | Thumbnail displayed as a preview map on the card.                  |
+| External Map URL     | Link used to open the map in WeChat or an external app.            |
+
+---
+
+## Example (UI Display)
+
+**State:** Displayed under the “Location” section on the **Venue Detail** and **Event Detail** pages. Shows venue name, address, and a preview map image with a button to open the full location view.
+
+| Example Display | Description                                                           |
+| --------------- | --------------------------------------------------------------------- |
+|                 | Location details card with venue name, address, and map preview.      |
+|                 | User tapping “Open Map” launches map view with the venue coordinates. |

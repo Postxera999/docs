@@ -1,0 +1,72 @@
+---
+
+title: "Toolbar (Filter Bar) "
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+GLOBAL_ACTION_Toolbar(FilterBar)
+```
+
+---
+
+  
+
+The **Toolbar (Filter Bar)** is a global control strip located at the top of the Venue Directory and Retail pages. It provides users with quick access to **sorting**, **filtering**, and **search** actions to refine the displayed content.
+
+---
+
+## Display Logic
+
+- Displayed persistently at the top of the page when listings are scrollable.
+    
+- Contains global actions for **Sort**, **Filter**, and **Search**.
+    
+- Triggers corresponding modals or inputs when tapped.
+    
+- Hidden on pages without filterable or sortable content.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7413-2307&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+| No. | Feature            | Description                                                       |
+| --- | ------------------ | ----------------------------------------------------------------- |
+| 1   | Filter Access      | Opens global Filter modal when user taps the “Filter” icon.       |
+| 2   | Sort Control       | Opens Sort modal to reorder results.                              |
+| 3   | Search Integration | Displays inline search field directly beneath the toolbar.        |
+| 4   | Sticky Behavior    | Remains fixed on top of the viewport during scroll.               |
+| 5   | Global Consistency | Shared toolbar pattern across Venue Directory and Retail modules. |
+
+---
+
+## Behavior Logic
+
+- When the user taps **Sort** or **Filter**, a bottom modal appears, allowing the user to perform the corresponding actions.
+    
+- When clicking the **Search** icon, the search input box displays directly under the filter bar.
+    
+- Syncs current search and filter state with content listing below.
+    
+
+---
+
+## CMS Field Specification
+
+| Field Name    | Description                                         |
+| ------------- | --------------------------------------------------- |
+| Label Text    | Button name or icon label (Filter / Sort / Search). |
+| Linked Action | Defines which modal or function is triggered.       |
+| Is Sticky     | Boolean toggle to keep toolbar fixed on scroll.     |
+| Active State  | Toggles toolbar visibility per module.              |

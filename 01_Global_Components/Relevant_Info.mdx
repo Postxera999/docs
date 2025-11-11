@@ -1,0 +1,59 @@
+---
+
+title: "Relevant Info"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+GLOBAL_DISPLAY_RelevantInfo
+```
+
+  
+
+The **Relevant Info** component displays key informational content related to the venue or event, such as house rules, contact info, or accessibility details. This component ensures important visitor notes remain visible and structured.
+
+---
+
+## Display Logic
+
+- Displays when the **Relevant Info** content field is populated in CCMS.
+    
+- Content supports formatted text (paragraphs, bullet points, links).
+    
+- Auto-hides when the content field is empty.
+    
+- May include collapsible accordion behavior for long text entries.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7467-13357&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+| No. | Feature            | Description                                                  |
+| --- | ------------------ | ------------------------------------------------------------ |
+| 1   | Text Display       | Shows essential venue or event details in plain text format. |
+| 2   | Global Reuse       | Shared across Venue and Event modules.                       |
+| 3   | Accordion Layout   | Expands/collapses for long text sections.                    |
+| 4   | Content Formatting | Supports HTML or markdown text styling.                      |
+| 5   | Visibility Control | Hidden when no info is available.                            |
+
+---
+
+## CMS Field Specification
+
+| Field Name    | Description                                             |
+| ------------- | ------------------------------------------------------- |
+| Info Title    | Label or heading for the section (e.g., “House Rules”). |
+| Info Content  | Main body text (supports rich text).                    |
+| Display Order | Determines appearance order on the page.                |
+| Active State  | Toggles visibility.                                     |

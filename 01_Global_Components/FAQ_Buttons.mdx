@@ -1,0 +1,66 @@
+---
+
+title: "FAQ Section"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+GLOBAL_DISPLAY_FAQButtons
+```
+
+---
+
+The **FAQ Section** is a global component used to display frequently asked questions for events, venues, or promotions. It provides users with quick access to common information such as entry rules, refund policies, and event-specific reminders. Displayed consistently across the **Concert Detail** and **Venue Detail** pages.
+
+---
+
+## Display Logic
+
+- The FAQ section becomes visible when at least one FAQ entry is linked to the content record in the CCMS.
+    
+- Automatically hidden when no FAQ data exists.
+    
+- Each FAQ entry expands or collapses when tapped, revealing its full answer text.
+    
+- Supports inline links for related sections (e.g., “Need to Know” or “Ticket Policy”).
+    
+- Displays in vertical list format; each FAQ entry contains a **question** and **answer** pair.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14203&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+---
+
+## Key Functional Features
+
+| No. | Feature             | Description                                                                     |
+| --- | ------------------- | ------------------------------------------------------------------------------- |
+| 1   | Dynamic FAQ Loading | Retrieves all active FAQ entries from the linked content in CCMS.               |
+| 2   | Expand / Collapse   | Allows users to open or close FAQ entries for better readability.               |
+| 3   | Global Consistency  | Shared component across multiple modules, ensuring identical interaction logic. |
+| 4   | Auto-Hide           | Section hides entirely when no FAQ entries exist.                               |
+| 5   | Linked Content      | Supports hyperlinks embedded in answer fields for user reference.               |
+
+---
+
+## CMS Field Specification
+
+| Field Name    | Description                                                |
+| ------------- | ---------------------------------------------------------- |
+| FAQ Question  | The text shown as the question title.                      |
+| FAQ Answer    | The content displayed when the user expands the question.  |
+| FAQ Category  | Defines grouping (e.g., Ticketing, Entry Rules, Policies). |
+| Display Order | Controls the display sequence of FAQ items.                |
+| Is Active     | Toggles visibility of each FAQ item.                       |
+
+---

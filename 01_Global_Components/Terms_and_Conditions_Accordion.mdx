@@ -1,0 +1,55 @@
+---
+
+title: "Terms & Conditions Accordion"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_DISPLAY_Terms&ConditionsAccordion
+```
+
+## Key Function
+
+A collapsible accordion used to display detailed terms and conditions for using the car park.
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-16766&t=EIrrWlE3DFcM0Te3-4" />
+
+## Field List
+
+| Fields    | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| term_text | The full text of the terms and conditions for using the car park. |
+
+## Display Logic
+
+- Initially shows only the title; content expands on interaction.
+    
+
+### Interaction Logic
+
+- Tapping the title expands or collapses the section.
+    
+- Displayed content is **not affected** by car park or area switching.
+    
+
+## CMS Field Specification
+
+#### `term_text`
+
+The detailed terms and conditions for car park use.
+
+| **Specification Item** | **Details**                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Field Type             | Array of Text                                                                                                                  |
+| Max Items              | 10 (Recommended limit for clear display)                                                                                       |
+| Max Length per Item    | 500 characters                                                                                                                 |
+| Example                | `["Complimentary parking is only applicable...", "Parking spaces are subject to....."]`                                        |
+| Input Validation       | Must not contain HTML, script tags, or unrecognized special symbols. No emojis. Leading/trailing spaces automatically trimmed. |
+| Localization           | Each payment method string must support all display languages.                                                                 |
+| Data Source            | Text displayed in the Parking Terms section.                                                                                   |

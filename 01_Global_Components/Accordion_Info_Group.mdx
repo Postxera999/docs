@@ -1,0 +1,71 @@
+---
+
+title: "Accordion Info Group"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+GLOBAL_CTNR_AccordionInfoGroup
+```
+
+The **Accordion Info Group** displays grouped informational content in expandable sections. Each accordion item can be expanded or collapsed to show details related to the selected category, such as **How to Find**, **Transportation**, **Restroom**, and **Need to Know**. Used globally across **Venue Detail** and other informational pages to organize long-form content into structured segments.
+
+  
+
+---
+
+## Display Logic
+
+- Always visible when at least one **Accordion Info Item** is configured in the associated content type.
+    
+- Hidden automatically if no items are configured.
+    
+- Each accordion item displays a title and collapsible content area.
+    
+- Only one accordion section may be expanded at a time (auto-collapse on new open).
+    
+- Text, lists, and links within the content area follow standard body text formatting.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-10284&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+| No. | Feature                       | Description                                                                 |
+| --- | ----------------------------- | --------------------------------------------------------------------------- |
+| 1   | Expand / collapse interaction | Allows users to toggle between showing and hiding details for each section. |
+| 2   | Dynamic linkage               | Pulls accordion items from the linked Info Group Specification in CCMS.     |
+| 3   | Auto-collapse                 | Expanding one section automatically collapses the previously open section.  |
+| 4   | Visibility control            | Hidden if no Info Group content exists for the venue.                       |
+
+---
+
+## CMS Field Specification
+
+| Field Name             | Description                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| Info Group Title       | The title displayed at the top of each accordion item (e.g., “How to Find”). |
+| Info Group Content     | The description or details shown when the accordion is expanded.             |
+| Order                  | Defines the display order of the accordion items.                            |
+| Is Expanded by Default | Determines whether the section is open on initial page load.                 |
+
+---
+
+## Example (UI Display)
+
+**State:** Displayed below the “Location” section on the **Venue Detail** page. Each accordion item represents one informational group, such as How to Find, Transportation, Restroom, or Need to Know.
+
+| Example Display | Description                                                           |
+| --------------- | --------------------------------------------------------------------- |
+|                 | Accordion collapsed showing only section titles.                      |
+|                 | Expanded state showing details for “How to Find” or “Transportation.” |

@@ -1,0 +1,80 @@
+---
+
+title: "Color Picker Function"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_DISPLAY_ColorPickerFunction
+```
+
+---
+
+## Key Function
+
+This component/logic enables the system to analyze the predominant color of a dynamic image (e.g., a banner or card background), and automatically select the most contrasting text color (black or white) to ensure optimal readability and accessibility for overlaid text elements
+
+  
+
+## Process Logic
+
+The component executes a three-step process to ensure accessibility and visual contrast:
+
+  
+
+### 1. Dominant Color Extraction (Image Analysis)
+
+  
+
+- **Action:** The function must **analyze the input image** to identify and extract its most prominent color.
+    
+- **Method:** This step requires integration with a **PHP library** (available via Packagist) specialized in image color analysis (e.g., color quantization, k-means clustering) to accurately determine the single **predominant color** (Output:`RRGGBB` hex code).
+    
+      
+    
+
+### 2. Contrast Ratio Calculation (WCAG Compliance)
+
+  
+
+- **Action:** Calculate the **contrast ratio** between the extracted dominant color and the two standard text colors: **white** (`#ffffff`) and **black** (`#000000`).
+    
+- **Standard:** All contrast calculations must follow the **Web Content Accessibility Guidelines (WCAG)** standards, which are based on the relative luminance of the two colors.
+    
+- **Outputs:**
+    
+    - Ratio 1: Dominant Color vs. **White** (`#ffffff`)
+        
+    - Ratio 2: Dominant Color vs. **Black** (`#000000`)
+        
+          
+        
+
+### 3. Theme Color Determination (Optimal Readability)
+
+  
+
+- **Action:** Compare the two calculated contrast ratios to select the best theme color for the overlaid text.
+    
+- **Selection Rule:** The theme color chosen must be the one that provides the **highest contrast ratio** against the dominant color.
+    
+- **Output:** The final **theme color** (either `#ffffff`or `#000000`) for the overlaid text.
+    
+      
+    
+
+---
+
+## Technical Requirements
+
+  
+
+- **Dependency:** Requires a reliable **PHP color analysis library** (e.g., league/color-extractor, thephpleague/color-extractor, or similar Packagist packages) to perform the initial color extraction.
+    
+- **Contrast Logic:** The system must implement the **WCAG relative luminance and contrast ratio formulas** accurately.

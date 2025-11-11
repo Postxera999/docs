@@ -1,0 +1,63 @@
+---
+
+title: "Entertainment Recommendations Carousel"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+```Plain
+ENT_DISPLAY_EntertainmentRecommendationsCarousel
+```
+
+  
+
+The **You May Also Like Carousel** is a global component that displays recommended or related events at the bottom of the page. It enhances user engagement by encouraging further browsing of upcoming shows or promotions related to the current content. Displayed consistently across **Entertainment**, **Venue Detail**, and **Concert Detail** pages.
+
+---
+
+## Display Logic
+
+- Appears when related content or recommendations are configured in the CCMS.
+    
+- Each carousel card displays event image, title, and short description.
+    
+- Hidden automatically when no related content is available.
+    
+- Clicking a card navigates users to the linked detail page (e.g., another concert or venue event).
+    
+- Supports both **manual swipe** and **auto-scroll** interactions for carousel navigation.
+    
+
+---
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7467-14085&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+| No. | Feature               | Description                                                       |
+| --- | --------------------- | ----------------------------------------------------------------- |
+| 1   | Related Event Display | Shows a list of recommended events configured in CCMS.            |
+| 2   | Global Consistency    | Shared across multiple entertainment modules for cross-promotion. |
+| 3   | Swipe Interaction     | Enables users to horizontally scroll through related items.       |
+| 4   | Dynamic Linking       | Each card links to the corresponding Event or Venue detail page.  |
+| 5   | Auto-Hide             | Hidden if there are no configured related or recommended items.   |
+
+---
+
+## CMS Field Specification
+
+| Field Name          | Description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| Related Event Title | Title of the recommended event.                              |
+| Related Event Image | Image thumbnail or banner used in carousel card.             |
+| Related Event Link  | Link to the related event or venue detail page.              |
+| Display Order       | Determines order of events within the carousel.              |
+| Is Active           | Indicates whether the recommendation is currently displayed. |
+

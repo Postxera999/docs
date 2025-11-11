@@ -1,0 +1,60 @@
+---
+
+title: "Contact Button"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_ACTION_ContactButton
+```
+
+---
+
+The **Contact Button** is used to display a quick-access contact option for the Entertainment Venue or Event. It retrieves information from the **Contact Specification** configured in the CCMS and opens the assigned contact channel when tapped. Displayed consistently across **Venue Detail** and **Concert Detail** pages.
+
+---
+
+## **Display Logic**
+
+- The button is visible only when a **Contact Specification** is linked to the corresponding Venue or Event content type.
+    
+- Hidden automatically if no contact data is configured.
+    
+- On tap, the user is directed to the contact method defined in the specification (e.g., phone number, email, or website link).
+    
+- When multiple contact methods exist, the system prioritizes the default or primary entry as configured in the CCMS.
+    
+
+---
+
+## **Visual Reference**
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7431-19643&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## **Key Functional Features**
+
+| No. | Feature              | Description                                                                      |
+| --- | -------------------- | -------------------------------------------------------------------------------- |
+| 1   | Dynamic linkage      | Fetches contact data from the linked Contact Specification content type.         |
+| 2   | Platform consistency | Shared global component used on both Venue Detail and Concert Detail pages.      |
+| 3   | Visibility control   | Automatically hidden if no contact details exist in the linked content.          |
+| 4   | Direct access        | Opens the assigned channel (e.g., phone dialer, email client, or external link). |
+
+---
+
+## **CMS Field Specification**
+
+| Field Name    | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| Contact Name  | Display name for the contact option (e.g., “Galaxy Arena Hotline”). |
+| Contact Type  | Defines the contact method (Phone, Email, or URL).                  |
+| Contact Value | The target address or number that will open when tapped.            |
+| Is Default    | Marks the preferred contact method when multiple entries exist.     |
