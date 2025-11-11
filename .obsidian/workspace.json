@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_Global_Components/ToolBarButton.mdx",
+                "file": "01_Global_Components/Skeleton.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ToolBarButton"
+              "title": "Skeleton"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "01_Global_Components/ToolBarButton.mdx",
+                "file": "01_Global_Components/Skeleton.mdx",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ToolBarButton"
+              "title": "Outline of Skeleton"
             }
           },
           {
@@ -182,8 +182,8 @@
   },
   "active": "881b07f6de82feb6",
   "lastOpenFiles": [
-    "01_Global_Components/Toolbar_Filter.mdx",
     "01_Global_Components/ToolBarButton.mdx",
+    "01_Global_Components/Toolbar_Filter.mdx",
     "01_Global_Components/Title_Component.mdx",
     "01_Global_Components/Terms_and_Conditions_Accordion.mdx",
     "01_Global_Components/Tab_Selector.mdx",
