@@ -3,25 +3,38 @@ title: "Sort Function"
 ---
 
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+  
 
+```Plain
+GLOBAL_SELECT_SortFunction
 ```
-G03_03_01
-```
 
-When clicking the 'Sort' icon in the bar, the sort pop-up will display directly under the filter bar.
+  
 
-<FigmaEmbed url="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-90049&t=iw32LYd6XxVswo2X-4" />
+When clicking the 'Sort' icon in the [tool bar](/01_Global_Components/Toolbar_Filter), the sort pop-up will display directly under the filter bar.
 
+---
 
-## **Key Functional Features**
-- Display in top bar: The name of the chosen sorting option is displayed in full in the top bar in an active selected state. The user can select the dropdown to switch sorting options.
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7413-2307&t=TmrwzwgJVnbh1PL8-0" />
+
+---
+
+## Key Functional Features
+
+- Displayed in tool bar: The name of the chosen sorting option is displayed in full in the top bar in an active selected state. The user can select the dropdown to switch sorting options.
+    
 - Sorting pop-up: Implemented as a half-screen popup that slides up from the bottom.
+    
 - Sorting options: Includes sorting options selectable via radio buttons, one option must be selected at all times.
+    
 - Confirmation button: Once a sorting option is selected, clicking the 'Confirm' button will apply the selection to the main page.
+    
 
 | **Sorting Options**                | **Description**                                                                           |
 | ---------------------------------- | ----------------------------------------------------------------------------------------- |
-| **Recommended** _(Default)_        | Displays content according to the order determined in the `CCMS`.                           |
+| **Recommended** _(Default)_        | Displays content according to the order determined in the `CCMS`.                         |
 | **A–Z** _(Alphabet, English only)_ | If the MP language = English, sorts content alphabetically in ascending order.            |
 | **Z–A** _(Alphabet, English only)_ | If the MP language = English, sorts content alphabetically in descending order.           |
 | **A–Z** _(Pinyin, Chinese only)_   | If the MP language = Chinese, sorts content alphabetically in pinyin in ascending order.  |

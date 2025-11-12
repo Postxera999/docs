@@ -3,26 +3,42 @@ title: Filter Function
 ---
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
-```
+  
+
+```Plain
 GLOBAL_SELECT_FilterFunction
 ```
 
-<FigmaEmbed url="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=2636-91629&t=iw32LYd6XxVswo2X-4" />
+## Visual Reference
 
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7413-2307&t=TmrwzwgJVnbh1PL8-0" />
 
-## **Key Functional Features**
+---
+
+## Key Functional Features
 
 - Filter pop-up Presentation: Implemented as a half-screen popup that slides up from the bottom.
-- Multi-selection Filtering: Includes six preset filters — Store Categories, '$NG', Opening Hours, Offer Eligibility, Location, and Floor.
+    
+- Multi-selection Filtering: Includes preset filters depending on the attributes configured in each module.
+    
 - Varied Option Types:
+    
     - Multi-selection: Used for filters with more than one selection. e.g. Store Categories, `$NG`.
+        
     - Single-select: Used for filters with only one selection e.g. Opening Hours (Open now).
-- Interactive Feedback: Selected options (e.g., Services, Electronics under Store Categories) are visually highlighted with in a selected state, with a coloured bar next to the category in the filter bar.
+        
+- Interactive Feedback: Selected options are visually highlighted with in a selected state, with a coloured bar next to the category in the filter bar.
+    
 - Action Buttons:
+    
     - Clear All: Quickly resets all filters to their default state.
+        
     - Confirm: Applies the selected filters, closes the modal, and updates the main list with filtered results.
+        
 
-## **Components**
+## Components
+
+  
 
 | **Component Code** | **Component Name**                       | **Functional Description**                                                                                                                                                                                                      |
 | ------------------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,13 +49,25 @@ GLOBAL_SELECT_FilterFunction
 | `G01_01_01`        | Clear All Button                         | A secondary button component used to instantly reset all applied filters, clearing the entire filter modal's selections back to the default state.                                                                              |
 | `G01_01_02`        | Filter Confirmation                      | A primary action button (labeled "Confirm") used to finalize and apply the currently selected filter criteria, dismissing the modal and updating the main screen's data.                                                        |
 
-## **Filter Results Logic**
+  
+
+## Filter Results Logic
+
+  
 
 After the user taps the “Confirm” button at the bottom of the Filter modal, the system follows the logic below:
+
 1. Results Screen (When Matches Are Found)
-    - Display the store card list content. For details, refer to section M03-01-03 Store Card List.
+    
+    1. Display the store card list content. For details, refer to section M03-01-03 Store Card List.
+        
 2. No Results Screen (Search - No Results)
+    
+
 - Display default 'No Results' state
+    
 - Recommended Content (You Might Also Like):
-    - Displayed below the “No Results” message is the Retail module card carousel, displaying a list of other recommendations for other retail stores.
-    - The recommendations in the "No Results" page is personalised based on the user's customer profile (from CDPMA data). This Retail carousel should be the same as the retail carousel displayed on the Homepage.
+    
+    - Displayed below the “No Results” message is a list of other recommendations for other content from the same module.
+        
+    - The recommendations in the "No Results" page is personalised based on the user's customer profile (from CDPMA data) and the content should reflect the items within the same module.
