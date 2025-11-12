@@ -8,24 +8,23 @@ import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
   
 
-## **Page Overview**
+## Page Overview
 
 The Venue Detail page provides complete information about each entertainment venue within Galaxy: Galaxy Arena, G Box and Broadway Theatre. It includes venue visuals, seating plans, special offers, location details and key information related to the venue. This page references data from the **Entertainment Venue content type** within the Entertainment module, integrated with Contact, Offer, and Event Schedule entities as defined in the CCMS.
 
 ---
 
-## **Components Used**
+## Components Used
 
-|     |                                   |                         |                |                                                                                                |
-| --- | --------------------------------- | ----------------------- | -------------- | ---------------------------------------------------------------------------------------------- |
 | #   | Component Code                    | Component Name          | Global / Local | Description                                                                                    |
+| --- | --------------------------------- | ----------------------- | -------------- | ---------------------------------------------------------------------------------------------- |
 | 1   | GLOBAL_DISPLAY_HeaderCard         | Header Card             | Global         | Displays the venue image, name, and introduction                                               |
 | 2   | GLOBAL_DISPLAY_PhotoGallery       | Photo Gallery           | Global         | Image gallery                                                                                  |
 | 3   | GLOBAL_TYPE_Title Component       | Title Component         | Global         | Contains Title and Description of page                                                         |
 | 4   | GLOBAL_ACTION_ContactButton       | Contact Button          | Global         | Opens contact info pop up card                                                                 |
 | 5   | GLOBAL_ACTION_ShareButton         | Share Button            | Global         | Allows sharing of the detail link to MP card or generates WeChat share poster                  |
-| 6   | ENT_ACTION_FloorPlanButton        | Floor Plan Button       | Local          | Opens photo of venue map or seating layout                                                     |
-| 7   | GLOBAL_SELECT_TabSelector         | Tab Selector            | Global         | Quick access links to navigate between Offers, Shows, Location, and Notes sections on the page |
+| 6   | GLOBAL_ACTION_FloorPlanButton     | Floor Plan Button       | Global         | Opens photo of venue map or seating layout                                                     |
+| 7   | GLOBAL_SELECT_StickyTabBar        | Sticky Tab Bar          | Global         | Quick access links to navigate between Offers, Shows, Location, and Notes sections on the page |
 | 8   | GLOBAL_FLOW_SpecialOffersCarousel | Special Offers Carousel | Global         | Displays linked offers                                                                         |
 | 9   | ENT_LIST_UpcomingShowsList        | Upcoming Shows List     | Local          | Lists scheduled concerts or performances at the venue                                          |
 | 10  | GLOBAL_DISPLAY_LocationCard       | Location Card           | Global         | Displays address, map, and nearest carpark                                                     |
@@ -33,16 +32,17 @@ The Venue Detail page provides complete information about each entertainment ven
 
   
 
-1. ## Header Card
-    
+## 1 Header Card
 
 ```Plain
-HeaderCard
+GLOBAL_DISPLAY_HeaderCard
 ```
 
 ### Key Function
 
-Displays hero image and image carousel for the venue detail. Clicking the photo album icon on the bottom right or the image opens the Photo Gallery page if a gallery is associated with the venue [INSERT LINK/CODE]
+Displays hero image and image carousel for the venue detail. Clicking the photo album icon on the bottom right or the image opens the [Photo Gallery](/01_Global_Components/Photo_Gallery) page if a gallery is associated with the venue
+
+  
 
 ### Visual Reference
 
@@ -52,15 +52,13 @@ Displays hero image and image carousel for the venue detail. Clicking the photo 
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|header_image|Hero image and image carousel that contains the images from the image gallery|
+| Fields       | Description                                                                   |
+| ------------ | ----------------------------------------------------------------------------- |
+| header_image | Hero image and image carousel that contains the images from the image gallery |
 
 Please refer to the global component documentation for details. Link
 
-2. ## Photo Gallery
-    
+## 2 Photo Gallery
 
 ```Plain
 GLOBAL_DISPLAY_PhotoGallery
@@ -74,16 +72,14 @@ Please refer to the global component documentation for display details. Link[Vie
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|image_category|Images within a single gallery can be assigned a category to allow users to quickly navigate between the pages|
-|image|Uploaded photos in the venue image gallery|
+| Fields         | Description                                                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------- |
+| image_category | Images within a single gallery can be assigned a category to allow users to quickly navigate between the pages |
+| image          | Uploaded photos in the venue image gallery                                                                     |
 
   
 
-3. ## Title Component
-    
+## 3 Title Component
 
 ```Plain
 GLOBAL_TYPE_TitleComponent
@@ -99,42 +95,38 @@ Please refer to the global component documentation for display details. Link[Vie
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|long_title|Venue long title|
-|description|Venue description|
+| Fields      | Description       |
+| ----------- | ----------------- |
+| long_title  | Venue long title  |
+| description | Venue description |
 
 ### CMS Field Specification
 
 #### `long_title`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Text input|
-|Max Length|58 characters|
-|Example|Galaxy Macau Arena|
-|Input Validation|Text only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Venue|
-|Dependencies|Used as the page title and main title of the venue_id across different linked components|
+| Specification Item | Details                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Field Type         | Text input                                                                               |
+| Max Length         | 58 characters                                                                            |
+| Example            | Galaxy Macau Arena                                                                       |
+| Input Validation   | Text only                                                                                |
+| Localization       | Must support all display languages.                                                      |
+| Data Source        | CCMS --> Entertainment Venue                                                             |
+| Dependencies       | Used as the page title and main title of the venue_id across different linked components |
 
 #### `description`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Text input|
-|Max Length|1000 characters|
-|Example|As the largest indoor arena in Macau, with 16,000 Seating, Galaxy Arena is the place where spectacular events come to life. Featuring unobstructed views and high-definition broadcasting enabled by advanced technical infrastructure, every guest will enjoy amazing, 360° views and high-quality surround sound.|
-|Input Validation|Text only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Venue|
-|Dependencies|-|
+| Specification Item | Details                                                                                                                                                                                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | Text input                                                                                                                                                                                                                                                                                                          |
+| Max Length         | 1000 characters                                                                                                                                                                                                                                                                                                     |
+| Example            | As the largest indoor arena in Macau, with 16,000 Seating, Galaxy Arena is the place where spectacular events come to life. Featuring unobstructed views and high-definition broadcasting enabled by advanced technical infrastructure, every guest will enjoy amazing, 360° views and high-quality surround sound. |
+| Input Validation   | Text only                                                                                                                                                                                                                                                                                                           |
+| Localization       | Must support all display languages.                                                                                                                                                                                                                                                                                 |
+| Data Source        | CCMS --> Entertainment Venue                                                                                                                                                                                                                                                                                        |
+| Dependencies       | -                                                                                                                                                                                                                                                                                                                   |
 
-4. ## Contact Button
-    
+## 4 Contact Button
 
 ```Plain
 GLOBAL_ACTION_ContactButton
@@ -146,12 +138,11 @@ Opens Contact Us pop up to allow users to contact CS.
 
   
 
-Please refer to the global component documentation for display details. Link[View](/01_Global_Components/Contact_Button)
+Please refer to the global component documentation for display details. [View](/01_Global_Components/Contact_Button)
 
   
 
-5. ## Share Button
-    
+## 5 Share Button
 
 ```Plain
 GLOBAL_ACTION_ShareButton
@@ -163,15 +154,14 @@ Allow user to share this page link with friends via MP share card or generate a 
 
   
 
-Please refer to the global component documentation for display details. Link[View](/01_Global_Components/Share_Button)
+Please refer to the global component documentation for display details. [View](/01_Global_Components/Share_Button)
 
   
 
-6. ## Floor Plan Button
-    
+## 6 Floor Plan Button
 
 ```Plain
-ENT_ACTION_FloorPlanButton
+Global_ACTION_FloorPlanButton
 ```
 
 ### Key Function
@@ -181,16 +171,15 @@ ENT_ACTION_FloorPlanButton
 - It is used on the **Venue Detail** page to provide a quick reference for visitors to locate areas within the entertainment venue.
     
 
-Please refer to the global component documentation for display details. Link
+Please refer to the global component documentation for display details. View](/01_Global_Components/ FloorPlanButton)
 
   
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|floor_plan_image|The image to be displayed when the user clicks the floor plan button at the top of the page.|
+| Fields           | Description                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| floor_plan_image | The image to be displayed when the user clicks the floor plan button at the top of the page. |
 
 ### Display Logic
 
@@ -212,22 +201,20 @@ Please refer to the global component documentation for display details. Link
 
 #### `floor_plan_image`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Image|
-|File Format|webp|
-|Size Requirement|Minimum 1280 x 1280 pixels|
-|File Size Limit|Maximum 2 MB|
-|Input Validation|Optional|
-|Data Source|CMS|
-|Dependencies|-|
+| Specification Item | Details                    |
+| ------------------ | -------------------------- |
+| Field Type         | Image                      |
+| File Format        | webp                       |
+| Size Requirement   | Minimum 1280 x 1280 pixels |
+| File Size Limit    | Maximum 2 MB               |
+| Input Validation   | Optional                   |
+| Data Source        | CMS                        |
+| Dependencies       | -                          |
 
-7. ## Tab Selector
-    
+## 7 Sticky Tab Bar
 
 ```Plain
-GLOBAL_SELECT_TabSelector
+GLOBAL_SELECT_StickyTabBar
 ```
 
 ### Key Function
@@ -236,12 +223,11 @@ Quick links to navigate to the content sections within the page.
 
   
 
-Please refer to the global component documentation for display details. Link[View](/01_Global_Components/Tab_Selector)
+Please refer to the global component documentation for display details. [View](/01_Global_Components/StickyTabBar)
 
   
 
-8. ## Special Offers Carousel
-    
+## 8 Special Offers Carousel
 
 ```Plain
 GLOBAL_FLOW_SpecialOffersCarousel
@@ -253,10 +239,9 @@ Display offers that are linked to this page in a carousel format. References the
 
   
 
-Please refer to the global component documentation for display details. Link[View](/01_Global_Components/Special_Offers_Carousel)
+Please refer to the global component documentation for display details. [View](/01_Global_Components/Special_Offers_Carousel)
 
-9. ## Upcoming Show List
-    
+## 9 Upcoming Show List
 
 ```Plain
 ENT_LIST_UpcomingShowsList
@@ -277,14 +262,13 @@ Please refer to the global component documentation for display details. Link
 
 This component references data listed in the **Entertainment Event content type** within the Entertainment module.
 
-|   |   |
-|---|---|
-|Fields|Description|
-|show_id|A unique internal identifier used to link Entertainment Events with related content types.|
-|venue_id|Identifies the Entertainment Venue of the Entertainment Event|
-|tile_image|A single hero image is associated with each Entertainment Event.|
-|title_text|The title text of the Entertainment Event.|
-|show_times_specification|The show time entries for each Entertainment Event.|
+| Fields                   | Description                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------ |
+| show_id                  | A unique internal identifier used to link Entertainment Events with related content types. |
+| venue_id                 | Identifies the Entertainment Venue of the Entertainment Event                              |
+| tile_image               | A single hero image is associated with each Entertainment Event.                           |
+| title_text               | The title text of the Entertainment Event.                                                 |
+| show_times_specification | The show time entries for each Entertainment Event.                                        |
 
 ### Display Logic
 
@@ -310,12 +294,9 @@ This component references data listed in the **Entertainment Event content type*
 
 ### CMS Field Specification
 
-See Entertainment Event detail page for details on field input. INPUT LINK
+See Entertainment Event detail page for details on field input. [View](/02_Page_Documentation/M06_03_Entertainment_Event_Detail)
 
-  
-
-10. ## Location Card
-    
+## 10 Location Card
 
 ```Plain
 GLOBAL_DISPLAY_LocationCard
@@ -331,8 +312,7 @@ Please refer to the global component documentation for display details. Link[Vie
 
   
 
-11. ## Accordian Info Group
-    
+## 11 Accordian Info Group
 
 ```Plain
 GLOBAL_CTNR_AccordionInfoGroup
@@ -342,15 +322,14 @@ GLOBAL_CTNR_AccordionInfoGroup
 
 Displays an expandable/collapsable list of key information related to the venue.
 
-Please refer to the global component documentation for details. Link[View](/01_Global_Components/Accordion_Info_Group)
+Please refer to the global component documentation for details. [View](/01_Global_Components/Accordion_Info_Group)
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|how_to_find_specification|A group of images of key landmarks near the location to help users wayfind around the property|
-|relevant_info_specifcation|This will be used to display Transportation, Restroom, and Need to Know information per the UXUI design. Supports single-column (free format text, bulleted list, and numbered list) and two-column display. Refer to the previous BRS documentation for Dining and Retail.|
+| Fields                     | Description                                                                                                                                                                                                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| how_to_find_specification  | A group of images of key landmarks near the location to help users wayfind around the property                                                                                                                                                                              |
+| relevant_info_specifcation | This will be used to display Transportation, Restroom, and Need to Know information per the UXUI design. Supports single-column (free format text, bulleted list, and numbered list) and two-column display. Refer to the previous BRS documentation for Dining and Retail. |
 
 ### 11.1 How to Find
 
@@ -374,9 +353,8 @@ Please refer to the global component documentation for display details. Link[Vie
 
 ##### `relevant_info_specifcation`
 
-|                    |                            |
-| ------------------ | -------------------------- |
 | Specification Item | Details                    |
+| ------------------ | -------------------------- |
 | Field Type         | Image                      |
 | File Format        | webp                       |
 | Size Requirement   | Minimum 1280 x 1280 pixels |

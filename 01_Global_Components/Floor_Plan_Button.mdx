@@ -1,0 +1,62 @@
+---
+title: Floor Plan Button
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_ACTION_FloorPlanButton
+```
+
+### Key Function
+
+- The **Floor Plan Button** allows users to view the venue’s seating or layout map image as configured in the CCMS.
+    
+- It is used on the **Venue Detail** page to provide a quick reference for visitors to locate areas within the entertainment venue.
+    
+
+  
+
+## Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14201&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+### Field List
+
+| Fields           | Description                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| floor_plan_image | The image to be displayed when the user clicks the floor plan button at the top of the page. |
+
+### Display Logic
+
+- Visible when a **Floor Plan Image** is uploaded under the _Entertainment Venue_ content type.
+    
+- Hidden automatically if no Floor Plan image is available.
+    
+
+### Interaction Logic
+
+- On tap, opens the full floor plan in a full page image viewing mode which supports zoom and pan interactions.
+    
+- For larger layouts, the view switches to horizontal orientation to improve visibility.
+    
+
+  
+
+### CMS Field Specification
+
+#### `floor_plan_image`
+
+| Specification Item | Details                    |
+| ------------------ | -------------------------- |
+| Field Type         | Image                      |
+| File Format        | webp                       |
+| Size Requirement   | Minimum 1280 x 1280 pixels |
+| File Size Limit    | Maximum 2 MB               |
+| Input Validation   | Optional                   |
+| Data Source        | CMS                        |
+| Dependencies       | -                          |

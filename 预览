@@ -1,2 +1,6 @@
 npx mintlify dev
 git add -A
+
+
+rm -rf .mintlify
+npx mintlify dev --no-cache

@@ -61,7 +61,7 @@
         ]
       },
       {
-        "group": "Global Functions",
+        "group": "Global Components",
         "pages": [
         "01_Global_Components/Accordion_Info_Group",
         "01_Global_Components/Body_Content",
@@ -72,10 +72,12 @@
         "01_Global_Components/Entertainment_Recommendations_Carousel",
         "01_Global_Components/FAQ_Buttons",
         "01_Global_Components/Filter_Function",
+        "01_Global_Components/Floor_Plan_Button",
         "01_Global_Components/Header_Card",
         "01_Global_Components/How_To_Find_Modal",
         "01_Global_Components/Local_Search",
         "01_Global_Components/Location_Card",
+        "01_Global_Components/Locked_Page_Banner",
         "01_Global_Components/Login_Sticky_Button",
         "01_Global_Components/Offers_Tag",
         "01_Global_Components/Photo_Gallery",
@@ -86,7 +88,7 @@
         "01_Global_Components/Sort_Function",
         "01_Global_Components/Special_Offers_Carousel",
         "01_Global_Components/Skeleton",
-        "01_Global_Components/Tab_Selector",
+        "01_Global_Components/Sticky_Tab_Bar",
         "01_Global_Components/Terms_and_Conditions_Accordion",
         "01_Global_Components/Title_Component",
         "01_Global_Components/Toolbar_Filter",

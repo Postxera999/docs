@@ -3,12 +3,11 @@
 title: "M06_03 Entertainment_Event_Detail"
 
 ---
-
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
   
 
-### **Page Overview**
+### Page Overview
 
 The **Entertainment Event** **Detail** page provides complete information about each concert or entertainment event within the Galaxy platform.
 
@@ -16,44 +15,43 @@ It displays ticket details, seating information, membership benefits, FAQs, purc
 
 ---
 
-### **Components Used**
+### Components Used
 
-|   |   |   |   |   |
-|---|---|---|---|---|
-|#|Component Code|Component Name|Global / Local|Description|
-|1|ENT_DISPLAY_EntertainmentEventHeaderCard|Entertainment Event Header Card|Local|Displays concert title, date, price and main image|
-|2|GLOBAL_STATUS_CountdownTimer|Countdown Timer|Local|Shows countdown before general ticket sale starts|
-|3|ENT_CTNR_InfoTable|InfoTable|Global|Displays concert time, venue, location and other important details in a table format|
-|3.1|ENT_DISPLAY_Event Time and Duration|Event Time and Duration|Local|Displays Event dates, sessions and duration|
-|3.2|GLOBAL_DISPLAY_LocationCard|Location card|Local|Displays venue and address|
-|3.3|ENT_DISPLAY_Tips|Tips|Local|Displays key notes and tips|
-|3.4|ENT_DISPLAY_Sale Schedule|Sale Schedule|Local|Displays sale schedule specification|
-|4|GLOBAL_ACTION_ContactButton|Contact Button|Global|Opens contact pop up|
-|5|GLOBAL_ACTION_ShareButton|Share Button|Global|Allows users to share concert details|
-|6|ENT_ACTION_SeatingButton|Seating Button|Local|Opens the seating chart image in full view|
-|7|GLOBAL_ACTION_Sticky CTA Button|Sticky CTA Button|Global|Main CTA for the page|
-|7.1|ENT_ACTION_SetReminderButton|Set Reminder Button|Local|Enables users to subscribe to ticket sale alerts|
-|7.2|ENT_ACTION_How to Book Button|How to Book Button|Local|CTA to instruct user on how to purchase ticket|
-|8|GLOBAL_DISPLAY_LockedPageBanner|Locked Page Banner|Local|Sign up CTA banner to join Galaxy Life for logged out users|
-|9|ENT_DISPLAY_PrioritySale Section|Priority Sale Section|Local|If the user is eligible for priority sale, provides instruction on how to access the sale|
-|10|ENT_CTNR_HowtoBookSection|How to Book Section|Local|Provides ticketing purchase instructions|
-|11|GLOBAL_FLOW_SpecialOffersCarousel|Special Offers Carousel|Global|Displays linked offers|
-|12|GLOBAL_SELECT_TabSelector|Tab Selector|Global|Switches between event details and related info|
-|13|GLOBAL_DISPLAY_BodyContent|Body Content|Global|Displays event description and overview, with a “See More” expansion for long text|
-|14|ENT_LIST_TicketPriceBlock|Ticket Price Block|Local|Displays ticket categories and prices|
-|15|ENT_CTNR_EventNotices|Event Notices|Local|Lists event guidelines, policies, and entry notes|
-|16|ENT_DISPLAY_FAQButtons|FAQ Buttons|Local|Displays common attendee questions|
-|16.1|ENT_CTNR_FAQModal|FAQ Modal|Local|Opens FAQ answers in a modal view|
-|17|GLOBAL_DISPLAY_LocationCard|Location Card|Global|Displays venue address and directions|
-|18|GLOBAL_CTNR_AccordionInfoGroup|Accordion Info Group|Global|Groups key information in a dropdown layout|
-|18.1|GLOBAL_DISPLAY_HowToFind|How to Find|Global|Visual guide of how the user can find the location|
-|18.2|GLOBAL_DISPLAY_RelevantInfo|Relevant Info|Global|Displays list of relevant information in a dropdown|
-|19|ENT_DISPLAY_EntertainmentRecommendationsCarousel|Entertainment Recommendations Carousel|Global|Recommendations of other entertainment events|
+
+| #    | Component Code                                   | Component Name                         | Global / Local | Description                                                                               |
+| ---- | ------------------------------------------------ | -------------------------------------- | -------------- | ----------------------------------------------------------------------------------------- |
+| 1    | ENT_DISPLAY_EntertainmentEventHeaderCard         | Entertainment Event Header Card        | Local          | Displays concert title, date, price and main image                                        |
+| 2    | GLOBAL_STATUS_CountdownTimer                     | Countdown Timer                        | Global         | Shows countdown before general ticket sale starts                                         |
+| 3    | Global_CTNR_InfoTable                            | InfoTable                              | Global         | Displays concert time, venue, location and other important details in a table format      |
+| 3.1  | ENT_DISPLAY_Event Time and Duration              | Event Time and Duration                | Local          | Displays Event dates, sessions and duration                                               |
+| 3.2  | GLOBAL_DISPLAY_LocationCard                      | Location card                          | Global         | Displays venue and address                                                                |
+| 3.3  | ENT_DISPLAY_Tips                                 | Tips                                   | Local          | Displays key notes and tips                                                               |
+| 3.4  | ENT_DISPLAY_Sale Schedule                        | Sale Schedule                          | Local          | Displays sale schedule specification                                                      |
+| 4    | GLOBAL_ACTION_ContactButton                      | Contact Button                         | Global         | Opens contact pop up                                                                      |
+| 5    | GLOBAL_ACTION_ShareButton                        | Share Button                           | Global         | Allows users to share concert details                                                     |
+| 6    | ENT_ACTION_SeatingButton                         | Seating Button                         | Local          | Opens the seating chart image in full view                                                |
+| 7    | GLOBAL_ACTION_Sticky CTA Button                  | Sticky CTA Button                      | Global         | Main CTA for the page                                                                     |
+| 7.1  | ENT_ACTION_SetReminderButton                     | Set Reminder Button                    | Local          | Enables users to subscribe to ticket sale alerts                                          |
+| 7.2  | ENT_ACTION_How to Book Button                    | How to Book Button                     | Local          | CTA to instruct user on how to purchase ticket                                            |
+| 8    | GLOBAL_DISPLAY_LockedPageBanner                  | Locked Page Banner                     | Local          | Sign up CTA banner to join Galaxy Life for logged out users                               |
+| 9    | ENT_DISPLAY_PrioritySale Section                 | Priority Sale Section                  | Local          | If the user is eligible for priority sale, provides instruction on how to access the sale |
+| 10   | ENT_CTNR_HowtoBookSection                        | How to Book Section                    | Local          | Provides ticketing purchase instructions                                                  |
+| 11   | GLOBAL_FLOW_SpecialOffersCarousel                | Special Offers Carousel                | Global         | Displays linked offers                                                                    |
+| 12   | GLOBAL_SELECT_StickyTabBar                       | Sticky Tab Bar                         | Global         | Switches between event details and related info                                           |
+| 13   | GLOBAL_DISPLAY_BodyContent                       | Body Content                           | Global         | Displays event description and overview, with a “See More” expansion for long text        |
+| 14   | ENT_LIST_TicketPriceBlock                        | Ticket Price Block                     | Local          | Displays ticket categories and prices                                                     |
+| 15   | ENT_CTNR_EventNotices                            | Event Notices                          | Local          | Lists event guidelines, policies, and entry notes                                         |
+| 16   | ENT_DISPLAY_FAQButtons                           | FAQ Buttons                            | Local          | Displays common attendee questions                                                        |
+| 16.1 | ENT_CTNR_FAQModal                                | FAQ Modal                              | Local          | Opens FAQ answers in a modal view                                                         |
+| 17   | GLOBAL_DISPLAY_LocationCard                      | Location Card                          | Global         | Displays venue address and directions                                                     |
+| 18   | GLOBAL_CTNR_AccordionInfoGroup                   | Accordion Info Group                   | Global         | Groups key information in a dropdown layout                                               |
+| 18.1 | GLOBAL_DISPLAY_HowToFind                         | How to Find                            | Global         | Visual guide of how the user can find the location                                        |
+| 18.2 | GLOBAL_DISPLAY_RelevantInfo                      | Relevant Info                          | Global         | Displays list of relevant information in a dropdown                                       |
+| 19   | ENT_DISPLAY_EntertainmentRecommendationsCarousel | Entertainment Recommendations Carousel | Local          | Recommendations of other entertainment events                                             |
 
 ---
 
-1. ## Entertainment Event Header Card
-    
+## 1 Entertainment Event Header Card
 
 ```Plain
 ENT_DISPLAY_EntertainmentEventHeaderCard
@@ -66,17 +64,19 @@ ENT_DISPLAY_EntertainmentEventHeaderCard
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=Mzk5OTFhOTFiYTc0OTNmZGJmNmJmYjUzNzhhZjQ4N2ZfVzUwaHl4d0dSOGVCU0lMYVo1Nldzc25aVk9LWE5XdWRfVG9rZW46V3JleWJxY3Fpb2hlRDR4dWM2R2MwTlVLbjVjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+  
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-30500&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|hero_image|The key visual for this entertinment event.|
-|title_text|The title text that appears on Entertainment Directory, Entertainment Venue and Entertainment Event detail pages.|
-|price_schedule_specification|Displays lowest available ticket price|
-|pricing_availability_override|When enabled, this attribute replaces both the “From Price” and the detailed Ticket Price section with the message “Pricing Not Yet Available”, regardless of whether pricing and restrictions have already been configured.|
+
+| Fields                        | Description                                                                                                                                                                                                                  |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hero_image                    | The key visual for this entertinment event.                                                                                                                                                                                  |
+| title_text                    | The title text that appears on Entertainment Directory, Entertainment Venue and Entertainment Event detail pages.                                                                                                            |
+| price_schedule_specification  | Displays lowest available ticket price                                                                                                                                                                                       |
+| pricing_availability_override | When enabled, this attribute replaces both the “From Price” and the detailed Ticket Price section with the message “Pricing Not Yet Available”, regardless of whether pricing and restrictions have already been configured. |
 
 ### Display Logic
 
@@ -100,9 +100,9 @@ ENT_DISPLAY_EntertainmentEventHeaderCard
     
     - Main pricing displayed as: `[From {lowest price}]`
         
-    - Conversion to CNY displayed below as: `[Approx. {lowest price CNY conversion}]`
+    - Conversion to CNY displayed below as: [Approx. `{lowest price CNY conversion}`]`
         
-    - If `pricing_availability_override` is enabled, replace `[From {Price}] `and `[Approx. {CNY Price}] `with [Pricing Not Yet Available]
+    - If `pricing_availability_override` is enabled, replace [From {Price}] and [Approx. `{CNY Price}`] with [Pricing Not Yet Available]
         
 
   
@@ -111,32 +111,32 @@ ENT_DISPLAY_EntertainmentEventHeaderCard
 
 #### `hero_image`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Image|
-|File Format|JPG or WebP (WebP preferred for smaller file size)|
-|Dimensions|311 × 200 px|
-|Aspect Ratio|1.55 : 1|
-|Resolution|72–96 DPI (standard web resolution)|
-|File Size Limit|Maximum 2 MB (recommended under 500 KB for faster load)|
-|Color Profile|sRGB|
-|Input Validation|Optional|
-|Data Source|CMS|
-|Dependencies|Displayed only when linked image exists|
+
+| Specification Item | Details                                                 |
+| ------------------ | ------------------------------------------------------- |
+| Field Type         | Image                                                   |
+| File Format        | JPG or WebP (WebP preferred for smaller file size)      |
+| Dimensions         | 311 × 200 px                                            |
+| Aspect Ratio       | 1.55 : 1                                                |
+| Resolution         | 72–96 DPI (standard web resolution)                     |
+| File Size Limit    | Maximum 2 MB (recommended under 500 KB for faster load) |
+| Color Profile      | sRGB                                                    |
+| Input Validation   | Optional                                                |
+| Data Source        | CMS                                                     |
+| Dependencies       | Displayed only when linked image exists                 |
 
 #### `title_text`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Text input|
-|Max Length|-|
-|Example|Magicman 2 World Tour 2025-2026 in Macau Presented by Galaxy Macau™|
-|Input Validation|Text only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS|
-|Dependencies|Used as the page title and main title of the show_id across different linked components|
+
+| Specification Item | Details                                                                                 |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| Field Type         | Text input                                                                              |
+| Max Length         | -                                                                                       |
+| Example            | Magicman 2 World Tour 2025-2026 in Macau Presented by Galaxy Macau™                     |
+| Input Validation   | Text only                                                                               |
+| Localization       | Must support all display languages.                                                     |
+| Data Source        | CCMS                                                                                    |
+| Dependencies       | Used as the page title and main title of the show_id across different linked components |
 
 #### `price_schedule_specification`
 
@@ -144,23 +144,22 @@ Refer to detail on price schedule specification in section [View](#price-schedul
 
   
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Numerical|
-|Max Length|-|
-|Example|Magicman 2 World Tour 2025-2026 in Macau Presented by Galaxy Macau™|
-|Input Validation|Text only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS|
-|Dependencies|Used as the page title and main title of the show_id across different linked components|
+
+| Specification Item | Details                                                                                 |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| Field Type         | Numerical                                                                               |
+| Max Length         | -                                                                                       |
+| Example            | Magicman 2 World Tour 2025-2026 in Macau Presented by Galaxy Macau™                     |
+| Input Validation   | Text only                                                                               |
+| Localization       | Must support all display languages.                                                     |
+| Data Source        | CCMS                                                                                    |
+| Dependencies       | Used as the page title and main title of the show_id across different linked components |
 
   
 
 ---
 
-2. ## **Countdown Timer**
-    
+## **2** **Countdown Timer**
 
 ```Plain
 GLOBAL_STATUS_CountdownTimer
@@ -170,23 +169,22 @@ GLOBAL_STATUS_CountdownTimer
 
 - Displays a countdown timer indicating the time remaining before general ticket sales open.
     
-- Linked field to the event’s Link[View](/01_Global_Components/Countdown_Timer)
+- Linked field to the event’s [View](/01_Global_Components/Countdown_Timer)
     
 
   
 
 ### Visual Reference
-
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MjRkZjE4MTI2MjUxNzcxZTVlZDEyMmIxNDFhYzg4YWJfUGZQb1lCUmxnS0hIbE1tdkVCTk9XNEhaVGF4bVljVmxfVG9rZW46TW9VOGJiWHE2bzBYYVR4RzllMmNrZEo3bm5JXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14199&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|countdown_start_in_hours|Allows content managers to specify the number of hours prior to the Sale Start Date and Time when the countdown timer should become visible.|
-|countdown_title|Displayed in the Countdown Time Window on the Entertainment Event Detail page.|
-|countdown_description|Displayed below the Countdown Title in the Countdown Time Window on the Entertainment Event Detail page.|
+
+| Fields                   | Description                                                                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| countdown_start_in_hours | Allows content managers to specify the number of hours prior to the Sale Start Date and Time when the countdown timer should become visible. |
+| countdown_title          | Displayed in the Countdown Time Window on the Entertainment Event Detail page.                                                               |
+| countdown_description    | Displayed below the Countdown Title in the Countdown Time Window on the Entertainment Event Detail page.                                     |
 
 ### Display Logic
 
@@ -207,62 +205,64 @@ GLOBAL_STATUS_CountdownTimer
 
 #### `countdown_start_in_hours`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Time|
-|Format|DD:HH:MM:SS|
-|Input Validation|Optional field, no. of days must not exceed 99|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|sale_start_time must be configured.|
+
+| Specification Item | Details                                        |
+| ------------------ | ---------------------------------------------- |
+| Field Type         | Time                                           |
+| Format             | DD:HH:MM:SS                                    |
+| Input Validation   | Optional field, no. of days must not exceed 99 |
+| Data Source        | CCMS --> Sale Schedule Item                    |
+| Dependencies       | sale_start_time must be configured.            |
 
 #### `countdown_title`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Text input|
-|Max Length|EN: 60 characters (max 2 lines)|
-|Example|Tickets are not on sale yet|
-|Input Validation|Optional, text input only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Text input                          |
+| Max Length         | EN: 60 characters (max 2 lines)     |
+| Example            | Tickets are not on sale yet         |
+| Input Validation   | Optional, text input only           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Sale Schedule Item         |
+| Dependencies       | -                                   |
 
 #### `countdown_description`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Text input|
-|Max Length|EN: 80 characters (max 2 lines)|
-|Example|Set a reminder to not miss the wonderful concert.|
-|Input Validation|Optional, text input only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+
+| Specification Item | Details                                           |
+| ------------------ | ------------------------------------------------- |
+| Field Type         | Text input                                        |
+| Max Length         | EN: 80 characters (max 2 lines)                   |
+| Example            | Set a reminder to not miss the wonderful concert. |
+| Input Validation   | Optional, text input only                         |
+| Localization       | Must support all display languages.               |
+| Data Source        | CCMS --> Sale Schedule Item                       |
+| Dependencies       | -                                                 |
 
   
 
 ---
 
-3. ## Info Table
-    
+## 3 Info Table
 
   
 
 ```Plain
-ENT_CTNR_InfoTable
+Global_CTNR_InfoTable
 ```
 
 ### Key Function
 
 - Displays key information related to the Entertainment Event in a table format
-    
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-30738&t=EIrrWlE3DFcM0Te3-4" />
 
   
 
-Please refer to the global component documentation for display details. Link[View](/02_Page_Documentation/Filter Function#station-name)
+Please refer to the global component documentation for display details. [View](/01_Global_Components/Info——Table)
+
+  
 
 ### 3.1 Event Time & Duration
 
@@ -272,11 +272,11 @@ ENT_DISPLAY_EventTimeandDuration
 
 #### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|show_time_specification|The CCMS supports multiple show time entries for each Entertainment Event. Each entry may include a specific date or a date range, along with one or more scheduled times. The WCMP retrieves this data from the Show Times Specification within the Entertainment Event content type and formats it appropriately for display across relevant pages.|
-|show_duration|Approximate duration of show|
+
+| Fields                  | Description                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| show_time_specification | The CCMS supports multiple show time entries for each Entertainment Event. Each entry may include a specific date or a date range, along with one or more scheduled times. The WCMP retrieves this data from the Show Times Specification within the Entertainment Event content type and formats it appropriately for display across relevant pages. |
+| show_duration           | Approximate duration of show                                                                                                                                                                                                                                                                                                                          |
 
 #### Display Logic
 
@@ -291,34 +291,34 @@ ENT_DISPLAY_EventTimeandDuration
 
 ##### `show_time_specification`
 
-|   |   |
-|---|---|
-|Specification Format|Details|
-|Single date and single time|Month Day, Year Time (e.g. November 15, 2025 20:00)|
-|Single date with multiple times|Month Day, Year Time1, Time2, Time3 (e.g. November 15, 2025 14:00, 17:00, 20:00)|
-|Date range within the same month|Month StartDay–EndDay, Year Time1, Time2, Time3 (e.g, November 15–18, 2025 14:00, 17:00, 20:00)|
-|Date range across different months (same year)|Month StartDay–Month EndDay, Year Time1, Time2, Time3 (e.g. November 28–December 2, 2025 14:00, 17:00, 20:00)|
-|Date range across different years|MM.DD.Year–MM.DD.Year Time1, Time2, Time3 (e.g. 12.30.2025–01.02.2026 14:00, 17:00, 20:00)|
-|Multiple dates and times|Display on separate lines|
-|Custom Show Time Display Specification|The CCMS shall support a display override attribute, which allows content managers to manually enter formatted text for show times. This override supports multiple lines of text, such as:  Mon–Wed: 7:00 PM, 9:00 PM  Thu–Fri: 5:30 PM, 7:30 PM  Closed on Saturday & Sunday|
-|Specification Item||
-|Input Validation|Mandatory field|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+
+| Specification Format                           | Details                                                                                                                                                                                                                                                                                    |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Single date and single time                    | Month Day, Year Time (e.g. November 15, 2025 20:00)                                                                                                                                                                                                                                        |
+| Single date with multiple times                | Month Day, Year Time1, Time2, Time3 (e.g. November 15, 2025 14:00, 17:00, 20:00)                                                                                                                                                                                                           |
+| Date range within the same month               | Month StartDay–EndDay, Year Time1, Time2, Time3 (e.g, November 15–18, 2025 14:00, 17:00, 20:00)                                                                                                                                                                                            |
+| Date range across different months (same year) | Month StartDay–Month EndDay, Year Time1, Time2, Time3 (e.g. November 28–December 2, 2025 14:00, 17:00, 20:00)                                                                                                                                                                              |
+| Date range across different years              | MM.DD.Year–MM.DD.Year Time1, Time2, Time3 (e.g. 12.30.2025–01.02.2026 14:00, 17:00, 20:00)                                                                                                                                                                                                 |
+| Multiple dates and times                       | Display on separate lines                                                                                                                                                                                                                                                                  |
+| Custom Show Time Display Specification         | The CCMS shall support a display override attribute, which allows content managers to manually enter formatted text for show times. This override supports multiple lines of text, such as:  Mon–Wed: 7:00 PM, 9:00 PM  Thu–Fri: 5:30 PM, 7:30 PM  Closed on Saturday & Sunday |
+| Specification Item                             |                                                                                                                                                                                                                                                                                            |
+| Input Validation                               | Mandatory field                                                                                                                                                                                                                                                                            |
+| Localization                                   | Must support all display languages.                                                                                                                                                                                                                                                        |
+| Data Source                                    | CCMS --> Entertainment Event                                                                                                                                                                                                                                                               |
+| Dependencies                                   | -                                                                                                                                                                                                                                                                                          |
 
 ##### `show_duration`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|Around 120 minutes|
-|Input Validation|Optional, text input only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text input                     |
+| Max Length         | -                                   |
+| Example            | Around 120 minutes                  |
+| Input Validation   | Optional, text input only           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Entertainment Event        |
+| Dependencies       | -                                   |
 
 ### 3.2 Location card
 
@@ -328,11 +328,11 @@ GLOBAL_DISPLAY_LocationCard
 
 #### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|venue_id|Reference to Event Venue content type|
-|location_specification|Venue address in Event Venue content type|
+
+| Fields                 | Description                               |
+| ---------------------- | ----------------------------------------- |
+| venue_id               | Reference to Event Venue content type     |
+| location_specification | Venue address in Event Venue content type |
 
 #### Display Logic
 
@@ -353,10 +353,10 @@ ENT_DISPLAY_Tips
 
 #### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|supportive_tips|Content managers can create multiple entries of tip text, which are displayed under the “Tips” section on the Entertainment Event Detail page.|
+
+| Fields          | Description                                                                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| supportive_tips | Content managers can create multiple entries of tip text, which are displayed under the “Tips” section on the Entertainment Event Detail page. |
 
 #### Display Logic
 
@@ -371,16 +371,15 @@ ENT_DISPLAY_Tips
 
 ##### `supportive_tips`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|Refunds not supported|
-|Input Validation|Optional, text input only|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text input                     |
+| Max Length         | -                                   |
+| Example            | Refunds not supported               |
+| Input Validation   | Optional, text input only           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Entertainment Event        |
+| Dependencies       | -                                   |
 
 ### 3.4 Sale Schedule
 
@@ -407,13 +406,12 @@ Sale phases may include:
 
 #### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|title_text|Each Sale Schedule is assigned a meaningful name to help content managers easily identify and associate it with the corresponding Entertainment Event.|
-|sale_start_date|Defines the start date and time for ticket sales within a Sale Schedule Item.|
-|sale_end_date|Defines the end date and time for ticket sales within a Sale Schedule Item.|
-|subtitle_text|The subtitle text is displayed below the Sale Schedule window.|
+| Fields          | Description                                                                                                                                            |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| title_text      | Each Sale Schedule is assigned a meaningful name to help content managers easily identify and associate it with the corresponding Entertainment Event. |
+| sale_start_date | Defines the start date and time for ticket sales within a Sale Schedule Item.                                                                          |
+| sale_end_date   | Defines the end date and time for ticket sales within a Sale Schedule Item.                                                                            |
+| subtitle_text   | The subtitle text is displayed below the Sale Schedule window.                                                                                         |
 
 #### Display Logic
 
@@ -457,47 +455,43 @@ Sale phases may include:
 
 ##### `title_text`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|Public Sale|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text input                     |
+| Max Length         | -                                   |
+| Example            | Public Sale                         |
+| Input Validation   | Mandatory                           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Sale Schedule Item         |
+| Dependencies       | -                                   |
 
 ##### `sale_start_date / sale_end_date`
 
-|   |   |
-|---|---|
-|Specification Format|Details|
-|No end date and time|Starting Month Day, Year Time (e.g. Starting November 15, 2025 14:00)|
-|Same start and end date with different times|Month Day, Year Time1 - Time2, Time3 (e.g. November 15, 2025 14:00 – 16:00)|
-|Different dates|MM.DD.Year HH:MM – MM.DD.Year HH:MM (e.g. 12.30.2025 12:00 – 01.02.2026 19:00)|
-|Multiple dates and times|Display on separate lines.|
-|Specification Item||
-|Input Validation|Mandatory field|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+| Specification Format                         | Details                                                                        |
+| -------------------------------------------- | ------------------------------------------------------------------------------ |
+| No end date and time                         | Starting Month Day, Year Time (e.g. Starting November 15, 2025 14:00)          |
+| Same start and end date with different times | Month Day, Year Time1 - Time2, Time3 (e.g. November 15, 2025 14:00 – 16:00)    |
+| Different dates                              | MM.DD.Year HH:MM – MM.DD.Year HH:MM (e.g. 12.30.2025 12:00 – 01.02.2026 19:00) |
+| Multiple dates and times                     | Display on separate lines.                                                     |
+| Specification Item                           |                                                                                |
+| Input Validation                             | Mandatory field                                                                |
+| Localization                                 | Must support all display languages.                                            |
+| Data Source                                  | CCMS --> Sale Schedule Item                                                    |
+| Dependencies                                 | -                                                                              |
 
 ##### `subtitle_text`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|Via Galaxy Ticketing Only|
-|Input Validation|Optional|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text input                     |
+| Max Length         | -                                   |
+| Example            | Via Galaxy Ticketing Only           |
+| Input Validation   | Optional                            |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Sale Schedule Item         |
+| Dependencies       | -                                   |
 
-4. ## Contact Button
-    
+## 4 Contact Button
 
 ```Plain
 GLOBAL_ACTION_ContactButton
@@ -513,8 +507,7 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
   
 
-5. ## Share Button
-    
+## 5 Share Button
 
 ```Plain
 GLOBAL_ACTION_ShareButton
@@ -528,8 +521,7 @@ Allow user to share this page link with friends via MP share card or generate a 
 
 Please refer to the global component documentation for details. Link[View](/01_Global_Components/Share_Button)
 
-6. ## Seating Button
-    
+## 6 Seating Button
 
 ```Plain
 ENT_ACTION_SeatingButton
@@ -546,14 +538,13 @@ ENT_ACTION_SeatingButton
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MDQ3NWM5NjFiNzVmYzM4M2I4OTUwNDVlMDAxMjRjMzFfczdKY3BLbTlIdGJVTWhWU3c3a1M1b0tYSTJwTzdSeG9fVG9rZW46Vkhid2JmeU1Bb09aTml4NXVpeWNXWVZhbkpEXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14202&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|seat_map_image|The image to be displayed when the user clicks the “Seating” button at the top of the page.|
+| Fields         | Description                                                                                 |
+| -------------- | ------------------------------------------------------------------------------------------- |
+| seat_map_image | The image to be displayed when the user clicks the “Seating” button at the top of the page. |
 
 ### Display Logic
 
@@ -575,21 +566,19 @@ ENT_ACTION_SeatingButton
 
 #### `seat_map_image`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Image|
-|File Format|webp|
-|Size Requirement|800 × 600 px minimum|
-|File Size Limit|Maximum 2 MB|
-|Input Validation|Optional, only 1 image is supported|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Image                               |
+| File Format        | webp                                |
+| Size Requirement   | 800 × 600 px minimum                |
+| File Size Limit    | Maximum 2 MB                        |
+| Input Validation   | Optional, only 1 image is supported |
+| Data Source        | CCMS --> Entertainment Event        |
+| Dependencies       | -                                   |
 
   
 
-7. ## Sticky CTA Button
-    
+## 7 Sticky CTA Button
 
 ```Plain
 GLOBAL_ACTION_StickyCTAButton
@@ -607,10 +596,9 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|sale_status|The sale status of the Entertainment Event|
+| Fields      | Description                                |
+| ----------- | ------------------------------------------ |
+| sale_status | The sale status of the Entertainment Event |
 
 ### Display Logic
 
@@ -625,12 +613,12 @@ Please refer to the global component documentation for details. Link[View](/01_G
     - e.g. If the event is only open to Treasure tier members, lower tiers will not see the **How to Book button,** but can still see the other event details.
         
 
-|   |   |   |
-|---|---|---|
-|**Sale Status**|**CTA buttons**|**Example**|
-|Pre-sale|How to Book Set Reminder|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OGZmZWM5MDVkOWVjMGYwYmJiY2Q4OTc1NWJlNTU4MjVfRGhQcWowUHJERFljZXBmaHBGR1Nwczg4R0l0bkNNTW9fVG9rZW46WDBOdWJRNzJab3dGRTl4UWRVOGNLeVJYbnliXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
-|On sale|How to Book|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MWIwY2NjMjk4ODYzOTAyOTFiODkxNTNkMDhmYTY3MzlfNUM1RVlEbEhBUXpONkhGa01MSmE1VUhyQVkwbjdPM2tfVG9rZW46S3NaamJ3TDBXb1FKcUt4UldnS2N5Sm1IbkdmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
-|Sold out|Sold Out|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OGNjNGM3NWU2MmJhYjZmYWRhOTA1MDdiYjYzMzE3ZTJfeXNzSEQwQzQ1dkdXd096c0xiTzJaTFR5ZjZ3NlkyVFVfVG9rZW46RE80cWIzMmtobzJvaWd4cVhSTmNNZ2U1bm9oXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
+| **Sale Status** | **CTA buttons** |
+| --------------- | --------------- |
+| Pre-sale        | How to Book |
+|                 | Set Reminder    |
+| On sale         | How to Book     |
+| Sold out        | Sold Out        |
 
 ### 7.1 Set Reminder Button
 
@@ -641,14 +629,10 @@ ENT_ACTION_SetReminderButton
 #### Display Logic
 
 - If the user has not subscribed to any sale reminder notification messages and a notification message is available, the button is displayed in its active state
-    
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=YjIwNGE5NjAxNmJmNGZhMWE2NDQ2ZDM4ZjgxY2NhMjBfTkNKTUJyOXJkMFgyYTFsOERQS1JIekl6cm1FNnVnRTRfVG9rZW46WmFUNGJyNGVJbzk1MTR4UXB5TWNBMURqbnhkXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
 
 - If all the available notification messages have been subscribed to, the button is disabled and the state changes to 'Reminder Added'
-    
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OGM4NjMxNTk0NDMzM2Y2ODI4ZjA1YTkwMWQxYjFmOGNfc3lHVGNtSTN6cHdDaG1VTVp1NVJ4VkVLWTdSV08ydGZfVG9rZW46VTZ6b2JucElnb29UbFp4VGRZY2NTZERQbjhjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
 
 #### Interaction Logic
 
@@ -657,13 +641,15 @@ ENT_ACTION_SetReminderButton
 - When the reminder is successfully subscribed to, display a toast message to indicate that the reminder has been added
     
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MzU2YjlhMDE4MjRjZWIwNTJjNzBlY2EyMmYyNzk3MTJfdkJYSkQ3UTdUNGxXS0tWeDU4OEgxZ0g0V2dRZDM2d3dfVG9rZW46TFVpa2JRSnZhb2JvVVV4QkRhdGNXRnR6bjdmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
-
 ### 7.2 How to Book Button
 
 ```Plain
 ENT_CTNR_HowtoBookButton
 ```
+
+#### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-31400&t=EIrrWlE3DFcM0Te3-4" />
 
 #### Display Logic
 
@@ -677,17 +663,10 @@ ENT_CTNR_HowtoBookButton
 - On tap, open a modal containing the How to Book section [View](#how-to-book)
     
 - If Priority Sale is enabled for the user, the modal displays the Priority Sale section [View](#9-priority-sale-section) on top of the How to Book section
-    
 
-|   |   |
-|---|---|
-|How to Book only|Priority Sale + How to book|
-|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ODdlNGEzMjBiOWFlZWQ1NGQ3NjdkMzdlNjQ1OTg5YTRfOThveDBzeUhzNm1yOVdLR2ZDbnRiQTRzVGNMWWZvTjVfVG9rZW46UEk0UWJEZ2VSbzZVWEd4M3FkbWNqZUJabkVmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NjVlMWE1YzRkZjUxZGM2MGI1ZjUxYzQyZjYyMGNlYmJfbHBRZEpzS2NJN0NSVEFyMm1jZ3gydTdHRVBVeHJIdzhfVG9rZW46SXU0V2JvdlFHb0I3dDd4SjVPM2N5SHdpbjNqXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)|
 
-  
 
-8. ## Locked Page Banner
-    
+## 8 Locked Page Banner
 
 ```Plain
 GLOBAL_DISPLAY_LockedPageBanner 
@@ -702,87 +681,11 @@ GLOBAL_DISPLAY_LockedPageBanner
 - Page could be locked by signed out state, or the user has not met the eligibility to view the perks.
     
 
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/Locked_Page_Banner)
+
   
 
-### Visual Reference
-
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NDFjY2IwZmE4NjM4YmZmY2JkN2VhYjI1ZjBhNzM3ZDBfUHpBSHUxSHJsRjUydDh0Mm5YSzNic2hNazBBaGFJbGtfVG9rZW46UmJpMGJZdmJTb2MzR254R1VXbmNnWnVSbm1TXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
-
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MmJkODFhNDU1YWVhNmEyZGMxNjRmYjQ0NGFjODgwNDNfc2h4QmdMTFl3cDNMakQ0UjlSZHZFekpVNWhoclZxU1NfVG9rZW46WHl5MWJzR0Yyb0lQSzB4SmVTWmNlUUFXbnVlXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
-
-### Field List
-
-|   |   |
-|---|---|
-|Fields|Description|
-|banner_title|Banner title text|
-|banner_description|Banner description|
-|banner_cta_button|Optional CTA button in relation to the banner|
-
-### Display Logic
-
-- Banners can be configured according to specific conditions, including:
-    
-    - Signed out: When users are not signed in, the banner could have a CTA prompt to get users to sign up to become a member to view perks
-        
-    - Locked promotion: When users are not eligible for the presale, display information on how they could get access
-        
-- Once the user has a presale coupon, the perks are 'unlocked' and the corresponding banner is hidden
-    
-- If a `banner_cta_button` is configured, it will display at the bottom of the banner by default.
-    
-
-### Interaction Logic
-
-- If there is more than 1 banner configured for the same entertainment event, it displays as a carousel:
-    
-
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MzAwNjQ5MmY0NjkyODZiOWZlMDVlNDJmNGUwYTNhNTlfeWdsM3c1YUxHY1BhcUhubGlyalJyTzJtZ3NUaEdXN1BfVG9rZW46QVJFbWJqNU43b094emJ4dm81YWNjZ3gwbnZmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
-
-### CMS Field Specification
-
-#### `banner_title`
-
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|64 characters|
-|Example|Log In To View Membership Benefits|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Standard Sale Restriction Banner|
-|Dependencies|-|
-
-#### `banner_description`
-
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|85 characters|
-|Example|Specific requirement like spend over 30,000 MOP on Galaxy retails to be eligible to join this offer!|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Standard Sale Restriction Banner|
-|Dependencies|-|
-
-#### `banner_cta_button`
-
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|35 characters|
-|Button Link|Deep link to other parts of MP or input URL|
-|Example|Join Galaxy Life|
-|Input Validation|Optional|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Standard Sale Restriction Banner|
-|Dependencies|Must have link configured|
-
-9. ## Priority Sale Section
-    
+## 9 Priority Sale Section
 
 ```Plain
 ENT_DISPLAY_PrioritySaleSection
@@ -795,7 +698,9 @@ ENT_DISPLAY_PrioritySaleSection
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=OTJkNTZkMjQ3MDQ3MjRkZWEzNzc4OWMwYjcyMmY4MzZfdHpVVnBPUWVQekZmN3RIUnQyaE51NnE4NElQREhLdjlfVG9rZW46Wkt5UWJmTGJGbzZ4d0R4OGY2UmNxYlpvbkx1XzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-31263&t=EIrrWlE3DFcM0Te3-4" />
+
+  
 
 ### Field List
 
@@ -824,11 +729,8 @@ ENT_DISPLAY_PrioritySaleSection
 
 ### Interaction Logic
 
-- When tapping [Copy link] CTA button, the configured URL will be copied to clipboard and the button changes state to "Link Copied" with a checkmark
+- When tapping [CTA Button](/01_Global_Components/CTA_Button), the configured URL will be copied to clipboard and the button changes state to "Link Copied" with a checkmark
     
-
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MjFkOTIzMTAwYmViM2UzMmE0YzRkY2RlZmU0MzUzNjBfY2phVVEzdlRzMGtuQlE4SHdEMXdUZzFURmRrZEZVOFpfVG9rZW46Wkk2QmJSVkR2b0hWa0l4U01ETWN0RlkxblJjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
-
 - When tapping [Use] on the coupon, it opens the respective coupon detail page
     
 
@@ -836,7 +738,7 @@ ENT_DISPLAY_PrioritySaleSection
 
 #### `title_text`
 
-See above section in 3.4 Sale Schedule Window
+See above section in 3.4 Sale Schedule Window [view](#3-4-sale-schedule)
 
 #### `label_specification`
 
@@ -885,7 +787,7 @@ See above section in 3.4 Sale Schedule Window
 |Specification Item|Details|
 |Field Type|URL|
 |Max Length|-|
-|Example|[https://galaxy.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0](https://galaxy.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0)|
+|Example|`https://galaxy.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0`|
 |Input Validation|Mandatory|
 |URL title|Text, max 49 characters, optional|
 |CTA button text|Text, max 35 characters, mandatory|
@@ -899,8 +801,7 @@ References the `coupon_id` from the coupon content type that grants access to th
 
 ---
 
-10. ## How to Book Section
-    
+## 10 How to Book Section
 
 ```Plain
 ENT_CTNR_HowtoBookSection
@@ -912,7 +813,7 @@ Instructs the user on how they can make the ticket purchase for the Entertainmen
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDJlZmU3NDQxYzdmYzc1NGEwMjFjNDRlNWQwOTU1ZWZfa2ZJSk5ScUw1aDFmcTM2ZE1YSFNUTVZEY1pMemVWbGhfVG9rZW46Q2FTUGJtU2xvb0NaYlV4OFZxamNQNk5KbktjXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-31400&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
@@ -966,9 +867,6 @@ Book at Counter
 
 - When tapping the [Copy link] CTA button next to the `default_ticketing_url`, the configured URL will be copied to clipboard and the CTA button copy changes to [Copied]
     
-
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGQ0YTBiMmQ2MmNjZGFiZWIxMzc0MGZmZTY2MTJkMzdfeVdwbVNhT0ptTzNLbnNPNWVWdHZRajJDb0pTNEh6WUtfVG9rZW46WEU3YmJXenVubzgyczl4NWRVSWN5ckZTbkpiXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
-
 - To switch between booking types, the tabs at the top of the section will switch the content configured under each location.
     
 
@@ -1052,8 +950,7 @@ Book at Counter
 |Data Source|CCMS --> Box Office Counter Location|
 |Dependencies|-|
 
-11. ## Special Offers Carousel
-    
+## 11 Special Offers Carousel
 
 ```Plain
 GLOBAL_FLOW_SpecialOffersCarousel
@@ -1067,11 +964,10 @@ Display offers that are linked to this Entertainment Event in a carousel format.
 
 Please refer to the global component documentation for details. Link[View](/01_Global_Components/Special_Offers_Carousel)
 
-12. ## Tab Selector
-    
+## 12 Sticky Tab Bar
 
 ```Plain
-GLOBAL_SELECT_TabSelector
+GLOBAL_SELECT_StickyTabBar
 ```
 
 ### Key Function
@@ -1080,10 +976,9 @@ Quick links to navigate to the content sections within the page. References the 
 
   
 
-Please refer to the global component documentation for details. Link[View](/01_Global_Components/Tab_Selector)
+Please refer to the global component documentation for details. Link[View](/01_Global_Components/StickyTabBar)
 
-13. ## Body Content
-    
+## 13 Body Content
 
 ```Plain
 GLOBAL_DISPLAY_BodyContent
@@ -1099,14 +994,14 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NTdjZDJiMGExMGQ2YzUxMWE3ZGQzOTJlYmQxNTkwNjlfZFlxSUJna2FnVk53d0dZb1lUejhzekpmWXdPc3NCVWlfVG9rZW46S1Y3eGJkdGI2bzFLTXR4ZzYxNWNFSHJUbkFnXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-24011&t=TmrwzwgJVnbh1PL8-0" />
 
 ### Field List
 
 |   |   |
 |---|---|
 |Fields|Description|
-|description_title|Heading of the description section, used in the tab selector|
+|description_title|Heading of the description section, used in the sticky tab bar|
 |description|Details of the entertainment event|
 
 ### CMS Field Specification
@@ -1137,8 +1032,7 @@ Please refer to the global component documentation for details. Link[View](/01_G
 |Data Source|CCMS --> Entertainment Event|
 |Dependencies|-|
 
-14. ## Ticket Price Block
-    
+## 14 Ticket Price Block
 
 ```Plain
 ENT_LIST_TicketPriceBlock
@@ -1150,14 +1044,14 @@ Displays the different ticket price tiers and restrictions clearly to the user.
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=ODM2ZmU3ZTdlODJiNzQzNzQ2NGQyN2ZjNGRmYjc5ZTNfNmFhWllyUEhUMUpjRE5qa0RrbjV4WDRtc0J1aUluaU1fVG9rZW46WkgzMWJFQjM5b3U2YzB4WGxlZGNYNmRybkplXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-32082&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
 |   |   |
 |---|---|
 |Fields|Description|
-|price_section_title|Heading of the price section, used in the tab selector|
+|price_section_title|Heading of the price section, used in the sticky tab bar|
 |price_schedule_specification|Allows for multiple pricing entries, each defined by ticket category and price in MOP.|
 |price|Ticket price displayed in MOP|
 |ticket_category|Ticket category tier linked to a price|
@@ -1216,8 +1110,7 @@ Displays the different ticket price tiers and restrictions clearly to the user.
 |Data Source|CCMS --> Entertainment Event|
 |Dependencies|-|
 
-15. ## Event Notices
-    
+## 15 Event Notices
 
 ```Plain
 ENT_CTNR_EventNotices
@@ -1240,7 +1133,7 @@ Lists important guidelines, policies, and entry notes (e.g., Entry Time, Storage
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NWFhYTcwMmI4Zjc0NmIxM2EzMjc4MDc3Y2VkMTIyOTdfZ3hNeFZNZTl3blg0M3NlbEl6aWxaVkI2V3VhU245b0tfVG9rZW46Vmh2OGJCZ1VSb2FzSVF4OFplcmNaOWdPbkdGXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-32187&t=EIrrWlE3DFcM0Te3-4" />
 
 ### Field List
 
@@ -1302,8 +1195,7 @@ Lists important guidelines, policies, and entry notes (e.g., Entry Time, Storage
 |Data Source|CCMS --> Standard Event Notices|
 |Dependencies|-|
 
-16. ## FAQ Buttons
-    
+## 16 FAQ Buttons
 
 ```Plain
 ENT_DISPLAY_FAQButtons
@@ -1316,7 +1208,9 @@ ENT_DISPLAY_FAQButtons
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=N2I1ODdhZjFjNDk1MDM1NTdjYTE0NDgzZmNhNDZkY2NfbXNzblNLU2RGME9UemxnejYxa2pIcURJdUlQWUszU3FfVG9rZW46T1RWTmJBZ1Fyb1Bsc0h4anhNTWNFSnRSbmZlXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14203&t=EIrrWlE3DFcM0Te3-4" />
+
+  
 
 ### 16.1 FAQ Modal
 
@@ -1331,7 +1225,9 @@ ENT_CTNR_FAQModal
 
 #### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=YWJlOWNhNzkyY2NiN2E2ZmM0OTU3MzYwZmU4NDQwMmRfa2thSFprTE1BeDdLRXAyalFFVDFqa0pZbkJmdU1tTkJfVG9rZW46QTlBQ2J2ZzNrbzZHQU14UU1jNmNBYW9zbnBoXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7771-14204&t=EIrrWlE3DFcM0Te3-4" />
+
+  
 
 ### Field List
 
@@ -1393,8 +1289,7 @@ ENT_CTNR_FAQModal
 |Data Source|CCMS --> Standard Event FAQ|
 |Dependencies|-|
 
-17. ## Location Card
-    
+## 17 Location Card
 
 ```Plain
 GLOBAL_DISPLAY_LocationCard
@@ -1410,14 +1305,15 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NDAyODc1ZmE4Mzk1NzFmNGE1NmI0ZjE1N2FlOGI5NTlfdDhkMG5SN2pMTUZKb2N6MHUxeTNOY3dndlgzTGs3amxfVG9rZW46SzZHRmJ3OTM4b0I0VGZ4T3J0VWNVTlB1bjRmXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-9414&t=TmrwzwgJVnbh1PL8-0" />
+
+  
 
 ### Field List
 
 Refer to _Location Specification_ content type for the Venue ID associated with the Entertainment Event.
 
-18. ## Accordian Info Group
-    
+## 18 Accordian Info Group
 
 ```Plain
 GLOBAL_CTNR_AccordionInfoGroup
@@ -1435,7 +1331,9 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=MmE4YTFiMjRlZjVlMTk0NDNmNDUxN2JkMmRiZjNkZjhfdXMwVEhVNGpWU3hlbktuVkVDRzQ4TkNHVFFTOEg1UmNfVG9rZW46WEltUmJjbDJJb2hyUFh4Z0lzSGNDUTdzblhkXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-10284&t=TmrwzwgJVnbh1PL8-0" />
+
+  
 
 ### Field List
 
@@ -1471,8 +1369,7 @@ Refer to Relevant Information Specification content type associated with the Ent
 
   
 
-19. ## Entertainment Recommendations Carousel
-    
+## 19 Entertainment Recommendations Carousel
 
 ```Plain
 ENT_DISPLAY_EntertainmentRecommendationsCarousel
@@ -1484,13 +1381,11 @@ Displays a carousel of other Entertainment Events to recommend and promote to th
 
   
 
-Please refer to the global component documentation for display details. Link[View](/01_Global_Components/Entertainment_Recommendations_Carousel)
-
-  
-
 ### Visual Reference
 
-![](https://digitalcreative.feishu.cn/space/api/box/stream/download/asynccode/?code=NmZiNjEwODFiNjU3NWE2ZWMyMDEzMGFmZmNmMTFiMWFfNVd2bG5lV00xMGVoakRVVXFqczB5VWpzcEhwZzJ5SHZfVG9rZW46RUtmVmJ2dEU4b2paU1J4VmV3RWN6Wm9PbjdlXzE3NjI3ODc1ODI6MTc2Mjc5MTE4Ml9WNA)
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-32783&t=EIrrWlE3DFcM0Te3-4" />
+
+  
 
 ### Field List
 

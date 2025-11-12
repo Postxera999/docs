@@ -1,0 +1,94 @@
+---
+title: Locked Page Banner
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+```Plain
+GLOBAL_DISPLAY_LockedPageBanner 
+```
+
+## Key Function
+
+- Controls the visibility and content of promotional banners on the Entertainment Event detail page. Banner display is dynamically determined based on the user's coupon status, specifically whether the user holds the associated coupon.
+    
+- Communicates to the user that there are benefits on the page that they could potentially unlock.
+    
+- Page could be locked by signed out state, or the user has not met the eligibility to view the perks.
+    
+
+## Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7729-31177&t=EIrrWlE3DFcM0Te3-4" />
+
+  
+
+## Field List
+
+|   |   |
+|---|---|
+|Fields|Description|
+|banner_title|Banner title text|
+|banner_description|Banner description|
+|banner_cta_button|Optional CTA button in relation to the banner|
+
+### Display Logic
+
+- Banners can be configured according to specific conditions, including:
+    
+    - Signed out: When users are not signed in, the banner could have a CTA prompt to get users to sign up to become a member to view perks
+        
+    - Locked promotion: When users are not eligible for the presale, display information on how they could get access
+        
+- Once the user has a presale coupon, the perks are 'unlocked' and the corresponding banner is hidden
+    
+- If a `banner_cta_button` is configured, it will display at the bottom of the banner by default.
+    
+
+## Interaction Logic
+
+- If there is more than 1 banner configured for the same entertainment event, it displays as a carousel
+    
+
+## CMS Field Specification
+
+#### `banner_title`
+
+| Specification Item | Details                                   |
+| ------------------ | ----------------------------------------- |
+| Field Type         | Free text input                           |
+| Max Length         | 64 characters                             |
+| Example            | Log In To View Membership Benefits        |
+| Input Validation   | Mandatory                                 |
+| Localization       | Must support all display languages.       |
+| Data Source        | CCMS --> Standard Sale Restriction Banner |
+| Dependencies       | -                                         |
+
+#### `banner_description`
+
+| Specification Item | Details                                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------------------- |
+| Field Type         | Free text input                                                                                      |
+| Max Length         | 85 characters                                                                                        |
+| Example            | Specific requirement like spend over 30,000 MOP on Galaxy retails to be eligible to join this offer! |
+| Input Validation   | Mandatory                                                                                            |
+| Localization       | Must support all display languages.                                                                  |
+| Data Source        | CCMS --> Standard Sale Restriction Banner                                                            |
+| Dependencies       | -                                                                                                    |
+
+#### `banner_cta_button`
+
+| Specification Item | Details                                     |
+| ------------------ | ------------------------------------------- |
+| Field Type         | Free text input                             |
+| Max Length         | 35 characters                               |
+| Button Link        | Deep link to other parts of MP or input URL |
+| Example            | Join Galaxy Life                            |
+| Input Validation   | Optional                                    |
+| Localization       | Must support all display languages.         |
+| Data Source        | CCMS --> Standard Sale Restriction Banner   |
+| Dependencies       | Must have link configured                   |

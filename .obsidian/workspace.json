@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_Global_Components/Filter_Function.mdx",
+                "file": "02_Page_Documentation/M06_Entertainment/M06_03_Entertainment_Event_Detail.mdx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Filter_Function"
+              "title": "M06_03_Entertainment_Event_Detail"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "01_Global_Components/Filter_Function.mdx",
+                "file": "02_Page_Documentation/M06_Entertainment/M06_03_Entertainment_Event_Detail.mdx",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Filter_Function"
+              "title": "Outline of M06_03_Entertainment_Event_Detail"
             }
           },
           {
@@ -182,19 +182,21 @@
   },
   "active": "881b07f6de82feb6",
   "lastOpenFiles": [
-    "01_Global_Components/Local_Search.mdx",
-    "01_Global_Components/Promotional_Banner.mdx",
-    "01_Global_Components/Offers_Tag.mdx",
-    "01_Global_Components/Sort_Function.mdx",
+    "01_Global_Components/Locked_Page_Banner.mdx",
+    "01_Global_Components/Floor_Plan_Button.mdx",
+    "01_Global_Components/Accordion_Info_Group.mdx",
+    "01_Global_Components/Sticky_Tab_Bar.mdx",
+    "02_Page_Documentation/M06_Entertainment/M06_03_Entertainment_Event_Detail.mdx",
+    "02_Page_Documentation/M06_Entertainment/M06_01_Venue_Directory.mdx",
+    "02_Page_Documentation/M06_Entertainment/M06_02_Venue_Detail.mdx",
+    "01_Global_Components/FloorPlanButton.mdx",
+    "01_Global_Components/Floor_Plan_Button.md",
+    "01_Global_Components/Untitled.md",
+    "01_Global_Components/Header_Card.mdx",
+    "01_Global_Components/StickyTabBar.mdx",
     "01_Global_Components/Toolbar_Filter.mdx",
-    "01_Global_Components/Skeleton.mdx",
-    "01_Global_Components/ToolBarButton.mdx",
-    "01_Global_Components/Title_Component.mdx",
-    "01_Global_Components/Terms_and_Conditions_Accordion.mdx",
-    "01_Global_Components/Tab_Selector.mdx",
-    "01_Global_Components/Special_Offers_Carousel.mdx",
+    "Obsidian更新日志.md",
     "02_Page_Documentation/M13_Transportation/M13_01 Shuttle_Bus.md",
-    "Untitled.md",
     "logo/favicon.svg",
     "1_DesignDocs/M00_Global/02_Filter_bar.md"
   ]
