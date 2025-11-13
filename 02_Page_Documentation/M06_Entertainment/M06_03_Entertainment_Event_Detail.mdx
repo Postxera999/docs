@@ -37,7 +37,7 @@ It displays ticket details, seating information, membership benefits, FAQs, purc
 | 9    | ENT_DISPLAY_PrioritySale Section                 | Priority Sale Section                  | Local          | If the user is eligible for priority sale, provides instruction on how to access the sale |
 | 10   | ENT_CTNR_HowtoBookSection                        | How to Book Section                    | Local          | Provides ticketing purchase instructions                                                  |
 | 11   | GLOBAL_FLOW_SpecialOffersCarousel                | Special Offers Carousel                | Global         | Displays linked offers                                                                    |
-| 12   | GLOBAL_SELECT_StickyTabBar                       | Sticky Tab Bar                         | Global         | Switches between event details and related info                                           |
+| 12   | GLOBAL_PNAV_StickyTabBar                         | Sticky Tab Bar                         | Global         | Switches between event details and related info                                           |
 | 13   | GLOBAL_DISPLAY_BodyContent                       | Body Content                           | Global         | Displays event description and overview, with a “See More” expansion for long text        |
 | 14   | ENT_LIST_TicketPriceBlock                        | Ticket Price Block                     | Local          | Displays ticket categories and prices                                                     |
 | 15   | ENT_CTNR_EventNotices                            | Event Notices                          | Local          | Lists event guidelines, policies, and entry notes                                         |
@@ -704,15 +704,14 @@ ENT_DISPLAY_PrioritySaleSection
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|title_text|Title of the priority sale|
-|presale_description|Description to display information regarding the presale|
-|label_specification|Used to configure the content displayed within labels shown on the Entertainment Directory page and in the How to Purchase window on the Entertainment Event detail page.|
-|presale_instructions|Displays the steps on how the user can access the presale|
-|ticketing_url|The link in which the user can purchase tickets|
-|coupon_id|The respective coupons that gave the user access to the presale|
+| Fields               | Description                                                                                                                                                               |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title_text           | Title of the priority sale                                                                                                                                                |
+| presale_description  | Description to display information regarding the presale                                                                                                                  |
+| label_specification  | Used to configure the content displayed within labels shown on the Entertainment Directory page and in the How to Purchase window on the Entertainment Event detail page. |
+| presale_instructions | Displays the steps on how the user can access the presale                                                                                                                 |
+| ticketing_url        | The link in which the user can purchase tickets                                                                                                                           |
+| coupon_id            | The respective coupons that gave the user access to the presale                                                                                                           |
 
 ### Display Logic
 
@@ -742,58 +741,56 @@ See above section in 3.4 Sale Schedule Window [view](#3-4-sale-schedule)
 
 #### `label_specification`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Label Types|By tier, by access|
-|Label style|See Figma designs for options|
-|Label text|Text input|
-|Localization|Text localization must be supported|
-|Input Validation|Optional|
-|Data Source|CCMS --> Sale Schedule|
-|Dependencies|Displayed only if the member reaches the criteria of the presale|
+
+| Specification Item | Details                                                          |
+| ------------------ | ---------------------------------------------------------------- |
+| Label Types        | By tier, by access                                               |
+| Label style        | See Figma designs for options                                    |
+| Label text         | Text input                                                       |
+| Localization       | Text localization must be supported                              |
+| Input Validation   | Optional                                                         |
+| Data Source        | CCMS --> Sale Schedule                                           |
+| Dependencies       | Displayed only if the member reaches the criteria of the presale |
 
 #### `presale_description`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|Step 1 : Copy the link and open in browser.|
-|Input Validation|Optional|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+
+| Specification Item | Details                                     |
+| ------------------ | ------------------------------------------- |
+| Field Type         | Free text input                             |
+| Max Length         | -                                           |
+| Example            | Step 1 : Copy the link and open in browser. |
+| Input Validation   | Optional                                    |
+| Localization       | Must support all display languages.         |
+| Data Source        | CCMS --> Sale Schedule Item                 |
+| Dependencies       | -                                           |
 
 #### `presale_instructions`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|Step 1 : Copy the link and open in browser.|
-|Supported linked components|Copy URL component with ticketing_url, Coupons with coupon_id that has access to the sale|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+| Specification Item          | Details                                                                                   |
+| --------------------------- | ----------------------------------------------------------------------------------------- |
+| Field Type                  | Free text input                                                                           |
+| Max Length                  | -                                                                                         |
+| Example                     | Step 1 : Copy the link and open in browser.                                               |
+| Supported linked components | Copy URL component with ticketing_url, Coupons with coupon_id that has access to the sale |
+| Input Validation            | Mandatory                                                                                 |
+| Localization                | Must support all display languages.                                                       |
+| Data Source                 | CCMS --> Sale Schedule Item                                                               |
+| Dependencies                | -                                                                                         |
 
 #### `ticketing_url`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|URL|
-|Max Length|-|
-|Example|`https://galaxy.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0`|
-|Input Validation|Mandatory|
-|URL title|Text, max 49 characters, optional|
-|CTA button text|Text, max 35 characters, mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Sale Schedule Item|
-|Dependencies|-|
+| Specification Item | Details                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| Field Type         | URL                                                                                   |
+| Max Length         | -                                                                                     |
+| Example            | `https://galaxy.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0` |
+| Input Validation   | Mandatory                                                                             |
+| URL title          | Text, max 49 characters, optional                                                     |
+| CTA button text    | Text, max 35 characters, mandatory                                                    |
+| Localization       | Must support all display languages.                                                   |
+| Data Source        | CCMS --> Sale Schedule Item                                                           |
+| Dependencies       | -                                                                                     |
 
 #### `coupon_id`
 
@@ -817,16 +814,15 @@ Instructs the user on how they can make the ticket purchase for the Entertainmen
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|ticketing_type_title|Title of booking type|
-|ticketing_type_description|Description of booking type|
-|default_ticketing_url|Ticketing URL|
-|ticketing_url_title|Name of ticketing link|
-|box_office_reference|Offline ticketing location|
-|box_office_name|Offline ticketing location name|
-|location_specification|Address of box office location|
+| Fields                     | Description                     |
+| -------------------------- | ------------------------------- |
+| ticketing_type_title       | Title of booking type           |
+| ticketing_type_description | Description of booking type     |
+| default_ticketing_url      | Ticketing URL                   |
+| ticketing_url_title        | Name of ticketing link          |
+| box_office_reference       | Offline ticketing location      |
+| box_office_name            | Offline ticketing location name |
+| location_specification     | Address of box office location  |
 
 ### Display Logic
 
@@ -874,81 +870,75 @@ Book at Counter
 
 #### `ticketing_type_title`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|15 characters|
-|Example|Book on Browser|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|Displayed only if more than one booking type is configured.|
+| Specification Item | Details                                                     |
+| ------------------ | ----------------------------------------------------------- |
+| Field Type         | Free text input                                             |
+| Max Length         | 15 characters                                               |
+| Example            | Book on Browser                                             |
+| Input Validation   | Mandatory                                                   |
+| Localization       | Must support all display languages.                         |
+| Data Source        | CCMS --> Entertainment Event                                |
+| Dependencies       | Displayed only if more than one booking type is configured. |
 
 #### `ticketing_type_description`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|88 characters|
-|Example|Copy one of the links below and open in browser to make a reservation.|
-|Input Validation|Optional|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                                                                |
+| ------------------ | ---------------------------------------------------------------------- |
+| Field Type         | Free text input                                                        |
+| Max Length         | 88 characters                                                          |
+| Example            | Copy one of the links below and open in browser to make a reservation. |
+| Input Validation   | Optional                                                               |
+| Localization       | Must support all display languages.                                    |
+| Data Source        | CCMS --> Entertainment Event                                           |
+| Dependencies       | -                                                                      |
 
 #### `default_ticketing_url`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|https://m.damai.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0|
-|Input Validation|Optional|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                                                                                |
+| ------------------ | -------------------------------------------------------------------------------------- |
+| Field Type         | Free text input                                                                        |
+| Max Length         | -                                                                                      |
+| Example            | `https://m.damai.cn/shows/item.html?itemId=818953146419&spm=a2o71.search.list.ditem_0` |
+| Input Validation   | Optional                                                                               |
+| Localization       | Must support all display languages.                                                    |
+| Data Source        | CCMS --> Entertainment Event                                                           |
+| Dependencies       | -                                                                                      |
 
 #### `ticketing_url_title`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|35 characters|
-|Example|Damai ticketing link|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|Only if ticketing url is configured|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text input                     |
+| Max Length         | 35 characters                       |
+| Example            | Damai ticketing link                |
+| Input Validation   | Mandatory                           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Entertainment Event        |
+| Dependencies       | Only if ticketing url is configured |
 
 #### `box_office_name`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|Pearl Lobby|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Box Office Counter Location|
-|Dependencies|-|
+| Specification Item | Details                              |
+| ------------------ | ------------------------------------ |
+| Field Type         | Free text input                      |
+| Max Length         | -                                    |
+| Example            | Pearl Lobby                          |
+| Input Validation   | Mandatory                            |
+| Localization       | Must support all display languages.  |
+| Data Source        | CCMS --> Box Office Counter Location |
+| Dependencies       | -                                    |
 
 #### `location_specification`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|-|
-|Example|1003, 1/F, Pearl Lobby , Galaxy Macau|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Box Office Counter Location|
-|Dependencies|-|
+| Specification Item | Details                               |
+| ------------------ | ------------------------------------- |
+| Field Type         | Free text input                       |
+| Max Length         | -                                     |
+| Example            | 1003, 1/F, Pearl Lobby , Galaxy Macau |
+| Input Validation   | Mandatory                             |
+| Localization       | Must support all display languages.   |
+| Data Source        | CCMS --> Box Office Counter Location  |
+| Dependencies       | -                                     |
 
 ## 11 Special Offers Carousel
 
@@ -967,7 +957,7 @@ Please refer to the global component documentation for details. Link[View](/01_G
 ## 12 Sticky Tab Bar
 
 ```Plain
-GLOBAL_SELECT_StickyTabBar
+GLOBAL_PNAV_StickyTabBar
 ```
 
 ### Key Function
@@ -998,11 +988,10 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|description_title|Heading of the description section, used in the sticky tab bar|
-|description|Details of the entertainment event|
+| Fields            | Description                                                    |
+| ----------------- | -------------------------------------------------------------- |
+| description_title | Heading of the description section, used in the sticky tab bar |
+| description       | Details of the entertainment event                             |
 
 ### CMS Field Specification
 
@@ -1021,16 +1010,15 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
 #### `description`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Rich text field|
-|Max Length|10,000 characters|
-|Example|Jackson Wang’s second solo headlining tour MAGICMAN 2 WORLD TOUR 2025-2026 in Macau Presented by Galaxy Macau™ is official!|
-|Input Validation|Optional, relevant text format filters|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                                                                                                                     |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | Rich text field                                                                                                             |
+| Max Length         | 10,000 characters                                                                                                           |
+| Example            | Jackson Wang’s second solo headlining tour MAGICMAN 2 WORLD TOUR 2025-2026 in Macau Presented by Galaxy Macau™ is official! |
+| Input Validation   | Optional, relevant text format filters                                                                                      |
+| Localization       | Must support all display languages.                                                                                         |
+| Data Source        | CCMS --> Entertainment Event                                                                                                |
+| Dependencies       | -                                                                                                                           |
 
 ## 14 Ticket Price Block
 
@@ -1048,14 +1036,13 @@ Displays the different ticket price tiers and restrictions clearly to the user.
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|price_section_title|Heading of the price section, used in the sticky tab bar|
-|price_schedule_specification|Allows for multiple pricing entries, each defined by ticket category and price in MOP.|
-|price|Ticket price displayed in MOP|
-|ticket_category|Ticket category tier linked to a price|
-|price_restriction|Displayed above the detailed pricing section on the Entertainment Event detail page. These restrictions provide transactional limits, such as “Maximum 4 tickets per transaction.”|
+| Fields                       | Description                                                                                                                                                                        |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| price_section_title          | Heading of the price section, used in the sticky tab bar                                                                                                                           |
+| price_schedule_specification | Allows for multiple pricing entries, each defined by ticket category and price in MOP.                                                                                             |
+| price                        | Ticket price displayed in MOP                                                                                                                                                      |
+| ticket_category              | Ticket category tier linked to a price                                                                                                                                             |
+| price_restriction            | Displayed above the detailed pricing section on the Entertainment Event detail page. These restrictions provide transactional limits, such as “Maximum 4 tickets per transaction.” |
 
 ### Display Logic
 
@@ -1072,43 +1059,40 @@ Displays the different ticket price tiers and restrictions clearly to the user.
 
 #### `price_section_title`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text input|
-|Max Length|37 characters|
-|Example|Ticket Price|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text input                     |
+| Max Length         | 37 characters                       |
+| Example            | Ticket Price                        |
+| Input Validation   | Mandatory                           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Entertainment Event        |
+| Dependencies       | -                                   |
 
 #### `price`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Currency|Select currency|
-|Field Type|Number|
-|Max Length|11 characters|
-|Example|MOP 2300|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Currency           | Select currency                     |
+| Field Type         | Number                              |
+| Max Length         | 11 characters                       |
+| Example            | MOP 2300                            |
+| Input Validation   | Mandatory                           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Entertainment Event        |
+| Dependencies       | -                                   |
 
 #### `ticket_category`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free Text|
-|Max Length|19 characters|
-|Example|Category A|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Entertainment Event|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free Text                           |
+| Max Length         | 19 characters                       |
+| Example            | Category A                          |
+| Input Validation   | Mandatory                           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Entertainment Event        |
+| Dependencies       | -                                   |
 
 ## 15 Event Notices
 
@@ -1137,12 +1121,11 @@ Lists important guidelines, policies, and entry notes (e.g., Entry Time, Storage
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|icon_image|Icon displayed next to the title|
-|title_text|Title of the notice|
-|description|Notice details and description|
+| Fields      | Description                      |
+| ----------- | -------------------------------- |
+| icon_image  | Icon displayed next to the title |
+| title_text  | Title of the notice              |
+| description | Notice details and description   |
 
 ### Display Logic
 
@@ -1159,41 +1142,38 @@ Lists important guidelines, policies, and entry notes (e.g., Entry Time, Storage
 
 #### `icon_image`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Image/Icon|
-|Supported file types|svg or png|
-|Input Validation|Optional|
-|Localization|-|
-|Data Source|CCMS --> Standard Event Notices|
-|Dependencies|-|
+| Specification Item   | Details                         |
+| -------------------- | ------------------------------- |
+| Field Type           | Image/Icon                      |
+| Supported file types | svg or png                      |
+| Input Validation     | Optional                        |
+| Localization         | -                               |
+| Data Source          | CCMS --> Standard Event Notices |
+| Dependencies         | -                               |
 
 #### `title_text`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text|
-|Max length|48 characters|
-|Example|Prohibited and Restricted Items|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Standard Event Notices|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text                           |
+| Max length         | 48 characters                       |
+| Example            | Prohibited and Restricted Items     |
+| Input Validation   | Mandatory                           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Standard Event Notices     |
+| Dependencies       | -                                   |
 
 #### `description`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text|
-|Max length|1000 characters|
-|Example|Storage is available. A payable cloakroom service is available. All stored items must be collected within 60 minutes after the event.|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Standard Event Notices|
-|Dependencies|-|
+| Specification Item | Details                                                                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | Free text                                                                                                                             |
+| Max length         | 1000 characters                                                                                                                       |
+| Example            | Storage is available. A payable cloakroom service is available. All stored items must be collected within 60 minutes after the event. |
+| Input Validation   | Mandatory                                                                                                                             |
+| Localization       | Must support all display languages.                                                                                                   |
+| Data Source        | CCMS --> Standard Event Notices                                                                                                       |
+| Dependencies       | -                                                                                                                                     |
 
 ## 16 FAQ Buttons
 
@@ -1231,11 +1211,10 @@ ENT_CTNR_FAQModal
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|title_text|FAQ title|
-|description|FAQ answer|
+| Fields      | Description |
+| ----------- | ----------- |
+| title_text  | FAQ title   |
+| description | FAQ answer  |
 
 ### Display Logic
 
@@ -1265,29 +1244,27 @@ ENT_CTNR_FAQModal
 
 #### `title_text`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text|
-|Max length|90 characters|
-|Example|Prohibited and Restricted Items|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Standard Event Notices|
-|Dependencies|-|
+| Specification Item | Details                             |
+| ------------------ | ----------------------------------- |
+| Field Type         | Free text                           |
+| Max length         | 90 characters                       |
+| Example            | Prohibited and Restricted Items     |
+| Input Validation   | Mandatory                           |
+| Localization       | Must support all display languages. |
+| Data Source        | CCMS --> Standard Event Notices     |
+| Dependencies       | -                                   |
 
 #### `description`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Field Type|Free text|
-|Max length|1000 characters|
-|Example|You must bring the corresponding identification document used during ticket purchase for verification to enter the venue.|
-|Input Validation|Mandatory|
-|Localization|Must support all display languages.|
-|Data Source|CCMS --> Standard Event FAQ|
-|Dependencies|-|
+| Specification Item | Details                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Field Type         | Free text                                                                                                                 |
+| Max length         | 1000 characters                                                                                                           |
+| Example            | You must bring the corresponding identification document used during ticket purchase for verification to enter the venue. |
+| Input Validation   | Mandatory                                                                                                                 |
+| Localization       | Must support all display languages.                                                                                       |
+| Data Source        | CCMS --> Standard Event FAQ                                                                                               |
+| Dependencies       | -                                                                                                                         |
 
 ## 17 Location Card
 
@@ -1299,7 +1276,6 @@ GLOBAL_DISPLAY_LocationCard
 
 Displays the location and address of the venue and the nearest carpark location.
 
-  
 
 Please refer to the global component documentation for details. Link[View](/01_Global_Components/Location_Card)
 
@@ -1337,11 +1313,10 @@ Please refer to the global component documentation for details. Link[View](/01_G
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|how_to_find_specification|A group of images of key landmarks near the location to help users wayfind around the property|
-|relevant_info_specifcation|This will be used to display Transportation, Restroom, and Need to Know information per the UXUI design. Supports single-column (free format text, bulleted list, and numbered list) and two-column display.|
+| Fields                     | Description                                                                                                                                                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| how_to_find_specification  | A group of images of key landmarks near the location to help users wayfind around the property                                                                                                               |
+| relevant_info_specifcation | This will be used to display Transportation, Restroom, and Need to Know information per the UXUI design. Supports single-column (free format text, bulleted list, and numbered list) and two-column display. |
 
 ### 18.1 How to Find
 
@@ -1389,10 +1364,9 @@ Displays a carousel of other Entertainment Events to recommend and promote to th
 
 ### Field List
 
-|   |   |
-|---|---|
-|Fields|Description|
-|entertainment_event_specification|Refers to each Entertainment Event, content managers can link different Entertainment Events as recommendations to each detail page.|
+| Fields                            | Description                                                                                                                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| entertainment_event_specification | Refers to each Entertainment Event, content managers can link different Entertainment Events as recommendations to each detail page. |
 
   
 
@@ -1400,7 +1374,6 @@ Displays a carousel of other Entertainment Events to recommend and promote to th
 
 #### `entertainment_event_specification`
 
-|   |   |
-|---|---|
-|Specification Item|Details|
-|Data Source|CCMS --> Entertainment Event List|
+| Specification Item | Details                           |
+| ------------------ | --------------------------------- |
+| Data Source        | CCMS --> Entertainment Event List |
