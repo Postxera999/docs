@@ -4,8 +4,6 @@ title: "Share Button"
 
 ---
 
-  
-
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
   
@@ -14,28 +12,9 @@ import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 GLOBAL_ACTION_ShareButton
 ```
 
-The **Share Button** provides users with the ability to share the venue or event page externally through supported WeChat sharing functions. Used globally across **Venue Detail** and **Concert Detail** pages to maintain consistent sharing capability across entertainment-related modules.
+## Key Functional Features
 
----
-
-## Display Logic
-
-- Visible when the page is loaded within the WeChat Mini-Program environment.
-    
-- Hidden when accessed outside of the supported platform or when sharing is disabled.
-    
-- On tap, triggers the **WeChat native share action**, automatically fetching the configured title, image, and link from the CCMS data for the current Venue or Event.
-    
-- The shared content uses the following mapping:
-    
-    - **Title** → from _Short Title_ of the content type
-        
-    - **Description** → from _Description_ field of the content type
-        
-    - **Image** → from _Hero Image_ or _Tile Image_ field
-        
-    - **Link** → dynamically generated deep link for the corresponding Venue or Event page
-        
+The **Share Button** allows the users to share the content via MP sharing card, share to WeChat moments or save a sharing posted to photo album.
 
 ---
 
@@ -45,32 +24,27 @@ The **Share Button** provides users with the ability to share the venue or event
 
 ---
 
-## Key Functional Features
+## Display Logic
 
-| No. | Feature                  | Description                                                                   |
-| --- | ------------------------ | ----------------------------------------------------------------------------- |
-| 1   | WeChat share integration | Utilizes the native WeChat Mini-Program share capability.                     |
-| 2   | Dynamic content binding  | Automatically pulls share metadata (title, description, and image) from CCMS. |
-| 3   | Cross-page consistency   | Shared configuration used for both Venue Detail and Concert Detail pages.     |
-| 4   | Visibility control       | Hidden outside of supported WeChat environment.                               |
-
----
-
-## CMS Field Specification
-
-| Field Name              | Description                                                          |
-| ----------------------- | -------------------------------------------------------------------- |
-| Short Title             | Used as the shared title in the WeChat message.                      |
-| Description             | Appears as the text snippet in the shared post.                      |
-| Hero Image / Tile Image | Used as the thumbnail image when the page is shared.                 |
-| Content Link            | System-generated deep link to the corresponding Venue or Event page. |
+- The Share button is a consistent button style across the MP, usually placed next to a Contact button.
+    
+- Share Image Poster
+    
+    - The share image is generated using the content's key visual as the image, and the title and description of the content type.
+        
+    - A default image should be configured if no key visual is attached to the content.
+        
+    - A WeChat QR code that links to the shared content is placed in the bottom right of the share poster.
+        
 
 ---
 
-## Example (UI Display)
+## Interaction Logic
 
-**State:** Displayed below the hero area together with the **Contact** and **Floor Plan** buttons. When tapped, the system invokes the WeChat share interface to allow users to share the page externally.
-
-| Example Display | Description                                                                          |
-| --------------- | ------------------------------------------------------------------------------------ |
-|                 | “Share” button shown beside Contact and Floor Plan buttons on the Venue Detail page. |
+- When tapped, a modal containing the 3 sharing options appears.
+    
+- Share to Wechat: Shares the MP content page as an MP card
+    
+- Share to Moments: Directs to post on WeChat Moments with the share image poster
+    
+- Save Image: when tapped, displays the share image poster with option to `[Save to album]` or `[Cancel]`. Users can save the share poster image to album by long pressing the image poster or tapping `[Save to album]`

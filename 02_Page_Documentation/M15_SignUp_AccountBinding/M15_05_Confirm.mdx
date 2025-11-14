@@ -1,0 +1,195 @@
+---
+
+title: "M15_05_Confirm"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+This page allows the user to confirm the detected GPC membership before completing the binding. The user verifies that the account is correct and taps Confirm & Bind now to finalize the tier match.
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|#|Component|ID / Code|Type|Doc|
+|1|BindingPageHeader|GLOBAL_CTNR_BindingPageHeader|Container||
+|2|ConfirmAccountMessage|SIGNUP_BINDING_CTNR_ConfirmAccountMessage|Container||
+|3|RecognizedMembershipCard|GLOBAL_CTNR_RecognizedMembershipCard|Container||
+|4|BindingStickyActionBar|GLOBAL_CTNR_BindingStickyActionBar|Container||
+|5|BindNowPrimaryButton|GLOBAL_ACTION_BindNowPrimary|Core Action||
+
+---
+
+1. ## **BindingPageHeader**
+    
+
+```Plain
+GLOBAL_CTNR_BindingPageHeader
+```
+
+### Key Function
+
+Provides the standard header for Account Binding pages.
+
+---
+
+### Visual Reference
+
+---
+
+2. ## **ConfirmAccountMessage**
+    
+
+```Plain
+SIGNUP_BINDING_CTNR_ConfirmAccountMessage
+```
+
+### Key Function
+
+Displays confirmation text asking the user to verify the GPC account before binding.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|title_text|Main title (e.g., “Confirm your account”).|
+|body_text|Supporting paragraph explaining permanent linking.|
+
+---
+
+### Display Logic
+
+- Always displayed above the membership card.
+    
+
+### Interaction Logic
+
+- None.
+    
+
+---
+
+### CMS Field Specification
+
+#### `title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|60 characters|
+|Example|Confirm your account|
+|Data Source|CMS Binding / Copy|
+
+#### `body_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (multi-line)|
+|Character Count|Up to 200 characters|
+|Example|Please verify that this is the correct account to link for tier matching. Linking is permanent and cannot be undone.|
+|Data Source|CMS Binding / Copy|
+
+---
+
+3. ## **RecognizedMembershipCard**
+    
+
+```Plain
+GLOBAL_CTNR_RecognizedMembershipCard
+```
+
+### **Key Function**
+
+Shows detected GPC membership details for verification.
+
+---
+
+### **Visual Reference**
+
+---
+
+4. ## **BindingStickyActionBar**
+    
+
+```Plain
+GLOBAL_CTNR_BindingStickyActionBar
+```
+
+### Key Function
+
+Sticky bottom bar for primary action.
+
+### Used on
+
+- RecognizedPhone (M15_04)
+    
+
+### Visual Reference
+
+---
+
+5. ## **BindNowPrimaryButton**
+    
+
+```Plain
+GLOBAL_ACTION_BindNowPrimary
+```
+
+### Key Function
+
+Final CTA to confirm and bind the detected account.
+
+---
+
+### Visual Reference
+
+---
+
+### **Field List**
+
+|   |   |
+|---|---|
+|Field|Description|
+|label|Button label text. For this page: “Confirm & Bind now”.|
+
+---
+
+### **Display Logic**
+
+- Inside sticky action bar.
+    
+- Enabled only when recognized membership data is valid.
+    
+
+### **Interaction Logic**
+
+- Calls membership binding API.
+    
+- **Success** - Binding Success page.
+    
+- **Error -** show message.
+    
+
+---
+
+### **CMS Field Specification**
+
+#### `label`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|30 characters|
+|Example|Confirm & Bind now|
+|Data Source|CMS Binding / Buttons|

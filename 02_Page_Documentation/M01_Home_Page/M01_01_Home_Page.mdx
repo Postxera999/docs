@@ -1,0 +1,3545 @@
+---
+
+title: "M01_01 Home Page"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|#|ID|Component|Type|Doc|
+|1|`GLOBAL_SELECT_PropertySelector`|PropertySelector|Global|[View](#1PropertySelector)|
+|2|`HOME_SELECT_PropertyCardList`|PropertyCardList|Local|[View](#30PropertyCardList)|
+|3|`HOME_DISPLAY_GuestViewHeroCard`|GuestViewHeroCard|Local|[View](#2GuestViewHeroCard)|
+|4|`HOME_DISPLAY_LoggedOutCouponCTABanner`|LoggedOutCouponCTABanner|Local|[View](#3LoggedOutCouponCTABanner)|
+|5|`HOME_ACTION_LoginCTAButton`|LoginCTAButton|Local|[View](#4LoginCTAButton)|
+|6|`HOME_LIST_UserMemberCard`|UserMemberCard|Local|[View](#5UserMemberCard)|
+|7|`GLOBAL_DISPLAY_MemberLevelTag`|MemberLevelTag|Global|[View](#6MemberLevelTag)|
+|8|`GLOBAL_DISPLAY_GPCLevelTag`|GPCLevelTag|Global|[View](#7GPCLevelTag)|
+|9|`HOME_DISPLAY_MyStayWidget`|MyStayWidget|Local|[View](#8MyStayWidget)|
+|10|`HOME_DISPLAY_CompleteProfileIncentiveCard`|CompleteProfileIncentiveCard|Local|[View](#9CompleteProfileIncentiveCard)|
+|11|`HOME_DISPLAY_UpgradeIncentiveCard`|UpgradeIncentiveCard|Local|[View](#10UpgradeIncentiveCard)|
+|12|`HOME_ACTION_QuickActions`|QuickActions|Local|[View](#11QuickActions)|
+|13|`HOME_DISPLAY_DirectOfferBanner`|DirectOfferBanner|Local|[View](#12DirectOfferBanner)|
+|14|`GLOBAL_PNAV_StickyTabBar`|StickyTabBar|Global|[View](#13StickyTabBar)|
+|15|`GLOBAL_CTNR_WhatsonCarousel`|WhatsonCarousel|Global|[View](#14WhatsonCarousel)|
+|16|`HOME_TYPE_SectionHeader`|SectionHeader|Local|[View](#15SectionHeader)|
+|17|`HOME_ACTION_ViewAllButton`|ViewAllButton|Local|[View](#16ViewAllButton)|
+|18|`HOME_CTNR_EntertainmentCarousel`|EntertainmentCarousel|Local|[View](#17EntertainmentCarousel)|
+|19|`HOME_DISPLAY_DiningPromotionBanner`|DiningPromotionBanner|Local|[View](#18DiningPromotionBanner)|
+|20|`GLOBAL_CTNR_RestaurantCarousel`|RestaurantCarousel|Global|[View](#19RestaurantCarousel)|
+|21|`HOME_DISPLAY_HotelPromotionBanner`|HotelPromotionBanner|Local|[View](#20HotelPromotionBanner)|
+|22|`GLOBAL_SELECT_BookingWidget`|BookingWidget|Global|[View](#21BookingWidget)|
+|23|`HOME_DISPLAY_HotelBrandGrid`|HotelBrandGrid|Local|[View](#22HotelBrandGrid)|
+|24|`GLOBAL_DISPLAY_MembershipBenefits`|MembershipBenefits|Global|[View](#23MembershipBenefits)|
+|25|`HOME_DISPLAY_RetailPromotionBanner`|RetailPromotionBanner|Local|[View](#24RetailPromotionBanner)|
+|26|`HOME_CTNR_StoreCardCarousel`|StoreCardCarousel|Local|[View](#25StoreCardCarousel)|
+|27|`HOME_CTNR_ExperienceCarousel`|ExperienceCarousel|Local|[View](#26ExperienceCarousel)|
+|28|`HOME_DISPLAY_CinemaPromotionBanner`|CinemaPromotionBanner|Local|[View](#27CinemaPromotionBanner)|
+|29|`HOME_CTNR_MovieCarousel`|MovieCarousel|Local|[View](#28MovieCarousel)|
+|30|`GLOBAL_DISPLAY_ClaimableCouponModal`|ClaimableCouponModal|Global|[View](#29ClaimableCouponModal)|
+
+  
+
+  
+
+  
+
+## 1 Property Selector
+
+  
+
+```Plain
+GLOBAL_SELECT_PropertySelector
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component serves as the **primary navigation** on the page, responsible for property switching and providing the primary selection entry point.
+
+  
+
+The complete specification for this component has been documented in the global components section.
+
+Please refer to this: [View](/01_Global_Components/Property_Selector)
+
+  
+
+---
+
+  
+
+## 2 Property Card List
+
+  
+
+```Plain
+GLOBAL_PNAV_NavigationBar
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component appears after the user taps the **[Property Selector](/01_Global_Components/Property_Selector)**.
+
+It displays a list of property cards, allowing users to view and select different properties (locations) through large, visually rich cards. Each card provides a quick summary of the property’s offerings via category tags.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13480-12076&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`property_list`|A list container holding all property card data.|
+|`property_id`|Unique identifier of the property used to load the homepage.|
+|`property_name`|Display name of the property (e.g., Galaxy & Broadway).|
+|`active_property`|Indicates the currently selected property.|
+|`background_image`|Background image used in the card.|
+|`category_list`|List of service/facility categories available under the property.|
+
+  
+
+### Display Logic
+
+  
+
+- `PropertyCardList` displays all available properties in a vertical card list, with **Galaxy** listed first and **StarWorld** below it.
+    
+- Each Property is displayed as a **full card** containing the background image, name, state tag, and category tags.
+    
+- The currently selected property card displays a “Current” tag, driven by the `active_property` field.
+    
+- The **Current** property card appears brighter, while non-current ones are darkened with a semi-transparent black overlay.
+    
+- `category_list` is **automatically generated** based on the modules configured for the property.
+    
+
+Categories appear as horizontally placed tags/buttons, wrapping to a new line when overflowing.
+
+  
+
+### Interaction Logic
+
+  
+
+- When the user taps **any non-current** property card:
+    
+      
+    
+    - **Action Triggered:** Switch property using the tapped card’s `propertyId`.
+        
+    - **Expected Result:** The system loads the new property homepage and updates its state tag to “Current”.
+        
+          
+        
+
+---
+
+  
+
+### Field Specification
+
+  
+
+#### `property_list`
+
+  
+
+**Description:** A list structure containing all property card data.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array of Objects|
+|Data Source|Maintained in CCMS|
+|Dependencies|Drives the entire content and structure of the `PropertyCardList` component.|
+
+  
+
+#### `property_id`
+
+  
+
+**Description:** A unique identifier used for system routing and property switching.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|String / Unique ID|
+|Example|GALAXYMB, STARWORLD|
+|Input Validation|Must be unique, not null.|
+|Data Source|Maintained in CCMS|
+
+  
+
+#### `property_name`
+
+  
+
+The specification for this field has been described above.
+
+Please refer to the related section for details: [View](#propertyName)
+
+  
+
+#### `active_property`
+
+  
+
+**Description:** Indicates the current property selected by the user.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Enum (Controlled Vocabulary)|
+|Allowed Values|`Galaxy`, `Star World` (or empty when no selection)|
+|Data Source|System-controlled|
+
+  
+
+**Defaulting Logic (when** **`active_property`** **is empty):**
+
+  
+
+Default property becomes **`StarWorld`** if **any** of the following is true:
+
+  
+
+1. User has location services ON **and** is within **1 KM** of StarWorld
+    
+2. User’s **most recent booking** is at StarWorld
+    
+      
+    
+
+Otherwise, the default property is `Galaxy`.
+
+  
+
+#### `background_image`
+
+  
+
+**Description:** Main visual background image displayed in the card.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|Image Format|webp|
+|Resolution|Minimum 1200 × 800 px|
+|File Size Limit|Recommended under 500 KB|
+|Input Validation|Must be uploaded, cannot be null|
+|Data Source|CCMS|
+
+  
+
+#### `category_list`
+
+  
+
+**Description:** Categories of services/facilities under the property, shown as clickable tags.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array of Objects (Category Name, Category ID/Link)|
+|Max Items|N/A|
+|Category Name Max Length|30 characters|
+|Data Source|CCMS (names) & System Configuration (links)|
+
+  
+
+---
+
+  
+
+## 3 Guest View Hero Card
+
+  
+
+```Plain
+HOME_DISPLAY_GuestViewHeroCard
+```
+
+  
+
+### Key Function
+
+  
+
+This area serves as the **main hero promotional section** on the homepage for users who are not logged in / non-members.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13231-38127&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`top_background_image`|Background image for the hero section.|
+|`top_background_video`|Background video for the hero section.|
+|`hero_title`|Main promotional headline text.|
+|`hero_subtitle`|Subtitle describing reward or promotional info.|
+
+  
+
+### Display Logic
+
+  
+
+- `GuestViewHeroCard` appears only when the user is logged out or non-member.
+    
+- It is a **full-width container** occupying the top hero area of the homepage.
+    
+- Background can be configured as image or video (`top_background_video` overrides image).
+    
+- Video auto-plays in loop & muted.
+    
+- A gradient overlay ensures text readability.
+    
+- CTA button (e.g., “Sign Up”) appears on the bottom-right, varying by A/B test or campaign.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+CTA details are documented in:
+
+`[4 Logged Out Coupon CTA Banner](#4-Logged-Out-Coupon-CTA-Banner)`
+
+and
+
+`[5 Login CTA Button](#5-Login-CTA-Button)`
+
+  
+
+---
+
+  
+
+### Field Specification
+
+  
+
+#### `top_background_image`
+
+  
+
+**Description:** Background image used when video is not provided or fails to load.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Aspect Ratio|1:1|
+|Max File Size|500 KB|
+|Input Validation|Required|
+|Localization|No localization required|
+|Data Source|CCMS|
+
+  
+
+#### `top_background_video`
+
+  
+
+**Description:** Background video for a more dynamic hero visual.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Video Upload|
+|File Format|MP4|
+|Max Duration|15 seconds (looped)|
+|Max File Size|5 MB|
+|Localization|No localization required|
+|Data Source|CCMS|
+
+  
+
+#### `hero_title`
+
+  
+
+**Description:** Main promotional headline.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Single-line text|
+|Max Length|100 characters|
+|Example|`Exclusive today, extraordinary tomorrow.`|
+|Input Validation|No HTML/script/unsupported symbols; emojis not allowed.|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+
+  
+
+#### `hero_subtitle`
+
+  
+
+**Description:** Secondary promotional description.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Multi-line text|
+|Max Length|200 characters|
+|Example|Enjoy instant rewards—discounts, points & birthday surprises when you join Galaxy Rewards.|
+|Input Validation|No HTML/script/unsupported symbols; emojis not allowed.|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## 4 Logged Out Coupon CTA Banner
+
+  
+
+```Plain
+HOME_DISPLAY_LoggedOutCouponCTABanner
+```
+
+  
+
+### Key Function
+
+  
+
+This component displays **when the user is logged out** and has exclusive coupons available to claim, encouraging signup/login and improving conversion.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13480-12077&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`coupon_count`|Number of coupons available to claim.|
+|`coupon_total_value`|Total value of coupons (e.g., MOP 500).|
+
+  
+
+### Display Logic
+
+  
+
+- **Placement:** Below the homepage hero image, under the navigation bar.
+    
+- **Condition:** Displayed only when:
+    
+      
+    
+    - User is logged out, AND
+        
+    - There are claimable coupons.
+        
+- **Priority:** If `couponCount > 0`, this component **overrides** any generic signup/login component.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Tapping “Sign Up” button:**
+    
+      
+    
+    - Opens the login/registration flow.
+        
+    - After successful signup/login:
+        
+          
+        
+        - User returns to homepage.
+            
+        - This banner disappears (as the user is now logged in).
+            
+              
+            
+
+### Field Specification
+
+  
+
+#### `coupon_count`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Integer|
+|Max Value|99 (show as 99+ if exceeding)|
+|Input Validation|Must be an integer > 0|
+|Localization|Number is universal; text such as “coupons to collect” must be localized|
+|Data Source|Dynamically calculated for anonymous user|
+
+  
+
+#### `coupon_total_value`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (numeric + currency unit)|
+|Max Length|20 characters|
+|Example|`MOP 500`|
+|Input Validation|Must include **currency unit** + **value**|
+|Localization|Format may vary by locale (e.g., `$500 MOP`)|
+|Data Source|Derived from coupon value fields|
+
+  
+
+---
+
+  
+
+## 5 Login CTA Button
+
+  
+
+```Plain
+HOME_ACTION_LoginCTAButton
+```
+
+  
+
+### Key Function
+
+  
+
+This is a **prominent signup button** shown to logged-out users who do not have any coupons available, serving as the general entry point for membership acquisition.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13480-12078&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Display Logic
+
+  
+
+- **Placement:** Below the homepage hero image, in a prime visual position.
+    
+- **Condition:** Displayed only when:
+    
+      
+    
+    - User is not logged in, AND
+        
+    - **No claimable coupons** are available.
+        
+          
+        
+
+This component is **mutually exclusive** with
+
+`[4 Logged Out Coupon CTA Banner](#4-Logged-Out-Coupon-CTA-Banner)`.
+
+  
+
+### Interaction Logic
+
+  
+
+- **Tapping “Sign Up as a member”:**
+    
+      
+    
+    - Opens registration/login flow.
+        
+    - After success: return to homepage and hide this component.
+        
+          
+        
+
+---
+
+  
+
+## 6 User Member Card
+
+  
+
+```Plain
+HOME_LIST_UserMemberCard
+```
+
+  
+
+### Key Function
+
+  
+
+Displays key membership information including member level, greeting, user name, and balance/points.
+
+Also provides **quick access to wallet** via QR code and may show **GPC account binding option** depending on region and account status.
+
+  
+
+### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13240-11661&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`user_name`|User’s name or greeting.|
+|`member_level`|Membership level.|
+|`member_balance`|User’s current balance/points.|
+|`gpc_level`|User’s GPC membership level.|
+
+  
+
+### Display Logic
+
+  
+
+There are three variants, depending on the user's region and GPC binding status:
+
+  
+
+|   |   |   |
+|---|---|---|
+|Variant|Characteristics|Condition|
+|`HOME_LIST_UserMemberCard_Bound`|Shows GPC level|Outside Mainland China + GPC bound|
+|`HOME_LIST_UserMemberCard_Unbind`|Shows GPC binding button|Outside Mainland China + GPC NOT bound|
+|`HOME_LIST_UserMemberCard_HideGPC`|Hides all GPC-related information|User in Mainland China|
+
+  
+
+**Dynamic Styling:**
+
+  
+
+- Background, textures, and badges depend on `member_level`.
+    
+- GPC badge styling depends on `gpc_level`.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Tap** **`user_name`** area: Navigate to Me Page. `WIP`
+    
+- **Tap QR icon:** Navigate to E-Wallet.
+    
+- **Tap “Bind GPC”:** Start GPC binding flow.
+    
+      
+    
+
+---
+
+  
+
+### Field Specification
+
+  
+
+#### `user_name`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Single-line text|
+|Max Length|20 characters|
+|Characters Limit|No HTML/script/unsupported symbols|
+|Localization|Multi-language support; greeting adapts (Hi/您好)|
+|Data Source|CRM|
+
+  
+
+#### `member_level`
+
+  
+
+Please refer to:
+
+[View](/01_Global_Components/Member_Level_Tag#member-level)
+
+  
+
+#### `member_balance`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Numeric with formatting|
+|Format|Must apply localization (e.g., `$1,348`)|
+|Data Source|CRM|
+|Localization|Must display correct currency/unit for region|
+
+  
+
+#### `gpc_level`
+
+  
+
+Please refer to:
+
+[View](/01_Global_Components/GPC_Level_Tag#gpc-level)
+
+  
+
+---
+
+  
+
+## 7 Member Level Tag
+
+  
+
+```Plain
+GLOBAL_DISPLAY_MemberLevelTag
+```
+
+  
+
+### Key Function
+
+  
+
+Represents the user’s **membership level/status** through a badge for fast recognition.
+
+  
+
+Full specification: [View](/01_Global_Components/Member_Level_Tag)
+
+  
+
+---
+
+  
+
+## 8 GPC Level Tag
+
+  
+
+```Plain
+GLOBAL_DISPLAY_GPCLevelTag
+```
+
+  
+
+### Key Function
+
+  
+
+Displays the user's linked GPC account level.
+
+  
+
+Specification:
+
+[View](/01_Global_Components/GPC_Level_Tag)
+
+  
+
+---
+
+  
+
+## 9 My Stay Widget
+
+  
+
+```Plain
+HOME_DISPLAY_MyStayWidget
+```
+
+  
+
+### Key Function
+
+  
+
+Displays **current or upcoming hotel stay details** prominently for the user, providing quick access to room information and hotel services.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13240-12366&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`hotel_name`|Name of the hotel.|
+|`hotel_logo`|Logo of the hotel.|
+|`room_number`|Guest’s room number.|
+|`check_in_date`|Check-in date.|
+|`check_out_date`|Check-out date.|
+|`number_of_nights`|Number of nights stayed.|
+
+  
+
+### Display Logic
+
+  
+
+- Displayed only when there is an active or upcoming booking.
+    
+- Appears below the User Member Card.
+    
+- Shows title “My Stay”.
+    
+- Displays hotel logo and booking information:
+    
+      
+    
+    - Line 1: `hotel_name` + optional `room_number` (display/hide logic available)
+        
+    - Line 2: check-in & check-out dates + total nights
+        
+- Multiple stays are sorted by soonest to check in.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Tap the card:** Navigate to My Stay Detail Page.
+    
+- **Room number masking:**
+    
+
+If masked (e.g., `Room` ), tapping the eye icon reveals the full number momentarily.
+
+  
+
+---
+
+  
+
+### Field Specification
+
+  
+
+#### `hotel_name`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Single-line text|
+|Max Length|30 characters|
+|Example|The Ritz Carlton Macau|
+|Data Source|CCMS|
+
+  
+
+#### `hotel_logo`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image|
+|File Format|webp|
+|Size Requirement|Minimum 1280 × 1280 px (1:1). System should generate multiple resolutions.|
+|File Size Limit|Max 2 MB|
+|Input Validation|Must be square; otherwise, the system must auto-crop centered.|
+|Data Source|Manually uploaded via CMS|
+|Dependencies|Used across search results, merchant list/detail, payment confirmation, featured listings, etc.|
+
+  
+
+#### `room_number`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Single-line text|
+|Max Length|10 characters|
+|Example|1290|
+|Data Source|From booking system (PMS/Booking System)|
+
+  
+
+#### `check_in_date`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Date Format|
+|Format|Localized display (e.g., Jul 23)|
+|Data Source|Hotel Booking System|
+
+  
+
+#### `check_out_date`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Date Format|
+|Format|Localized display|
+|Data Source|Hotel Booking System|
+
+  
+
+#### `number_of_nights`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Integer|
+|Unit|nights|
+|Data Source|Calculated from check-in and check-out dates|
+|Localization|Must localize the word “nights”|
+
+  
+
+## 10 Complete Profile Incentive Card
+
+  
+
+```Plain
+HOME_DISPLAY_CompleteProfileIncentiveCard
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component is a **high-priority notification/incentive card** designed to remind and **motivate users** to complete certain tasks (e.g., completing their personal profile) in order to earn rewards.
+
+Its objective is to improve the completeness of user profiles while enhancing user experience and engagement through incentives.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13240-12726&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### **Field List**
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`expireTimeText`|Text description of reward/task expiration (e.g., "Expire in 1 month").|
+|`incentiveMessage`|Incentive message encouraging users to complete their profile.|
+|`currentProgress`|Number of steps the user has already completed.|
+|`totalProgress`|Total number of steps required.|
+
+  
+
+### **Display Logic**
+
+  
+
+- **Position:** Displayed below the `UserMemberCard` component as a full-width standalone card. Lower priority than `My Stay Widget`.
+    
+- **Close Button:** An “X” icon must be shown at the top-right corner, allowing users to temporarily hide the card.
+    
+- **Top Hint:** The top-left area displays the **expiration hint** (`expireTimeText`).
+    
+- **Main Body:** The central section displays the **incentive message** (`incentiveMessage`) in bold.
+    
+- **Progress Bar:** The bottom section shows the profile completion progress.
+    
+      
+    
+    - Visual element: A `Progress Bar`
+        
+- **Action Button:** Bottom-right displays the CTA button prompting the user to start the Edit Profile action.
+    
+      
+    
+
+### **Interaction Logic**
+
+  
+
+- **Close Button (X):** Temporarily hides the card.
+    
+
+==This hidden state resets when the user reopens the app, unless the task has been completed or the reward has expired.==
+
+- **Click CTA Button (Edit Profile):** Navigates to the `[WIP]` profile-editing page.
+    
+- **Task Completion:** If `currentProgress` equals `totalProgress`, the card will no longer be displayed.
+    
+      
+    
+
+---
+
+  
+
+### **Field Specification**
+
+  
+
+#### **`expire_time_text`**
+
+  
+
+Description: The expiration text for the incentive task or reward.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|50 characters|
+|Example|`Expire in 1 month`|
+|Localization|Must support all display languages.|
+|Data Source|From CMS or task system for urgency reminders.|
+
+  
+
+---
+
+  
+
+#### **`incentive_message`**
+
+  
+
+Description: The core incentive message designed to attract users and clearly describe the benefit.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line, displayed as a single block)|
+|Max Length|100 characters|
+|Example|`Complete full profile and enjoy a free Portuguese egg tart on us!`|
+|Localization|Must support all display languages.|
+|Data Source|From CMS, allowing dynamic configuration.|
+
+  
+
+---
+
+  
+
+#### **`current_progress`**
+
+  
+
+Description: Number of steps the user has completed in their profile setup.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Integer|
+|Data Source|Calculated from the user profile service based on fields completed (birthday, phone, address, etc.)|
+
+  
+
+---
+
+  
+
+#### **`total_progress`**
+
+  
+
+Description: Total number of steps required to complete the task.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Integer|
+|Range|> 0|
+|Data Source|CCMS|
+|Example|`5`|
+
+  
+
+---
+
+  
+
+## **11 Upgrade Incentive Card**
+
+  
+
+```Plain
+HOME_DISPLAY_UpgradeIncentiveCard
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component is a **call-to-action card** that prompts users who have already met the upgrade requirement but **have not yet completed** the final upgrade steps (e.g., filling in profile details).
+
+It simplifies the upgrade entry point and motivates users to complete the final step to enjoy the benefits of the next tier.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13246-13192&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### **Field List**
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`upgrade_title`|Main title text of the upgrade card|
+|`upgrade_subtitle`|Subtitle / instructional text|
+
+  
+
+### **Display Logic**
+
+  
+
+- **Prerequisite:** Displayed when the user is eligible for an upgrade but hasn’t completed the required profile info.
+    
+- **Position:** Displayed below the `UserMemberCard` and lower in priority than `My Stay Widget` and `Complete Profile Incentive Card`.
+    
+- **Dynamic Style:** The **background/style** must reflect the next level (e.g., Current = Gold → Display Platinum style when user is eligible but incomplete).
+    
+      
+    
+
+### **Interaction Logic**
+
+  
+
+- **CTA Button (Finish Upgrade):** Navigates to the `[WIP]` profile-completion page.
+    
+- **After Completion:** The card will no longer be displayed once the user completes the profile information.
+    
+
+  
+
+### **Field Specification**
+
+  
+
+#### **`upgrade_title`**
+
+  
+
+Description: Main title to attract attention and indicate upgrade status.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|25 characters|
+|Example|Eligible for Upgrade|
+|Localization|Must support all display languages.|
+|Data Source|CMS or fixed system text.|
+
+  
+
+---
+
+  
+
+#### **`upgrade_subtitle`**
+
+  
+
+Description: Subtitle or instruction guiding the user’s next step.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|50 characters|
+|Example|Fill in your info to complete your upgrade.|
+|Localization|Must support all display languages.|
+|Data Source|CMS or fixed system text.|
+
+  
+
+---
+
+  
+
+## **12 Quick Actions**
+
+  
+
+```Plain
+HOME_ACTION_QuickActions
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component functions as a centralized navigation container, providing quick access to **core features** and **commonly used services** in the home page.
+
+It displays functional icons and names in a grid layout, enabling users to easily navigate to key app pages.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13246-29864&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### **Field List**
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`quick_action_list`|Data list of grid items; array structure.|
+|`quick_action_title`|Name/title of each feature (e.g., “Offers”).|
+|`quick_action_icon`|Icon resource for the feature.|
+|`quick_action_url`|Target page/route of the feature.|
+
+  
+
+### **Display Logic**
+
+  
+
+- **Prerequisite:** Displayed **always** on the home page as a core navigation component.
+    
+- **Layout:** Grid layout with 4 items per row.
+    
+- **Content:** Each item consists of:
+    
+      
+    
+    - `quick_action_icon` (top)
+        
+    - `quick_action_title` (bottom)
+        
+- **Content Source:** `featureList` is a configurable array, allowing the CMS team to modify:
+    
+      
+    
+    - Feature count
+        
+    - Order
+        
+    - Icon
+        
+    - Name
+        
+          
+        
+
+### **Interaction Logic**
+
+  
+
+- **Click Feature:** Navigates to the corresponding route.
+    
+      
+    
+    - Offers → `[WIP]`
+        
+    - Book Hotel → `[WIP]`
+        
+    - Dining → `[WIP]`
+        
+    - Show → M06_01_Venue_Directory
+        
+    - Shuttle Bus → M13_01_Shuttle_Bus
+        
+    - Refer a Friend → `[WIP]`
+        
+    - Collectable Coupons → `[WIP]`
+        
+    - Contact → `[WIP]`
+        
+- **Configurable:** All items adjustable via `quick_action_list` in CMS.
+    
+      
+    
+
+---
+
+  
+
+### **Field Specification**
+
+  
+
+#### `quick_action_list`
+
+  
+
+Description: Array containing configuration of all quick action items.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array (Nested configuration)|
+|Max Items|8|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `quick_action_title`
+
+  
+
+Description: Display name of the feature, inside `featureList`.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|15 characters|
+|Example|`Book Hotel`|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `quick_action_icon`
+
+  
+
+Description: Icon resource for the feature.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL / Icon Library ID|
+|File Format|SVG, transparent background|
+|Dimensions|48×48px|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `quick_action_url`
+
+  
+
+Description: Target link/route to jump to.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/services/book_hotel`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## **13 Direct Offer Banner**
+
+  
+
+```Plain
+HOME_DISPLAY_DirectOfferBanner
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component acts as a **general promotional card** that highlights specific, time-sensitive **offers, campaigns, or personalized rewards** (e.g., birthday specials).
+
+Its goal is to drive user engagement by encouraging users to click and explore more details.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13251-30054&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### **Field List**
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`promotion_image`|Promotional image.|
+|`promotion_title`|Main title of the promotion.|
+|`promotion_details`|Detailed description of the promotion.|
+|`promotion_offer_url`|URL/route for the “View Offer” button.|
+|`cta_button_text`|Text displayed on the CTA button.|
+
+  
+
+### **Display Logic**
+
+  
+
+- **Prerequisite:** `Promotion Card` is associated with **MA (Marketing Automation)** rules, displayed under conditions such as:
+    
+    - User’s birthday month
+        
+    - General marketing campaigns (seasonal offers, booking incentives, etc.)
+        
+- `promotion_title`: If the length of the text in `promotion_title` exceeds the display bounds of the card, it should be truncated (ellipsized).
+    
+- `promotion_details`: If the length of the text in `promotion_details` exceeds the display bounds of the card, it should wrap to the next line.
+    
+
+  
+
+### **Interaction Logic**
+
+  
+
+- **CTA Button Click:** Navigates to `promotionOfferURL`.
+    
+- **Click Card Body:** Clicking anywhere except the close button also navigates to the same URL.
+    
+- **Close Button:** Permanently dismisses this card; it will not appear again.
+    
+      
+    
+
+---
+
+  
+
+### **Field Specification**
+
+  
+
+#### `promotion_image`
+
+  
+
+Description: Visual image to attract attention.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Follow the component’s fixed aspect ratio|
+|File Size Limit|≤ 200KB|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `promotion_title`
+
+  
+
+Description: Main title text for the promotion.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|30 characters|
+|Example|`Birthday Month Special`|
+|Localization|Must support all languages.|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `promotion_details`
+
+  
+
+Description: Detailed promotional message summarizing the reward.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line)|
+|Max Length|60 characters (consider mobile line breaks)|
+|Example|`Earn 2x NG$ + Special Gift!`|
+|Localization|Must support all languages.|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `promotion_offer_url`
+
+  
+
+Description: Target page/route for promotion details.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/promotions/birthday_offer_2025`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `cta_button_text`
+
+  
+
+Description: Text displayed on the CTA button.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|15 characters|
+|Example|`View Offer` `View Details`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## **14 What's On Carousel**
+
+  
+
+```Plain
+GLOBAL_CTNR_WhatsonCarousel
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a horizontally scrollable content carousel, located in the **bottom part** of the home page.
+
+It showcases featured multimedia content, including recent events, hotel highlights, dining experiences, and personalized recommendations, helping users explore more.
+
+  
+
+The specification for this component is detailed in the global component documentation.
+
+Please refer to that section. **[View](/01_Global_Components/Whats_On_Carousel)**
+
+  
+
+---
+
+  
+
+## **15 StickyTabBar**
+
+  
+
+```Plain
+GLOBAL_PNAV_StickyTabBar
+```
+
+  
+
+Please refer to the global component documentation for detailed specification.
+
+**[View](01_Global_Components/Sticky_Tab_Bar)**
+
+  
+
+---
+
+  
+
+## **16 Section Header**
+
+  
+
+```Plain
+HOME_TYPE_SectionHeader
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component defines and labels **content sections** within long pages (or waterfall content streams).
+
+It provides clear **section titles** and a "View All" navigation link, helping users recognize the content category and explore more.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13251-30476&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`section_title`|Main title of the content section (e.g., “Entertainment”).|
+
+  
+
+### Display Logic
+
+  
+
+- **Title:** Left-aligned bold, large-font section title (`sectionTitle`)
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- Purely informational; **no interaction actions**
+    
+      
+    
+
+---
+
+  
+
+### Field Specification
+
+  
+
+#### `section_title`
+
+  
+
+Description: Title used to label the content block.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|20 characters|
+|Example|Entertainment|
+|Localization|Must support all languages.|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## **17 View All Button**
+
+  
+
+```Plain
+HOME_ACTION_ViewAllButton
+```
+
+  
+
+### **Key Function**
+
+  
+
+This component is a secondary CTA button, displayed at the right side of a content section.
+
+It enables users to quickly navigate to the **full list page** associated with that content category.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13254-12078&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`view_all_url`|URL/route for navigating to the full list page.|
+
+  
+
+### Display Logic
+
+  
+
+- The button text is fixed as **`View All`**
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **On Click:** Immediately navigates to the list page defined by `viewAllURL`.
+    
+      
+    
+
+---
+
+  
+
+### Field Specification
+
+  
+
+#### `view_all_ur`l
+
+  
+
+Description: Target URL/route.
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/entertainment/list`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## **18 Entertainment Carousel**
+
+  
+
+```Plain
+HOME_CTNR_EntertainmentCarousel
+```
+
+  
+
+### **Key Function**
+
+  
+
+This horizontal scroll carousel displays featured Entertainment content, such as shows, events, and offers, using card-style presentation.
+
+Its purpose is to attract user attention and click-through with rich content elements.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13254-12086&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### **Field List**
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`event_list`|Array of event/show card data.|
+|`hero_image`|Image displayed as the event cover.|
+|`title_text`|Main event/show title.|
+|`sale_status`|Ticket sale status.|
+|`is_new_show_added`|Boolean flag to display "NEW SHOW ADDED".|
+|`offers`|Number of offers available.|
+|`show_time_specification`|Event date/time information.|
+|`short_title`|Venue name (e.g., Galaxy Arena).|
+|`price_schedule_specification`|Minimum starting price.|
+|`event_detail_url`|URL/route to event detail page.|
+
+  
+
+### **Display Logic**
+
+  
+
+- **Position:** Displayed below the `SectionHeader`, horizontally scrollable.
+    
+- **Card Content:** Each card represents one item in `event_list`.
+    
+- **Color Picker Function:**
+    
+
+The lower half of each card adapts its color using the Color Picker Function.
+
+Please refer to the global component documentation. [View](/01_Global_Components/Color_Picker_Function)
+
+  
+
+### **Interaction Logic**
+
+  
+
+- **Horizontal Swiping:** Users can swipe left/right through the card list.
+    
+- **Card Click:** Clicking a card navigates to the event detail page. [M06_03 Entertainment Event Detail](/02_Page_Documentation/M06_Entertainment/M06_03_Entertainment_Event_Detail)
+    
+
+  
+
+---
+
+  
+
+### **Field Specification**
+
+  
+
+#### `event_list`
+
+  
+
+Description: Array containing all the event cards.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array (Nested configuration)|
+|Max Items|10 (recommended)|
+|Data Source|CMS / Event System|
+
+  
+
+---
+
+  
+
+#### `hero_image`
+
+  
+
+Description: Event cover image.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|3:2|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `title_text`
+
+  
+
+Description: Main title of the event.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line)|
+|Max Length|100 characters|
+|Example|`Ian Chan "Tears" In My Sight solo concert tour 2025 – Macau`|
+|Localization|Must support all languages.|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+#### `sale_status`
+
+  
+
+Description: List of tags for sale status.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Tag List (multi-select from predefined list)|
+|Example Values|`Sold Out`|
+|Data Source|CMS|
+
+  
+
+---
+
+  
+
+#### `is_new_show_added`
+
+  
+
+Description: Boolean flag indicating “NEW SHOW ADDED”.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Boolean / System Logic|
+|System Logic|Based on release time or CMS marker|
+|Data Source|CMS / Event System|
+
+  
+
+---
+
+  
+
+#### `offers`
+
+  
+
+Description: Number of offers available for the event.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Integer|
+|Example|`2`|
+|Data Source|Offer system|
+
+  
+
+---
+
+  
+
+#### `show_time_specification`
+
+  
+
+Description: Event date and time information.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line) / Structured Date|
+|Max Length|50 characters|
+|Example|`2025.08.01 – 08.03 17:00, 2025.08.08 – 08.10 16:00`|
+|Data Source|Event system|
+
+  
+
+---
+
+  
+
+#### `short_title`
+
+  
+
+Description: Venue name of the event.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|25 characters|
+|Example|`Galaxy Arena`|
+|Data Source|Venue management system|
+
+  
+
+---
+
+  
+
+#### `price_schedule_specification`
+
+  
+
+Description: Minimum starting price.
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Numeric value|
+|Example|`1,200`|
+|Data Source|Ticketing system|
+
+  
+
+---
+
+  
+
+#### `event_detail_url`
+
+  
+
+Description: Link/route to event detail page.
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/entertainment/event/ian_chan_tour`|
+|Data Source|CCMS|
+
+  
+
+## 19 Dining Promotion Banner
+
+  
+
+```Plain
+HOME_DISPLAY_DiningPromotionBanner
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a **carousel banner** positioned above the dining content list. It provides **high-visibility promotion** for the most important and attractive dining-related offers, themed campaigns, or brand collaborations. It uses a hero image with concise messaging to guide users to dining offers or detail pages.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13266-12122&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`banner_list`|The list of carousel banner data; an array.|
+|`banner_image`|Background image for the banner.|
+|`banner_title`|Main title text displayed on the banner.|
+|`banner_subtitle`|Subtitle text displayed on the banner.|
+|`banner_link`|Link/route to navigate to after the banner is tapped.|
+
+  
+
+### Display Logic
+
+  
+
+- **Layout:** Uses a **horizontal carousel** layout. If `banner_list` contains multiple items, the banner can switch automatically or manually. The reference image shows a single banner item.
+    
+- **Indicator:** For multiple banners, a **pagination indicator** (e.g., `1/5`) should be displayed at the bottom.
+    
+- **Color Picker Function:** The lower half of each card automatically adapts to the dominant color of the `hero_image`. Please refer to the relevant section for details. [View](/01_Global_Components/Color_Picker_Function)
+    
+- `banner_title` and `banner_subtitle` should truncate with ellipsis when exceeding the card layout.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Tap Banner:** Tapping any area of the banner navigates to the detail page or dining offer list defined by `banner_link`. `[WIP]`
+    
+- **Auto/Manual Switch:** If `banner_list` contains multiple items, the banner should **auto-rotate** and also allow **manual swipe** switching.
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `banner_list`
+
+  
+
+Description: An array containing the configuration of all carousel banners.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array (Nested configuration)|
+|Max Items|5 (based on the pagination indicator)|
+|Data Source|Managed in the CMS with dynamic sorting capabilities.|
+
+  
+
+#### `banner_image`
+
+  
+
+Description: Background image displayed in the banner.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Must follow a horizontal banner ratio (16:9) for clarity across devices.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_title`
+
+  
+
+Description: The main title text displayed on the banner.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|100 characters|
+|Example|`Celebrating a Galaxy of Michelin Stars`|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_subtitle`
+
+  
+
+Description: Subtitle text displayed on the banner.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line)|
+|Max Length|100 characters|
+|Example|`There is one star that shines the brightest in the city...`|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_link`
+
+  
+
+Description: Link or route navigated to when the banner is tapped.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/dining/michelin_stars_campaign`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## 20 Restaurant Carousel
+
+  
+
+```Plain
+GLOBAL_CTNR_RestaurantCarousel
+```
+
+  
+
+### Key Function
+
+  
+
+This component displays **curated restaurant/food recommendation cards** in a **horizontal scroll** layout. It showcases key information such as the restaurant's hero image, name, number of offers, average price, and cuisine type, encouraging users to explore and make reservations.
+
+  
+
+The full specification for this component is detailed in the global components section.
+
+Please refer to: [View](/01_Global_Components/Restaurant_Carousel)
+
+  
+
+---
+
+  
+
+## 21 Hotel Promotion Banner
+
+  
+
+```Plain
+HOME_DISPLAY_HotelPromotionBanner
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a **carousel banner** designed to promote high-priority hotel campaigns, brand partnerships, or themed packages. Through strong visual elements and concise messaging, it guides users to explore and book hotel offers.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13266-17073&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`banner_list`|The list of carousel banner data; an array.|
+|`banner_title`|Main title text for the banner.|
+|`banner_subtitle`|Description text to supplement the title.|
+|`banner_image`|Background image displayed in the banner.|
+|`banner_link`|Link/route navigated to after tapping banner.|
+
+  
+
+### Display Logic
+
+  
+
+- **Layout:** Horizontal carousel; supports auto and manual switching when multiple items exist.
+    
+- **Indicator:** Pagination indicators (e.g., `1/5`) must appear when multiple banners are present.
+    
+- **Color Picker Function:** The lower half of each card auto-adapts to the dominant color of the `hero_image`. See details here: [View](/01_Global_Components/Color_Picker_Function)
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Tap Banner:** Navigates to the destination defined by `banner_link`. `[WIP]`
+    
+- **Auto/Manual Switch:** Auto-rotation and manual swiping both supported.
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `banner_list`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array (Nested configuration)|
+|Max Items|5|
+|Data Source|CMS with dynamic ordering.|
+
+  
+
+#### `banner_title`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|40 characters|
+|Example|`Eight World Class Hotels`|
+|Localization|Must support all languages.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_subtitle`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line)|
+|Max Length|80 characters|
+|Example|`There is one star that shines the brightest…`|
+|Localization|Must support all languages.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_image`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Horizontal banner ratio (2:1 or 16:9) required.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_link`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/hotels/world_class_campaign`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## 22 Booking Widget
+
+  
+
+```Plain
+GLOBAL_SELECT_BookingWidget
+```
+
+  
+
+### Key Function
+
+  
+
+This component is the primary form container for hotel booking, collecting key search parameters such as hotel selection, dates, number of guests, and promotional preferences. It includes a **call-to-action button** to submit the query and check room availability.
+
+  
+
+Full specification available in global components documentation:
+
+[View](/01_Global_Components/Booking_Widget)
+
+  
+
+---
+
+  
+
+## 23 Hotel Brand Grid
+
+  
+
+```Plain
+HOME_DISPLAY_HotelBrandGrid
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a grid of **interactive logo buttons** displaying individual **hotel brands** beneath the hotel list section. It functions as a quick navigation入口, letting users jump directly to the brand’s introduction or dedicated booking page.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13266-17515&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`brand_list`|List of brands; array structure.|
+|`brand_logo_image`|Logo image for each brand.|
+|`brand_link`|Route/link to the brand's detail or booking page.|
+
+  
+
+### Display Logic
+
+  
+
+- Arranged in a multi-column grid, repeating for each item in `brand_list`.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Tap Logo:** Navigates to the brand detail or booking page defined by `brand_link`.
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `brand_logo_image`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Must follow the fixed grid size.|
+|Data Source|CCMS|
+
+  
+
+#### `brand_link`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/hotels/brand/ritz_carlton`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## 24 Membership Benefits
+
+  
+
+```Plain
+GLOBAL_DISPLAY_MembershipBenefits
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a **membership promotion card** displayed to non-member users after login (or in general non-member sections) to highlight the **key benefits** of joining the membership program. It also provides a clear **call-to-action button** leading to registration or program enrollment.
+
+  
+
+Full specification is available in global component documentation:
+
+[View](/01_Global_Components/Membership_Benefits)
+
+  
+
+---
+
+  
+
+## 25 Retail Promotion Banner
+
+  
+
+```Plain
+HOME_DISPLAY_RetailPromotionBanner
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a **carousel banner** used for high-visibility promotion of retail/shopping campaigns, brand collaborations, and themed events. It uses a hero image and concise messaging to guide users to retail offers or detail pages.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13266-17656&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`banner_list`|Carousel banner data list.|
+|`banner_title`|Main title of the banner.|
+|`banner_subtitle`|Subtitle text.|
+|`banner_link`|Destination link or route.|
+|`banner_image`|Background image.|
+
+  
+
+### Display Logic
+
+  
+
+- Horizontal carousel layout.
+    
+- Pagination indicators (`1/5`) for multi-banner setups.
+    
+- Supports Color Picker Function: card bottom adapts to hero image colors.
+    
+
+[View](/01_Global_Components/Color_Picker_Function)
+
+  
+
+### Interaction Logic
+
+  
+
+- **Tap Banner:** Navigates to destination defined by `banner_link`. `[WIP]`
+    
+- **Auto/Manual Switch:** Supports auto-rotation and manual swiping.
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `banner_list`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array (Nested configuration)|
+|Max Items|5|
+|Data Source|CMS with dynamic configuration.|
+
+  
+
+#### `banner_title`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|40 characters|
+|Example|`Delight in a Rewarding Shopping Journey`|
+|Localization|Must support all languages.|
+|Data Source|CMS|
+
+  
+
+#### `banner_subtitle`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line)|
+|Max Length|80 characters|
+|Example|`There is one star that shines the brightest in th...`|
+|Localization|Must support all languages.|
+|Data Source|CMS|
+
+  
+
+#### `banner_link`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/retail/shopping_journey_campaign`|
+|Data Source|CMS / App configuration|
+
+  
+
+#### `banner_image`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Horizontal banner ratio (16:9).|
+|Data Source|CMS|
+
+  
+
+---
+
+  
+
+## 26 Store Card Carousel
+
+  
+
+```Plain
+HOME_CTNR_StoreCardCarousel
+```
+
+  
+
+### Key Function
+
+  
+
+This is the core display component of the “Retail” section, showcasing **featured retail merchants** in **vertical or horizontal scroll** formats. It displays key information such as merchant logo, name, location, category, and number of offers, encouraging users to discover and visit the merchants.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13266-17710&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`store_list`|List of merchant cards.|
+|`store_logo`|Merchant logo image.|
+|`store_name`|Merchant name.|
+|`offers`|Number of offers.|
+|`store_location`|Text description of the merchant’s location.|
+|`store_category`|Text describing the merchant’s category.|
+|`store_detail_url`|Destination for card navigation.|
+
+  
+
+### Display Logic
+
+  
+
+- **Layout:** Two-column vertical grid with horizontal scroll support.
+    
+- **Content Cards:** Each item in `store_list` is rendered using [StoreCard](/01_Global_Components/Store_Card) and [Offers Tag](/01_Global_Components/Offers_Tag).
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Scroll:** Horizontal scrolling supported.
+    
+- **Tap Card:** Navigates to the merchant detail page defined by `store_detail_url`. `[WIP]`
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `store_logo`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|PNG/SVG (transparent background recommended)|
+|Dimensions|Must follow the card logo sizing.|
+|Data Source|CCMS|
+
+  
+
+#### `store_name`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|30 characters|
+|Example|`Rimowa`|
+|Localization|Required|
+|Data Source|CCMS|
+
+  
+
+#### `offers`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Integer|
+|Example|`2`|
+|Data Source|CCMS|
+
+  
+
+#### `store_location`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|50 characters|
+|Example|`1037 & 1039 1/F Promenade East`|
+|Data Source|CCMS|
+
+  
+
+#### `store_category`
+
+  
+
+Location string is constructed using these attributes in order:
+
+  
+
+1. Floor → 2. Shop Number → 3. Property Zone
+    
+
+2. Only available attributes will be shown. Max one line; truncate if exceeded.
+    
+      
+    
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|30 characters|
+|Example|`Lifestyle & Gifts`|
+|Data Source|CCMS|
+
+  
+
+#### `store_detail_url`
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/retail/store/rimowa`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+Here’s the English translation of your content:
+
+  
+
+---
+
+  
+
+## 27 Experience Carousel
+
+  
+
+```Plain
+HOME_CTNR_ExperienceCarousel
+```
+
+  
+
+### Key Function
+
+  
+
+This component is the **core display container** for the “Experience” content section. It presents **featured experience activity cards** in a horizontal scrollable carousel. By showing key information such as cover image, title, price, schedule, and location, it encourages users to discover and participate in leisure, entertainment, and cultural activities.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13275-17958&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`experience_list`|List of recommended experience cards (array).|
+|`activity_cover`|Cover image of the activity.|
+|`activity_title`|Title of the activity.|
+|`price_schedule_specification`|Starting price of the activity.|
+|`time_specification`|Date and time information of the activity.|
+|`activity_location`|Name of the activity location.|
+|`activity_detail_url`|Link or route to the activity detail page when the card is clicked.|
+
+  
+
+### Display Logic
+
+  
+
+- **Layout:** Horizontal scroll (carousel).
+    
+- **Content cards:** Each card represents an item in `experience_list`.
+    
+- **Color Picker Function:** The bottom section of each card automatically adapts to the main color of the `hero_image`. [View](/01_Global_Components/Color_Picker_Function)
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Horizontal swipe:** Users can swipe left or right to browse all activity cards in `experience_list`.
+    
+- **Click card:** Clicking any card navigates to the activity detail page defined by `activity_detail_url`. `[WIP]`
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `activity_cover`
+
+  
+
+Description: Cover image displayed at the top of the card within the `experience_list` array.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Must follow card aspect ratio; can be cropped after upload.|
+|Data Source|CCMS|
+
+  
+
+#### `activity_title`
+
+  
+
+Description: Title of the activity within the `experience_list` array.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line)|
+|Max Length|50 characters (consider multi-line layout)|
+|Example|Wing SHYA +853 Moments in Mac...|
+|Localization|Must support all display languages.|
+|Data Source|From CMS / activity system.|
+
+  
+
+#### `price_schedule_specification`
+
+  
+
+Description: Minimum starting price of the activity within `experience_list`.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input / Numeric value|
+|Example|`From MOP 1,200`|
+|Data Source|From ticketing / activity system.|
+
+  
+
+#### `time_specification`
+
+  
+
+Description: Date and time information of the activity within `experience_list`.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|30 characters|
+|Example|`11:00 - 20:00 Daily`|
+|Data Source|From activity system.|
+
+  
+
+#### `activity_location`
+
+  
+
+Description: Name of the location where the activity takes place.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|100 characters|
+|Example|`Palm Cove - Grand Resort D...`|
+|Data Source|From venue management system.|
+
+  
+
+#### `activity_detail_url`
+
+  
+
+Description: Link or route to the activity detail page when the card is clicked.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/experience/activity/wing_shya`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## 28 Cinema Promotion Banner
+
+  
+
+```Plain
+HOME_DISPLAY_CinemaPromotionBanner
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a **carousel banner** designed to promote high-exposure cinema offers, including themed promotions, membership perks, or special movie events. It uses bold visuals and concise text to guide users to explore promotions or start booking.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13275-18108&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`banner_list`|Carousel data list of top banners (array).|
+|`banner_title`|Main title text on the banner.|
+|`banner_subtitle`|Subtitle or location (e.g., Galaxy Cinemas).|
+|`banner_image`|Background image of the banner.|
+|`banner_link`|Link or route when the banner is clicked.|
+
+  
+
+### Display Logic
+
+  
+
+- **Layout:** Horizontal carousel; if `banner_list` has multiple items, it can auto or manually switch.
+    
+- **Indicator:** If multiple banners, show pagination indicator at the bottom (e.g., 1/5).
+    
+- **Color Picker Function:** Bottom section of each banner adapts to the main color of `hero_image`. [View](/01_Global_Components/Color_Picker_Function)
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Click banner:** Navigates to the page defined by `banner_link`. `[WIP]`
+    
+- **Auto/manual switch:** Supports auto-timed rotation and manual swipe if multiple banners exist.
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `banner_list`
+
+  
+
+Array containing all carousel banner configurations.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Array (Nested configuration)|
+|Max Items|5 (as per pagination indicator)|
+|Data Source|CCMS|
+
+  
+
+#### `banner_title`
+
+  
+
+Main title text of the banner.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|100 characters|
+|Example|`Exclusive Directors Club`|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_subtitle`
+
+  
+
+Subtitle text of the banner, usually location.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|30 characters|
+|Example|`Galaxy Cinemas`|
+|Localization|Must support all display languages.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_image`
+
+  
+
+Background image of the banner.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Must follow banner horizontal ratio (e.g., 2:1 or 16:9) for clarity on different devices.|
+|Data Source|CCMS|
+
+  
+
+#### `banner_link`
+
+  
+
+Target link or route when the banner is clicked.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/cinema/directors_club`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## 29 Movie Carousel
+
+  
+
+```Plain
+HOME_CTNR_MovieCarousel
+```
+
+  
+
+### Key Function
+
+  
+
+This component is the **core display container** for the “Cinema” content section. It presents **current or upcoming movie posters** in a horizontal scrollable carousel, showing key info such as poster, format, title, duration, and rating to guide users to movie details or ticket booking.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13279-14534&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`movie_list`|List of movie poster cards (array).|
+|`movie_poster`|Movie poster image.|
+|`format_tag`|Movie format (2D, 3D).|
+|`movie_title`|Movie title.|
+|`duration`|Movie duration (minutes).|
+|`rating_level`|Movie rating.|
+|`movie_detail_url`|Link or route to movie detail page.|
+
+  
+
+### Display Logic
+
+  
+
+- **Content cards:** Each card represents a movie in `movie_list`.
+    
+- **Display limit:** Movie title can wrap up to 2 lines.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- **Horizontal swipe:** Users can swipe left or right to browse all movie cards.
+    
+- **Click card:** Clicking any card navigates to the movie detail page defined by `movie_detail_url`. `[WIP]`
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `movie_poster_image`
+
+  
+
+Poster image displayed at the top of each card.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload / URL|
+|File Format|webp|
+|Dimensions|Must follow movie poster aspect ratio (e.g., 2:3), high resolution recommended.|
+|Data Source|From movie content / ticketing system.|
+
+  
+
+#### `format_tag`
+
+  
+
+Movie format (2D, 3D).
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|3 characters|
+|Example|2D, 3D|
+|Data Source|From movie content / ticketing system.|
+
+  
+
+#### `movie_title`
+
+  
+
+Movie title.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (multi-line)|
+|Max Length|40 characters (consider multi-line layout)|
+|Example|F1 The Movie|
+|Localization|Must support all display languages.|
+|Data Source|From movie content system.|
+
+  
+
+#### `duration`
+
+  
+
+Movie duration in minutes.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Integer|
+|Example|156 mins|
+|Data Source|From movie content system.|
+
+  
+
+#### `rating_level`
+
+  
+
+Movie rating.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single character)|
+|Example|C (region-specific rating)|
+|Data Source|From movie content system.|
+
+  
+
+#### `movie_detail_url`
+
+  
+
+Link or route to movie detail page.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/cinema/movie/f1_the_movie`|
+|Data Source|CCMS|
+
+  
+
+## 30 Claimable Coupon Modal
+
+  
+
+```Plain
+GLOBAL_DISPLAY_ClaimableCouponModal
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a **bottom-floating modal** designed to **actively notify** users of claimable coupons while browsing the homepage. It encourages users to claim coupons with a single click, increasing coupon utilization and user engagement.
+
+  
+
+The specification for this component has been detailed in the global component section. Please refer to this. [View](/01_Global_Components/Claimable_Coupon_Modal)

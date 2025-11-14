@@ -1,0 +1,618 @@
+---
+
+title: "M15_04 RecognizedPhone"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+
+This page displays the recognized GPC membership details matched through the user’s phone number, and provides options to bind, skip, or verify a different account.
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|#|Component Code|Component|Type|Doc|
+||||||
+|2|SIGNUP_BINDING_VISUAL_BindingAppsConnectorPanel|BindingAppsConnectorPanel|Local||
+|3|SIGNUP_BINDING_CTNR_RecognizedTierMatchMessage|RecognizedTierMatchMessage|Local||
+|4|GLOBAL_CTNR_RecognizedMembershipCard|RecognizedMembershipCard|Global||
+|5|SIGNUP_BINDING_ACTION_NotMyAccountButton|NotMyAccountButton|Local||
+|6|SIGNUP_BINDING_CTNR_TierBenefitsSection|TierBenefitsSection|Local||
+|7|GLOBAL_LIST_TierBenefitsList|TierBenefitsList|Global||
+|8|GLOBAL_ACTION_ViewMemberBenefitsButton|ViewMemberBenefitsButton|Global||
+|9|GLOBAL_CTNR_BindingStickyActionBar|BindingStickyActionBar|Global||
+|10|SIGNUP_BINDING_ACTION_SkipBindingButton|SkipBindingButton|Local||
+|11|GLOBAL_ACTION_BindNowPrimaryButton|BindNowPrimaryButton|Global||
+
+---
+
+1. ## BindingAppsConnectorPanel
+    
+
+```Plain
+SIGNUP_BINDING_VISUAL_BindingAppsConnectorPanel
+```
+
+### Key Function
+
+Shows the connection between **Galaxy Life** and **Galaxy GPC** accounts using app icons, connector symbol and the user profile initial.
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|galaxy_life_icon|Icon asset for Galaxy Life app.|
+|gpc_icon|Icon asset for Galaxy GPC app.|
+|||
+
+---
+
+### Interaction Logic
+
+- No tap behavior; purely visual.
+    
+
+---
+
+2. ## RecognizedTierMatchMessage
+    
+
+```Plain
+SIGNUP_BINDING_CTNR_RecognizedTierMatchMessage
+```
+
+### Key Function
+
+Informs the user that their status has been recognized and an instant tier match is available
+
+### Used on
+
+- RecognizedPhone (M15_04)
+    
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|headline_text|Main title (e.g., “We Recognize Your Status – Enjoy An Instant Tier Match”).|
+|body_text|Supporting description line(s) below the headline.|
+
+---
+
+### Display Logic
+
+- Shown only in the **Recognized (Phone)** scenario.
+    
+- Hidden for error, manual binding, or unrecognized flows.
+    
+
+### Interaction Logic
+
+- None; static text component.
+    
+
+---
+
+### CMS Field Specification
+
+#### `headline_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|80 characters|
+|Example|We Recognize Your Status|
+|Data Source|Binding / Signup Configuration (if CMS-driven)|
+
+#### `body_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (multi-line)|
+|Character Count|160 characters|
+|Example|Your GPC Black membership can be tier matched to Galaxy Life Diamond. Bind now to activate.|
+|Data Source|Binding / Signup Configuration|
+
+---
+
+3. ## RecognizedMembershipCard
+    
+
+```Plain
+GLOBAL_CTNR_RecognizedMembershipCard
+```
+
+### Key Function
+
+Displays the **detected GPC membership details** so that the user can confirm the account before binding.
+
+### Used on
+
+- RecognizedPhone (M15_04)
+    
+- Any flow where an existing GPC membership is auto-detected
+    
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|gpc_tier|Current GPC tier (e.g., “GPC Black”).|
+|galaxy_life_tier|Matching Galaxy Life tier (e.g., “Galaxy Life Diamond”).|
+|masked_name|Masked member name (e.g., “L** D****”).|
+|gpc_id|Member ID (e.g., 9232 1232).|
+|gpc_phone|Linked phone number (e.g., +853 2323 1234).|
+|card_image|Image of the membership card.|
+
+### Display Logic
+
+- Shown when **exactly one** GPC membership is matched to the phone number.
+    
+- If matching fails or multiple matches exist, a different scenario page/modal should be used.
+    
+
+### Interaction Logic
+
+- The card itself is read-only.
+    
+- Confirm/reject actions handled by **NotMyAccountButton** and **BindNowPrimaryButton**.
+    
+
+---
+
+4. ## NotMyAccountButton
+    
+
+```Plain
+SIGNUP_BINDING_ACTION_NotMyAccountButton
+```
+
+### Key Function
+
+Let the user indicate that the recognized GPC membership might **not** be theirs.
+
+### Used on
+
+- RecognizedPhone (M15_04) – directly under the membership card
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|label|Button label text. Default: “Not My Account”.|
+
+---
+
+### Display Logic
+
+- Shown whenever a membership card is displayed.
+    
+- Hidden if no membership is recognized.
+    
+
+### Interaction Logic
+
+- On tap, opens the **“Not My Account” modal**, which:
+    
+    - Explains that the GPC membership may not belong to the user.
+        
+    - Allows navigation to **Bind Another Account** flow (member ID + PIN).
+        
+    - Allows skipping for now.
+        
+
+---
+
+### CMS Field Specification
+
+#### `label`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|30 characters|
+|Example|Not My Account|
+|Data Source|CMS Binding Configuration (Button Labels)|
+
+---
+
+5. ## TierBenefitsSection
+    
+
+```Plain
+SIGNUP_BINDING_CTNR_TierBenefitsSection
+```
+
+### Key Function
+
+Introduces the **Galaxy Life Diamond Benefits** section and shows the tier chips (Galaxy Life tier ↔ GPC tier).
+
+---
+
+### Used on
+
+- RecognizedPhone (M15_04)
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|section_title|Section heading (e.g., “Galaxy Life Diamond Benefits”).|
+|primary_tier_label|Label for the Galaxy Life tier chip.|
+|partner_tier_label|Label for the GPC tier chip.|
+
+---
+
+### Display Logic
+
+- Shown when a tier match is available.
+    
+- Title and tier chips should correspond to the matched pair (e.g., Diamond ↔ GPC Black).
+    
+
+### Interaction Logic
+
+- Tier chips are informational in this scenario; no toggling between tiers.
+    
+- Benefits content below is fixed to the matched tier.
+    
+
+---
+
+### CMS Field Specification
+
+#### `section_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|60 characters|
+|Example|Galaxy Life Diamond Benefits|
+|Data Source|CCMS Tier Benefits Configuration|
+
+#### `primary_tier_label`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Example|Galaxy Life Diamond|
+|Data Source|CCMS Tier Mapping Table|
+
+#### `partner_tier_label`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Example|GPC Black|
+|Data Source|CCMS Tier Mapping Table|
+
+---
+
+6. ## TierBenefitsList
+    
+
+```Plain
+GLOBAL_LIST_TierBenefitsList
+```
+
+### Key Function
+
+Shows the **list of benefits** for the matched tier as stacked cards (icon + title + description).
+
+---
+
+### Used on
+
+- RecognizedPhone (M15_04) – Diamond tier preview
+    
+- Other tier pages (Gold, Platinum, etc.) with different content
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|benefit_items|Array of benefits to render.|
+|benefit_icon|Icon per benefit.|
+|benefit_title|Title text (e.g., “Earn up to 10% Resort Dollars rebate and Spend it as Cash”).|
+|benefit_description|Secondary description text (e.g., “Including dining, hotels, concert, Spa, Cinema and more!”).|
+
+### Display Logic
+
+- Populated with benefits based on the matched Galaxy Life tier.
+    
+- The same component is reused with different benefit sets for different tiers.
+    
+
+### Interaction Logic
+
+- Non-interactive in this flow (view-only).
+    
+- Future enhancement could deep-link to detailed benefit terms.
+    
+
+---
+
+### CMS Field Specification
+
+#### `benefit_items`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|JSON Array|
+|Character Count|Depends on number of benefits (recommended: short descriptions).|
+|Example|`[{"benefit_title":"Earn up to 10% Resort Dollars rebate and Spend it as Cash","benefit_description":"Including dining, hotels, concert, Spa, Cinema and more!"}]`|
+|Data Source|CCMS Tier Benefits Table|
+|Dependencies|Filtered by tier_id (e.g., Galaxy Life Diamond).|
+
+---
+
+7. ## ViewMemberBenefitsButton
+    
+
+```Plain
+GLOBAL_ACTION_ViewMemberBenefitsButton
+```
+
+### Key Function
+
+Provides a CTA to open the **full member benefits** page with complete details.
+
+### Used on
+
+- RecognizedPhone (M15_04) under TierBenefitsList
+    
+- Other benefits pages
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|label|Button label text (e.g., “View Member Benefits”).|
+
+### Display Logic
+
+- Shown under the benefits list whenever there is a valid tier context.
+    
+
+### Interaction Logic
+
+- On tap, navigates to the detailed **Member Benefits** screen for the current tier.
+    
+
+---
+
+### CMS Field Specification
+
+#### `label`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|40 characters|
+|Example|View Member Benefits|
+|Data Source|CCMS Binding / Tier Benefits Configuration|
+
+---
+
+8. ## BindingStickyActionBar
+    
+
+```Plain
+GLOBAL_CTNR_BindingStickyActionBar
+```
+
+### Key Function
+
+Sticky container that keeps primary actions (**Skip** and **Bind Now**) visible at the bottom of the screen.
+
+---
+
+### Used on
+
+- RecognizedPhone (M15_04)
+    
+- Other Account Binding steps with dual CTAs
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Display Logic
+
+- Anchored to the bottom of the viewport.
+    
+- Remains visible while user scrolls through benefits list.
+    
+
+### Interaction Logic
+
+- No direct behavior.
+    
+- Contains **SkipBindingButton** and **BindNowPrimaryButton** as children.
+    
+
+---
+
+9. ## SkipBindingButton
+    
+
+```Plain
+SIGNUP_BINDING_ACTION_SkipBindingButton
+```
+
+### Key Function
+
+Allows the user to **skip binding** for now and return to home/main experience.
+
+---
+
+### Used on
+
+- RecognizedPhone (M15_04) – left button in sticky bar
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|label|Button text (e.g., “Skip”).|
+
+---
+
+### Display Logic
+
+- Always rendered along with Bind Now while on RecognizedPhone.
+    
+
+### Interaction Logic
+
+- On tap, exits the binding flow and redirects to the **Home** page (or configured default screen).
+    
+- Does not bind any membership.
+    
+
+---
+
+### CMS Field Specification
+
+#### `label`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|20 characters|
+|Example|Skip|
+|Data Source|CCMS Binding Configuration (Button Labels)|
+
+---
+
+10. ## BindNowPrimaryButton
+    
+
+```Plain
+GLOBAL_ACTION_BindNowPrimaryButton
+```
+
+### Key Function
+
+Primary CTA for the user to **confirm binding** of the recognized GPC membership and activate the tier match.
+
+---
+
+### Used on
+
+- RecognizedPhone (M15_04) the right button in sticky bar
+    
+- Other flows requiring a “Bind Now” primary action
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|label|Button text (e.g., “Bind Now”).|
+
+---
+
+### Display Logic
+
+- Shown when there is a valid recognized membership card.
+    
+- May be disabled if binding prerequisites are not met (e.g., missing consent).
+    
+
+### Interaction Logic
+
+- On tap:
+    
+    - Calls backend to bind the recognized GPC membership.
+        
+    - On success, routes to **Binding Success / Confirmation** page.
+        
+    - On failure, shows an error message or retry state.
+        
+
+### CMS Field Specification
+
+#### `label`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|25 characters|
+|Example|Bind Now|
+|Data Source|CCMS Binding Configuration (Button Labels)|

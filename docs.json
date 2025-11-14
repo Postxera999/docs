@@ -33,12 +33,18 @@
         ]
       },
       {
+        "group": "Home pages",
+        "pages": [
+          "02_Page_Documentation/M01_Home_Page/M01_01_Home_Page"
+        ]
+      },
+      {
         "group": "Retail",
         "pages": [
           "02_Page_Documentation/M03_Retail/M03_02_test"
         ]
       },
-            {
+      {
         "group": "Entertainment",
         "pages": [
           "02_Page_Documentation/M06_Entertainment/M06_01_Venue_Directory",
@@ -61,6 +67,17 @@
         ]
       },
       {
+        "group": "SignUp_AccountBinding",
+        "pages": [
+          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_01_Sign_up_landing_page",
+          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_02_Input_Mobile_Number",
+          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_03_Input_SMS_OTP",
+          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_04_Recognized_Phone",
+          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_05_Confirm",
+          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_06_Success"
+        ]
+      },
+      {
         "group": "Global Components",
         "pages": [
         "01_Global_Components/Accordion_Info_Group",
@@ -69,19 +86,20 @@
         "01_Global_Components/Contact_Button",
         "01_Global_Components/Contact_Info_Modal",
         "01_Global_Components/Countdown_Timer",
+        "01_Global_Components/Claimable_Coupon_Modal",
         "01_Global_Components/Entertainment_Recommendations_Carousel",
-        "01_Global_Components/FAQ_Buttons",
         "01_Global_Components/Filter_Function",
-        "01_Global_Components/Floor_Plan_Button",
+        "01_Global_Components/GPC_Level_Tag",
         "01_Global_Components/Header_Card",
         "01_Global_Components/How_To_Find_Modal",
         "01_Global_Components/Local_Search",
         "01_Global_Components/Location_Card",
         "01_Global_Components/Locked_Page_Banner",
         "01_Global_Components/Login_Sticky_Button",
+        "01_Global_Components/Member_Level_Tag",
         "01_Global_Components/Offers_Tag",
-        "01_Global_Components/Photo_Gallery",
         "01_Global_Components/Promotional_Banner",
+        "01_Global_Components/Property_Selector",
         "01_Global_Components/Rebate_Tag",
         "01_Global_Components/Relevant_Info",
         "01_Global_Components/Share_Button",
@@ -89,10 +107,9 @@
         "01_Global_Components/Special_Offers_Carousel",
         "01_Global_Components/Skeleton",
         "01_Global_Components/Sticky_Tab_Bar",
-        "01_Global_Components/Terms_and_Conditions_Accordion",
-        "01_Global_Components/Title_Component",
         "01_Global_Components/Toolbar_Filter",
-        "01_Global_Components/ToolBarButton"
+        "01_Global_Components/ToolBarButton",
+        "01_Global_Components/Whats_On_Carousel"
         ]
       }
     ]

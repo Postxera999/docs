@@ -4,26 +4,27 @@ title: "M06_02 Venue_Detail"
 
 ---
 
+
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
-  
 
-## Page Overview
+## **Page Overview**
 
 The Venue Detail page provides complete information about each entertainment venue within Galaxy: Galaxy Arena, G Box and Broadway Theatre. It includes venue visuals, seating plans, special offers, location details and key information related to the venue. This page references data from the **Entertainment Venue content type** within the Entertainment module, integrated with Contact, Offer, and Event Schedule entities as defined in the CCMS.
 
 ---
 
-## Components Used
+## **Components Used**
+
 
 | #   | Component Code                    | Component Name          | Global / Local | Description                                                                                    |
 | --- | --------------------------------- | ----------------------- | -------------- | ---------------------------------------------------------------------------------------------- |
 | 1   | GLOBAL_DISPLAY_HeaderCard         | Header Card             | Global         | Displays the venue image, name, and introduction                                               |
 | 2   | GLOBAL_DISPLAY_PhotoGallery       | Photo Gallery           | Global         | Image gallery                                                                                  |
-| 3   | GLOBAL_TYPE_Title Component       | Title Component         | Global         | Contains Title and Description of page                                                         |
+| 3   | ENT_TYPE_Title Component          | Title Component         | Local          | Contains Title and Description of page                                                         |
 | 4   | GLOBAL_ACTION_ContactButton       | Contact Button          | Global         | Opens contact info pop up card                                                                 |
 | 5   | GLOBAL_ACTION_ShareButton         | Share Button            | Global         | Allows sharing of the detail link to MP card or generates WeChat share poster                  |
-| 6   | GLOBAL_ACTION_FloorPlanButton     | Floor Plan Button       | Global         | Opens photo of venue map or seating layout                                                     |
+| 6   | ENT_ACTION_FloorPlanButton        | Floor Plan Button       | Local          | Opens photo of venue map or seating layout                                                     |
 | 7   | GLOBAL_PNAV_StickyTabBar          | Sticky Tab Bar          | Global         | Quick access links to navigate between Offers, Shows, Location, and Notes sections on the page |
 | 8   | GLOBAL_FLOW_SpecialOffersCarousel | Special Offers Carousel | Global         | Displays linked offers                                                                         |
 | 9   | ENT_LIST_UpcomingShowsList        | Upcoming Shows List     | Local          | Lists scheduled concerts or performances at the venue                                          |
@@ -82,14 +83,13 @@ Please refer to the global component documentation for display details. Link[Vie
 ## 3 Title Component
 
 ```Plain
-GLOBAL_TYPE_TitleComponent
+ENT_TYPE_TitleComponent
 ```
 
 ### Key Function
 
 Contains the Title and Description for the venue page.
 
-Please refer to the global component documentation for display details. Link[View](/01_Global_Components/Title_Component)
 
   
 

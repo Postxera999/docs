@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02_Page_Documentation/M06_Entertainment/M06_02_Venue_Detail.mdx",
+                "file": "Drafts/WhatsOnStory.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "M06_02_Venue_Detail"
+              "title": "WhatsOnStory"
+            }
+          },
+          {
+            "id": "0e999812937f376a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01_Global_Components/Claimable_Coupon_Modal.mdx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Claimable_Coupon_Modal"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -141,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "02_Page_Documentation/M06_Entertainment/M06_02_Venue_Detail.mdx",
+                "file": "01_Global_Components/Claimable_Coupon_Modal.mdx",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of M06_02_Venue_Detail"
+              "title": "Outline of Claimable_Coupon_Modal"
             }
           },
           {
@@ -180,24 +195,45 @@
       "hide-folders:Show hidden folders": false
     }
   },
-  "active": "881b07f6de82feb6",
+  "active": "0e999812937f376a",
   "lastOpenFiles": [
-    "02_Page_Documentation/M06_Entertainment/M06_03_Entertainment_Event_Detail.mdx",
-    "02_Page_Documentation/M06_Entertainment/M06_02_Venue_Detail.mdx",
-    "02_Page_Documentation/M06_Entertainment/M06_01_Venue_Directory.mdx",
-    "01_Global_Components/Sticky_Tab_Bar.mdx",
+    "01_Global_Components/Body_Content.mdx",
+    "01_Global_Components/Member_Level_Tag.mdx",
+    "01_Global_Components/GPC_Level_Tag.mdx",
+    "01_Global_Components/Claimable_Coupon_Modal.mdx",
+    "01_Global_Components/Property_Selector.mdx",
+    "01_Global_Components/Login_Sticky_Button.mdx",
     "01_Global_Components/Locked_Page_Banner.mdx",
-    "01_Global_Components/Floor_Plan_Button.mdx",
-    "01_Global_Components/Accordion_Info_Group.mdx",
-    "01_Global_Components/FloorPlanButton.mdx",
+    "02_Page_Documentation/M06_Entertainment/M06_02_Venue_Detail.mdx",
+    "01_Global_Components/Location_Card.mdx",
+    "01_Global_Components/Entertainment_Recommendations_Carousel.mdx",
+    "Drafts/M01_01 Homepage.md",
+    "02_Page_Documentation/M13_Transportation/M13_07_Carpark.mdx",
+    "images/Module/img_10.png",
+    "images/Module/img_9.png",
+    "images/Module/img_8.png",
+    "images/Module/img_7.png",
+    "images/Module/img_6.png",
+    "images/Module/img_5.png",
+    "images/Module/img_4.png",
+    "images/Module/img_3.png",
+    "images/Module/img_2.png",
+    "images/Module/img_1.png",
+    "Drafts/BookingWidget⭐️.md",
+    "Drafts/Untitled.md",
+    "Drafts/WhatsOnStory.md",
+    "Drafts/Navigation Bar.md",
+    "Drafts/Member Level Tag.md",
+    "Drafts/WhatsonCarousel.md",
+    "Drafts/Property_Selector.md",
+    "Drafts/RestaurantCarousel.md",
+    "Drafts/常用.md",
+    "Drafts/GPC level tag.md",
+    "01_Global_Components/Store_Cardl.md",
     "01_Global_Components/Floor_Plan_Button.md",
     "01_Global_Components/Untitled.md",
-    "01_Global_Components/Header_Card.mdx",
-    "01_Global_Components/StickyTabBar.mdx",
-    "01_Global_Components/Toolbar_Filter.mdx",
     "Obsidian更新日志.md",
     "02_Page_Documentation/M13_Transportation/M13_01 Shuttle_Bus.md",
-    "logo/favicon.svg",
     "1_DesignDocs/M00_Global/02_Filter_bar.md"
   ]
 }

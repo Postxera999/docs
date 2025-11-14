@@ -4,7 +4,6 @@ title: "Login Sticky Button"
 
 ---
 
-  
 
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
@@ -14,24 +13,24 @@ GLOBAL_ACTION_LoginStickyButton
 
   
 
-The **Login Sticky Button** is a floating global call-to-action prompting users to **log in** to access member-exclusive features. It remains visible on public pages until the user is authenticated.
+The **Login Sticky Button** is a floating global call-to-action prompting users to **log in** to access member-exclusive features. It remains visible on public pages until the user is logged in.
 
 ---
 
 ## Display Logic
 
-- Floating global CTA for unauthenticated users.
+- Floating global CTA for logged out users.
     
-- Hidden automatically once logged in.
-    
-- Prompts users to sign in for member-exclusive actions such as **Set Reminder**, **Priority Sale**, or **Exclusive Content**.
+- Prompts users to sign in to access member-exclusive bene.
     
 
 ---
 
 ## Visual Reference
 
-<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-21011&t=TmrwzwgJVnbh1PL8-0" />
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-20144&t=TmrwzwgJVnbh1PL8-0" />
+
+  
 
 ---
 
@@ -45,44 +44,3 @@ The **Login Sticky Button** is a floating global call-to-action prompting users 
 | 4   | Global Application     | Shared across all entertainment modules.                         |
 
 ---
-
-## CMS Field Specification
-
-| Field Name           | Description                              |
-| -------------------- | ---------------------------------------- |
-| Button Label         | Default: “Log In to View More”.          |
-| Redirect URL         | Destination for authentication redirect. |
-| Visibility Condition | Boolean (logged in/out state).           |
-
----
-
-## Field Mapping Details
-
-### `button_label`
-
-| Specification Item | Details                          |
-| ------------------ | -------------------------------- |
-| Field Type         | Text                             |
-| Input Validation   | Optional                         |
-| Localization       | Supports all display languages   |
-| Data Source        | CCMS                             |
-| Example            | “Log in to access Priority Sale” |
-
-### **`redirect_url`**
-
-| Specification Item | Details                             |
-| ------------------ | ----------------------------------- |
-| Field Type         | URL                                 |
-| Input Validation   | Required                            |
-| Data Source        | Global Auth Config                  |
-| Example            | /login?redirect=/events/galaxy-live |
-
-### **`visibility_condition`**
-
-| Specification Item | Details               |
-| ------------------ | --------------------- |
-| Field Type         | Boolean               |
-| Input Validation   | System controlled     |
-| Data Source        | User session state    |
-| Dependencies       | Hidden when logged in |
-| Example            | false (logged in)     |

@@ -1,39 +1,52 @@
 ---
-
-title: "How to Find Modal"
-
+title: How to Find
 ---
-
+  
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
   
 
 ```Plain
-GLOBAL_DISPLAY_HowToFindModal
+GLOBAL_DISPLAY_HowToFind
 ```
-
-## Key Function
-
-This is a **popup modal component** that appears when a user clicks on a station in the route details (such as in **TripDetailsStepper**). It provides **detailed location guidance** for that station, including descriptive text and images.
 
 ## Visual Reference
 
-<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-22985&t=TmrwzwgJVnbh1PL8-0" />
-## Field List
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7699-13485&t=EIrrWlE3DFcM0Te3-4" />
 
-| Fields          | Description                                            |
-| --------------- | ------------------------------------------------------ |
-| howtofind_text  | Descriptive text guiding the user to locate the place. |
-| howtofind_image | Illustrative image showing how to find the place.      |
+  
+
+---
+
+## Key Function
+
+- The How to Find component aims to provide visual representation and a guide on how to locate the venue.
+    
+- The idea is to use images of key landmarks around the Galaxy property as a visual reference to find the place, such as Diamond Lobby, with some descriptive text on where the venue is in reference to the landmark.
+
+
+  
+
+---
+
+## **Field List**
+
+
+| Fields          | Description                                                        |
+| --------------- | ------------------------------------------------------------------ |
+| howtofind_text  | Descriptive text guiding the user to locate the place.             |
+| howtofind_image | Illustrative image showing key landmarks on how to find the place. |
 
 ## Display Logic
 
-- The component appears as a **full-screen or bottom popup modal**, overlaying the current page.
-- The modal title should display the location name (retrieved from `station` information linked to address data).
+- The component can appear in the content details or as a bottom popup modal.
+    
 - The content includes both `howtofind_text` (text guidance) and `howtofind_image` (image guidance).
+    
+- If more than one How to Find guide location is configured, it is displayed as a swipeable carousel
+    
 
-## Interaction Logic
-
-- When a station in **TripDetailsStepper** is clicked, the system loads data based on the associated `howtofind_id` and triggers this modal to appear.
+  
 
 ---
 
@@ -41,16 +54,16 @@ This is a **popup modal component** that appears when a user clicks on a station
 
 #### `howtofind_text`
 
-| Specification Item | Details                                      |
-| ------------------ | -------------------------------------------- |
-| Field Type         | Text input (single line)                     |
-| Max Length         | 15 characters                                |
-| Characters Limit   | None                                         |
-| Example            | 49 minutes                                   |
-| Input Validation   | Must include numbers and time units.         |
-| Localization       | Must support all display languages.          |
-| Data Source        | Maintained in CCMS Transport routes Table    |
-| Dependencies       | Key information display in RouteSummaryCard. |
+| Specification Item | Details                              |
+| ------------------ | ------------------------------------ |
+| Field Type         | Text input (single line)             |
+| Max Length         | 15 characters                        |
+| Characters Limit   | None                                 |
+| Example            | 49 minutes                           |
+| Input Validation   | Must include numbers and time units. |
+| Localization       | Must support all display languages.  |
+| Data Source        | CCMS --> How to Find Specification   |
+| Dependencies       | -                                    |
 
 ---
 
@@ -58,12 +71,11 @@ This is a **popup modal component** that appears when a user clicks on a station
 
 An illustrative image showing how to locate the place.
 
-| Specification Item | Details                                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| Field Type         | Image                                                                                                                   |
-| File Format        | webp                                                                                                                    |
-| Size Requirement   | Minimum 1280 x 1280 pixels (square ratio 1:1)                                                                           |
-| File Size Limit    | Maximum 2 MB                                                                                                            |
-| Input Validation   | Must be a square ratio (1:1). If not, the system must apply a center crop upon upload.                                  |
-| Data Source        | Manually uploaded by CMS editor                                                                                         |
-| Dependencies       | Used in search results, merchant list views, merchant detail pages, payment confirmation screens, and Featured Listings |
+| Specification Item | Details                            |
+| ------------------ | ---------------------------------- |
+| Field Type         | Image                              |
+| File Format        | webp                               |
+| Size Requirement   | Minimum width 510px                |
+| File Size Limit    | Maximum 2 MB                       |
+| Data Source        | CCMS --> How to Find Specification |
+| Dependencies       | -                                  |

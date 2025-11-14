@@ -1,0 +1,432 @@
+---
+
+title: "M01_02 What's On Story"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+  
+
+When a user clicks on a card in the [What's On Carousel](/02_Page_Documentation/M01_Home_Page/M01_01 Homepage#4-what-s-on-carousel) on the **M01_01 Homepage** page, the details page for that What's On Story will be displayed.
+
+  
+
+---
+
+  
+
+## Main Media Display
+
+  
+
+```Plain
+HOME_DISPLAY_MainMediaDisplay
+```
+
+  
+
+### Key Function
+
+  
+
+This component serves as the main visual background of the page. It displays high-definition images or videos related to the current brand or experience activity to create an immersive visual experience and highlight the theme. It occupies most of the screen and supports the top navigation bar and experience cards.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13516-12148&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`main_media`|URL of the main visual media (image/video) used to showcase the core visual element of the experience in full screen.|
+
+  
+
+### Display Logic
+
+  
+
+- The component should display full-screen (or occupy the main visual area, adapting to different device ratios), positioned at the lowest content layer.
+    
+- If the media is an image, display in `cover` mode, and automatically switch to the next story after 5 seconds.
+    
+- If the media is a video, autoplay it and switch to the next story after playback finishes.
+    
+- A transparent top navigation bar displays the current playback progress.
+    
+- Each What's On carousel can include multiple stories, but the CTA remains the same.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- Users can manually swipe or tap to view other stories.
+    
+- Each story displays one banner at a time.
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `main_media`
+
+  
+
+Main visual media (image/video) URL used for full-screen display of the experience’s core visual element.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Media File Upload / URL (Link to media asset)|
+|File Format|**Image:** WebP **Video:** MP4|
+|Image Dimensions|Minimum 1080x1920 pixels (to ensure HD full-screen display), vertical orientation, ~9:16 ratio.|
+|Video Duration|Recommended 5–15 seconds short video.|
+|Input Validation|Must be a valid public media URL (https://).|
+|Localization|Non-localized (media assets are generally universal, but different language markets may require different visual assets for cultural relevance).|
+|Data Source|Maintained in CCMS/Media Asset Management System.|
+
+  
+
+---
+
+  
+
+## What's On Header
+
+  
+
+```Plain
+HOME_DISPLAY_WhatsOnHeader
+```
+
+  
+
+### Key Function
+
+  
+
+This card sits above the main visual, at the top of the page, clearly displaying the **brand identity** and **activity type** of the current story, helping users quickly identify the source and nature of the content.
+
+  
+
+### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13527-12295&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`story_image`|Hero image of the store or offer|
+|`story_title`|Title of the story, e.g., “Banyan Tree Macau”|
+|`story_type`|Type of activity, e.g., “Experience”|
+
+  
+
+### Display Logic
+
+  
+
+- Left side shows the brand logo; center shows brand name and activity type. Uses the store or offer hero image.
+    
+      
+    
+
+### CMS Field Specification
+
+  
+
+#### `story_image`
+
+  
+
+Logo image URL of the brand/merchant.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL (Link to image asset)|
+|File Format|PNG (transparent background recommended)|
+|Image Dimensions|Minimum 120x120 pixels, square (1:1)|
+|Input Validation|Must be a valid public image URL (https://)|
+|Data Source|Maintained in CCMS/Media Asset Management System|
+
+  
+
+#### `story_title`
+
+  
+
+Brand or merchant name, e.g., “Banyan Tree Macau”.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|30 characters|
+|Example|`Banyan Tree Macau`|
+|Input Validation|Must not contain HTML or script tags|
+|Localization|Must support all display languages (multilingual version required)|
+|Data Source|Maintained in CCMS|
+
+  
+
+#### `story_type`
+
+  
+
+Type of the story.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Selection from predefined list (e.g., Experience, Offer, Dining)|
+|Max Length|20 characters|
+|Example|`Experience`, `Offer`|
+|Localization|Must support all display languages|
+|Data Source|Maintained in CCMS|
+
+  
+
+---
+
+  
+
+## CTA Button
+
+  
+
+```Plain
+GLOBAL_ACTION_CTAButton
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a prominent, full-width Call-to-Action button designed to guide users to take the next critical action, i.e., view detailed offer/experience information or make a reservation/purchase.
+
+  
+
+### Visual Reference
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13527-12441&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`story_detail_url`|Path to the story’s detail page|
+
+  
+
+### Interaction Logic
+
+  
+
+- Clicking the button navigates the user to the details page for that experience or offer. `WIP`
+    
+- The detail page URL is controlled by the relevant CMS configuration.
+    
+      
+    
+
+### CMS Field Specification
+
+  
+
+#### `story_detail_url`
+
+  
+
+Link URL for the story’s detail page.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL / Internal App Route|
+|Example|`/cinema/story/summer_harmony_offer`|
+|Data Source|CCMS|
+
+  
+
+---
+
+  
+
+## Story Banner
+
+  
+
+```Plain
+HOME_DISPLAY_StoryBanner
+```
+
+  
+
+### Key Function
+
+  
+
+This component is a floating card beneath the main visual, used on the brand or experience homepage to prominently and concisely display a specific **offer** or experience, encouraging users to click for details.
+
+  
+
+### Visual Reference
+
+  
+
+<FigmaEmbed url="https://www.figma.com/design/dogOPeGxUe0sjpG2jGnayE/NG-MP-UI-Phase-1?node-id=13527-12490&t=Xla5s1etoe8gKRgp-4" />
+
+  
+
+### Field List
+
+  
+
+|   |   |
+|---|---|
+|Fields|Description|
+|`story_image`|Thumbnail URL displayed on the left of the offer card|
+|`story_type`|Label indicating offer type, e.g., "Experience"|
+|`story_title`|Title of the offer, e.g., "Summer Harmony Offer"|
+|`location`|Location of the offer or merchant, e.g., "Banyan Tree Macau"|
+
+  
+
+### Display Logic
+
+  
+
+- Only one story banner is displayed at a time.
+    
+      
+    
+
+### Interaction Logic
+
+  
+
+- Clicking the **Story Banner** area performs the same action as clicking the `CTAButton`, navigating to the offer/experience detail page.
+    
+      
+    
+
+### Field Specification
+
+  
+
+#### `story_image`
+
+  
+
+Thumbnail URL displayed on the left of the offer card.
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Image Upload or URL (Link to image asset)|
+|File Format|WebP|
+|Image Dimensions|Minimum 200x200 pixels, recommended ratio 1:1 or 4:3 (cropped when displayed as card thumbnail)|
+|Input Validation|Must be a valid public image URL|
+|Data Source|Maintained in CCMS|
+
+  
+
+#### `story_type`
+
+  
+
+Offer type label (repeated field; refer to **ExperienceHeader** for definition).
+
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line) or selection from list|
+|Max Length|20 characters|
+|Example|Experience|
+|Localization|Must support all display languages|
+|Data Source|Maintained in CCMS|
+
+  
+
+#### `story_title`
+
+  
+
+Title of the offer, e.g., "Summer Harmony Offer".
+  
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text input (single line)|
+|Max Length|80 characters|
+|Example|Summer Harmony Offer|
+|Localization|Must support all display languages|
+|Data Source|Maintained in CCMS|
+
+  
+
+#### `location`
+
+  
+
+Location of the offer or merchant.
+
+  
+
+|                    |                                                               |
+| ------------------ | ------------------------------------------------------------- |
+| Specification Item | Details                                                       |
+| Field Type         | Text input (single line)                                      |
+| Max Length         | 50 characters                                                 |
+| Example            | `Banyan Tree Macau`                                           |
+| Input Validation   | Must not contain HTML or script tags                          |
+| Localization       | Must support all display languages                            |
+| Data Source        | Maintained in CCMS (can be linked to merchant or location ID) |

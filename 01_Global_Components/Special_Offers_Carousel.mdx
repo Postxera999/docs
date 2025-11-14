@@ -3,6 +3,11 @@
 title: "Special Offers Carousel"
 
 ---
+---
+
+title: "Special Offers Carousel"
+
+---
 
   
 
@@ -16,22 +21,19 @@ GLOBAL_FLOW_SpecialOffersCarousel
 
 ---
 
-The **Special Offers Carousel** displays promotional offers linked to the selected Entertainment Venue or Event. It allows users to browse featured offers such as hotel stays, dining, retail, and experiences related to the current venue or event. Used globally across **Venue Detail** and **Concert Detail** pages.
+## **Key Function**
+
+The **Special Offers Carousel** displays the linked Offers content type linked to the page content. It allows users to browse the related offers such as hotel stays, dining, retail, and experiences related to the page.
 
 ---
 
 ## **Display Logic**
 
-- The carousel is displayed when at least one **Reference Offer** is configured in the _Entertainment Venue_ or _Entertainment Event_ content type.
-    
-- Hidden automatically if there are no active or published offers.
-    
-- The component retrieves offer data from the CCMS and only displays items that are both **published** and **non-expired**.
-    
+- If there is only one Offer configured to the content page, the offer card displays as a full width card
+- If there is more than one configured offer, it is displayed as a card carousel
+- The carousel is displayed when at least one Offer content type is configured on the page. Hidden automatically if there are no offers.
+- The component retrieves offer data from the CCMS and only displays items that are both published and non-expired.
 - Each carousel card links to the corresponding Offer Detail page.
-    
-- Offers exceeding the display limit automatically enable horizontal scrolling.
-    
 
 ---
 
@@ -41,35 +43,15 @@ The **Special Offers Carousel** displays promotional offers linked to the select
 
 ---
 
-### **Key Functional Features**
-
-| No. | Feature                 | Description                                                                             |
-| --- | ----------------------- | --------------------------------------------------------------------------------------- |
-| 1   | Dynamic content linkage | Fetches data from the Reference Offers field in the linked Venue or Event content type. |
-| 2   | Auto-filtering          | Displays only offers that are published and within the valid date range.                |
-| 3   | Interactive carousel    | Supports horizontal scrolling when multiple offers are available.                       |
-| 4   | Cross-module reuse      | Shared global component used on both Venue Detail and Event Detail pages.               |
-
----
-
 ## **CMS Field Specification**
 
-| Field Name        | Description                                                  |
-| ----------------- | ------------------------------------------------------------ |
-| Reference Offers  | Used to select and link offers displayed in the carousel.    |
-| Offer Title       | Title text displayed on each carousel card.                  |
-| Offer Image       | Thumbnail or banner image shown in the carousel.             |
-| Offer Description | Short summary text describing the offer.                     |
-| Offer Link        | System-generated link that directs to the Offer Detail page. |
-| Offer Validity    | Defines the display availability period for the offer.       |
+| Field Name           | Description                                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------------------------- |
+| Offers Specification | Select and link offers displayed in the content page.                                                   |
+| Offer Title          | Title text displayed on each carousel card.                                                             |
+| Offer Image          | Thumbnail or banner image shown in the carousel. Default should use the key visual for each Offer page. |
+| Offer Description    | Short summary text describing the offer.                                                                |
+| Offer Link           | System-generated link that directs to the Offer Detail page.                                            |
+| Offer Validity       | Defines the display availability period for the offer.                                                  |
 
 ---
-
-## Example (UI Display)
-
-**State:** Displayed below the “Special Offers” section header on both **Venue Detail** and **Event Detail** pages. Offers appear as horizontally scrollable cards showing the image, title, and short description.
-
-| Example Display | Description                                                             |
-| --------------- | ----------------------------------------------------------------------- |
-|                 | Carousel showing multiple offer cards under the Special Offers section. |
-|                 | Tapping an offer redirects to the Offer Detail page.                    |

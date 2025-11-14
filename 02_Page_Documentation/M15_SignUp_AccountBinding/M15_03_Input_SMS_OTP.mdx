@@ -1,0 +1,324 @@
+---
+
+title: "M15_02 Input Mobile Number"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+
+
+This page allows users to enter and verify the SMS code sent to their mobile number. It includes OTP input boxes, countdown resend logic, and a fallback voice-call modal when SMS cannot be received.
+
+### **Components**
+
+|   |   |   |   |   |   |
+|---|---|---|---|---|---|
+|#|ID|Component|Type (Global / Local)|Type Name|Prefix|
+|1|GLOBAL_TYPE_TitleComponent|Title Component|Global|Typography|DISPLAY|
+|2|SIGNUP_BINDING_DISPLAY_Subtitle (Sent Number)|Subtitle (Masked Number)|Local|Display|DISPLAY|
+|3|SIGNUP_BINDING_INPUT_OTP Input Fields|OTP Input Fields|Local|Text Input|INPUT|
+|4|SIGNUP_BINDING_DISPLAY_Invalid Code Error Text|Invalid Code Error Text|Local|Display|DISPLAY|
+|5|SIGNUP_BINDING_ACTION_Resend Verification Code Button|Resend Verification Code Button|Local|Core Action|ACTION|
+
+---
+
+1. ## **TitleComponent**
+    
+
+```Plain
+GLOBAL_TYPE_TitleComponent
+```
+
+### Key Function
+
+- Displays the page heading.
+    
+- Shows where the verification code was sent, using a masked phone number.
+    
+
+---
+
+### Visual Reference
+
+---
+
+### **Field List**
+
+|   |   |
+|---|---|
+|Field|Description|
+|title_text|Main page heading|
+|subtitle_text|CMS text containing the masked mobile number|
+|masked_number|Dynamic value from previous page|
+
+### Display Logic
+
+- Center aligned.
+    
+- Subtitle directly below title.
+    
+- Subtitle supports variable injection using `{{masked_number}}`
+    
+
+---
+
+### **CMS Field Specification**
+
+`title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Static CMS Text|
+|Example|“Please enter the SMS Verification Code”|
+|Input Validation|Required text only|
+|Data Source|CMS - Signup/Binder|
+|Dependencies|None|
+
+`subtitle_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|CMS Template String|
+|Example|“Verification code has been sent to {{masked_number}}”|
+|Input Validation|Must support variable injection|
+|Data Source|CMS- Signup/Binder|
+|Dependencies|Depends on masked_number|
+
+`masked_number`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Dynamic Value|
+|Example|86-138 0013 8000|
+|Input Validation|Must be masked before display|
+|Data Source|Previous page- Backend masking- Frontend|
+|Dependencies|Injected into subtitle_text|
+
+---
+
+2. ## **Subtitle (Sent Number)**
+    
+
+```Plain
+SIGNUP_BINDING_DISPLAY_Subtitle (Sent Number)
+```
+
+### Key Function
+
+Displays the confirmation message showing the masked phone number.
+
+---
+
+### Visual Reference
+
+---
+
+### Display Logic
+
+- Center aligned
+    
+- Immediately below the TitleComponent
+    
+- Uses CMS template string
+    
+
+---
+
+3. ## **OTP Input Fields**
+    
+
+```Plain
+SIGNUP_BINDING_INPUT_OTP Input Fields
+```
+
+### Key Function
+
+Captures the 4-digit verification code sent to the user;s phone number for authentication.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|otp_length|Number of input boxes (default = 4).|
+|mask_input|Whether to mask digits (false).|
+
+---
+
+### Display Logic
+
+- 4 equally spaced input boxes
+    
+- Placeholder: `0 0 0 0`
+    
+- Highlight on focus
+    
+- Error state = red border
+    
+
+### Interaction Logic
+
+- Tap - focus first box
+    
+- Auto-advance digits
+    
+- Auto-submit when 4 digits are filled
+    
+- Backend validates
+    
+
+---
+
+4. ## **Invalid Code Error Text**
+    
+
+```Plain
+SIGNUP_BINDING_DISPLAY_Invalid Code Error Text
+```
+
+### Key Function
+
+Displays inline error message when verification fails.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|error_text_invalid_code|CMS text for invalid OTP|
+
+---
+
+### CMS Field Specification
+
+`error_text_invalid_code`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Static CMS Text|
+|Example|“Verification code is incorrect.”|
+|Input Validation|Required error text|
+|Data Source|CMS - Error Messages|
+|Dependencies|Shows only after failed OTP validation|
+
+---
+
+### Display Logic
+
+- Shown directly under OTP input
+    
+- Red color & red border on input fields
+    
+
+### Interaction Logic
+
+- Hidden on input change
+    
+- Visible only on failed server validation
+    
+
+---
+
+5. ## **Resend Verification Code Button**
+    
+
+```Plain
+SIGNUP_BINDING_ACTION_Resend Verification Code Button
+```
+
+### Key Function
+
+Allows re-request of verification code after cooldown.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|resend_default_text|Text when button is enabled|
+|resend_disabled_text|Text during countdown|
+|seconds|Dynamic countdown|
+
+---
+
+### CMS Field Specification
+
+`resend_default_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Static CMS Text|
+|Example|“Re-send verification code”|
+|Input Validation|No variables allowed|
+|Data Source|CMS Action Buttons|
+|Dependencies|Shown when countdown is 0|
+
+---
+
+`resend_disabled_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|CMS Template String|
+|Example|“Re-send verification code ({{seconds}}s)”|
+|Input Validation|Must support variable injection ({{seconds}})|
+|Data Source|CMS|
+|Dependencies|Requires seconds dynamic value|
+
+---
+
+`seconds`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Dynamic Value|
+|Example|59|
+|Input Validation|Must be integer|
+|Data Source|Frontend countdown timer|
+|Dependencies|Injected into resend_disabled_text|
+
+---
+
+## **Display Logic**
+
+- Disabled when countdown active
+    
+- enabled when timer hits zero
+    
+- Text updates dynamically in seconds
+    
+
+## **Interaction Logic**
+
+- Tap triggers resend OTP
+    
+- Timer resets and restarts
+    
+
+---

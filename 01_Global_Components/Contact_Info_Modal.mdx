@@ -6,86 +6,141 @@ title: "Contact Info Modal"
 
 import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
 
+  
 
 ```Plain
-GLOBAL_DISPLAY_ContactInfo
+GLOBAL_DISPLAY_ContactInfoModal
 ```
 
-### **Key Function**
+---
 
-This is a **popup modal component** that is triggered when the user clicks the **Contact Button**. It displays various **transportation service contact information**, such as **service hotlines**, **WeChat customer service**, and **official QR codes**. The content includes **text descriptions**, **buttons**, and **images**.
+## Visual Reference
 
-### **Visual Reference**
+<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7699-12499&t=EIrrWlE3DFcM0Te3-4" />
 
-<FigmaEmbed url="https://www.figma.com/design/EHB41JQIomI0iwPWzaXAkw/-Dev--NGMP-UXUI-Designs?node-id=7539-24958&t=TmrwzwgJVnbh1PL8-0" />
+  
 
 ---
 
-### **Field List**
+## Key Function
 
-| Fields               | Description                                                      |
-| -------------------- | ---------------------------------------------------------------- |
-| contact_info_hotline | Descriptive text providing the main hotline contact information. |
-| contact_info_wechat  | Official WeChat customer service account.                        |
-| contact_info_qrcode  | Galaxy Macau official WeChat QR code.                            |
-
----
-
-### **Display Logic**
-
-- Appears as a **fullscreen** or **bottom sheet modal**, overlaying the current page.
-- The **modal title** is fixed as **“Contact”**.
-
----
-
-### **Interaction Logic**
-
-- Tapping the **Service Hotline** number triggers the **phone dialer**.
-- Tapping the **Customer Service on WeChat** button opens the **official WeChat chat window**.
-- Tapping the **QR code** beside **Learn more about Galaxy Macau** invokes the **native WeChat function**, allowing the user to scan or recognize the QR code.
+- This is a **popup modal component** that is triggered when the user clicks the [Contact Button](/01_Global_Components/Contact_Button).
+    
+- It contains information from the Contact Card Specification
+    
+- The contact card specification should support the following channels:
+    
+    - CS Hotline (phone number)
+        
+    - Live WeChat CS (direct to WeChat CS)
+        
+    - Add Galaxy WeCom (long press QR code)
+        
+    - Personal Assistant contact number + copy Whatsapp number (if assigned)
+        
 
 ---
 
-### **CMS Field Specification**
+## Field List
 
-#### `contact_info_hotline`
+| Fields                    | Description                                   |
+| ------------------------- | --------------------------------------------- |
+| contact_card_title        | Main title on the contact card                |
+| contact_card_description  | Contact card description text                 |
+| cs_hotline_title          | Service hotline title text                    |
+| cs_hotline_description    | Service hotline description text              |
+| cs_hotline_number         | Service hotline number                        |
+| wechat_cs_title           | WeChat live chat title text                   |
+| wechat_cs_description     | WeChat live chat description text             |
+| wechat_cs_cta_text        | WeChat live chat CTA button text              |
+| general_wecom_title       | General WeCom title text                      |
+| general_wecom_description | General WeCom description text                |
+| pa_wecom_title            | Personal Assistant WeCom title text           |
+| pa_wecom_description      | Personal Assistant WeCom description text     |
+| wecom_qrcode              | QR code for users to long press and add WeCom |
+| whatsapp_title            | Whatsapp title text                           |
+| whatsapp_number           | WhatsApp number                               |
 
-The primary or general transportation contact number (if separate from specialized taxi hotlines).
-
-| Specification Item | Details                                                |
-| ------------------ | ------------------------------------------------------ |
-| Field Type         | Text input (single line)                               |
-| Max Length         | 30 characters                                          |
-| Example            | +853 2828 XXXX                                         |
-| Input Validation   | Must follow a valid international phone number format. |
-| Localization       | N/A (phone number)                                     |
-| Data Source        | Maintained in CCMS, linked to Basic transport config.  |
-
----
-
-#### `contact_info_wechat`
-
-Text content related to the official customer service WeChat account.
-
-| Specification Item | Details                                               |
-| ------------------ | ----------------------------------------------------- |
-| Field Type         | Text input                                            |
-| Max Length         | 100 characters                                        |
-| Example            | Follow us on WeChat: GalaxyMacau                      |
-| Input Validation   | N/A                                                   |
-| Localization       | Must support all display languages.                   |
-| Data Source        | Maintained in CCMS, linked to Basic transport config. |
+  
 
 ---
 
-#### `contact_info_qrcode`
+## Display Logic
 
-The image asset for the official contact QR code (currently hidden in the design).
+- Appears as a **bottom sheet modal**, overlaying the current page.
+    
+- There are 3 types of contact cards, see below Contact Card Matrix to see the logic of how it should be displayed:
 
-| Specification Item | Details                                               |
-| ------------------ | ----------------------------------------------------- |
-| Field Type         | Image upload                                          |
-| File Format        | webp                                                  |
-| File Size          | Max 500KB                                             |
-| Resolution         | Recommended 300×300 pixels                            |
-| Data Source        | Maintained in CCMS, linked to Basic transport config. |
+| **Default**                                                          | **PA Assigned Diamond**                                              | **PA Assigned Treasure**                                         |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| <img src="/image/Global/Contact_Info_Modal_01.png" alt="描述文字" /> | <img src="/image/Global/Contact_Info_Modal_02.png" alt="描述文字" /> | <img src="/image/Global/Contact_Info_Modal_03.png" alt="描述文字" /> |
+
+  
+
+**Contact Card Matrix**
+
+| **User status** | **Binded with GPC**                     | **Method of obtaining tier**    | **PA Assigned?** | **Contact card type**                 |
+| --------------- | --------------------------------------- | ------------------------------- | ---------------- | ------------------------------------- |
+| Signed out      | -                                       | -                               | -                | Default                               |
+| NG Gold         | No                                      | -                               | -                | Default                               |
+| NG Gold         | Yes                                     | -                               | -                | Default                               |
+| NG Platinum     | No                                      | NG standard upgrade             | -                | Default                               |
+| NG Platinum     | Yes                                     | Tier match                      | -                | Default                               |
+| NG Diamond      | No                                      | NG standard upgrade             | Yes              | **PA Assigned Diamond Contact Card**  |
+| NG Diamond      | No                                      | NG standard upgrade             | **No**           | Default                               |
+| NG Diamond      | Yes                                     | Tier match                      | -                | Default                               |
+| NG Diamond      | Yes (Tier match to Platinum)            | NG standard upgrade to Diamond  | Yes              | **PA Assigned Diamond Contact Card**  |
+| NG Diamond      | Yes (Tier match to Platinum)            | NG standard upgrade to Diamond  | **No**           | Default                               |
+| NG Treasure     | No                                      | NG standard upgrade             | Yes              | **PA Assigned Treasure Contact Card** |
+| NG Treasure     | No                                      | NG standard upgrade             | **No**           | Default                               |
+| NG Treasure     | Yes                                     | Tier match                      | -                | Default                               |
+| NG Treasure     | Yes (Tier match to Platinum or Diamond) | NG standard upgrade to Treasure | Yes              | **PA Assigned Treasure Contact Card** |
+| NG Treasure     | Yes (Tier match to Platinum or Diamond) | NG standard upgrade to Treasure | **No**           | Default                               |
+
+- The `contact_card_title` and `contact_card_description` are aligned left in a bounding box of width: 222px to allow for negative space on the right.
+    
+- Service Hotline
+    
+    - The `cs_hotline_title` and `cs_hotline_description` is left aligned and the text wraps only if the bounding box width exceeds 222px or if it meets the hotline button (allowing for 8px margin).
+        
+    - The `cs_hotline_number` is placed in a button style aligning right.
+        
+- WeChat CS
+    
+    - The `wechat_cs_title` and `wechat_cs_description` is left aligned and the text wraps only if the bounding box width exceeds 222px or if it meets the hotline button (allowing for 8px margin).
+        
+    - The `wechat_cs_cta_text` is placed in a button style aligning right.
+        
+- General WeCom
+    
+    - Only shown in the Default contact card, if PA is assigned to the user it does not show.
+        
+    - The `general_wecom_title` and `general_wecom_description` is left aligned and the text wraps only if the bounding box width exceeds 222px.
+        
+    - `wecom_qrcode` is aligned right
+        
+- Personal Assistant assigned to user
+    
+    - Displayed when a PA is assigned to the user and the card style is according to the user's tier
+        
+    - Each contact option is displayed as it's own separate card
+        
+        - WeCom: card includes `pa_wecom_title`, `pa_wecom_description` and `wecom_qrcode`
+            
+        - WhatsApp: card includes `whatsapp_title` and `whatsapp_number`with a copy button next to the number.
+            
+
+---
+
+## Interaction Logic
+
+- Tapping the `cs_hotline_number` button triggers the **native phone call modal** for users to call directly.
+    
+- Tapping the **Customer Service on WeChat** button opens the **official WeChat** **live** **chat window**.
+    
+- Long pressing the `wecom_qrcode` triggers the add WeCom flow.
+    
+- Tapping the copy button next to the `whatsapp_number` copies the number to the users clipboard.
+    
+
+---

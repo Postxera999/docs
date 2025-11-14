@@ -1,0 +1,437 @@
+---
+
+title: "M15_02 Input Mobile Number"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+This page covers the phone login step after user consent, showing the **Terms & Conditions modal**, **mobile number input**, and **region picker**. It appears after signup landing (`M15_01`) and lets users enter their phone number to get a verification code.Components
+
+|   |   |   |   |   |   |
+|---|---|---|---|---|---|
+|#|ID|Component|Type (Global/Local)|Type Name|Prefix|
+|1|SIGNUP_BINDING_ACTION_Continue Button|Continue Button|Local|Core Action|ACTION|
+|2|SIGNUP_BINDING_CTNR_Phone Login Section|Phone Login Section|Local|Container|CTNR|
+|3|GLOBAL_SELECT_Region Selector|Region Selector|Global|Selection|SELECT|
+|4|SIGNUP_BINDING_INPUT_Phone Input Field|Phone Input Field|Local|Text Input|INPUT|
+|5|SIGNUP_BINDING_ACTION_Get Verification Code Button|Get Verification Code Button|Local|Core Action|ACTION|
+|6|SIGNUP_BINDING_DISPLAY_Validation Error Message|Validation Error Message|Local|Display|DISPLAY|
+|7|GLOBAL_SELECT_Region Picker Modal|Region Picker Modal|Global|Selection|SELECT|
+
+  
+
+---
+
+1. ## Login CTAButton
+    
+
+```Plain
+SIGNUP_BINDING_ACTION_Continue Button
+```
+
+### Key Function
+
+Primary CTA in Terms modal.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|button_text|Label text|
+
+---
+
+### Display Logic
+
+- Disabled (gray) until required checkboxes are checked, then black active style.
+    
+
+### Interaction Logic
+
+- On tap when active, close Terms modal and advance to Phone Login.
+    
+
+---
+
+### CMS Field Specification
+
+#### `button_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|Continue|
+
+---
+
+2. ## Input Phone Number Title
+    
+
+```Plain
+SIGNUP_BINDING_CTNR_Phone Login Section
+```
+
+### Key Function
+
+Card that contains the title, phone input row (region + number), and “Get verification code” button.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|title_text|Page title (e.g., Enter Your Mobile Number…)|
+|subtitle_text|Supporting copy below title|
+
+### Display Logic
+
+- Cream/white header background (as per Figma), content card centered.
+    
+- Phone input row shows: region selector on the left, phone field on the right.
+    
+
+### Interaction Logic
+
+- The tapping region opens **Region Picker Modal**.
+    
+- Typing phone number enables the Get Code button when valid.
+    
+
+---
+
+### CMS Field Specification
+
+#### `title_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|Enter Your Mobile Number to Get a Verification Code|
+
+#### `subtitle_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|Registration can be completed after verification…|
+
+---
+
+3. ## Region Selector
+    
+
+```Plain
+GLOBAL_SELECT_Region Selector
+```
+
+### Key Function
+
+Inline control inside the phone row showing selected country/region code (e.g., “+86”) and a chevron to allow users to select the country code of their phone number.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|selected_region_code|Current dialing code (string, e.g., “+86”)|
+
+---
+
+### Display Logic
+
+- Left pill in the input row. Shows selected code and dropdown chevron.
+    
+- Default selected value is +86 for China phone number.
+    
+
+### Interaction Logic
+
+- Tap opens **Region Picker Modal**.
+    
+
+---
+
+### CMS Field Specification
+
+#### `selected_region_code`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Dropdown / Reference to Region list|
+|Example|86|
+
+---
+
+4. ## Input Box
+    
+
+```Plain
+SIGNUP_BINDING_INPUT_Phone Input Field
+```
+
+### Key Function
+
+Numeric input box for users to manually enter their mobile number with validation and error presentation.
+
+  
+
+See global components documentation for input box for more details. [LINK]
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|phone_value|Raw number string|
+|is_valid|Derived validity result|
+
+---
+
+### Display Logic
+
+- Default: neutral border and placeholder text in the input box
+    
+- Active: placeholder text becomes input box header in small text on top left.
+    
+- Invalid: red border + error text (see component 8).
+    
+
+### Interaction Logic
+
+- When user taps to input their phone number, default phone numeric keypad is used to input the digits.
+    
+- Phone number validation is required.
+    
+- Validation on change/blur (format only, per Figma).
+    
+
+---
+
+### CMS Field Specification
+
+**(none)** — user-entered only.
+
+---
+
+5. ## Get Verification Code Button
+    
+
+```Plain
+SIGNUP_BINDING_ACTION_Get Verification Code Button
+```
+
+### Key Function
+
+Primary CTA to request the verification code.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|button_text|Label text|
+
+### Display Logic
+
+- Disabled (gray) until phone input is entered and is valid.
+    
+- Active (black) when valid.
+    
+
+### Interaction Logic
+
+- Tap when active
+    
+    - Trigger SMS OTP to the phone number entered into the input box
+        
+    - Proceed to Input SMS OTP page
+        
+
+---
+
+### CMS Field Specification
+
+#### `button_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|Get verification code|
+
+  
+
+---
+
+6. ## Validation Error Message
+    
+
+```Plain
+SIGNUP_BINDING_DISPLAY_Validation Error Message
+```
+
+### Key Function
+
+Inline red error copy under the phone input when number is invalid.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|error_text|Message copy shown on invalid input|
+
+---
+
+### Display Logic
+
+- Appears only in invalid state (red text).
+    
+- Sits directly beneath the phone input.
+    
+
+### Interaction Logic
+
+- None; visibility controlled by validation result.
+    
+
+---
+
+### CMS Field Specification
+
+#### `error_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|Please enter a valid phone number|
+
+---
+
+7. ## Region Picker Modal
+    
+
+```Plain
+GLOBAL_SELECT_Region Picker Modal
+```
+
+### Key Function
+
+Full-screen searchable modal to select a country/region dialing code.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|search_placeholder|Placeholder for search bar|
+|popular_header_text|“Popular” label|
+|region_items|Array of regions with `{name, code, right_index_letter}`|
+|empty_state_text|Text for “No Results” state|
+
+---
+
+### Display Logic
+
+- Search bar at the top.
+    
+- Alphabet index on the right.
+    
+- Popular list block at top, with China, HK, Macau set as the default phone number regions.
+    
+- Empty state with icon/message when there are no results.
+    
+
+### Interaction Logic
+
+- Type to filter results; index disabled during search input.
+    
+- Tap a region → modal closes and updates `selected_region_code`.
+    
+
+---
+
+### CMS Field Specification
+
+#### `region_items`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|JSON Array of `{ name, code }`|
+|Example|`[{"name":"Macau, China","code":"+853"},{"name":"Hong Kong, China","code":"+852"}]`|
+
+#### `search_placeholder`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|Search|
+
+#### `popular_header_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|Popular|
+
+#### `empty_state_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text|
+|Example|No Results — Please try searching for other content.|

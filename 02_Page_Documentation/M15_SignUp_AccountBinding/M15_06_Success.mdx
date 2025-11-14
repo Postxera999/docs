@@ -1,0 +1,255 @@
+---
+
+title: "M15_06_Success"
+
+---
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+This page displays the successful tier-matching result and unlocked benefits after completing account binding.
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|#|Component|ID / Code|Type|Local / Global|
+|1|BindingPageHeader|GLOBAL_CTNR_BindingPageHeader|Container|Global|
+|2|BindingSuccessMessage|SIGNUP_BINDING_CTNR_BindingSuccessMessage|Container|Local|
+|3|BoundMembershipCard|GLOBAL_CTNR_BoundMembershipCard|Container|Global|
+|4|BoundBenefitsList|GLOBAL_LIST_BoundBenefitsList|List & Table|Local|
+|5|ExploreGalaxyButton|GLOBAL_ACTION_ExploreGalaxyButton|Core Action|Global|
+
+  
+
+---
+
+1. ## **BindingPageHeader**
+    
+
+```Plain
+GLOBAL_CTNR_BindingPageHeader
+```
+
+### Key Function
+
+Shows the standard Account Binding header.
+
+---
+
+### Used on
+
+- Binding Success (M15_06)
+    
+
+---
+
+### Visual Reference
+
+---
+
+2. ## **BindingSuccessMessage**
+    
+
+```Plain
+SIGNUP_BINDING_CTNR_BindingSuccessMessage
+```
+
+### Key Function
+
+Displays the success title and short message:
+
+- “Account binding successful!”
+    
+- “You have been tier matched to: Galaxy Life Diamond”
+    
+
+---
+
+### Used on
+
+- Binding Success (M15_06)
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|title_text|Main success title.|
+|description_text|Short explanation of successful tier match.|
+
+---
+
+### CMS Field Specification
+
+#### `title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|60 characters|
+|Example|Account binding successful!|
+|Data Source|CMS Binding Copy|
+
+#### `description_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (multi-line)|
+|Character Count|150 characters|
+|Example|You have been tier matched to:|
+|Data Source|CMS Binding Copy|
+
+---
+
+3. ## **BoundMembershipCard**
+    
+
+```Plain
+GLOBAL_CTNR_BoundMembershipCard
+```
+
+### Key Function
+
+Displays GPC card including:
+
+- Member name
+    
+- Tier badge
+    
+- GPC → Galaxy Life tier pairing
+    
+- Card imagery
+    
+- Phone / ID details (if provided by API)
+    
+
+---
+
+### Used on
+
+- Binding Success (M15_06)
+    
+
+---
+
+### Visual Reference
+
+---
+
+4. ## **BoundBenefitsList**
+    
+
+```Plain
+GLOBAL_LIST_BoundBenefitsList
+```
+
+### Key Function
+
+Shows the unlocked Galaxy Life Diamond benefits after binding.
+
+---
+
+### Used on
+
+- Binding Success (M15_06)
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|benefits|JSON array of benefit cards (label, description, icon).|
+|tier_name|Tier label shown on the button (“Galaxy Life Diamond”).|
+
+---
+
+### Interaction Logic
+
+- “All Benefits” button links to full Galaxy membership benefits page.
+    
+
+---
+
+### CMS Field Specification
+
+#### `benefits`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|JSON Array|
+|Character Count|200 characters per item|
+|Example|Earn up to 10% Resort Dollars rebate…|
+|Data Source|CMS Membership Benefits Table|
+
+#### `tier_name`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Example|Galaxy Life Diamond|
+|Data Source|CMS Membership Tier Table|
+
+---
+
+5. ## **ExploreGalaxyButton**
+    
+
+```Plain
+GLOBAL_ACTION_ExploreGalaxyButton
+```
+
+### Key Function
+
+Primary CTA that sends users back to Galaxy Home after binding.
+
+---
+
+### Used on
+
+- Binding Success (M15_06)
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|label|Button label text (“Explore Galaxy”).|
+
+---
+
+### **CMS Field Specification**
+
+#### `label`
+
+|                    |                     |
+| ------------------ | ------------------- |
+| Specification Item | Details             |
+| Field Type         | Text input          |
+| Max Length         | 30 characters       |
+| Example            | Explore Galaxy      |
+| Data Source        | CMS Binding Buttons |

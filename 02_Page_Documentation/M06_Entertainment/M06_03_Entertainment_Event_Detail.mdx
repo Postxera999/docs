@@ -21,7 +21,7 @@ It displays ticket details, seating information, membership benefits, FAQs, purc
 | #    | Component Code                                   | Component Name                         | Global / Local | Description                                                                               |
 | ---- | ------------------------------------------------ | -------------------------------------- | -------------- | ----------------------------------------------------------------------------------------- |
 | 1    | ENT_DISPLAY_EntertainmentEventHeaderCard         | Entertainment Event Header Card        | Local          | Displays concert title, date, price and main image                                        |
-| 2    | GLOBAL_STATUS_CountdownTimer                     | Countdown Timer                        | Global         | Shows countdown before general ticket sale starts                                         |
+| 2    | ENT_STATUS_CountdownTimer                        | Countdown Timer                        | Local          | Shows countdown before general ticket sale starts                                         |
 | 3    | Global_CTNR_InfoTable                            | InfoTable                              | Global         | Displays concert time, venue, location and other important details in a table format      |
 | 3.1  | ENT_DISPLAY_Event Time and Duration              | Event Time and Duration                | Local          | Displays Event dates, sessions and duration                                               |
 | 3.2  | GLOBAL_DISPLAY_LocationCard                      | Location card                          | Global         | Displays venue and address                                                                |
@@ -162,15 +162,12 @@ Refer to detail on price schedule specification in section [View](#price-schedul
 ## **2** **Countdown Timer**
 
 ```Plain
-GLOBAL_STATUS_CountdownTimer
+ENT_STATUS_CountdownTimer
 ```
 
 ### Key Function
 
 - Displays a countdown timer indicating the time remaining before general ticket sales open.
-    
-- Linked field to the event’s [View](/01_Global_Components/Countdown_Timer)
-    
 
   
 

@@ -1,0 +1,504 @@
+---
+
+title: "M15_01 Sign up landing page"
+
+---
+
+  
+
+import { FigmaEmbed } from '/snippets/FigmaEmbed.jsx';
+
+  
+
+## **Component List**
+
+|   |   |   |   |   |   |
+|---|---|---|---|---|---|
+|#|ID|Component|Type (Global/Local)|Type Name|Prefix|
+||SIGNUP_BINDING_VISUAL_LandingVideoBackground|Landing Video Background|Local|VISUAL|VISUAL|
+|1|SIGNUP_BINDING_CTNR_SignupCard|Signup Card|Local|Container|CTNR|
+|2|GLOBAL_CTNR_SignupModal|Signup Modal|Global|Container|CTNR|
+|3|GLOBAL_LIST_BenefitsCardCarousel|Benefits Card Carousel|Global|List & Table|LIST|
+|4|SIGNUP_BINDING_ACTION_LoginWeChatButton|Login with WeChat Button|Local|Core Action|ACTION|
+|5|SIGNUP_BINDING_ACTION_LoginPhoneButton|Login with Phone Button|Local|Core Action|ACTION|
+|6|SIGNUP_BINDING_CTNR_Terms&ConditionsModal|Terms & Conditions Modal|Local|Container|CTNR|
+|7|Terms Checkbox Field|Terms Checkbox Field|Local|Text Input|INPUT|
+
+---
+
+1. ## Landing Video Background
+    
+
+```Plain
+SIGNUP_BINDING_VISUAL_LandingVideoBackground
+```
+
+Full-screen visual layer for the signup landing page. Displays a looped video (with image fallback) behind the Signup Card.
+
+---
+
+**Display Logic**
+
+- Fills the entire viewport as the page background.
+    
+- Plays the configured video on load; muted and looped by default.
+    
+- Falls back to the poster image when autoplay is restricted.
+    
+- Always used together with **Signup Card** in the full-page signup layout (card rendered above this background).
+    
+
+---
+
+### CMS Field Specification
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|URL (video source)|
+|Example|/assets/signup-bg.mp4|
+|Data Source|CMS Signup Configuration Table|
+
+  
+
+---
+
+2. ## **Signup Card**
+    
+
+```Plain
+SIGNUP_BINDING_CTNR_SignupCard
+```
+
+---
+
+### Key Function
+
+Signup card displayed on the signup landing page over a media background.
+
+---
+
+### Used on
+
+- Signup Landing Page (video / image background)
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|title_text|Main headline copy.|
+|subtitle_text|Optional subheadline.|
+|benefits|Benefits Card Carousel.|
+|show_wechat|Toggle for WeChat login button.|
+|show_phone|Toggle for Phone login button.|
+
+---
+
+### Display Logic
+
+- White rounded card over background.
+    
+- Renders **Benefits Card Carousel** when `benefits` is provided.
+    
+- Buttons appear based on toggles.
+    
+
+---
+
+### Interaction Logic
+
+- Carousel is swipeable.
+    
+- CTAs open the respective login flow.
+    
+
+---
+
+### CMS Field Specification
+
+#### `title_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (single line)|
+|Max Length|80 characters|
+|Example|Sign Up to Access Member Exclusive Benefits|
+|Data Source|CMS Signup Configuration Table|
+
+---
+
+#### `subtitle_text`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text (multi-line)|
+|Character Count|60 characters|
+|Example|Enjoy instant member discounts and earn NG$ rebates when you join.|
+|Data Source|CMS Signup Configuration Table|
+
+---
+
+#### `benefits_card_carousel`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|JSON Array|
+|Character Count|120 characters|
+|Example|Enjoy instant member discounts and earn NG$ rebates when you join.|
+|Data Source|CMS Signup Configuration Table|
+
+---
+
+#### `show_wechat / show_phone`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Boolean|
+|Example|true / false|
+|Data Source|CMS Signup Configuration Table|
+
+---
+
+3. ## **Signup Modal**
+    
+
+```Plain
+GLOBAL_CTNR_SignupModal
+```
+
+---
+
+### Key Function
+
+Shared modal displayed when accessing protected content while logged out.
+
+---
+
+### Used on
+
+- Hotel Room List (user not logged in)
+    
+- Homepage (user not logged in)
+    
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|modal_title|Title text for modal.|
+|benefits|Benefits Card Carousel.|
+|show_wechat|Toggle for WeChat button.|
+|show_phone|Toggle for Phone button.|
+
+---
+
+### Display Logic
+
+- Rounded modal overlay.
+    
+- Renders benefits and login buttons.
+    
+
+---
+
+### Interaction Logic
+
+- Close icon dismisses modal.
+    
+- CTAs trigger login flows.
+    
+
+---
+
+### **CMS Field Specification**
+
+#### `modal_title`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Text|
+|Example|Sign up to book rooms and gain access to member exclusive benefits|
+|Data Source|CMS Signup Configuration Table|
+
+---
+
+#### `benefits_card_carousel`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|JSON Array|
+|Character Count|120 characters|
+|Example|Enjoy instant member discounts and earn NG$ rebates when you join.|
+|Data Source|CMS Signup Configuration Table|
+
+#### `show_wechat / show_phone`
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|Boolean|
+|Example|true / false|
+|Data Source|CMS Signup Configuration Table|
+
+---
+
+4. ## **Benefits Card Carousel**
+    
+
+```Plain
+GLOBAL_LIST_BenefitsCardCarousel
+```
+
+---
+
+### Key Function
+
+Displays benefits as card items.
+
+---
+
+### Visual Reference
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|benefits|Array of benefit cards.|
+
+---
+
+### Display Logic
+
+- Renders card items from CMS.
+    
+
+---
+
+### CMS Field Specification
+
+|   |   |
+|---|---|
+|Specification Item|Details|
+|Field Type|JSON Array (`[{ icon_key, label, enabled }]`)|
+|Character Count|120 characters|
+|Data Source|CMS Signup Configuration Table|
+
+---
+
+5. ## **Login with WeChat Button**
+    
+
+```Plain
+SIGNUP_BINDING_ACTION_LoginWeChatButton
+```
+
+---
+
+### Key Function
+
+WeChat login CTA.
+
+---
+
+### Display Logic
+
+Shown when `show_wechat = true`.
+
+---
+
+## **Interaction Logic**
+
+Opens WeChat login flow.
+
+---
+
+6. ## **Login with Phone Button**
+    
+
+```Plain
+SIGNUP_BINDING_ACTION_LoginPhoneButton
+```
+
+---
+
+### Key Function
+
+Phone login CTA.
+
+---
+
+### Display Logic
+
+Shown when `show_phone = true`.
+
+---
+
+### Interaction Logic
+
+Opens phone login flow.
+
+---
+
+7. ## Terms & Conditions Modal
+    
+
+```Plain
+SIGNUP_BINDING_CTNR_Terms&ConditionsModal
+```
+
+### Key Function
+
+Modals containing required legal consent statements. User must accept before login proceeds.
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|terms_title|Modal title text (e.g., “Terms & Condition”)|
+|consent_1_text|First consent statement|
+|consent_2_text|Second consent statement|
+|note_text|Gray note block below checkboxes|
+
+---
+
+### Display Logic
+
+- Bottom sheet with rounded corners; close “✕” on the top-right.
+    
+- CTA button stays disabled until all required checkboxes are checked.
+    
+- WeChat Login: CTA button is for One-Tap login.
+    
+- Phone Number Login: CTA button continues for mobile input.
+    
+
+### Interaction Logic
+
+- Tapping the checkbox toggles state.
+    
+- Once mandatory fields are checked → CTA becomes active.
+    
+- Close icon returns user to signup background.
+    
+
+---
+
+### CMS Field Specification
+
+#### `terms_title`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Text (single line)|
+|Example|Terms & Condition|
+
+---
+
+#### `consent_1_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Rich Text (multi-line)|
+|Example|I accept and consent to the Privacy Policy…|
+
+---
+
+#### `consent_2_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Rich Text (multi-line)|
+|Example|I accept and consent to provide my personal information…|
+
+---
+
+#### `note_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Rich Text (multi-line)|
+|Example|Note: The overseas recipients’ names…|
+
+---
+
+8. ## **Terms Checkbox Field**
+    
+
+```Plain
+SIGNUP_BINDING_INPUT_TermsCheckboxField
+```
+
+---
+
+### Key Function
+
+Individual checkbox with label text used inside Terms modal.
+
+---
+
+### Field List
+
+|   |   |
+|---|---|
+|Field|Description|
+|checked|Boolean state|
+|label_text|Consent label text|
+
+---
+
+### Display Logic
+
+- Unchecked: empty square.
+    
+- Checked: black checkbox with white check icon.
+    
+
+---
+
+### Interaction Logic
+
+- Tap toggles `checked`.
+    
+
+---
+
+### **CMS Field Specification**
+
+#### `label_text`
+
+|   |   |
+|---|---|
+|Spec Item|Details|
+|Field Type|Rich Text|
+|Example|I accept and consent to the Privacy Policy…|
