@@ -67,17 +67,6 @@
         ]
       },
       {
-        "group": "SignUp_AccountBinding",
-        "pages": [
-          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_01_Sign_up_landing_page",
-          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_02_Input_Mobile_Number",
-          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_03_Input_SMS_OTP",
-          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_04_Recognized_Phone",
-          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_05_Confirm",
-          "02_Page_Documentation/M15_SignUp_AccountBinding/M15_06_Success"
-        ]
-      },
-      {
         "group": "Global Components",
         "pages": [
         "01_Global_Components/Accordion_Info_Group",
